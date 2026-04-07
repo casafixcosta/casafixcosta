@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CasaFix Costa</title>
-  <meta name="description" content="CasaFix Costa – Hausbetreuung, kleinere handwerkliche Arbeiten und zuverlässige Unterstützung an der Costa Blanca." />
+  <meta name="description" content="CasaFix Costa – Hausbetreuung, kleinere handwerkliche Arbeiten und zuverlässige Unterstützung im Raum Alicante / Costa Blanca. Start vor Ort ab November 2027, Anfragen vorab willkommen." />
   <style>
     :root {
       --bg: #f3efe8;
@@ -12,10 +12,9 @@
       --text: #22313a;
       --muted: #5e6b73;
       --primary: #0f4c5c;
-      --primary-dark: #0b3945;
       --accent: #d97b4d;
       --line: rgba(15, 76, 92, 0.1);
-      --overlay: rgba(13, 31, 38, 0.48);
+      --overlay: rgba(13, 31, 38, 0.52);
       --shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
       --radius: 22px;
       --max: 1160px;
@@ -100,7 +99,7 @@
     }
 
     .hero-content {
-      width: min(780px, 100%);
+      width: min(820px, 100%);
       padding: 80px 0;
     }
 
@@ -125,9 +124,20 @@
 
     .lead {
       font-size: 1.14rem;
-      max-width: 60ch;
+      max-width: 62ch;
       color: rgba(255,255,255,0.92);
-      margin: 0 0 28px;
+      margin: 0 0 18px;
+    }
+
+    .launch-note {
+      display: inline-block;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 14px 16px;
+      border-radius: 16px;
+      margin: 8px 0 24px;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.96);
     }
 
     .cta-row {
@@ -196,14 +206,16 @@
 
     .grid-3,
     .steps,
-    .contact-wrap {
+    .contact-wrap,
+    .trust-grid {
       display: grid;
       gap: 18px;
     }
 
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .steps { grid-template-columns: repeat(4, 1fr); }
-    .contact-wrap { grid-template-columns: 1.15fr 0.85fr; }
+    .contact-wrap { grid-template-columns: 1.1fr 0.9fr; }
+    .trust-grid { grid-template-columns: repeat(4, 1fr); }
 
     .card {
       background: var(--white);
@@ -278,7 +290,7 @@
     [data-lang-block].active { display: block; }
 
     @media (max-width: 980px) {
-      .grid-3 { grid-template-columns: 1fr 1fr; }
+      .grid-3, .trust-grid { grid-template-columns: 1fr 1fr; }
       .steps { grid-template-columns: 1fr 1fr; }
       .contact-wrap { grid-template-columns: 1fr; }
     }
@@ -287,7 +299,7 @@
       .topbar-inner { flex-direction: column; align-items: flex-start; }
       .hero { min-height: auto; }
       .hero-content { padding: 58px 0; }
-      .grid-3, .steps { grid-template-columns: 1fr; }
+      .grid-3, .steps, .trust-grid { grid-template-columns: 1fr; }
       .cta-row { flex-direction: column; }
       .button, .button-outline { width: 100%; }
       section { padding: 56px 0; }
@@ -310,47 +322,50 @@
     <section class="hero">
       <div class="container hero-content">
         <div data-lang-block="de" class="active">
-          <div class="eyebrow">Deutsch · Englisch · Spanisch</div>
-          <h1>Hausbetreuung und praktische Hilfe an der Costa Blanca</h1>
-          <p class="lead">Ich kümmere mich persönlich um Ihre Immobilie, übernehme kleinere handwerkliche Arbeiten selbst und begleite bei Bedarf auch Renovierungen, Handwerker und Gewerke vor Ort – zuverlässig, strukturiert und direkt per WhatsApp.</p>
+          <div class="eyebrow">Deutsch · English · Español</div>
+          <h1>Zuverlässige Hausbetreuung und praktische Hilfe im Raum Alicante</h1>
+          <p class="lead">Für Eigentümer, Auswanderer und Einheimische, die jemanden vor Ort brauchen, der sich kümmert, mitdenkt und kleinere Arbeiten selbst übernimmt. Ich betreue Immobilien, erledige praktische Aufgaben und begleite bei Bedarf auch Renovierungen und Handwerker vor Ort.</p>
+          <div class="launch-note"><strong>Start vor Ort: November 2027</strong><br>Bereits jetzt beantworte ich gerne Anfragen und plane Projekte im Voraus.</div>
           <div class="cta-row">
             <a class="button" href="https://wa.me/4915253692878">Jetzt per WhatsApp anfragen</a>
             <a class="button-outline" href="#ablauf">So funktioniert es</a>
           </div>
           <div class="hero-points">
-            <span>✓ Vor Ort erreichbar</span>
-            <span>✓ Vertrauenswürdig & pünktlich</span>
+            <span>✓ Für Eigentümer und Einheimische</span>
             <span>✓ Betreuung + eigene Arbeiten</span>
+            <span>✓ Vertrauenswürdig & strukturiert</span>
           </div>
         </div>
 
         <div data-lang-block="en">
-          <div class="eyebrow">German · English · Spanish</div>
-          <h1>Property care and practical help on the Costa Blanca</h1>
-          <p class="lead">I personally look after your property, carry out smaller handyman tasks myself and, when needed, supervise renovations, contractors and trades on site – reliable, structured and easy to reach via WhatsApp.</p>
+          <div class="eyebrow">Deutsch · English · Español</div>
+          <h1>Reliable property care and practical support in the Alicante area</h1>
+          <p class="lead">For homeowners, expats and local residents who need someone on site who takes care of things, thinks ahead and handles smaller tasks personally. I look after properties, take care of practical jobs and, when needed, support renovations and contractors on site.</p>
+          <div class="launch-note"><strong>Start on site: November 2027</strong><br>I am already happy to answer inquiries and plan projects in advance.</div>
           <div class="cta-row">
             <a class="button" href="https://wa.me/4915253692878">Request via WhatsApp</a>
             <a class="button-outline" href="#ablauf">How it works</a>
           </div>
           <div class="hero-points">
-            <span>✓ Local support</span>
-            <span>✓ Reliable & punctual</span>
+            <span>✓ For homeowners and locals</span>
             <span>✓ Property care + hands-on work</span>
+            <span>✓ Trustworthy & structured</span>
           </div>
         </div>
 
         <div data-lang-block="es">
-          <div class="eyebrow">Alemán · Inglés · Español</div>
-          <h1>Cuidado de propiedades y ayuda práctica en la Costa Blanca</h1>
-          <p class="lead">Me encargo personalmente de su propiedad, realizo pequeños trabajos manuales y, si hace falta, también superviso reformas, gremios y operarios en el lugar – de forma fiable, organizada y con contacto directo por WhatsApp.</p>
+          <div class="eyebrow">Deutsch · English · Español</div>
+          <h1>Cuidado fiable de propiedades y ayuda práctica en la zona de Alicante</h1>
+          <p class="lead">Para propietarios, residentes extranjeros y vecinos de la zona que necesitan a alguien de confianza sobre el terreno. Me ocupo de propiedades, realizo pequeños trabajos personalmente y, si hace falta, acompaño reformas y operarios en el lugar.</p>
+          <div class="launch-note"><strong>Inicio en la zona: noviembre 2027</strong><br>Ya respondo consultas y planifico proyectos con antelación.</div>
           <div class="cta-row">
             <a class="button" href="https://wa.me/4915253692878">Solicitar por WhatsApp</a>
             <a class="button-outline" href="#ablauf">Cómo funciona</a>
           </div>
           <div class="hero-points">
-            <span>✓ Apoyo local</span>
-            <span>✓ Fiable y puntual</span>
+            <span>✓ Para propietarios y residentes</span>
             <span>✓ Cuidado + trabajos propios</span>
+            <span>✓ Fiable y organizado</span>
           </div>
         </div>
       </div>
@@ -359,16 +374,16 @@
     <section>
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>Ihr Vorteil: Betreuung plus eigene handwerkliche Unterstützung</h2>
-          <p>Ich bin nicht nur Ansprechpartner für Handwerker. Ich packe auch selbst mit an, wenn es um kleinere Arbeiten, Reparaturen, Möbel, Garten oder die praktische Unterstützung rund ums Haus geht.</p>
+          <h2>Wofür CasaFix Costa steht</h2>
+          <p>Ich biete keine anonyme Verwaltung und keine große Baufirma. Ich bin Ihr persönlicher Ansprechpartner vor Ort – für Betreuung, Kontrolle, kleinere handwerkliche Arbeiten und die strukturierte Begleitung von Maßnahmen rund um Haus, Wohnung und Garten.</p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>Your advantage: property care plus hands-on support</h2>
-          <p>I am not only a local point of contact for contractors. I also handle smaller jobs myself, including repairs, furniture, garden work and practical help around the property.</p>
+          <h2>What CasaFix Costa stands for</h2>
+          <p>I do not offer anonymous administration and I am not a large construction company. I am your personal local contact for property care, supervision, smaller hands-on jobs and structured support around house, apartment and garden.</p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Su ventaja: cuidado de la propiedad y ayuda práctica propia</h2>
-          <p>No soy solo una persona de contacto para operarios. También realizo personalmente pequeños trabajos, reparaciones, muebles, jardín y ayuda práctica en la vivienda.</p>
+          <h2>Qué representa CasaFix Costa</h2>
+          <p>No ofrezco una gestión anónima ni soy una gran empresa de construcción. Soy su persona de contacto local para el cuidado de propiedades, supervisión, pequeños trabajos manuales y apoyo estructurado en casa, piso y jardín.</p>
         </div>
       </div>
     </section>
@@ -377,15 +392,15 @@
       <div class="container">
         <div data-lang-block="de" class="section-head active">
           <h2>Leistungen</h2>
-          <p>Für Eigentümer, Auswanderer und private Hausbesitzer, die jemanden vor Ort brauchen, der sich kümmert und nach dem Rechten sieht.</p>
+          <p>Praktische Unterstützung für Eigentümer, Auswanderer und Einheimische im Raum Alicante / Costa Blanca.</p>
         </div>
         <div data-lang-block="en" class="section-head">
           <h2>Services</h2>
-          <p>For homeowners, expats and private clients who need someone local to take care of things and keep an eye on the property.</p>
+          <p>Practical support for homeowners, expats and local residents in the Alicante / Costa Blanca area.</p>
         </div>
         <div data-lang-block="es" class="section-head">
           <h2>Servicios</h2>
-          <p>Para propietarios, residentes extranjeros y clientes privados que necesitan a alguien local que se ocupe de todo y supervise la vivienda.</p>
+          <p>Apoyo práctico para propietarios, residentes extranjeros y vecinos en la zona de Alicante / Costa Blanca.</p>
         </div>
 
         <div class="grid-3">
@@ -397,17 +412,17 @@
             <ul class="clean" data-lang="de">
               <li>Regelmäßige Kontrolle von Haus oder Wohnung</li>
               <li>Nach dem Rechten sehen, wenn Sie nicht vor Ort sind</li>
-              <li>Zuverlässiger Ansprechpartner an der Costa Blanca</li>
+              <li>Verlässlicher Ansprechpartner vor Ort</li>
             </ul>
             <ul class="clean" data-lang="en" style="display:none">
-              <li>Regular property checks</li>
+              <li>Regular house or apartment checks</li>
               <li>Keeping an eye on things while you are away</li>
-              <li>Reliable local point of contact on the Costa Blanca</li>
+              <li>Reliable local contact</li>
             </ul>
             <ul class="clean" data-lang="es" style="display:none">
               <li>Control periódico de casa o apartamento</li>
               <li>Supervisión cuando usted no está presente</li>
-              <li>Persona de confianza en la Costa Blanca</li>
+              <li>Persona de confianza en la zona</li>
             </ul>
           </div>
 
@@ -458,19 +473,43 @@
       </div>
     </section>
 
-    <section class="band" id="ablauf">
+    <section class="band">
+      <div class="container">
+        <div data-lang-block="de" class="section-head active">
+          <h2>Warum Eigentümer mir vertrauen können</h2>
+          <p>Gerade bei Haus- und Wohnungsbetreuung zählen nicht große Worte, sondern Verlässlichkeit, Diskretion und Organisation.</p>
+        </div>
+        <div data-lang-block="en" class="section-head">
+          <h2>Why property owners can trust me</h2>
+          <p>When it comes to looking after homes and apartments, reliability, discretion and organisation matter more than big promises.</p>
+        </div>
+        <div data-lang-block="es" class="section-head">
+          <h2>Por qué los propietarios pueden confiar en mí</h2>
+          <p>En el cuidado de casas y apartamentos cuentan más la fiabilidad, la discreción y la organización que las grandes promesas.</p>
+        </div>
+
+        <div class="trust-grid">
+          <div class="card"><div class="icon">A</div><p data-lang="de">Auf Baustellen groß geworden und gelernter Bau- und Möbelschreiner</p><p data-lang="en" style="display:none">Grew up around construction sites and trained as a carpenter and cabinet maker</p><p data-lang="es" style="display:none">Crecí en obras y me formé como carpintero de obra y de muebles</p></div>
+          <div class="card"><div class="icon">B</div><p data-lang="de">8 Jahre diplomatischer Dienst – geprägt von Zuverlässigkeit und Diskretion</p><p data-lang="en" style="display:none">8 years in diplomatic service – shaped by reliability and discretion</p><p data-lang="es" style="display:none">8 años en servicio diplomático – marcados por fiabilidad y discreción</p></div>
+          <div class="card"><div class="icon">C</div><p data-lang="de">trained logistics manager with strong planning and coordination skills (Bachelor Professional of Logistics, CCI)</p><p data-lang="en" style="display:none">trained logistics manager with strong planning and coordination skills (Bachelor Professional of Logistics, CCI)</p><p data-lang="es" style="display:none">formación logística con sólidas capacidades de planificación y coordinación (Bachelor Professional of Logistics, CCI)</p></div>
+          <div class="card"><div class="icon">D</div><p data-lang="de">Ein-Mann-Betrieb mit persönlicher Verantwortung statt anonymer Abwicklung</p><p data-lang="en" style="display:none">One-man business with personal responsibility instead of anonymous handling</p><p data-lang="es" style="display:none">Negocio unipersonal con responsabilidad personal en lugar de gestión anónima</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ablauf">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
           <h2>So funktioniert es</h2>
-          <p>Einfacher Kontakt, klare Rückmeldung, schnelle Hilfe.</p>
+          <p>Einfacher Kontakt, klare Rückmeldung, strukturierte Umsetzung.</p>
         </div>
         <div data-lang-block="en" class="section-head">
           <h2>How it works</h2>
-          <p>Simple contact, clear feedback, fast support.</p>
+          <p>Simple contact, clear feedback and structured support.</p>
         </div>
         <div data-lang-block="es" class="section-head">
           <h2>Cómo funciona</h2>
-          <p>Contacto sencillo, respuesta clara y ayuda rápida.</p>
+          <p>Contacto sencillo, respuesta clara y ejecución organizada.</p>
         </div>
 
         <div class="steps">
@@ -479,36 +518,36 @@
             <h3 data-lang="de">Anfrage senden</h3>
             <h3 data-lang="en" style="display:none">Send your request</h3>
             <h3 data-lang="es" style="display:none">Envíe su solicitud</h3>
-            <p data-lang="de">Schicken Sie Ihr Anliegen einfach per WhatsApp – gerne mit Foto.</p>
-            <p data-lang="en" style="display:none">Send your request via WhatsApp, ideally with a photo.</p>
-            <p data-lang="es" style="display:none">Envíe su solicitud por WhatsApp, idealmente con una foto.</p>
+            <p data-lang="de">Schicken Sie Ihr Anliegen einfach per WhatsApp – gerne mit Foto oder kurzer Beschreibung.</p>
+            <p data-lang="en" style="display:none">Send your request via WhatsApp, ideally with a photo or short description.</p>
+            <p data-lang="es" style="display:none">Envíe su solicitud por WhatsApp, idealmente con una foto o una breve descripción.</p>
           </div>
           <div class="card">
             <div class="icon">2</div>
             <h3 data-lang="de">Rückmeldung erhalten</h3>
             <h3 data-lang="en" style="display:none">Get a response</h3>
             <h3 data-lang="es" style="display:none">Reciba respuesta</h3>
-            <p data-lang="de">Sie erhalten schnell eine Einschätzung und die nächsten Schritte.</p>
-            <p data-lang="en" style="display:none">You receive a quick assessment and the next steps.</p>
-            <p data-lang="es" style="display:none">Recibirá una valoración rápida y los siguientes pasos.</p>
+            <p data-lang="de">Sie erhalten eine Einschätzung, Rückmeldung und wenn sinnvoll bereits eine erste Planung.</p>
+            <p data-lang="en" style="display:none">You receive an assessment, feedback and, if useful, an initial plan.</p>
+            <p data-lang="es" style="display:none">Recibirá una valoración, respuesta y, si procede, una primera planificación.</p>
           </div>
           <div class="card">
             <div class="icon">3</div>
-            <h3 data-lang="de">Termin abstimmen</h3>
-            <h3 data-lang="en" style="display:none">Arrange an appointment</h3>
-            <h3 data-lang="es" style="display:none">Coordinar la cita</h3>
-            <p data-lang="de">Wir klären, wann Betreuung oder Arbeit am besten erledigt werden kann.</p>
-            <p data-lang="en" style="display:none">We agree on the best time for the work or property visit.</p>
-            <p data-lang="es" style="display:none">Acordamos el mejor momento para el trabajo o la visita a la propiedad.</p>
+            <h3 data-lang="de">Termin oder Betreuung abstimmen</h3>
+            <h3 data-lang="en" style="display:none">Arrange a visit or support</h3>
+            <h3 data-lang="es" style="display:none">Coordinar visita o apoyo</h3>
+            <p data-lang="de">Wir stimmen ab, was konkret gebraucht wird – Betreuung, Überwachung oder kleinere Arbeiten.</p>
+            <p data-lang="en" style="display:none">We agree on what is needed – care visits, supervision or smaller jobs.</p>
+            <p data-lang="es" style="display:none">Acordamos lo que se necesita: visitas, supervisión o pequeños trabajos.</p>
           </div>
           <div class="card">
             <div class="icon">4</div>
-            <h3 data-lang="de">Problem gelöst</h3>
-            <h3 data-lang="en" style="display:none">Problem solved</h3>
-            <h3 data-lang="es" style="display:none">Problema resuelto</h3>
-            <p data-lang="de">Zuverlässige Hilfe vor Ort – direkt, strukturiert und vertrauenswürdig.</p>
-            <p data-lang="en" style="display:none">Reliable local support – direct, structured and trustworthy.</p>
-            <p data-lang="es" style="display:none">Ayuda fiable en el lugar – directa, organizada y de confianza.</p>
+            <h3 data-lang="de">Zuverlässige Umsetzung</h3>
+            <h3 data-lang="en" style="display:none">Reliable execution</h3>
+            <h3 data-lang="es" style="display:none">Ejecución fiable</h3>
+            <p data-lang="de">Klare Kommunikation, verlässliche Durchführung und ein Ansprechpartner, der mitdenkt.</p>
+            <p data-lang="en" style="display:none">Clear communication, reliable execution and one local contact who thinks ahead.</p>
+            <p data-lang="es" style="display:none">Comunicación clara, ejecución fiable y una persona de contacto que piensa con antelación.</p>
           </div>
         </div>
       </div>
@@ -519,39 +558,36 @@
         <div class="card">
           <div data-lang-block="de" class="section-head active">
             <h2>Über mich</h2>
-            <p>Ich bin auf Baustellen groß geworden, gelernter Bau- und Möbelschreiner und zusätzlich Logistikmeister. Dazu kommen 8 Jahre Tätigkeit im diplomatischen Dienst – für Sie bedeutet das: strukturierte Planung, Zuverlässigkeit, Pünktlichkeit und Vertrauenswürdigkeit.</p>
+            <p>Ich bin auf Baustellen groß geworden, gelernter Bau- und Möbelschreiner und arbeite seit Jahren im praktischen Bereich rund ums Haus. Gleichzeitig bringe ich strukturierte Planung, Koordination und Verantwortungsbewusstsein mit – genau die Kombination, die Eigentümer vor Ort brauchen.</p>
           </div>
           <div data-lang-block="en" class="section-head">
             <h2>About me</h2>
-            <p>I grew up around construction sites, trained as a carpenter and cabinet maker and also qualified as a logistics master. In addition, I worked 8 years in diplomatic service – which means structured planning, reliability, punctuality and trustworthiness for you.</p>
+            <p>I grew up around construction sites, trained as a carpenter and cabinet maker and have worked for years in practical property-related work. At the same time, I bring structured planning, coordination and a strong sense of responsibility – exactly the combination property owners need on site.</p>
           </div>
           <div data-lang-block="es" class="section-head">
             <h2>Sobre mí</h2>
-            <p>He crecido en obras, soy carpintero de obra y de muebles, y además maestro en logística. También trabajé 8 años en el servicio diplomático, lo que para usted significa planificación estructurada, fiabilidad, puntualidad y confianza.</p>
+            <p>He crecido en obras, me formé como carpintero de obra y de muebles y llevo años trabajando de forma práctica en todo lo relacionado con inmuebles. Al mismo tiempo, aporto planificación estructurada, coordinación y sentido de responsabilidad: justo la combinación que necesitan muchos propietarios sobre el terreno.</p>
           </div>
         </div>
 
         <div class="card">
-          <h3 data-lang="de">Warum CasaFix Costa?</h3>
-          <h3 data-lang="en" style="display:none">Why CasaFix Costa?</h3>
-          <h3 data-lang="es" style="display:none">¿Por qué CasaFix Costa?</h3>
+          <h3 data-lang="de">Kontakt</h3>
+          <h3 data-lang="en" style="display:none">Contact</h3>
+          <h3 data-lang="es" style="display:none">Contacto</h3>
           <div class="contact-list" data-lang="de">
-            <div>✓ Deutschsprachiger Ansprechpartner vor Ort</div>
-            <div>✓ Englisch und Spanisch möglich</div>
-            <div>✓ Praktische Erfahrung + Organisation</div>
-            <div>✓ Besonders geeignet für Eigentümer und Auswanderer</div>
+            <div>✓ Anfragen und Projektplanung bereits jetzt möglich</div>
+            <div>✓ Start vor Ort ab November 2027</div>
+            <div>✓ Für Eigentümer, Auswanderer und Einheimische</div>
           </div>
           <div class="contact-list" data-lang="en" style="display:none">
-            <div>✓ German-speaking local contact</div>
-            <div>✓ English and Spanish available</div>
-            <div>✓ Practical skills + organisation</div>
-            <div>✓ Especially suitable for homeowners and expats</div>
+            <div>✓ Inquiries and project planning already possible</div>
+            <div>✓ On-site start from November 2027</div>
+            <div>✓ For homeowners, expats and local residents</div>
           </div>
           <div class="contact-list" data-lang="es" style="display:none">
-            <div>✓ Contacto local de habla alemana</div>
-            <div>✓ Atención también en inglés y español</div>
-            <div>✓ Experiencia práctica + organización</div>
-            <div>✓ Especialmente indicado para propietarios y residentes extranjeros</div>
+            <div>✓ Ya se aceptan consultas y planificación de proyectos</div>
+            <div>✓ Inicio en la zona a partir de noviembre de 2027</div>
+            <div>✓ Para propietarios, residentes extranjeros y vecinos</div>
           </div>
           <a class="button" href="https://wa.me/4915253692878" style="margin-top: 18px;">WhatsApp öffnen</a>
         </div>
@@ -561,32 +597,26 @@
 
   <footer>
     <div class="container footer-line">
-      <div data-lang-block="de" class="active">© CasaFix Costa – Hausbetreuung und praktische Hilfe an der Costa Blanca</div>
-      <div data-lang-block="en">© CasaFix Costa – Property care and practical help on the Costa Blanca</div>
-      <div data-lang-block="es">© CasaFix Costa – Cuidado de propiedades y ayuda práctica en la Costa Blanca</div>
+      <div data-lang-block="de" class="active">© CasaFix Costa – Hausbetreuung und praktische Hilfe im Raum Alicante / Costa Blanca</div>
+      <div data-lang-block="en">© CasaFix Costa – Property care and practical support in the Alicante / Costa Blanca area</div>
+      <div data-lang-block="es">© CasaFix Costa – Cuidado de propiedades y apoyo práctico en la zona de Alicante / Costa Blanca</div>
     </div>
   </footer>
 
   <script>
     function setLang(lang) {
       document.documentElement.lang = lang;
-
       document.querySelectorAll('[data-lang-btn]').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
       });
-
       document.querySelectorAll('[data-lang-block]').forEach(block => {
         block.classList.toggle('active', block.getAttribute('data-lang-block') === lang);
       });
-
       document.querySelectorAll('[data-lang]').forEach(el => {
         el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
       });
     }
-
-    window.onload = function () {
-      setLang('de');
-    };
+    window.onload = function () { setLang('de'); };
   </script>
 </body>
 </html>
