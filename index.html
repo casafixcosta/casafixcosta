@@ -99,7 +99,7 @@
     }
 
     .hero-content {
-      width: min(820px, 100%);
+      width: min(840px, 100%);
       padding: 80px 0;
     }
 
@@ -289,6 +289,11 @@
     [data-lang-block] { display: none; }
     [data-lang-block].active { display: block; }
 
+    [data-lang] { display: none; }
+    [data-lang].active-inline { display: inline; }
+    [data-lang].active-block { display: block; }
+    [data-lang].active-list-item { display: list-item; }
+
     @media (max-width: 980px) {
       .grid-3, .trust-grid { grid-template-columns: 1fr 1fr; }
       .steps { grid-template-columns: 1fr 1fr; }
@@ -322,9 +327,9 @@
     <section class="hero">
       <div class="container hero-content">
         <div data-lang-block="de" class="active">
-          <div class="eyebrow">Deutsch · English · Español</div>
+          <div class="eyebrow">Deutsch · Englisch · Spanisch</div>
           <h1>Zuverlässige Hausbetreuung und praktische Hilfe im Raum Alicante</h1>
-          <p class="lead">Für Eigentümer, Auswanderer und Einheimische, die jemanden vor Ort brauchen, der sich zuverlässig kümmert, mitdenkt und praktische Aufgaben direkt übernimmt. Ich betreue Immobilien, erledige praktische Aufgaben selbst und begleite bei Bedarf auch Renovierungen und Handwerker vor Ort – strukturiert und mit klarer Abstimmung.</p>
+          <p class="lead">Für Eigentümer, Auswanderer und Einheimische, die jemanden vor Ort brauchen, der sich kümmert, mitdenkt und kleinere Arbeiten selbst übernimmt. Ich betreue Immobilien, erledige praktische Aufgaben und begleite bei Bedarf auch Renovierungen und Handwerker vor Ort.</p>
           <div class="launch-note"><strong>Start vor Ort: November 2027</strong><br>Bereits jetzt beantworte ich gerne Anfragen und plane Projekte im Voraus.</div>
           <div class="cta-row">
             <a class="button" href="https://wa.me/4915253692878">Jetzt per WhatsApp anfragen</a>
@@ -338,7 +343,7 @@
         </div>
 
         <div data-lang-block="en">
-          <div class="eyebrow">Deutsch · English · Español</div>
+          <div class="eyebrow">German · English · Spanish</div>
           <h1>Reliable property care and practical support in the Alicante area</h1>
           <p class="lead">For homeowners, expats and local residents who need someone on site who takes care of things, thinks ahead and handles smaller tasks personally. I look after properties, take care of practical jobs and, when needed, support renovations and contractors on site.</p>
           <div class="launch-note"><strong>Start on site: November 2027</strong><br>I am already happy to answer inquiries and plan projects in advance.</div>
@@ -354,7 +359,7 @@
         </div>
 
         <div data-lang-block="es">
-          <div class="eyebrow">Deutsch · English · Español</div>
+          <div class="eyebrow">Alemán · Inglés · Español</div>
           <h1>Cuidado fiable de propiedades y ayuda práctica en la zona de Alicante</h1>
           <p class="lead">Para propietarios, residentes extranjeros y vecinos de la zona que necesitan a alguien de confianza sobre el terreno. Me ocupo de propiedades, realizo pequeños trabajos personalmente y, si hace falta, acompaño reformas y operarios en el lugar.</p>
           <div class="launch-note"><strong>Inicio en la zona: noviembre 2027</strong><br>Ya respondo consultas y planifico proyectos con antelación.</div>
@@ -375,7 +380,7 @@
       <div class="container">
         <div data-lang-block="de" class="section-head active">
           <h2>Wofür CasaFix Costa steht</h2>
-          <p>Ich biete keine anonyme Verwaltung und keine große Baufirma. Ich bin Ihr persönlicher Ansprechpartner vor Ort – für Betreuung, Kontrolle, kleinere handwerkliche Arbeiten und die strukturierte Begleitung von Maßnahmen rund um Haus, Wohnung und Garten. Klar, zuverlässig und ohne unnötige Umwege.</p>
+          <p>Ich biete keine anonyme Verwaltung und keine große Baufirma. Ich bin Ihr persönlicher Ansprechpartner vor Ort – für Betreuung, Kontrolle, kleinere handwerkliche Arbeiten und die strukturierte Begleitung von Maßnahmen rund um Haus, Wohnung und Garten.</p>
         </div>
         <div data-lang-block="en" class="section-head">
           <h2>What CasaFix Costa stands for</h2>
@@ -406,67 +411,61 @@
         <div class="grid-3">
           <div class="card">
             <div class="icon">1</div>
-            <h3 data-lang="de">Hausbetreuung</h3>
-            <h3 data-lang="en" style="display:none">Property care</h3>
-            <h3 data-lang="es" style="display:none">Cuidado de propiedades</h3>
-            <ul class="clean" data-lang="de">
-              <li>Regelmäßige Kontrolle von Haus oder Wohnung</li>
-              <li>Nach dem Rechten sehen, wenn Sie nicht vor Ort sind</li>
-              <li>Verlässlicher Ansprechpartner vor Ort</li>
-            </ul>
-            <ul class="clean" data-lang="en" style="display:none">
-              <li>Regular house or apartment checks</li>
-              <li>Keeping an eye on things while you are away</li>
-              <li>Reliable local contact</li>
-            </ul>
-            <ul class="clean" data-lang="es" style="display:none">
-              <li>Control periódico de casa o apartamento</li>
-              <li>Supervisión cuando usted no está presente</li>
-              <li>Persona de confianza en la zona</li>
+            <h3 data-lang="de" data-display="block">Hausbetreuung</h3>
+            <h3 data-lang="en" data-display="block">Property care</h3>
+            <h3 data-lang="es" data-display="block">Cuidado de propiedades</h3>
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">Regelmäßige Kontrolle von Haus oder Wohnung</li>
+              <li data-lang="de" data-display="list-item">Nach dem Rechten sehen, wenn Sie nicht vor Ort sind</li>
+              <li data-lang="de" data-display="list-item">Verlässlicher Ansprechpartner vor Ort</li>
+
+              <li data-lang="en" data-display="list-item">Regular house or apartment checks</li>
+              <li data-lang="en" data-display="list-item">Keeping an eye on things while you are away</li>
+              <li data-lang="en" data-display="list-item">Reliable local contact</li>
+
+              <li data-lang="es" data-display="list-item">Control periódico de casa o apartamento</li>
+              <li data-lang="es" data-display="list-item">Supervisión cuando usted no está presente</li>
+              <li data-lang="es" data-display="list-item">Persona de confianza en la zona</li>
             </ul>
           </div>
 
           <div class="card">
             <div class="icon">2</div>
-            <h3 data-lang="de">Eigene Arbeiten</h3>
-            <h3 data-lang="en" style="display:none">Own hands-on work</h3>
-            <h3 data-lang="es" style="display:none">Trabajos propios</h3>
-            <ul class="clean" data-lang="de">
-              <li>Kleinreparaturen</li>
-              <li>Möbelaufbau und kleinere Montagearbeiten</li>
-              <li>Garten- und Außenarbeiten im kleinen Rahmen</li>
-            </ul>
-            <ul class="clean" data-lang="en" style="display:none">
-              <li>Small repairs</li>
-              <li>Furniture assembly and small installations</li>
-              <li>Small-scale garden and outdoor tasks</li>
-            </ul>
-            <ul class="clean" data-lang="es" style="display:none">
-              <li>Pequeñas reparaciones</li>
-              <li>Montaje de muebles y pequeños trabajos</li>
-              <li>Trabajos de jardín y exterior a pequeña escala</li>
+            <h3 data-lang="de" data-display="block">Eigene Arbeiten</h3>
+            <h3 data-lang="en" data-display="block">Own hands-on work</h3>
+            <h3 data-lang="es" data-display="block">Trabajos propios</h3>
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">Kleinreparaturen</li>
+              <li data-lang="de" data-display="list-item">Möbelaufbau und kleinere Montagearbeiten</li>
+              <li data-lang="de" data-display="list-item">Garten- und Außenarbeiten im kleinen Rahmen</li>
+
+              <li data-lang="en" data-display="list-item">Small repairs</li>
+              <li data-lang="en" data-display="list-item">Furniture assembly and small installations</li>
+              <li data-lang="en" data-display="list-item">Small-scale garden and outdoor tasks</li>
+
+              <li data-lang="es" data-display="list-item">Pequeñas reparaciones</li>
+              <li data-lang="es" data-display="list-item">Montaje de muebles y pequeños trabajos</li>
+              <li data-lang="es" data-display="list-item">Trabajos de jardín y exterior a pequeña escala</li>
             </ul>
           </div>
 
           <div class="card">
             <div class="icon">3</div>
-            <h3 data-lang="de">Koordination & Überwachung</h3>
-            <h3 data-lang="en" style="display:none">Coordination & supervision</h3>
-            <h3 data-lang="es" style="display:none">Coordinación y supervisión</h3>
-            <ul class="clean" data-lang="de">
-              <li>Begleitung von Renovierungen und Gewerken</li>
-              <li>Überwachung von Arbeiten vor Ort</li>
-              <li>Strukturierte Planung und Abstimmung</li>
-            </ul>
-            <ul class="clean" data-lang="en" style="display:none">
-              <li>Support with renovations and trades</li>
-              <li>On-site supervision of works</li>
-              <li>Structured planning and coordination</li>
-            </ul>
-            <ul class="clean" data-lang="es" style="display:none">
-              <li>Apoyo en reformas y coordinación de gremios</li>
-              <li>Supervisión de trabajos en el lugar</li>
-              <li>Planificación y coordinación estructurada</li>
+            <h3 data-lang="de" data-display="block">Koordination & Überwachung</h3>
+            <h3 data-lang="en" data-display="block">Coordination & supervision</h3>
+            <h3 data-lang="es" data-display="block">Coordinación y supervisión</h3>
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">Begleitung von Renovierungen und Gewerken</li>
+              <li data-lang="de" data-display="list-item">Überwachung von Arbeiten vor Ort</li>
+              <li data-lang="de" data-display="list-item">Strukturierte Planung und Abstimmung</li>
+
+              <li data-lang="en" data-display="list-item">Support with renovations and trades</li>
+              <li data-lang="en" data-display="list-item">On-site supervision of works</li>
+              <li data-lang="en" data-display="list-item">Structured planning and coordination</li>
+
+              <li data-lang="es" data-display="list-item">Apoyo en reformas y coordinación de gremios</li>
+              <li data-lang="es" data-display="list-item">Supervisión de trabajos en el lugar</li>
+              <li data-lang="es" data-display="list-item">Planificación y coordinación estructurada</li>
             </ul>
           </div>
         </div>
@@ -489,10 +488,30 @@
         </div>
 
         <div class="trust-grid">
-          <div class="card"><div class="icon">A</div><p data-lang="de">Auf Baustellen groß geworden und gelernter Bau- und Möbelschreiner</p><p data-lang="en" style="display:none">Grew up around construction sites and trained as a carpenter and cabinet maker</p><p data-lang="es" style="display:none">Crecí en obras y me formé como carpintero de obra y de muebles</p></div>
-          <div class="card"><div class="icon">B</div><p data-lang="de">8 Jahre diplomatischer Dienst – geprägt von Zuverlässigkeit und Diskretion</p><p data-lang="en" style="display:none">8 years in diplomatic service – shaped by reliability and discretion</p><p data-lang="es" style="display:none">8 años en servicio diplomático – marcados por fiabilidad y discreción</p></div>
-          <div class="card"><div class="icon">C</div><p data-lang="de">trained logistics manager with strong planning and coordination skills (Bachelor Professional of Logistics, CCI)</p><p data-lang="en" style="display:none">trained logistics manager with strong planning and coordination skills (Bachelor Professional of Logistics, CCI)</p><p data-lang="es" style="display:none">formación logística con sólidas capacidades de planificación y coordinación (Bachelor Professional of Logistics, CCI)</p></div>
-          <div class="card"><div class="icon">D</div><p data-lang="de">Persönliche Verantwortung und direkte Betreuung statt anonymer Abwicklung</p><p data-lang="en" style="display:none">One-man business with personal responsibility instead of anonymous handling</p><p data-lang="es" style="display:none">Negocio unipersonal con responsabilidad personal en lugar de gestión anónima</p></div>
+          <div class="card">
+            <div class="icon">A</div>
+            <p data-lang="de" data-display="block">Auf Baustellen groß geworden und gelernter Bau- und Möbelschreiner</p>
+            <p data-lang="en" data-display="block">Grew up around construction sites and trained as a carpenter and cabinet maker</p>
+            <p data-lang="es" data-display="block">Crecí en obras y me formé como carpintero de obra y de muebles</p>
+          </div>
+          <div class="card">
+            <div class="icon">B</div>
+            <p data-lang="de" data-display="block">8 Jahre diplomatischer Dienst – geprägt von Zuverlässigkeit und Diskretion</p>
+            <p data-lang="en" data-display="block">8 years in diplomatic service – shaped by reliability and discretion</p>
+            <p data-lang="es" data-display="block">8 años en servicio diplomático – marcados por fiabilidad y discreción</p>
+          </div>
+          <div class="card">
+            <div class="icon">C</div>
+            <p data-lang="de" data-display="block">Geprüfter Logistikmeister (IHK) mit ausgeprägten Planungs- und Koordinationsfähigkeiten</p>
+            <p data-lang="en" data-display="block">Trained logistics manager with strong planning and coordination skills (Bachelor Professional of Logistics, CCI)</p>
+            <p data-lang="es" data-display="block">Maestro logístico certificado con sólidas capacidades de planificación y coordinación</p>
+          </div>
+          <div class="card">
+            <div class="icon">D</div>
+            <p data-lang="de" data-display="block">Persönliche Verantwortung und direkte Betreuung statt anonymer Abwicklung</p>
+            <p data-lang="en" data-display="block">Personal responsibility and direct support instead of anonymous handling</p>
+            <p data-lang="es" data-display="block">Responsabilidad personal y atención directa en lugar de gestión anónima</p>
+          </div>
         </div>
       </div>
     </section>
@@ -515,39 +534,39 @@
         <div class="steps">
           <div class="card">
             <div class="icon">1</div>
-            <h3 data-lang="de">Anfrage senden</h3>
-            <h3 data-lang="en" style="display:none">Send your request</h3>
-            <h3 data-lang="es" style="display:none">Envíe su solicitud</h3>
-            <p data-lang="de">Schicken Sie Ihr Anliegen einfach per WhatsApp – gerne mit Foto oder kurzer Beschreibung.</p>
-            <p data-lang="en" style="display:none">Send your request via WhatsApp, ideally with a photo or short description.</p>
-            <p data-lang="es" style="display:none">Envíe su solicitud por WhatsApp, idealmente con una foto o una breve descripción.</p>
+            <h3 data-lang="de" data-display="block">Anfrage senden</h3>
+            <h3 data-lang="en" data-display="block">Send your request</h3>
+            <h3 data-lang="es" data-display="block">Envíe su solicitud</h3>
+            <p data-lang="de" data-display="block">Schicken Sie Ihr Anliegen einfach per WhatsApp – gerne mit Foto oder kurzer Beschreibung.</p>
+            <p data-lang="en" data-display="block">Send your request via WhatsApp, ideally with a photo or short description.</p>
+            <p data-lang="es" data-display="block">Envíe su solicitud por WhatsApp, idealmente con una foto o una breve descripción.</p>
           </div>
           <div class="card">
             <div class="icon">2</div>
-            <h3 data-lang="de">Rückmeldung erhalten</h3>
-            <h3 data-lang="en" style="display:none">Get a response</h3>
-            <h3 data-lang="es" style="display:none">Reciba respuesta</h3>
-            <p data-lang="de">Sie erhalten eine Einschätzung, Rückmeldung und wenn sinnvoll bereits eine erste Planung.</p>
-            <p data-lang="en" style="display:none">You receive an assessment, feedback and, if useful, an initial plan.</p>
-            <p data-lang="es" style="display:none">Recibirá una valoración, respuesta y, si procede, una primera planificación.</p>
+            <h3 data-lang="de" data-display="block">Rückmeldung erhalten</h3>
+            <h3 data-lang="en" data-display="block">Get a response</h3>
+            <h3 data-lang="es" data-display="block">Reciba respuesta</h3>
+            <p data-lang="de" data-display="block">Sie erhalten eine Einschätzung, Rückmeldung und wenn sinnvoll bereits eine erste Planung.</p>
+            <p data-lang="en" data-display="block">You receive an assessment, feedback and, if useful, an initial plan.</p>
+            <p data-lang="es" data-display="block">Recibirá una valoración, respuesta y, si procede, una primera planificación.</p>
           </div>
           <div class="card">
             <div class="icon">3</div>
-            <h3 data-lang="de">Termin oder Betreuung abstimmen</h3>
-            <h3 data-lang="en" style="display:none">Arrange a visit or support</h3>
-            <h3 data-lang="es" style="display:none">Coordinar visita o apoyo</h3>
-            <p data-lang="de">Wir stimmen ab, was konkret gebraucht wird – Betreuung, Überwachung oder kleinere Arbeiten.</p>
-            <p data-lang="en" style="display:none">We agree on what is needed – care visits, supervision or smaller jobs.</p>
-            <p data-lang="es" style="display:none">Acordamos lo que se necesita: visitas, supervisión o pequeños trabajos.</p>
+            <h3 data-lang="de" data-display="block">Termin oder Betreuung abstimmen</h3>
+            <h3 data-lang="en" data-display="block">Arrange a visit or support</h3>
+            <h3 data-lang="es" data-display="block">Coordinar visita o apoyo</h3>
+            <p data-lang="de" data-display="block">Wir stimmen ab, was konkret gebraucht wird – Betreuung, Überwachung oder kleinere Arbeiten.</p>
+            <p data-lang="en" data-display="block">We agree on what is needed – care visits, supervision or smaller jobs.</p>
+            <p data-lang="es" data-display="block">Acordamos lo que se necesita: visitas, supervisión o pequeños trabajos.</p>
           </div>
           <div class="card">
             <div class="icon">4</div>
-            <h3 data-lang="de">Zuverlässige Umsetzung</h3>
-            <h3 data-lang="en" style="display:none">Reliable execution</h3>
-            <h3 data-lang="es" style="display:none">Ejecución fiable</h3>
-            <p data-lang="de">Klare Kommunikation, verlässliche Durchführung und ein Ansprechpartner, der mitdenkt und Verantwortung übernimmt.</p>
-            <p data-lang="en" style="display:none">Clear communication, reliable execution and one local contact who thinks ahead.</p>
-            <p data-lang="es" style="display:none">Comunicación clara, ejecución fiable y una persona de contacto que piensa con antelación.</p>
+            <h3 data-lang="de" data-display="block">Zuverlässige Umsetzung</h3>
+            <h3 data-lang="en" data-display="block">Reliable execution</h3>
+            <h3 data-lang="es" data-display="block">Ejecución fiable</h3>
+            <p data-lang="de" data-display="block">Klare Kommunikation, verlässliche Durchführung und ein Ansprechpartner, der mitdenkt.</p>
+            <p data-lang="en" data-display="block">Clear communication, reliable execution and one local contact who thinks ahead.</p>
+            <p data-lang="es" data-display="block">Comunicación clara, ejecución fiable y una persona de contacto que piensa con antelación.</p>
           </div>
         </div>
       </div>
@@ -571,23 +590,21 @@
         </div>
 
         <div class="card">
-          <h3 data-lang="de">Kontakt</h3>
-          <h3 data-lang="en" style="display:none">Contact</h3>
-          <h3 data-lang="es" style="display:none">Contacto</h3>
-          <div class="contact-list" data-lang="de">
-            <div>✓ Anfragen und Projektplanung bereits jetzt möglich</div>
-            <div>✓ Start vor Ort ab November 2027</div>
-            <div>✓ Für Eigentümer, Auswanderer und Einheimische</div>
-          </div>
-          <div class="contact-list" data-lang="en" style="display:none">
-            <div>✓ Inquiries and project planning already possible</div>
-            <div>✓ On-site start from November 2027</div>
-            <div>✓ For homeowners, expats and local residents</div>
-          </div>
-          <div class="contact-list" data-lang="es" style="display:none">
-            <div>✓ Ya se aceptan consultas y planificación de proyectos</div>
-            <div>✓ Inicio en la zona a partir de noviembre de 2027</div>
-            <div>✓ Para propietarios, residentes extranjeros y vecinos</div>
+          <h3 data-lang="de" data-display="block">Kontakt</h3>
+          <h3 data-lang="en" data-display="block">Contact</h3>
+          <h3 data-lang="es" data-display="block">Contacto</h3>
+          <div class="contact-list">
+            <div data-lang="de" data-display="block">✓ Anfragen und Projektplanung bereits jetzt möglich</div>
+            <div data-lang="de" data-display="block">✓ Start vor Ort ab November 2027</div>
+            <div data-lang="de" data-display="block">✓ Für Eigentümer, Auswanderer und Einheimische</div>
+
+            <div data-lang="en" data-display="block">✓ Inquiries and project planning already possible</div>
+            <div data-lang="en" data-display="block">✓ On-site start from November 2027</div>
+            <div data-lang="en" data-display="block">✓ For homeowners, expats and local residents</div>
+
+            <div data-lang="es" data-display="block">✓ Ya se aceptan consultas y planificación de proyectos</div>
+            <div data-lang="es" data-display="block">✓ Inicio en la zona a partir de noviembre de 2027</div>
+            <div data-lang="es" data-display="block">✓ Para propietarios, residentes extranjeros y vecinos</div>
           </div>
           <a class="button" href="https://wa.me/4915253692878" style="margin-top: 18px;">WhatsApp öffnen</a>
         </div>
@@ -606,17 +623,28 @@
   <script>
     function setLang(lang) {
       document.documentElement.lang = lang;
+
       document.querySelectorAll('[data-lang-btn]').forEach(btn => {
         btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
       });
+
       document.querySelectorAll('[data-lang-block]').forEach(block => {
         block.classList.toggle('active', block.getAttribute('data-lang-block') === lang);
       });
+
       document.querySelectorAll('[data-lang]').forEach(el => {
-        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+        const displayType = el.getAttribute('data-display') || 'block';
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = displayType === 'list-item' ? 'list-item' : displayType;
+        } else {
+          el.style.display = 'none';
+        }
       });
     }
-    window.onload = function () { setLang('de'); };
+
+    window.onload = function () {
+      setLang('de');
+    };
   </script>
 </body>
 </html>
