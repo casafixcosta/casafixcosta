@@ -4,578 +4,86 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CasaFix Costa</title>
-  <meta name="description" content="CasaFix Costa – schnelle Hilfe rund ums Haus an der Costa Blanca." />
   <style>
-    :root {
-      --primary: #0f4c5c;
-      --primary-dark: #0b3945;
-      --accent: #d97b4d;
-      --sand: #f5f1ea;
-      --text: #20303c;
-      --muted: #5e6c76;
-      --white: #ffffff;
-      --overlay: rgba(12, 36, 46, 0.52);
-      --shadow: 0 14px 40px rgba(0, 0, 0, 0.15);
-      --radius: 18px;
-      --max: 1180px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--sand);
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(15, 76, 92, 0.08);
-    }
-
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-    }
-
-    .brand {
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-      color: var(--primary);
-    }
-
-    .brand span { color: var(--accent); }
-
-    .lang-switch {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .lang-switch button {
-      border: 1px solid rgba(15, 76, 92, 0.14);
-      background: var(--white);
-      color: var(--primary);
-      border-radius: 999px;
-      padding: 9px 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .lang-switch button.active,
-    .lang-switch button:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
+    body {margin:0;font-family:Arial;background:#f5f1ea;color:#222}
     .hero {
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      background-image:
-        linear-gradient(var(--overlay), var(--overlay)),
-        url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      color: var(--white);
+      height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:left;
+      padding:40px;
+      color:white;
+      background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+      url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e');
+      background-size:cover;
     }
-
-    .hero-content {
-      width: min(760px, 100%);
-      padding: 76px 0;
+    .box {max-width:750px}
+    h1 {font-size:44px;margin-bottom:20px}
+    p {font-size:18px;margin-bottom:20px}
+    .btn {
+      display:inline-block;
+      padding:15px 25px;
+      background:#ff7a3d;
+      color:white;
+      border-radius:30px;
+      text-decoration:none;
+      font-weight:bold;
     }
-
-    .eyebrow {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.14);
-      color: #fff;
-      padding: 9px 14px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      margin-bottom: 18px;
-      font-weight: 700;
-    }
-
-    h1 {
-      font-size: clamp(2.35rem, 5vw, 4.6rem);
-      line-height: 1.04;
-      margin: 0 0 14px;
-      letter-spacing: -0.03em;
-    }
-
-    .hero p.lead {
-      font-size: 1.14rem;
-      max-width: 58ch;
-      color: rgba(255,255,255,0.93);
-      margin: 0 0 28px;
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .button,
-    .button-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.2s ease;
-      border: none;
-    }
-
-    .button {
-      background: var(--accent);
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .button:hover,
-    .button-outline:hover {
-      transform: translateY(-1px);
-    }
-
-    .button-outline {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-
-    .hero-points {
-      display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: rgba(255,255,255,0.92);
-      font-size: 0.95rem;
-    }
-
-    section { padding: 72px 0; }
-
-    .section-head {
-      max-width: 740px;
-      margin-bottom: 24px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      margin: 0 0 10px;
-      color: var(--primary);
-      letter-spacing: -0.02em;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-    }
-
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 8px 26px rgba(0,0,0,0.06);
-      border: 1px solid rgba(15, 76, 92, 0.08);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: var(--primary);
-      font-size: 1.15rem;
-    }
-
-    .card p,
-    .card li,
-    .contact-list div { color: var(--muted); }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(15,76,92,0.08);
-      color: var(--primary);
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    ul.clean {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    ul.clean li::before {
-      content: '✓ ';
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .band {
-      background: #ece7df;
-      border-top: 1px solid rgba(15, 76, 92, 0.06);
-      border-bottom: 1px solid rgba(15, 76, 92, 0.06);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    footer {
-      padding: 28px 0 48px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .footer-line {
-      padding-top: 20px;
-      border-top: 1px solid rgba(15, 76, 92, 0.08);
-    }
-
-    [data-lang-block] { display: none; }
-    [data-lang-block].active { display: block; }
-
-    @media (max-width: 980px) {
-      .grid { grid-template-columns: 1fr 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; }
-      .contact-wrap { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 680px) {
-      .topbar-inner { flex-direction: column; align-items: flex-start; }
-      .hero { min-height: auto; }
-      .hero-content { padding: 58px 0; }
-      .grid, .steps { grid-template-columns: 1fr; }
-      .cta-row { flex-direction: column; }
-      .button, .button-outline { width: 100%; }
-      section { padding: 56px 0; }
-    }
+    .section {padding:60px 20px;max-width:900px;margin:auto}
+    h2 {color:#0f4c5c}
   </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">Casa<span>Fix</span> Costa</div>
-      <div class="lang-switch">
-        <button class="active" data-lang-btn="de" onclick="setLang('de')">DE</button>
-        <button data-lang-btn="en" onclick="setLang('en')">EN</button>
-        <button data-lang-btn="es" onclick="setLang('es')">ES</button>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-content">
-        <div data-lang-block="de" class="active">
-          <div class="eyebrow">Deutschsprachiger Handwerker-Service an der Costa Blanca</div>
-          <h1>Ihr Ansprechpartner für schnelle Hilfe rund ums Haus</h1>
-          <p class="lead">Möbelaufbau, kleinere Reparaturen, Hausbetreuung, Unterstützung bei Einzug, Garten und allgemeinen Arbeiten rund ums Haus – einfach, zuverlässig und direkt per WhatsApp anfragen.</p>
-          <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Jetzt per WhatsApp anfragen</a>
-            <a class="button-outline" href="#leistungen">Leistungen ansehen</a>
-          </div>
-          <div class="hero-points">
-            <span>✓ Schnell erreichbar</span>
-            <span>✓ Zuverlässig vor Ort</span>
-            <span>✓ Deutsch / Englisch / Spanisch</span>
-          </div>
-        </div>
+<div class="hero">
+  <div class="box">
+    <h1>Hausbetreuung & zuverlässige Hilfe an der Costa Blanca</h1>
+    <p>Sie sind nicht vor Ort und möchten, dass sich jemand zuverlässig um Ihr Haus oder Ihre Wohnung kümmert? Ich bin Ihr persönlicher Ansprechpartner für Betreuung, Kontrolle und kleinere Arbeiten – direkt und unkompliziert per WhatsApp.</p>
+    <a class="btn" href="https://wa.me/4915253692878">Jetzt WhatsApp schreiben</a>
+  </div>
+</div>
 
-        <div data-lang-block="en">
-          <div class="eyebrow">German-speaking handyman service on the Costa Blanca</div>
-          <h1>Your contact for fast help around the house</h1>
-          <p class="lead">Furniture assembly, small repairs, property checks, support with moving in, garden tasks and general help around the home – simple, reliable and easy to request via WhatsApp.</p>
-          <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Request via WhatsApp</a>
-            <a class="button-outline" href="#leistungen">View services</a>
-          </div>
-          <div class="hero-points">
-            <span>✓ Fast response</span>
-            <span>✓ Reliable local support</span>
-            <span>✓ German / English / Spanish</span>
-          </div>
-        </div>
+<div class="section">
+  <h2>Ihr Vorteil – Betreuung statt nur Handwerker</h2>
+  <p>Bei CasaFix Costa geht es nicht nur um einzelne Arbeiten. Es geht darum, dass Sie jemanden haben, der vor Ort ist, sich kümmert und nach dem Rechten sieht.</p>
+  <p>Ich übernehme für Sie die Kontrolle Ihrer Immobilie, bin Ansprechpartner für Handwerker und sorge dafür, dass alles zuverlässig läuft – auch wenn Sie nicht vor Ort sind.</p>
+</div>
 
-        <div data-lang-block="es">
-          <div class="eyebrow">Servicio de mantenimiento y ayuda en la Costa Blanca</div>
-          <h1>Su contacto para ayuda rápida en todo lo relacionado con la casa</h1>
-          <p class="lead">Montaje de muebles, pequeñas reparaciones, supervisión de viviendas, ayuda con mudanzas, jardín y trabajos generales del hogar – fácil, fiable y con contacto directo por WhatsApp.</p>
-          <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Solicitar por WhatsApp</a>
-            <a class="button-outline" href="#leistungen">Ver servicios</a>
-          </div>
-          <div class="hero-points">
-            <span>✓ Respuesta rápida</span>
-            <span>✓ Servicio fiable en la zona</span>
-            <span>✓ Alemán / Inglés / Español</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="section">
+  <h2>Über mich</h2>
+  <p>Ich bin gelernter Bau- und Möbelschreiner und auf Baustellen groß geworden. Ich habe Erfahrung in Haus- und Kernsanierungen, Gartenarbeiten und allen Arbeiten rund ums Haus.</p>
+  <p>Zusätzlich war ich 8 Jahre im diplomatischen Dienst tätig – das steht für Zuverlässigkeit, Pünktlichkeit und Vertrauenswürdigkeit.</p>
+  <p>Als Logistikmeister arbeite ich strukturiert und organisiert – ideal für Planung, Koordination und Überwachung von Renovierungen und Gewerken.</p>
+  <p>Ich arbeite bewusst als Ein-Mann-Betrieb und konzentriere mich auf persönliche Betreuung, kleinere Arbeiten und die zuverlässige Überwachung Ihrer Immobilie.</p>
+</div>
 
-    <section id="leistungen">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Leistungen</h2>
-          <p>Praktische Hilfe für Eigentümer, Auswanderer, Ferienimmobilien und private Hausbesitzer an der Costa Blanca.</p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Services</h2>
-          <p>Practical support for homeowners, expats, holiday properties and private clients on the Costa Blanca.</p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Servicios</h2>
-          <p>Ayuda práctica para propietarios, residentes extranjeros, viviendas vacacionales y clientes privados en la Costa Blanca.</p>
-        </div>
+<div class="section">
+  <h2>Leistungen</h2>
+  <ul>
+    <li>Hausbetreuung & regelmäßige Kontrolle</li>
+    <li>Überwachung von Renovierungen & Handwerkern</li>
+    <li>Möbelaufbau & kleinere Arbeiten</li>
+    <li>Kleinreparaturen</li>
+    <li>Garten- und Außenarbeiten</li>
+  </ul>
+</div>
 
-        <div class="grid">
-          <div class="card">
-            <div class="icon">1</div>
-            <h3 data-lang="de">Möbel & Montage</h3>
-            <h3 data-lang="en" style="display:none">Furniture & assembly</h3>
-            <h3 data-lang="es" style="display:none">Muebles y montaje</h3>
-            <ul class="clean" data-lang="de">
-              <li>Möbelaufbau</li>
-              <li>Lampen und kleine Montagen</li>
-              <li>Kleine Anpassungen im Haus</li>
-            </ul>
-            <ul class="clean" data-lang="en" style="display:none">
-              <li>Furniture assembly</li>
-              <li>Lamps and small installations</li>
-              <li>Minor home adjustments</li>
-            </ul>
-            <ul class="clean" data-lang="es" style="display:none">
-              <li>Montaje de muebles</li>
-              <li>Lámparas y pequeños montajes</li>
-              <li>Pequeños ajustes en la vivienda</li>
-            </ul>
-          </div>
+<div class="section">
+  <h2>Warum CasaFix Costa?</h2>
+  <ul>
+    <li>Deutschsprachiger Ansprechpartner vor Ort</li>
+    <li>Vertrauenswürdig & zuverlässig</li>
+    <li>Erfahrung aus Handwerk, Baustelle und Organisation</li>
+    <li>Ideal für Eigentümer und Auswanderer</li>
+  </ul>
+</div>
 
-          <div class="card">
-            <div class="icon">2</div>
-            <h3 data-lang="de">Reparaturen & Hilfe</h3>
-            <h3 data-lang="en" style="display:none">Repairs & support</h3>
-            <h3 data-lang="es" style="display:none">Reparaciones y ayuda</h3>
-            <ul class="clean" data-lang="de">
-              <li>Kleinreparaturen</li>
-              <li>Allgemeine Unterstützung rund ums Haus</li>
-              <li>Schnelle Hilfe bei kleinen Problemen</li>
-            </ul>
-            <ul class="clean" data-lang="en" style="display:none">
-              <li>Small repairs</li>
-              <li>General support around the house</li>
-              <li>Fast help with minor issues</li>
-            </ul>
-            <ul class="clean" data-lang="es" style="display:none">
-              <li>Pequeñas reparaciones</li>
-              <li>Ayuda general en la vivienda</li>
-              <li>Respuesta rápida para pequeños problemas</li>
-            </ul>
-          </div>
+<div class="section">
+  <h2>Kontakt</h2>
+  <p>Schreiben Sie mir direkt per WhatsApp und schildern Sie Ihr Anliegen.</p>
+  <a class="btn" href="https://wa.me/4915253692878">WhatsApp öffnen</a>
+</div>
 
-          <div class="card">
-            <div class="icon">3</div>
-            <h3 data-lang="de">Haus & Garten</h3>
-            <h3 data-lang="en" style="display:none">Home & garden</h3>
-            <h3 data-lang="es" style="display:none">Casa y jardín</h3>
-            <ul class="clean" data-lang="de">
-              <li>Hausbetreuung</li>
-              <li>Unterstützung bei Einzug und Übergabe</li>
-              <li>Kleine Garten- und Außenarbeiten</li>
-            </ul>
-            <ul class="clean" data-lang="en" style="display:none">
-              <li>Property checks</li>
-              <li>Support with move-in and handover</li>
-              <li>Small garden and outdoor tasks</li>
-            </ul>
-            <ul class="clean" data-lang="es" style="display:none">
-              <li>Supervisión de viviendas</li>
-              <li>Ayuda con entradas y entregas</li>
-              <li>Pequeños trabajos de jardín y exterior</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band" id="ablauf">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>So funktioniert es</h2>
-          <p>Einfacher Kontakt, klare Rückmeldung, schnelle Hilfe.</p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>How it works</h2>
-          <p>Simple contact, clear feedback, fast support.</p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Cómo funciona</h2>
-          <p>Contacto sencillo, respuesta clara y ayuda rápida.</p>
-        </div>
-
-        <div class="steps">
-          <div class="card">
-            <div class="icon">1</div>
-            <h3 data-lang="de">Anfrage senden</h3>
-            <h3 data-lang="en" style="display:none">Send your request</h3>
-            <h3 data-lang="es" style="display:none">Envíe su solicitud</h3>
-            <p data-lang="de">Schicken Sie Ihr Anliegen einfach per WhatsApp – gerne mit Foto.</p>
-            <p data-lang="en" style="display:none">Send your request via WhatsApp, ideally with a photo.</p>
-            <p data-lang="es" style="display:none">Envíe su solicitud por WhatsApp, idealmente con una foto.</p>
-          </div>
-          <div class="card">
-            <div class="icon">2</div>
-            <h3 data-lang="de">Rückmeldung erhalten</h3>
-            <h3 data-lang="en" style="display:none">Get a response</h3>
-            <h3 data-lang="es" style="display:none">Reciba respuesta</h3>
-            <p data-lang="de">Sie erhalten schnell eine Einschätzung und die nächsten Schritte.</p>
-            <p data-lang="en" style="display:none">You receive a quick assessment and the next steps.</p>
-            <p data-lang="es" style="display:none">Recibirá una valoración rápida y los siguientes pasos.</p>
-          </div>
-          <div class="card">
-            <div class="icon">3</div>
-            <h3 data-lang="de">Termin abstimmen</h3>
-            <h3 data-lang="en" style="display:none">Arrange an appointment</h3>
-            <h3 data-lang="es" style="display:none">Coordinar la cita</h3>
-            <p data-lang="de">Wir klären, wann die Arbeit am besten erledigt werden kann.</p>
-            <p data-lang="en" style="display:none">We agree on the best time to complete the work.</p>
-            <p data-lang="es" style="display:none">Acordamos el mejor momento para realizar el trabajo.</p>
-          </div>
-          <div class="card">
-            <div class="icon">4</div>
-            <h3 data-lang="de">Problem gelöst</h3>
-            <h3 data-lang="en" style="display:none">Problem solved</h3>
-            <h3 data-lang="es" style="display:none">Problema resuelto</h3>
-            <p data-lang="de">Zuverlässige Hilfe vor Ort – unkompliziert und direkt.</p>
-            <p data-lang="en" style="display:none">Reliable support on site – simple and direct.</p>
-            <p data-lang="es" style="display:none">Ayuda fiable en el lugar – sencilla y directa.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="container contact-wrap">
-        <div class="card">
-          <div data-lang-block="de" class="section-head active">
-            <h2>Jetzt anfragen</h2>
-            <p>Schicken Sie Ihr Anliegen direkt per WhatsApp. So erhalten Sie am schnellsten eine Rückmeldung.</p>
-          </div>
-          <div data-lang-block="en" class="section-head">
-            <h2>Get in touch now</h2>
-            <p>Send your request directly via WhatsApp for the fastest response.</p>
-          </div>
-          <div data-lang-block="es" class="section-head">
-            <h2>Contacte ahora</h2>
-            <p>Envíe su solicitud directamente por WhatsApp para recibir la respuesta más rápida.</p>
-          </div>
-
-          <a class="button" href="https://wa.me/4915253692878" style="margin-top: 8px;">WhatsApp öffnen</a>
-        </div>
-
-        <div class="card">
-          <h3 data-lang="de">Warum CasaFix Costa?</h3>
-          <h3 data-lang="en" style="display:none">Why CasaFix Costa?</h3>
-          <h3 data-lang="es" style="display:none">¿Por qué CasaFix Costa?</h3>
-          <div class="contact-list" data-lang="de">
-            <div>✓ Deutschsprachiger Ansprechpartner</div>
-            <div>✓ Hilfe für Einheimische, Auswanderer und Eigentümer</div>
-            <div>✓ Praktische Unterstützung rund ums Haus</div>
-          </div>
-          <div class="contact-list" data-lang="en" style="display:none">
-            <div>✓ German-speaking point of contact</div>
-            <div>✓ Support for locals, expats and property owners</div>
-            <div>✓ Practical help around the home</div>
-          </div>
-          <div class="contact-list" data-lang="es" style="display:none">
-            <div>✓ Contacto de habla alemana</div>
-            <div>✓ Ayuda para residentes, extranjeros y propietarios</div>
-            <div>✓ Apoyo práctico para todo lo relacionado con la vivienda</div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-line">
-      <div data-lang-block="de" class="active">© CasaFix Costa – Schnelle Hilfe rund ums Haus</div>
-      <div data-lang-block="en">© CasaFix Costa – Fast help around the house</div>
-      <div data-lang-block="es">© CasaFix Costa – Ayuda rápida para su hogar</div>
-    </div>
-  </footer>
-
-  <script>
-    function setLang(lang) {
-      document.documentElement.lang = lang;
-
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
-      });
-
-      document.querySelectorAll('[data-lang-block]').forEach(block => {
-        block.classList.toggle('active', block.getAttribute('data-lang-block') === lang);
-      });
-
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
-      });
-    }
-
-    window.onload = function () {
-      setLang('de');
-    };
-  </script>
 </body>
 </html>
