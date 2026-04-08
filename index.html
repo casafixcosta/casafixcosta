@@ -399,20 +399,6 @@
       word-break: break-word;
     }
 
-    .legal-box {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid var(--line);
-      box-shadow: 0 8px 26px rgba(0,0,0,0.04);
-      margin-bottom: 18px;
-    }
-
-    .legal-box h3 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-
     footer {
       padding: 28px 0 48px;
       color: var(--muted);
@@ -422,6 +408,16 @@
     .footer-line {
       padding-top: 20px;
       border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      font-weight: 700;
     }
 
     [data-lang-block] { display: none; }
@@ -457,7 +453,6 @@
         <a href="#ablauf">Ablauf</a>
         <a href="#fotos">Fotos</a>
         <a href="#kontakt">Kontakt</a>
-        <a href="#impressum">Impressum</a>
       </nav>
 
       <div class="lang-switch">
@@ -870,39 +865,15 @@
         </div>
       </div>
     </section>
-
-    <section id="impressum" class="band">
-      <div class="container">
-        <div class="section-head">
-          <h2>Impressum & Datenschutz</h2>
-          <p>Vollständige Kontaktdaten und rechtliche Angaben werden vor dem offiziellen Start ergänzt.</p>
-        </div>
-
-        <div class="legal-box">
-          <h3>Impressum</h3>
-          <p><strong>Name:</strong> Marco Weiss</p>
-          <p><strong>Unternehmen:</strong> CasaFix Costa</p>
-          <p><strong>Adresse:</strong> [Straße, Hausnummer, Postleitzahl, Ort ergänzen]</p>
-          <p><strong>E-Mail:</strong> Marco-weiss83@web.de</p>
-          <p><strong>Telefon:</strong> +49 152 53692878</p>
-          <p><strong>Verantwortlich für den Inhalt:</strong> Marco Weiss</p>
-        </div>
-
-        <div class="legal-box">
-          <h3>Datenschutz</h3>
-          <p>Beim Besuch dieser Website werden technisch notwendige Daten durch den Hosting-Anbieter verarbeitet. Wenn Sie über WhatsApp oder per E-Mail Kontakt aufnehmen, werden die von Ihnen übermittelten Daten zur Bearbeitung Ihrer Anfrage verwendet.</p>
-          <p>Diese Website verwendet aktuell kein Kontaktformular und keine Analyse-Tools. Bei einer Kontaktaufnahme über WhatsApp gelten zusätzlich die Datenschutzbestimmungen von WhatsApp.</p>
-          <p>Verantwortlich für die Datenverarbeitung im Rahmen dieser Website ist Marco Weiss. Eine Kontaktaufnahme ist über die oben genannten Kontaktdaten möglich.</p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="container footer-line">
-      <div data-lang-block="de" class="active">© CasaFix Costa – Premium Property Care im Raum Alicante / Costa Blanca</div>
-      <div data-lang-block="en">© CasaFix Costa – Premium property care in the Alicante / Costa Blanca area</div>
-      <div data-lang-block="es">© CasaFix Costa – Servicio premium de cuidado de propiedades en la zona de Alicante / Costa Blanca</div>
+      <div>© CasaFix Costa</div>
+      <div class="footer-links">
+        <a href="impressum.html">Impressum</a> |
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
     </div>
   </footer>
 
@@ -932,17 +903,5 @@
       setLang('de');
     };
   </script>
-</body><
-</footer>
-  <div style="text-align:center; padding:30px; background:#111; color:white; margin-top:40px;">
-    
-    <div>© CasaFix Costa</div>
-
-    <div style="margin-top:10px;">
-      <a href="impressum.html" style="color:white;">Impressum</a> |
-      <a href="datenschutz.html" style="color:white;">Datenschutz</a>
-    </div>
-
-  </div>
-</footer>
+</body>
 </html>
