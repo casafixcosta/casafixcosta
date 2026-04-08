@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CasaFix Costa</title>
-  <meta name="description" content="CasaFix Costa – Hausbetreuung, kleinere handwerkliche Arbeiten und zuverlässige Unterstützung im Raum Alicante / Costa Blanca. Start vor Ort ab November 2027, Anfragen vorab willkommen." />
+  <meta name="description" content="CasaFix Costa – Premium Property Care, Hausüberwachung, Bauüberwachung und praktische Unterstützung im Raum Alicante / Costa Blanca. Start vor Ort ab November 2027, Anfragen vorab willkommen." />
   <style>
     :root {
       --bg: #f3efe8;
@@ -18,6 +18,9 @@
       --shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
       --radius: 22px;
       --max: 1160px;
+      --de: #000000;
+      --en: #1f5aa6;
+      --es: #aa151b;
     }
 
     * { box-sizing: border-box; }
@@ -41,7 +44,7 @@
       position: sticky;
       top: 0;
       z-index: 40;
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -52,6 +55,7 @@
       justify-content: space-between;
       gap: 16px;
       padding: 14px 0;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -62,6 +66,16 @@
     }
 
     .brand span { color: var(--accent); }
+
+    .nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav a:hover { color: var(--primary); }
 
     .lang-switch {
       display: flex;
@@ -80,11 +94,13 @@
       transition: 0.2s ease;
     }
 
-    .lang-switch button.active,
-    .lang-switch button:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
+    .lang-switch button[data-lang-btn="de"] { border-color: rgba(0,0,0,0.2); }
+    .lang-switch button[data-lang-btn="en"] { border-color: rgba(31,90,166,0.25); }
+    .lang-switch button[data-lang-btn="es"] { border-color: rgba(170,21,27,0.25); }
+
+    .lang-switch button.active[data-lang-btn="de"] { background: var(--de); color: #ffce00; }
+    .lang-switch button.active[data-lang-btn="en"] { background: var(--en); color: #ffffff; }
+    .lang-switch button.active[data-lang-btn="es"] { background: var(--es); color: #f1bf00; }
 
     .hero {
       min-height: 88vh;
@@ -99,7 +115,7 @@
     }
 
     .hero-content {
-      width: min(840px, 100%);
+      width: min(860px, 100%);
       padding: 80px 0;
     }
 
@@ -124,7 +140,7 @@
 
     .lead {
       font-size: 1.14rem;
-      max-width: 62ch;
+      max-width: 64ch;
       color: rgba(255,255,255,0.92);
       margin: 0 0 18px;
     }
@@ -187,7 +203,7 @@
     section { padding: 72px 0; }
 
     .section-head {
-      max-width: 760px;
+      max-width: 780px;
       margin-bottom: 24px;
     }
 
@@ -204,18 +220,20 @@
       font-size: 1.05rem;
     }
 
+    .grid-4,
     .grid-3,
     .steps,
     .contact-wrap,
-    .trust-grid {
+    .photo-grid {
       display: grid;
       gap: 18px;
     }
 
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .steps { grid-template-columns: repeat(4, 1fr); }
     .contact-wrap { grid-template-columns: 1.1fr 0.9fr; }
-    .trust-grid { grid-template-columns: repeat(4, 1fr); }
+    .photo-grid { grid-template-columns: repeat(3, 1fr); }
 
     .card {
       background: var(--white);
@@ -234,7 +252,8 @@
 
     .card p,
     .card li,
-    .contact-list div { color: var(--muted); }
+    .contact-list div,
+    .usp-text { color: var(--muted); }
 
     .icon {
       width: 48px;
@@ -275,6 +294,32 @@
       gap: 12px;
     }
 
+    .photo-placeholder {
+      min-height: 220px;
+      background: linear-gradient(135deg, rgba(15,76,92,0.08), rgba(217,123,77,0.12));
+      border: 1px dashed rgba(15,76,92,0.22);
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      align-items: end;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .legal-box {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.04);
+      margin-bottom: 18px;
+    }
+
+    .legal-box h3 {
+      margin-top: 0;
+      color: var(--primary);
+    }
+
     footer {
       padding: 28px 0 48px;
       color: var(--muted);
@@ -288,14 +333,10 @@
 
     [data-lang-block] { display: none; }
     [data-lang-block].active { display: block; }
-
     [data-lang] { display: none; }
-    [data-lang].active-inline { display: inline; }
-    [data-lang].active-block { display: block; }
-    [data-lang].active-list-item { display: list-item; }
 
     @media (max-width: 980px) {
-      .grid-3, .trust-grid { grid-template-columns: 1fr 1fr; }
+      .grid-4, .grid-3, .photo-grid { grid-template-columns: 1fr 1fr; }
       .steps { grid-template-columns: 1fr 1fr; }
       .contact-wrap { grid-template-columns: 1fr; }
     }
@@ -304,10 +345,11 @@
       .topbar-inner { flex-direction: column; align-items: flex-start; }
       .hero { min-height: auto; }
       .hero-content { padding: 58px 0; }
-      .grid-3, .steps, .trust-grid { grid-template-columns: 1fr; }
+      .grid-4, .grid-3, .steps, .photo-grid { grid-template-columns: 1fr; }
       .cta-row { flex-direction: column; }
       .button, .button-outline { width: 100%; }
       section { padding: 56px 0; }
+      .nav { gap: 10px; }
     }
   </style>
 </head>
@@ -315,6 +357,14 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand">Casa<span>Fix</span> Costa</div>
+      <nav class="nav">
+        <a href="#leistungen">Leistungen</a>
+        <a href="#usp">USP</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#fotos">Fotos</a>
+        <a href="#kontakt">Kontakt</a>
+        <a href="#impressum">Impressum</a>
+      </nav>
       <div class="lang-switch">
         <button class="active" data-lang-btn="de" onclick="setLang('de')">DE</button>
         <button data-lang-btn="en" onclick="setLang('en')">EN</button>
@@ -328,67 +378,67 @@
       <div class="container hero-content">
         <div data-lang-block="de" class="active">
           <div class="eyebrow">Deutsch · Englisch · Spanisch</div>
-          <h1>Zuverlässige Hausbetreuung und praktische Hilfe im Raum Alicante</h1>
-          <p class="lead">Für Eigentümer, Auswanderer und Einheimische, die jemanden vor Ort brauchen, der sich kümmert, mitdenkt und kleinere Arbeiten selbst übernimmt. Ich betreue Immobilien, erledige praktische Aufgaben und begleite bei Bedarf auch Renovierungen und Handwerker vor Ort.</p>
-          <div class="launch-note"><strong>Start vor Ort: November 2027</strong><br>Bereits jetzt beantworte ich gerne Anfragen und plane Projekte im Voraus.</div>
+          <h1>Ihr Auge vor Ort im Raum Alicante</h1>
+          <p class="lead">Premium Property Care für Eigentümer, die ihre Immobilie an der Costa Blanca zuverlässig überwacht, betreut und vor Ort vertreten wissen wollen. Ich kontrolliere, koordiniere, dokumentiere und übernehme zusätzlich kleinere praktische Arbeiten selbst.</p>
+          <div class="launch-note"><strong>Start vor Ort: November 2027</strong><br>Bereits jetzt beantworte ich gerne Anfragen, plane Projekte und bereite laufende Betreuung im Voraus vor.</div>
           <div class="cta-row">
             <a class="button" href="https://wa.me/4915253692878">Jetzt per WhatsApp anfragen</a>
-            <a class="button-outline" href="#ablauf">So funktioniert es</a>
+            <a class="button-outline" href="#usp">Mehr erfahren</a>
           </div>
           <div class="hero-points">
-            <span>✓ Für Eigentümer und Einheimische</span>
-            <span>✓ Betreuung + eigene Arbeiten</span>
-            <span>✓ Vertrauenswürdig & strukturiert</span>
+            <span>✓ Hausüberwachung</span>
+            <span>✓ Bauüberwachung</span>
+            <span>✓ Kleine Arbeiten inklusive</span>
           </div>
         </div>
 
         <div data-lang-block="en">
           <div class="eyebrow">German · English · Spanish</div>
-          <h1>Reliable property care and practical support in the Alicante area</h1>
-          <p class="lead">For homeowners, expats and local residents who need someone on site who takes care of things, thinks ahead and handles smaller tasks personally. I look after properties, take care of practical jobs and, when needed, support renovations and contractors on site.</p>
-          <div class="launch-note"><strong>Start on site: November 2027</strong><br>I am already happy to answer inquiries and plan projects in advance.</div>
+          <h1>Your eyes on site in the Alicante area</h1>
+          <p class="lead">Premium property care for owners who want their property on the Costa Blanca to be reliably monitored, cared for and represented locally. I inspect, coordinate, document and also handle smaller practical tasks myself.</p>
+          <div class="launch-note"><strong>On-site start: November 2027</strong><br>I am already happy to answer inquiries, plan projects and prepare ongoing property care in advance.</div>
           <div class="cta-row">
             <a class="button" href="https://wa.me/4915253692878">Request via WhatsApp</a>
-            <a class="button-outline" href="#ablauf">How it works</a>
+            <a class="button-outline" href="#usp">Learn more</a>
           </div>
           <div class="hero-points">
-            <span>✓ For homeowners and locals</span>
-            <span>✓ Property care + hands-on work</span>
-            <span>✓ Trustworthy & structured</span>
+            <span>✓ Property monitoring</span>
+            <span>✓ Renovation supervision</span>
+            <span>✓ Small jobs included</span>
           </div>
         </div>
 
         <div data-lang-block="es">
           <div class="eyebrow">Alemán · Inglés · Español</div>
-          <h1>Cuidado fiable de propiedades y ayuda práctica en la zona de Alicante</h1>
-          <p class="lead">Para propietarios, residentes extranjeros y vecinos de la zona que necesitan a alguien de confianza sobre el terreno. Me ocupo de propiedades, realizo pequeños trabajos personalmente y, si hace falta, acompaño reformas y operarios en el lugar.</p>
-          <div class="launch-note"><strong>Inicio en la zona: noviembre 2027</strong><br>Ya respondo consultas y planifico proyectos con antelación.</div>
+          <h1>Sus ojos sobre el terreno en la zona de Alicante</h1>
+          <p class="lead">Servicio premium de cuidado de propiedades para propietarios que quieren su inmueble en la Costa Blanca controlado, cuidado y representado localmente. Inspecciono, coordino, documento y también realizo pequeños trabajos prácticos personalmente.</p>
+          <div class="launch-note"><strong>Inicio en la zona: noviembre 2027</strong><br>Ya respondo consultas, planifico proyectos y preparo servicios de supervisión con antelación.</div>
           <div class="cta-row">
             <a class="button" href="https://wa.me/4915253692878">Solicitar por WhatsApp</a>
-            <a class="button-outline" href="#ablauf">Cómo funciona</a>
+            <a class="button-outline" href="#usp">Más información</a>
           </div>
           <div class="hero-points">
-            <span>✓ Para propietarios y residentes</span>
-            <span>✓ Cuidado + trabajos propios</span>
-            <span>✓ Fiable y organizado</span>
+            <span>✓ Supervisión del inmueble</span>
+            <span>✓ Supervisión de obras</span>
+            <span>✓ Pequeños trabajos incluidos</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section>
+    <section id="usp">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>Wofür CasaFix Costa steht</h2>
-          <p>Ich biete keine anonyme Verwaltung und keine große Baufirma. Ich bin Ihr persönlicher Ansprechpartner vor Ort – für Betreuung, Kontrolle, kleinere handwerkliche Arbeiten und die strukturierte Begleitung von Maßnahmen rund um Haus, Wohnung und Garten.</p>
+          <h2>Alleinstellungsmerkmal</h2>
+          <p class="usp-text">Ich bin nicht einfach nur ein Handwerker und nicht einfach nur eine Hausverwaltung. Ich bin der persönliche deutschsprachige Ansprechpartner vor Ort, der als Vertrauensperson für den Eigentümer regelmäßig präsent ist, Risiken früh erkennt und den Wert der Immobilie durch Kontrolle, Dokumentation und pragmatische Lösungen schützt.</p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>What CasaFix Costa stands for</h2>
-          <p>I do not offer anonymous administration and I am not a large construction company. I am your personal local contact for property care, supervision, smaller hands-on jobs and structured support around house, apartment and garden.</p>
+          <h2>Unique value proposition</h2>
+          <p class="usp-text">I am not just a handyman and not just property administration. I am the personal German-speaking local contact who acts as a trusted representative for the owner, is regularly present on site, identifies risks early and protects the value of the property through inspection, documentation and practical solutions.</p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Qué representa CasaFix Costa</h2>
-          <p>No ofrezco una gestión anónima ni soy una gran empresa de construcción. Soy su persona de contacto local para el cuidado de propiedades, supervisión, pequeños trabajos manuales y apoyo estructurado en casa, piso y jardín.</p>
+          <h2>Propuesta de valor</h2>
+          <p class="usp-text">No soy solo un manitas ni solo una administración de fincas. Soy la persona de contacto local de confianza para el propietario, con presencia regular sobre el terreno, detección temprana de riesgos y protección del valor del inmueble mediante control, documentación y soluciones prácticas.</p>
         </div>
       </div>
     </section>
@@ -396,76 +446,96 @@
     <section id="leistungen">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>Leistungen</h2>
-          <p>Praktische Unterstützung für Eigentümer, Auswanderer und Einheimische im Raum Alicante / Costa Blanca.</p>
+          <h2>Kernleistungen</h2>
+          <p>Die Hauptleistung ist Betreuung und Überwachung. Kleinere praktische Arbeiten sind Ergänzung, nicht Schwerpunkt.</p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>Services</h2>
-          <p>Practical support for homeowners, expats and local residents in the Alicante / Costa Blanca area.</p>
+          <h2>Core services</h2>
+          <p>The main service is care and supervision. Smaller practical jobs are an addition, not the main focus.</p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Servicios</h2>
-          <p>Apoyo práctico para propietarios, residentes extranjeros y vecinos en la zona de Alicante / Costa Blanca.</p>
+          <h2>Servicios principales</h2>
+          <p>El servicio principal es el cuidado y la supervisión. Los pequeños trabajos prácticos son un complemento, no el enfoque principal.</p>
         </div>
 
-        <div class="grid-3">
+        <div class="grid-4">
           <div class="card">
             <div class="icon">1</div>
-            <h3 data-lang="de" data-display="block">Hausbetreuung</h3>
-            <h3 data-lang="en" data-display="block">Property care</h3>
-            <h3 data-lang="es" data-display="block">Cuidado de propiedades</h3>
+            <h3 data-lang="de" data-display="block">Gebäudeüberwachung</h3>
+            <h3 data-lang="en" data-display="block">Property monitoring</h3>
+            <h3 data-lang="es" data-display="block">Supervisión del inmueble</h3>
             <ul class="clean">
-              <li data-lang="de" data-display="list-item">Regelmäßige Kontrolle von Haus oder Wohnung</li>
-              <li data-lang="de" data-display="list-item">Nach dem Rechten sehen, wenn Sie nicht vor Ort sind</li>
-              <li data-lang="de" data-display="list-item">Verlässlicher Ansprechpartner vor Ort</li>
+              <li data-lang="de" data-display="list-item">Regelmäßige Kontrollgänge</li>
+              <li data-lang="de" data-display="list-item">Briefkasten, Sichtkontrolle, Präsenz</li>
+              <li data-lang="de" data-display="list-item">Früherkennung von Risiken und Schäden</li>
 
-              <li data-lang="en" data-display="list-item">Regular house or apartment checks</li>
-              <li data-lang="en" data-display="list-item">Keeping an eye on things while you are away</li>
-              <li data-lang="en" data-display="list-item">Reliable local contact</li>
+              <li data-lang="en" data-display="list-item">Regular inspection visits</li>
+              <li data-lang="en" data-display="list-item">Mailbox, visual checks, visible presence</li>
+              <li data-lang="en" data-display="list-item">Early detection of risks and damage</li>
 
-              <li data-lang="es" data-display="list-item">Control periódico de casa o apartamento</li>
-              <li data-lang="es" data-display="list-item">Supervisión cuando usted no está presente</li>
-              <li data-lang="es" data-display="list-item">Persona de confianza en la zona</li>
+              <li data-lang="es" data-display="list-item">Visitas periódicas de control</li>
+              <li data-lang="es" data-display="list-item">Buzón, revisión visual y presencia</li>
+              <li data-lang="es" data-display="list-item">Detección temprana de riesgos y daños</li>
             </ul>
           </div>
 
           <div class="card">
             <div class="icon">2</div>
-            <h3 data-lang="de" data-display="block">Eigene Arbeiten</h3>
-            <h3 data-lang="en" data-display="block">Own hands-on work</h3>
-            <h3 data-lang="es" data-display="block">Trabajos propios</h3>
+            <h3 data-lang="de" data-display="block">Unwetter-Check</h3>
+            <h3 data-lang="en" data-display="block">Storm damage check</h3>
+            <h3 data-lang="es" data-display="block">Control tras temporales</h3>
             <ul class="clean">
-              <li data-lang="de" data-display="list-item">Kleinreparaturen</li>
-              <li data-lang="de" data-display="list-item">Möbelaufbau und kleinere Montagearbeiten</li>
-              <li data-lang="de" data-display="list-item">Garten- und Außenarbeiten im kleinen Rahmen</li>
+              <li data-lang="de" data-display="list-item">Schnelle Begehung nach Starkregen oder Sturm</li>
+              <li data-lang="de" data-display="list-item">Schadensaufnahme und Rückmeldung</li>
+              <li data-lang="de" data-display="list-item">Dokumentation für Eigentümer</li>
 
-              <li data-lang="en" data-display="list-item">Small repairs</li>
-              <li data-lang="en" data-display="list-item">Furniture assembly and small installations</li>
-              <li data-lang="en" data-display="list-item">Small-scale garden and outdoor tasks</li>
+              <li data-lang="en" data-display="list-item">Quick visit after heavy rain or storms</li>
+              <li data-lang="en" data-display="list-item">Damage inspection and feedback</li>
+              <li data-lang="en" data-display="list-item">Documentation for the owner</li>
 
-              <li data-lang="es" data-display="list-item">Pequeñas reparaciones</li>
-              <li data-lang="es" data-display="list-item">Montaje de muebles y pequeños trabajos</li>
-              <li data-lang="es" data-display="list-item">Trabajos de jardín y exterior a pequeña escala</li>
+              <li data-lang="es" data-display="list-item">Visita rápida tras lluvias fuertes o tormentas</li>
+              <li data-lang="es" data-display="list-item">Revisión de daños y respuesta</li>
+              <li data-lang="es" data-display="list-item">Documentación para el propietario</li>
             </ul>
           </div>
 
           <div class="card">
             <div class="icon">3</div>
-            <h3 data-lang="de" data-display="block">Koordination & Überwachung</h3>
-            <h3 data-lang="en" data-display="block">Coordination & supervision</h3>
-            <h3 data-lang="es" data-display="block">Coordinación y supervisión</h3>
+            <h3 data-lang="de" data-display="block">Bauüberwachung</h3>
+            <h3 data-lang="en" data-display="block">Renovation supervision</h3>
+            <h3 data-lang="es" data-display="block">Supervisión de reformas</h3>
             <ul class="clean">
-              <li data-lang="de" data-display="list-item">Begleitung von Renovierungen und Gewerken</li>
-              <li data-lang="de" data-display="list-item">Überwachung von Arbeiten vor Ort</li>
-              <li data-lang="de" data-display="list-item">Strukturierte Planung und Abstimmung</li>
+              <li data-lang="de" data-display="list-item">Kontrolle und Dokumentation von Arbeiten vor Ort</li>
+              <li data-lang="de" data-display="list-item">Ansprechpartner für Eigentümer und Gewerke</li>
+              <li data-lang="de" data-display="list-item">Klare Rückmeldung über Fortschritt und Zustand</li>
 
-              <li data-lang="en" data-display="list-item">Support with renovations and trades</li>
-              <li data-lang="en" data-display="list-item">On-site supervision of works</li>
-              <li data-lang="en" data-display="list-item">Structured planning and coordination</li>
+              <li data-lang="en" data-display="list-item">On-site control and documentation of works</li>
+              <li data-lang="en" data-display="list-item">Contact point for owners and trades</li>
+              <li data-lang="en" data-display="list-item">Clear feedback on progress and condition</li>
 
-              <li data-lang="es" data-display="list-item">Apoyo en reformas y coordinación de gremios</li>
-              <li data-lang="es" data-display="list-item">Supervisión de trabajos en el lugar</li>
-              <li data-lang="es" data-display="list-item">Planificación y coordinación estructurada</li>
+              <li data-lang="es" data-display="list-item">Control y documentación de trabajos sobre el terreno</li>
+              <li data-lang="es" data-display="list-item">Persona de contacto para propietarios y gremios</li>
+              <li data-lang="es" data-display="list-item">Información clara sobre avance y estado</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="icon">4</div>
+            <h3 data-lang="de" data-display="block">Praktische Unterstützung</h3>
+            <h3 data-lang="en" data-display="block">Practical support</h3>
+            <h3 data-lang="es" data-display="block">Apoyo práctico</h3>
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">Kleinreparaturen und kleinere Montagearbeiten</li>
+              <li data-lang="de" data-display="list-item">Möbel, Garten und Objektpflege im kleinen Rahmen</li>
+              <li data-lang="de" data-display="list-item">Direkte Hilfe ohne unnötige Umwege</li>
+
+              <li data-lang="en" data-display="list-item">Small repairs and minor installation work</li>
+              <li data-lang="en" data-display="list-item">Furniture, garden and small-scale property care</li>
+              <li data-lang="en" data-display="list-item">Direct help without unnecessary delays</li>
+
+              <li data-lang="es" data-display="list-item">Pequeñas reparaciones y trabajos de montaje</li>
+              <li data-lang="es" data-display="list-item">Muebles, jardín y cuidado del inmueble a pequeña escala</li>
+              <li data-lang="es" data-display="list-item">Ayuda directa sin rodeos innecesarios</li>
             </ul>
           </div>
         </div>
@@ -487,7 +557,7 @@
           <p>En el cuidado de casas y apartamentos cuentan más la fiabilidad, la discreción y la organización que las grandes promesas.</p>
         </div>
 
-        <div class="trust-grid">
+        <div class="grid-4">
           <div class="card">
             <div class="icon">A</div>
             <p data-lang="de" data-display="block">Auf Baustellen groß geworden und gelernter Bau- und Möbelschreiner</p>
@@ -572,7 +642,29 @@
       </div>
     </section>
 
-    <section>
+    <section id="fotos">
+      <div class="container">
+        <div data-lang-block="de" class="section-head active">
+          <h2>Fotos & Einblicke</h2>
+          <p>Hier können später Bilder von Objekten, Kontrollgängen, Arbeiten oder Vorher-Nachher-Eindrücken eingefügt werden.</p>
+        </div>
+        <div data-lang-block="en" class="section-head">
+          <h2>Photos & impressions</h2>
+          <p>Later, this section can show photos of properties, inspections, practical work or before-and-after examples.</p>
+        </div>
+        <div data-lang-block="es" class="section-head">
+          <h2>Fotos e impresiones</h2>
+          <p>Más adelante, aquí se podrán mostrar fotos de inmuebles, inspecciones, trabajos prácticos o comparativas antes/después.</p>
+        </div>
+        <div class="photo-grid">
+          <div class="photo-placeholder"><span>Platzhalter für Objekt / Kontrolle</span></div>
+          <div class="photo-placeholder"><span>Platzhalter für Arbeit / Dokumentation</span></div>
+          <div class="photo-placeholder"><span>Platzhalter für Vorher / Nachher</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
       <div class="container contact-wrap">
         <div class="card">
           <div data-lang-block="de" class="section-head active">
@@ -610,13 +702,39 @@
         </div>
       </div>
     </section>
+
+    <section id="impressum" class="band">
+      <div class="container">
+        <div class="section-head">
+          <h2>Impressum & Datenschutz</h2>
+          <p>Diese Angaben solltest du jetzt noch mit deinen echten Daten ergänzen, bevor die Seite auf .com live geht.</p>
+        </div>
+
+        <div class="legal-box">
+          <h3>Impressum</h3>
+          <p><strong>Name:</strong> Marco Weiss</p>
+          <p><strong>Unternehmen:</strong> CasaFix Costa</p>
+          <p><strong>Adresse:</strong> [Straße, Hausnummer, Postleitzahl, Ort ergänzen]</p>
+          <p><strong>E-Mail:</strong> [E-Mail ergänzen]</p>
+          <p><strong>Telefon:</strong> +49 152 53692878</p>
+          <p><strong>Verantwortlich für den Inhalt:</strong> Marco Weiss</p>
+        </div>
+
+        <div class="legal-box">
+          <h3>Datenschutz</h3>
+          <p>Beim Besuch dieser Website werden technisch notwendige Daten durch den Hosting-Anbieter verarbeitet. Wenn Sie über WhatsApp Kontakt aufnehmen, werden die von Ihnen übermittelten Daten zur Bearbeitung Ihrer Anfrage verwendet.</p>
+          <p>Diese Website verwendet aktuell kein Kontaktformular und keine Analyse-Tools. Bei einer Kontaktaufnahme über WhatsApp gelten zusätzlich die Datenschutzbestimmungen von WhatsApp.</p>
+          <p>Verantwortlich für die Datenverarbeitung im Rahmen dieser Website ist Marco Weiss. Eine Kontaktaufnahme ist über die oben genannten Kontaktdaten möglich.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <div class="container footer-line">
-      <div data-lang-block="de" class="active">© CasaFix Costa – Hausbetreuung und praktische Hilfe im Raum Alicante / Costa Blanca</div>
-      <div data-lang-block="en">© CasaFix Costa – Property care and practical support in the Alicante / Costa Blanca area</div>
-      <div data-lang-block="es">© CasaFix Costa – Cuidado de propiedades y apoyo práctico en la zona de Alicante / Costa Blanca</div>
+      <div data-lang-block="de" class="active">© CasaFix Costa – Premium Property Care im Raum Alicante / Costa Blanca</div>
+      <div data-lang-block="en">© CasaFix Costa – Premium property care in the Alicante / Costa Blanca area</div>
+      <div data-lang-block="es">© CasaFix Costa – Servicio premium de cuidado de propiedades en la zona de Alicante / Costa Blanca</div>
     </div>
   </footer>
 
@@ -635,7 +753,7 @@
       document.querySelectorAll('[data-lang]').forEach(el => {
         const displayType = el.getAttribute('data-display') || 'block';
         if (el.getAttribute('data-lang') === lang) {
-          el.style.display = displayType === 'list-item' ? 'list-item' : displayType;
+          el.style.display = displayType;
         } else {
           el.style.display = 'none';
         }
