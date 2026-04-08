@@ -208,7 +208,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
 
     .button,
@@ -242,12 +242,26 @@
       transform: translateY(-1px);
     }
 
+    .cta-help {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.95rem;
+      margin: 10px 0 8px;
+    }
+
+    .risk-note {
+      color: rgba(255,255,255,0.88);
+      font-size: 0.95rem;
+      max-width: 60ch;
+      margin-top: 12px;
+    }
+
     .hero-points {
       display: flex;
       flex-wrap: wrap;
       gap: 18px;
       color: rgba(255,255,255,0.92);
       font-size: 0.95rem;
+      margin-top: 16px;
     }
 
     section { padding: 72px 0; }
@@ -343,13 +357,20 @@
       border-radius: 20px;
       box-shadow: 0 8px 24px rgba(0,0,0,0.08);
       width: 100%;
-      height: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
     }
 
     .contact-list {
       display: grid;
       gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .contact-box a.email-link {
+      color: var(--primary);
+      font-weight: 700;
+      word-break: break-word;
     }
 
     .legal-box {
@@ -432,12 +453,16 @@
           </p>
           <div class="launch-note">
             <strong>Start vor Ort: Dezember 2027</strong><br>
-            Bereits jetzt beantworte ich gerne Anfragen, plane Projekte und bereite laufende Betreuung im Voraus vor.
+            Bereits jetzt beantworte ich Anfragen und plane zukünftige Betreuung – viele Eigentümer sichern sich frühzeitig einen festen Ansprechpartner vor Ort.
           </div>
           <div class="cta-row">
             <a class="button" href="https://wa.me/4915253692878">Jetzt Anfrage per WhatsApp senden</a>
-            <a class="button-outline" href="#usp">Mehr erfahren</a>
+            <a class="button-outline" href="#kontakt">Kontakt aufnehmen</a>
           </div>
+          <p class="cta-help">Antwort meist innerhalb weniger Stunden. Erste Einschätzung kostenlos.</p>
+          <p class="risk-note">
+            Gerade leerstehende Immobilien sind besonders anfällig für Schäden, Einbruch oder unbemerkte Probleme – regelmäßige Kontrolle vor Ort reduziert dieses Risiko erheblich.
+          </p>
           <div class="hero-points">
             <span>✓ Hausüberwachung</span>
             <span>✓ Bauüberwachung</span>
@@ -453,12 +478,16 @@
           </p>
           <div class="launch-note">
             <strong>On-site start: December 2027</strong><br>
-            I am already happy to answer inquiries, plan projects and prepare ongoing property care in advance.
+            I already answer inquiries and plan future property care – many owners prefer to secure a reliable local contact early.
           </div>
           <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Request via WhatsApp</a>
-            <a class="button-outline" href="#usp">Learn more</a>
+            <a class="button" href="https://wa.me/4915253692878">Send WhatsApp inquiry now</a>
+            <a class="button-outline" href="#kontakt">Get in touch</a>
           </div>
+          <p class="cta-help">Reply usually within a few hours. Initial assessment free of charge.</p>
+          <p class="risk-note">
+            Vacant properties are especially vulnerable to damage, break-ins or unnoticed problems – regular local inspections reduce this risk significantly.
+          </p>
           <div class="hero-points">
             <span>✓ Property monitoring</span>
             <span>✓ Renovation supervision</span>
@@ -474,12 +503,16 @@
           </p>
           <div class="launch-note">
             <strong>Inicio en la zona: diciembre 2027</strong><br>
-            Ya respondo consultas, planifico proyectos y preparo servicios de supervisión con antelación.
+            Ya respondo consultas y planifico futuros servicios de supervisión; muchos propietarios prefieren asegurar cuanto antes una persona de confianza sobre el terreno.
           </div>
           <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Solicitar por WhatsApp</a>
-            <a class="button-outline" href="#usp">Más información</a>
+            <a class="button" href="https://wa.me/4915253692878">Enviar consulta por WhatsApp</a>
+            <a class="button-outline" href="#kontakt">Contactar</a>
           </div>
+          <p class="cta-help">Respuesta normalmente en pocas horas. Primera valoración gratuita.</p>
+          <p class="risk-note">
+            Las propiedades vacías son especialmente vulnerables a daños, robos o problemas no detectados; un control regular sobre el terreno reduce este riesgo de forma notable.
+          </p>
           <div class="hero-points">
             <span>✓ Supervisión del inmueble</span>
             <span>✓ Supervisión de reformas</span>
@@ -679,9 +712,9 @@
             <h3 data-lang="de" data-display="block">Anfrage senden</h3>
             <h3 data-lang="en" data-display="block">Send your request</h3>
             <h3 data-lang="es" data-display="block">Envíe su solicitud</h3>
-            <p data-lang="de" data-display="block">Schicken Sie Ihr Anliegen einfach per WhatsApp – gerne mit Foto oder kurzer Beschreibung.</p>
-            <p data-lang="en" data-display="block">Send your request via WhatsApp, ideally with a photo or short description.</p>
-            <p data-lang="es" data-display="block">Envíe su solicitud por WhatsApp, idealmente con una foto o una breve descripción.</p>
+            <p data-lang="de" data-display="block">Schicken Sie Ihr Anliegen einfach per WhatsApp oder E-Mail – gerne mit Foto oder kurzer Beschreibung.</p>
+            <p data-lang="en" data-display="block">Send your request via WhatsApp or email, ideally with a photo or short description.</p>
+            <p data-lang="es" data-display="block">Envíe su solicitud por WhatsApp o correo electrónico, idealmente con una foto o una breve descripción.</p>
           </div>
 
           <div class="card">
@@ -696,9 +729,9 @@
 
           <div class="card">
             <div class="icon">3</div>
-            <h3 data-lang="de" data-display="block">Termin oder Betreuung abstimmen</h3>
-            <h3 data-lang="en" data-display="block">Arrange a visit or support</h3>
-            <h3 data-lang="es" data-display="block">Coordinar visita o apoyo</h3>
+            <h3 data-lang="de" data-display="block">Planung abstimmen</h3>
+            <h3 data-lang="en" data-display="block">Agree on the plan</h3>
+            <h3 data-lang="es" data-display="block">Definir la planificación</h3>
             <p data-lang="de" data-display="block">Wir stimmen ab, was konkret gebraucht wird – Betreuung, Überwachung oder kleinere Arbeiten.</p>
             <p data-lang="en" data-display="block">We agree on what is needed – care visits, supervision or smaller jobs.</p>
             <p data-lang="es" data-display="block">Acordamos lo que se necesita: visitas, supervisión o pequeños trabajos.</p>
@@ -750,39 +783,42 @@
       <div class="container contact-wrap">
         <div class="card">
           <div data-lang-block="de" class="section-head active">
-            <h2>Über mich</h2>
-            <p>Ich bin auf Baustellen groß geworden, gelernter Bau- und Möbelschreiner und arbeite seit Jahren im praktischen Bereich rund ums Haus. Gleichzeitig bringe ich strukturierte Planung, Koordination und Verantwortungsbewusstsein mit – genau die Kombination, die Eigentümer vor Ort brauchen.</p>
+            <h2>Kontakt & Anfragen</h2>
+            <p>Am schnellsten erreichen Sie mich per WhatsApp. Alternativ gerne auch per E-Mail. Ich beantworte Anfragen bereits jetzt und plane zukünftige Betreuung individuell.</p>
           </div>
           <div data-lang-block="en" class="section-head">
-            <h2>About me</h2>
-            <p>I grew up around construction sites, trained as a carpenter and cabinet maker and have worked for years in practical property-related work. At the same time, I bring structured planning, coordination and a strong sense of responsibility – exactly the combination property owners need on site.</p>
+            <h2>Contact & inquiries</h2>
+            <p>The fastest way to reach me is via WhatsApp. Email is also welcome. I already answer inquiries now and plan future property care individually.</p>
           </div>
           <div data-lang-block="es" class="section-head">
-            <h2>Sobre mí</h2>
-            <p>He crecido en obras, me formé como carpintero de obra y de muebles y llevo años trabajando de forma práctica en todo lo relacionado con inmuebles. Al mismo tiempo, aporto planificación estructurada, coordinación y sentido de responsabilidad: justo la combinación que necesitan muchos propietarios sobre el terreno.</p>
+            <h2>Contacto y consultas</h2>
+            <p>La forma más rápida de contactarme es por WhatsApp. También puede escribir por correo electrónico. Ya respondo consultas y planifico futuros servicios de forma individual.</p>
           </div>
         </div>
 
-        <div class="card">
-          <h3 data-lang="de" data-display="block">Kontakt</h3>
-          <h3 data-lang="en" data-display="block">Contact</h3>
-          <h3 data-lang="es" data-display="block">Contacto</h3>
+        <div class="card contact-box">
+          <h3 data-lang="de" data-display="block">Direktkontakt</h3>
+          <h3 data-lang="en" data-display="block">Direct contact</h3>
+          <h3 data-lang="es" data-display="block">Contacto directo</h3>
 
           <div class="contact-list">
-            <div data-lang="de" data-display="block">✓ Anfragen und Projektplanung bereits jetzt möglich</div>
-            <div data-lang="de" data-display="block">✓ Start vor Ort ab Dezember 2027</div>
-            <div data-lang="de" data-display="block">✓ Für internationale und lokale Eigentümer</div>
+            <div data-lang="de" data-display="block">✓ Antwort meist innerhalb weniger Stunden</div>
+            <div data-lang="de" data-display="block">✓ Erste Einschätzung kostenlos</div>
+            <div data-lang="de" data-display="block">✓ Frühzeitige Projektplanung möglich</div>
 
-            <div data-lang="en" data-display="block">✓ Inquiries and project planning already possible</div>
-            <div data-lang="en" data-display="block">✓ On-site start from December 2027</div>
-            <div data-lang="en" data-display="block">✓ For international and local owners</div>
+            <div data-lang="en" data-display="block">✓ Reply usually within a few hours</div>
+            <div data-lang="en" data-display="block">✓ Initial assessment free of charge</div>
+            <div data-lang="en" data-display="block">✓ Early project planning possible</div>
 
-            <div data-lang="es" data-display="block">✓ Ya se aceptan consultas y planificación de proyectos</div>
-            <div data-lang="es" data-display="block">✓ Inicio en la zona a partir de diciembre de 2027</div>
-            <div data-lang="es" data-display="block">✓ Para propietarios internacionales y locales</div>
+            <div data-lang="es" data-display="block">✓ Respuesta normalmente en pocas horas</div>
+            <div data-lang="es" data-display="block">✓ Primera valoración gratuita</div>
+            <div data-lang="es" data-display="block">✓ Posibilidad de planificar con antelación</div>
           </div>
 
-          <a class="button" href="https://wa.me/4915253692878" style="margin-top: 18px;">Jetzt Anfrage per WhatsApp senden</a>
+          <a class="button" href="https://wa.me/4915253692878">Jetzt direkt per WhatsApp schreiben</a>
+
+          <p style="margin-top:18px; margin-bottom:6px;"><strong>E-Mail</strong></p>
+          <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
         </div>
       </div>
     </section>
@@ -799,14 +835,14 @@
           <p><strong>Name:</strong> Marco Weiss</p>
           <p><strong>Unternehmen:</strong> CasaFix Costa</p>
           <p><strong>Adresse:</strong> [Straße, Hausnummer, Postleitzahl, Ort ergänzen]</p>
-          <p><strong>E-Mail:</strong> [E-Mail ergänzen]</p>
+          <p><strong>E-Mail:</strong> Marco-weiss83@web.de</p>
           <p><strong>Telefon:</strong> +49 152 53692878</p>
           <p><strong>Verantwortlich für den Inhalt:</strong> Marco Weiss</p>
         </div>
 
         <div class="legal-box">
           <h3>Datenschutz</h3>
-          <p>Beim Besuch dieser Website werden technisch notwendige Daten durch den Hosting-Anbieter verarbeitet. Wenn Sie über WhatsApp Kontakt aufnehmen, werden die von Ihnen übermittelten Daten zur Bearbeitung Ihrer Anfrage verwendet.</p>
+          <p>Beim Besuch dieser Website werden technisch notwendige Daten durch den Hosting-Anbieter verarbeitet. Wenn Sie über WhatsApp oder per E-Mail Kontakt aufnehmen, werden die von Ihnen übermittelten Daten zur Bearbeitung Ihrer Anfrage verwendet.</p>
           <p>Diese Website verwendet aktuell kein Kontaktformular und keine Analyse-Tools. Bei einer Kontaktaufnahme über WhatsApp gelten zusätzlich die Datenschutzbestimmungen von WhatsApp.</p>
           <p>Verantwortlich für die Datenverarbeitung im Rahmen dieser Website ist Marco Weiss. Eine Kontaktaufnahme ist über die oben genannten Kontaktdaten möglich.</p>
         </div>
