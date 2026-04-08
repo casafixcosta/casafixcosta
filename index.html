@@ -1,847 +1,218 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CasaFix Costa</title>
-  <meta
-    name="description"
-    content="CasaFix Costa – Premium Property Care, Hausüberwachung, Bauüberwachung und kleinere Instandhaltung im Raum Alicante / Costa Blanca. Start vor Ort ab Dezember 2027, Anfragen vorab willkommen."
-  />
-  <style>
-    :root {
-      --bg: #f3efe8;
-      --white: #ffffff;
-      --text: #22313a;
-      --muted: #5e6b73;
-      --primary: #0f4c5c;
-      --accent: #d97b4d;
-      --line: rgba(15, 76, 92, 0.1);
-      --overlay: rgba(13, 31, 38, 0.52);
-      --shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
-      --radius: 22px;
-      --max: 1160px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CasaFix Costa</title>
 
-    * { box-sizing: border-box; }
+<style>
+body {margin:0;font-family:Arial;background:#f5f5f5;color:#333;}
 
-    html { scroll-behavior: smooth; }
+header {
+display:flex;justify-content:space-between;align-items:center;
+padding:15px 30px;background:white;position:fixed;width:100%;top:0;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.55;
-    }
+.logo {font-size:22px;font-weight:bold;}
+.logo span {color:#f97316;}
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+nav a {margin:0 10px;text-decoration:none;color:#333;}
 
-    .container {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
+.lang button {
+border:none;padding:8px 12px;margin-left:5px;border-radius:20px;
+cursor:pointer;color:white;font-weight:bold;
+}
+.lang .de {background:black;}
+.lang .en {background:#1e3a8a;}
+.lang .es {background:#dc2626;}
 
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
-    }
+.hero {
+height:90vh;
+background:
+linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+url('hero.jpg') center/cover;
+display:flex;align-items:center;justify-content:center;
+text-align:center;color:white;padding-top:60px;
+}
 
-    .topbar-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      flex-wrap: wrap;
-    }
+.hero h1 {font-size:50px;max-width:800px;}
+.hero p {font-size:18px;}
 
-    .brand {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: 0.02em;
-    }
+.btn {
+margin-top:20px;padding:15px 25px;border-radius:30px;
+background:#f97316;color:white;text-decoration:none;
+display:inline-block;
+}
 
-    .brand span {
-      color: var(--accent);
-    }
+.section {padding:80px 20px;max-width:1100px;margin:auto;}
 
-    .nav {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
+.cards {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
-    .nav a:hover {
-      color: var(--primary);
-    }
+.card {
+background:white;padding:20px;border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
 
-    .lang-switch {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
+.gallery {
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:15px;
+}
 
-    .lang-switch button {
-      border: none;
-      border-radius: 999px;
-      padding: 9px 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    }
+.gallery img {
+width:100%;
+border-radius:15px;
+}
 
-    .lang-de {
-      background: linear-gradient(180deg, #000000 0%, #000000 33%, #dd0000 33%, #dd0000 66%, #ffce00 66%, #ffce00 100%);
-      color: #ffffff;
-    }
+footer {
+text-align:center;padding:40px;background:#111;color:white;
+}
 
-    .lang-en {
-      background: linear-gradient(135deg, #012169 0%, #ffffff 50%, #c8102e 100%);
-      color: #111111;
-    }
-
-    .lang-es {
-      background: linear-gradient(180deg, #aa151b 0%, #aa151b 30%, #f1bf00 30%, #f1bf00 70%, #aa151b 70%, #aa151b 100%);
-      color: #111111;
-    }
-
-    .lang-switch button.active {
-      transform: scale(1.06);
-      outline: 2px solid rgba(15, 76, 92, 0.22);
-    }
-
-    .hero {
-      position: relative;
-      min-height: 88vh;
-      display: flex;
-      align-items: center;
-      color: var(--white);
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--overlay), var(--overlay)),
-        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      animation: heroZoom 18s ease-in-out infinite alternate;
-      transform-origin: center;
-    }
-
-    @keyframes heroZoom {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.08); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: min(860px, 100%);
-      padding: 80px 0;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.2);
-      color: #fff;
-      padding: 9px 14px;
-      border-radius: 999px;
-      font-size: 0.92rem;
-      margin-bottom: 18px;
-      font-weight: 700;
-    }
-
-    h1 {
-      font-size: clamp(2.35rem, 5vw, 4.6rem);
-      line-height: 1.04;
-      margin: 0 0 14px;
-      letter-spacing: -0.03em;
-    }
-
-    .lead {
-      font-size: 1.14rem;
-      max-width: 64ch;
-      color: rgba(255,255,255,0.92);
-      margin: 0 0 18px;
-    }
-
-    .launch-note {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.2);
-      padding: 14px 16px;
-      border-radius: 16px;
-      margin: 8px 0 24px;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.96);
-    }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 18px;
-    }
-
-    .button,
-    .button-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: 0.2s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .button {
-      background: var(--accent);
-      color: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .button-outline {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.6);
-    }
-
-    .button:hover,
-    .button-outline:hover {
-      transform: translateY(-1px);
-    }
-
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      color: rgba(255,255,255,0.92);
-      font-size: 0.95rem;
-    }
-
-    section {
-      padding: 72px 0;
-    }
-
-    .section-head {
-      max-width: 780px;
-      margin-bottom: 24px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
-      margin: 0 0 10px;
-      color: var(--primary);
-      letter-spacing: -0.02em;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .grid-4,
-    .grid-3,
-    .steps,
-    .contact-wrap,
-    .photo-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .steps { grid-template-columns: repeat(4, 1fr); }
-    .contact-wrap { grid-template-columns: 1.1fr 0.9fr; }
-    .photo-grid { grid-template-columns: repeat(3, 1fr); }
-
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid var(--line);
-      box-shadow: 0 8px 26px rgba(0,0,0,0.06);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: var(--primary);
-      font-size: 1.15rem;
-    }
-
-    .card p,
-    .card li,
-    .contact-list div,
-    .usp-text {
-      color: var(--muted);
-    }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(15,76,92,0.08);
-      color: var(--primary);
-      font-size: 1.25rem;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    ul.clean {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    ul.clean li::before {
-      content: '✓ ';
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .band {
-      background: #ece7df;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .contact-list {
-      display: grid;
-      gap: 12px;
-    }
-
-    .photo-placeholder {
-      min-height: 220px;
-      background: linear-gradient(135deg, rgba(15,76,92,0.08), rgba(217,123,77,0.12));
-      border: 1px dashed rgba(15,76,92,0.22);
-      border-radius: var(--radius);
-      padding: 22px;
-      display: flex;
-      align-items: end;
-      color: var(--muted);
-      font-weight: 700;
-    }
-
-    .legal-box {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid var(--line);
-      box-shadow: 0 8px 26px rgba(0,0,0,0.04);
-      margin-bottom: 18px;
-    }
-
-    .legal-box h3 {
-      margin-top: 0;
-      color: var(--primary);
-    }
-
-    footer {
-      padding: 28px 0 48px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .footer-line {
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-    }
-
-    [data-lang-block] { display: none; }
-    [data-lang-block].active { display: block; }
-    [data-lang] { display: none; }
-
-    @media (max-width: 980px) {
-      .grid-4, .grid-3, .photo-grid { grid-template-columns: 1fr 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; }
-      .contact-wrap { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 680px) {
-      .topbar-inner { flex-direction: column; align-items: flex-start; }
-      .hero { min-height: auto; }
-      .hero-content { padding: 58px 0; }
-      .grid-4, .grid-3, .steps, .photo-grid { grid-template-columns: 1fr; }
-      .cta-row { flex-direction: column; }
-      .button, .button-outline { width: 100%; }
-      section { padding: 56px 0; }
-      .nav { gap: 10px; }
-    }
-  </style>
+</style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">Casa<span>Fix</span> Costa</div>
 
-      <nav class="nav">
-        <a href="#leistungen">Leistungen</a>
-        <a href="#usp">USP</a>
-        <a href="#ablauf">Ablauf</a>
-        <a href="#fotos">Fotos</a>
-        <a href="#kontakt">Kontakt</a>
-        <a href="#impressum">Impressum</a>
-      </nav>
+<header>
+<div class="logo">Casa<span>Fix</span> Costa</div>
 
-      <div class="lang-switch">
-        <button class="lang-de active" data-lang-btn="de" onclick="setLang('de')">DE</button>
-        <button class="lang-en" data-lang-btn="en" onclick="setLang('en')">EN</button>
-        <button class="lang-es" data-lang-btn="es" onclick="setLang('es')">ES</button>
-      </div>
-    </div>
-  </header>
+<nav>
+<a href="#leistungen">Leistungen</a>
+<a href="#usp">USP</a>
+<a href="#ablauf">Ablauf</a>
+<a href="#fotos">Fotos</a>
+<a href="#kontakt">Kontakt</a>
+<a href="#impressum">Impressum</a>
+</nav>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-content">
-        <div data-lang-block="de" class="active">
-          <div class="eyebrow">Deutsch · Englisch · Spanisch</div>
-          <h1>Ihr Auge vor Ort im Raum Alicante</h1>
-          <p class="lead">
-            Premium Property Care für Eigentümer, die ihre Immobilie an der Costa Blanca zuverlässig überwacht, betreut und vor Ort vertreten wissen wollen. Ich kontrolliere, koordiniere, dokumentiere und übernehme zusätzlich kleinere praktische Arbeiten selbst.
-          </p>
-          <div class="launch-note">
-            <strong>Start vor Ort: Dezember 2027</strong><br>
-            Bereits jetzt beantworte ich gerne Anfragen, plane Projekte und bereite laufende Betreuung im Voraus vor.
-          </div>
-          <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Jetzt Anfrage per WhatsApp senden</a>
-            <a class="button-outline" href="#usp">Mehr erfahren</a>
-          </div>
-          <div class="hero-points">
-            <span>✓ Hausüberwachung</span>
-            <span>✓ Bauüberwachung</span>
-            <span>✓ Kleine Arbeiten inklusive</span>
-          </div>
-        </div>
+<div class="lang">
+<button class="de">DE</button>
+<button class="en">EN</button>
+<button class="es">ES</button>
+</div>
+</header>
 
-        <div data-lang-block="en">
-          <div class="eyebrow">German · English · Spanish</div>
-          <h1>Your eyes on site in the Alicante area</h1>
-          <p class="lead">
-            Premium property care for owners who want their property on the Costa Blanca to be reliably monitored, cared for and represented locally. I inspect, coordinate, document and also handle smaller practical tasks myself.
-          </p>
-          <div class="launch-note">
-            <strong>On-site start: December 2027</strong><br>
-            I am already happy to answer inquiries, plan projects and prepare ongoing property care in advance.
-          </div>
-          <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Request via WhatsApp</a>
-            <a class="button-outline" href="#usp">Learn more</a>
-          </div>
-          <div class="hero-points">
-            <span>✓ Property monitoring</span>
-            <span>✓ Renovation supervision</span>
-            <span>✓ Small jobs included</span>
-          </div>
-        </div>
+<section class="hero">
+<div>
+<h1>Ihr Ansprechpartner für Hausbetreuung & kleine Arbeiten an der Costa Blanca</h1>
+<p>Start: Dezember 2027 – Anfragen ab sofort möglich</p>
+<a class="btn" href="https://wa.me/4915253692878">Jetzt per WhatsApp anfragen</a>
+</div>
+</section>
 
-        <div data-lang-block="es">
-          <div class="eyebrow">Alemán · Inglés · Español</div>
-          <h1>Sus ojos sobre el terreno en la zona de Alicante</h1>
-          <p class="lead">
-            Servicio premium de cuidado de propiedades para propietarios que quieren su inmueble en la Costa Blanca controlado, cuidado y representado localmente. Inspecciono, coordino, documento y también realizo pequeños trabajos prácticos personalmente.
-          </p>
-          <div class="launch-note">
-            <strong>Inicio en la zona: diciembre 2027</strong><br>
-            Ya respondo consultas, planifico proyectos y preparo servicios de supervisión con antelación.
-          </div>
-          <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Solicitar por WhatsApp</a>
-            <a class="button-outline" href="#usp">Más información</a>
-          </div>
-          <div class="hero-points">
-            <span>✓ Supervisión del inmueble</span>
-            <span>✓ Supervisión de obras</span>
-            <span>✓ Pequeños trabajos incluidos</span>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="leistungen" class="section">
+<h2>Kernleistungen</h2>
+<div class="cards">
 
-    <section id="usp">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Alleinstellungsmerkmal</h2>
-          <p class="usp-text">
-            Ich bin nicht einfach nur ein Handwerker und nicht einfach nur eine Hausverwaltung. Ich bin der persönliche deutschsprachige Ansprechpartner vor Ort, der als Vertrauensperson für den Eigentümer regelmäßig präsent ist, Risiken früh erkennt und den Wert der Immobilie durch Kontrolle, Dokumentation und pragmatische Lösungen schützt.
-          </p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Unique value proposition</h2>
-          <p class="usp-text">
-            I am not just a handyman and not just property administration. I am the personal German-speaking local contact who acts as a trusted representative for the owner, is regularly present on site, identifies risks early and protects the value of the property through inspection, documentation and practical solutions.
-          </p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Propuesta de valor</h2>
-          <p class="usp-text">
-            No soy solo un manitas ni solo una administración de fincas. Soy la persona de contacto local de confianza para el propietario, con presencia regular sobre el terreno, detección temprana de riesgos y protección del valor del inmueble mediante control, documentación y soluciones prácticas.
-          </p>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<h3>Gebäudeüberwachung</h3>
+<p>Regelmäßige Kontrollen, Briefkasten, Sichtprüfung, Präsenz</p>
+</div>
 
-    <section id="leistungen">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Kernleistungen</h2>
-          <p>Die Hauptleistung ist Betreuung und Überwachung. Kleinere Arbeiten & Instandhaltung ergänzen den Service.</p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Core services</h2>
-          <p>The main service is care and supervision. Smaller jobs and upkeep are an addition, not the main focus.</p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Servicios principales</h2>
-          <p>El servicio principal es el cuidado y la supervisión. Los pequeños trabajos y el mantenimiento son un complemento, no el enfoque principal.</p>
-        </div>
+<div class="card">
+<h3>Unwetter-Check</h3>
+<p>Sofortige Kontrolle nach Sturm oder Starkregen</p>
+</div>
 
-        <div class="grid-4">
-          <div class="card">
-            <div class="icon">1</div>
-            <h3 data-lang="de" data-display="block">Gebäudeüberwachung</h3>
-            <h3 data-lang="en" data-display="block">Property monitoring</h3>
-            <h3 data-lang="es" data-display="block">Supervisión del inmueble</h3>
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Regelmäßige Kontrollgänge</li>
-              <li data-lang="de" data-display="list-item">Briefkasten, Sichtkontrolle, Präsenz</li>
-              <li data-lang="de" data-display="list-item">Früherkennung von Risiken und Schäden</li>
+<div class="card">
+<h3>Bauüberwachung</h3>
+<p>Kontrolle & Dokumentation von Renovierungen vor Ort</p>
+</div>
 
-              <li data-lang="en" data-display="list-item">Regular inspection visits</li>
-              <li data-lang="en" data-display="list-item">Mailbox, visual checks and visible presence</li>
-              <li data-lang="en" data-display="list-item">Early detection of risks and damage</li>
+<div class="card">
+<h3>Kleinere Arbeiten</h3>
+<p>Möbel, Reparaturen, Garten & Objektpflege</p>
+</div>
 
-              <li data-lang="es" data-display="list-item">Visitas periódicas de control</li>
-              <li data-lang="es" data-display="list-item">Buzón, revisión visual y presencia</li>
-              <li data-lang="es" data-display="list-item">Detección temprana de riesgos y daños</li>
-            </ul>
-          </div>
+</div>
+</section>
 
-          <div class="card">
-            <div class="icon">2</div>
-            <h3 data-lang="de" data-display="block">Unwetter-Check</h3>
-            <h3 data-lang="en" data-display="block">Storm damage check</h3>
-            <h3 data-lang="es" data-display="block">Control tras temporales</h3>
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Schnelle Begehung nach Starkregen oder Sturm</li>
-              <li data-lang="de" data-display="list-item">Schadensaufnahme und Rückmeldung</li>
-              <li data-lang="de" data-display="list-item">Dokumentation für Eigentümer</li>
+<section id="usp" class="section">
+<h2>Warum Eigentümer mir vertrauen</h2>
+<div class="cards">
 
-              <li data-lang="en" data-display="list-item">Quick visit after heavy rain or storms</li>
-              <li data-lang="en" data-display="list-item">Damage inspection and feedback</li>
-              <li data-lang="en" data-display="list-item">Documentation for the owner</li>
+<div class="card">
+<p>Auf Baustellen groß geworden, Bau- und Möbelschreiner</p>
+</div>
 
-              <li data-lang="es" data-display="list-item">Visita rápida tras lluvias fuertes o tormentas</li>
-              <li data-lang="es" data-display="list-item">Revisión de daños y respuesta</li>
-              <li data-lang="es" data-display="list-item">Documentación para el propietario</li>
-            </ul>
-          </div>
+<div class="card">
+<p>8 Jahre diplomatischer Dienst – Zuverlässigkeit & Diskretion</p>
+</div>
 
-          <div class="card">
-            <div class="icon">3</div>
-            <h3 data-lang="de" data-display="block">Bauüberwachung</h3>
-            <h3 data-lang="en" data-display="block">Renovation supervision</h3>
-            <h3 data-lang="es" data-display="block">Supervisión de reformas</h3>
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Kontrolle und Dokumentation von Arbeiten vor Ort</li>
-              <li data-lang="de" data-display="list-item">Ansprechpartner für Eigentümer und Gewerke</li>
-              <li data-lang="de" data-display="list-item">Klare Rückmeldung über Fortschritt und Zustand</li>
+<div class="card">
+<p>Geprüfter Logistikmeister (IHK) – starke Planung & Organisation</p>
+</div>
 
-              <li data-lang="en" data-display="list-item">On-site control and documentation of works</li>
-              <li data-lang="en" data-display="list-item">Contact point for owners and trades</li>
-              <li data-lang="en" data-display="list-item">Clear feedback on progress and condition</li>
+<div class="card">
+<p>Persönliche Betreuung statt anonymer Abwicklung</p>
+</div>
 
-              <li data-lang="es" data-display="list-item">Control y documentación de trabajos sobre el terreno</li>
-              <li data-lang="es" data-display="list-item">Persona de contacto para propietarios y gremios</li>
-              <li data-lang="es" data-display="list-item">Información clara sobre avance y estado</li>
-            </ul>
-          </div>
+</div>
+</section>
 
-          <div class="card">
-            <div class="icon">4</div>
-            <h3 data-lang="de" data-display="block">Kleinere Arbeiten & Instandhaltung</h3>
-            <h3 data-lang="en" data-display="block">Small jobs & upkeep</h3>
-            <h3 data-lang="es" data-display="block">Pequeños trabajos y mantenimiento</h3>
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Kleinreparaturen und kleinere Montagearbeiten</li>
-              <li data-lang="de" data-display="list-item">Möbel, Garten und Objektpflege im kleinen Rahmen</li>
-              <li data-lang="de" data-display="list-item">Direkte Hilfe ohne unnötige Umwege</li>
+<section id="ablauf" class="section">
+<h2>So funktioniert es</h2>
 
-              <li data-lang="en" data-display="list-item">Small repairs and minor installation work</li>
-              <li data-lang="en" data-display="list-item">Furniture, garden and small-scale property care</li>
-              <li data-lang="en" data-display="list-item">Direct help without unnecessary delays</li>
+<div class="cards">
 
-              <li data-lang="es" data-display="list-item">Pequeñas reparaciones y trabajos de montaje</li>
-              <li data-lang="es" data-display="list-item">Muebles, jardín y cuidado del inmueble a pequeña escala</li>
-              <li data-lang="es" data-display="list-item">Ayuda directa sin rodeos innecesarios</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+<div class="card">
+<h3>1 Anfrage</h3>
+<p>Per WhatsApp Kontakt aufnehmen</p>
+</div>
 
-    <section class="band">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Warum Eigentümer mir vertrauen können</h2>
-          <p>Gerade bei Haus- und Wohnungsbetreuung zählen nicht große Worte, sondern Verlässlichkeit, Diskretion und Organisation.</p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Why property owners can trust me</h2>
-          <p>When it comes to looking after homes and apartments, reliability, discretion and organisation matter more than big promises.</p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Por qué los propietarios pueden confiar en mí</h2>
-          <p>En el cuidado de casas y apartamentos cuentan más la fiabilidad, la discreción y la organización que las grandes promesas.</p>
-        </div>
+<div class="card">
+<h3>2 Rückmeldung</h3>
+<p>Schnelle Einschätzung</p>
+</div>
 
-        <div class="grid-4">
-          <div class="card">
-            <div class="icon">A</div>
-            <p data-lang="de" data-display="block">Auf Baustellen groß geworden und gelernter Bau- und Möbelschreiner</p>
-            <p data-lang="en" data-display="block">Grew up around construction sites and trained as a carpenter and cabinet maker</p>
-            <p data-lang="es" data-display="block">Crecí en obras y me formé como carpintero de obra y de muebles</p>
-          </div>
+<div class="card">
+<h3>3 Termin</h3>
+<p>Abstimmung vor Ort</p>
+</div>
 
-          <div class="card">
-            <div class="icon">B</div>
-            <p data-lang="de" data-display="block">8 Jahre diplomatischer Dienst – geprägt von Zuverlässigkeit und Diskretion</p>
-            <p data-lang="en" data-display="block">8 years in diplomatic service – shaped by reliability and discretion</p>
-            <p data-lang="es" data-display="block">8 años en servicio diplomático – marcados por fiabilidad y discreción</p>
-          </div>
+<div class="card">
+<h3>4 Lösung</h3>
+<p>Problem zuverlässig erledigt</p>
+</div>
 
-          <div class="card">
-            <div class="icon">C</div>
-            <p data-lang="de" data-display="block">Geprüfter Logistikmeister (IHK) mit ausgeprägten Planungs- und Koordinationsfähigkeiten</p>
-            <p data-lang="en" data-display="block">Trained logistics manager with strong planning and coordination skills (Bachelor Professional of Logistics, CCI)</p>
-            <p data-lang="es" data-display="block">Maestro logístico certificado con sólidas capacidades de planificación y coordinación</p>
-          </div>
+</div>
+</section>
 
-          <div class="card">
-            <div class="icon">D</div>
-            <p data-lang="de" data-display="block">Persönliche Verantwortung und direkte Betreuung statt anonymer Abwicklung</p>
-            <p data-lang="en" data-display="block">Personal responsibility and direct support instead of anonymous handling</p>
-            <p data-lang="es" data-display="block">Responsabilidad personal y atención directa en lugar de gestión anónima</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<section id="fotos" class="section">
+<h2>Fotos & Einblicke</h2>
 
-    <section id="ablauf">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>So funktioniert es</h2>
-          <p>Einfacher Kontakt, klare Rückmeldung, strukturierte Umsetzung.</p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>How it works</h2>
-          <p>Simple contact, clear feedback and structured support.</p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Cómo funciona</h2>
-          <p>Contacto sencillo, respuesta clara y ejecución organizada.</p>
-        </div>
+<div class="gallery">
+<img src="hero.jpg">
+<img src="work.jpg">
+<img src="pool.jpg">
+</div>
 
-        <div class="steps">
-          <div class="card">
-            <div class="icon">1</div>
-            <h3 data-lang="de" data-display="block">Anfrage senden</h3>
-            <h3 data-lang="en" data-display="block">Send your request</h3>
-            <h3 data-lang="es" data-display="block">Envíe su solicitud</h3>
+</section>
 
-            <p data-lang="de" data-display="block">Schicken Sie Ihr Anliegen einfach per WhatsApp – gerne mit Foto oder kurzer Beschreibung.</p>
-            <p data-lang="en" data-display="block">Send your request via WhatsApp, ideally with a photo or short description.</p>
-            <p data-lang="es" data-display="block">Envíe su solicitud por WhatsApp, idealmente con una foto o una breve descripción.</p>
-          </div>
+<section id="kontakt" class="section">
+<h2>Kontakt</h2>
+<p>Schreiben Sie mir direkt per WhatsApp:</p>
+<a class="btn" href="https://wa.me/4915253692878">WhatsApp starten</a>
+</section>
 
-          <div class="card">
-            <div class="icon">2</div>
-            <h3 data-lang="de" data-display="block">Rückmeldung erhalten</h3>
-            <h3 data-lang="en" data-display="block">Get a response</h3>
-            <h3 data-lang="es" data-display="block">Reciba respuesta</h3>
+<section id="impressum" class="section">
+<h2>Impressum</h2>
+<p>
+CasaFix Costa<br>
+Name: [DEIN NAME]<br>
+Adresse: folgt<br>
+E-Mail: folgt<br>
+</p>
+</section>
 
-            <p data-lang="de" data-display="block">Sie erhalten eine Einschätzung, Rückmeldung und wenn sinnvoll bereits eine erste Planung.</p>
-            <p data-lang="en" data-display="block">You receive an assessment, feedback and, if useful, an initial plan.</p>
-            <p data-lang="es" data-display="block">Recibirá una valoración, respuesta y, si procede, una primera planificación.</p>
-          </div>
+<footer>
+© CasaFix Costa
+</footer>
 
-          <div class="card">
-            <div class="icon">3</div>
-            <h3 data-lang="de" data-display="block">Termin oder Betreuung abstimmen</h3>
-            <h3 data-lang="en" data-display="block">Arrange a visit or support</h3>
-            <h3 data-lang="es" data-display="block">Coordinar visita o apoyo</h3>
-
-            <p data-lang="de" data-display="block">Wir stimmen ab, was konkret gebraucht wird – Betreuung, Überwachung oder kleinere Arbeiten.</p>
-            <p data-lang="en" data-display="block">We agree on what is needed – care visits, supervision or smaller jobs.</p>
-            <p data-lang="es" data-display="block">Acordamos lo que se necesita: visitas, supervisión o pequeños trabajos.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">4</div>
-            <h3 data-lang="de" data-display="block">Zuverlässige Umsetzung</h3>
-            <h3 data-lang="en" data-display="block">Reliable execution</h3>
-            <h3 data-lang="es" data-display="block">Ejecución fiable</h3>
-
-            <p data-lang="de" data-display="block">Klare Kommunikation, verlässliche Durchführung und ein Ansprechpartner, der mitdenkt.</p>
-            <p data-lang="en" data-display="block">Clear communication, reliable execution and one local contact who thinks ahead.</p>
-            <p data-lang="es" data-display="block">Comunicación clara, ejecución fiable y una persona de contacto que piensa con antelación.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="fotos">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Fotos & Einblicke</h2>
-          <p>Hier können später Bilder von Objekten, Kontrollgängen, Arbeiten oder Vorher-Nachher-Eindrücken eingefügt werden.</p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Photos & impressions</h2>
-          <p>Later, this section can show photos of properties, inspections, practical work or before-and-after examples.</p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Fotos e impresiones</h2>
-          <p>Más adelante, aquí se podrán mostrar fotos de inmuebles, inspecciones, trabajos prácticos o comparativas antes/después.</p>
-        </div>
-
-        <div class="photo-grid">
-          <div class="photo-placeholder"><span>Platzhalter für Objekt / Kontrolle</span></div>
-          <div class="photo-placeholder"><span>Platzhalter für Arbeit / Dokumentation</span></div>
-          <div class="photo-placeholder"><span>Platzhalter für Vorher / Nachher</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="container contact-wrap">
-        <div class="card">
-          <div data-lang-block="de" class="section-head active">
-            <h2>Über mich</h2>
-            <p>Ich bin auf Baustellen groß geworden, gelernter Bau- und Möbelschreiner und arbeite seit Jahren im praktischen Bereich rund ums Haus. Gleichzeitig bringe ich strukturierte Planung, Koordination und Verantwortungsbewusstsein mit – genau die Kombination, die Eigentümer vor Ort brauchen.</p>
-          </div>
-          <div data-lang-block="en" class="section-head">
-            <h2>About me</h2>
-            <p>I grew up around construction sites, trained as a carpenter and cabinet maker and have worked for years in practical property-related work. At the same time, I bring structured planning, coordination and a strong sense of responsibility – exactly the combination property owners need on site.</p>
-          </div>
-          <div data-lang-block="es" class="section-head">
-            <h2>Sobre mí</h2>
-            <p>He crecido en obras, me formé como carpintero de obra y de muebles y llevo años trabajando de forma práctica en todo lo relacionado con inmuebles. Al mismo tiempo, aporto planificación estructurada, coordinación y sentido de responsabilidad: justo la combinación que necesitan muchos propietarios sobre el terreno.</p>
-          </div>
-        </div>
-
-        <div class="card">
-          <h3 data-lang="de" data-display="block">Kontakt</h3>
-          <h3 data-lang="en" data-display="block">Contact</h3>
-          <h3 data-lang="es" data-display="block">Contacto</h3>
-
-          <div class="contact-list">
-            <div data-lang="de" data-display="block">✓ Anfragen und Projektplanung bereits jetzt möglich</div>
-            <div data-lang="de" data-display="block">✓ Start vor Ort ab Dezember 2027</div>
-            <div data-lang="de" data-display="block">✓ Für Eigentümer, Auswanderer und Einheimische</div>
-
-            <div data-lang="en" data-display="block">✓ Inquiries and project planning already possible</div>
-            <div data-lang="en" data-display="block">✓ On-site start from December 2027</div>
-            <div data-lang="en" data-display="block">✓ For homeowners, expats and local residents</div>
-
-            <div data-lang="es" data-display="block">✓ Ya se aceptan consultas y planificación de proyectos</div>
-            <div data-lang="es" data-display="block">✓ Inicio en la zona a partir de diciembre de 2027</div>
-            <div data-lang="es" data-display="block">✓ Para propietarios, residentes extranjeros y vecinos</div>
-          </div>
-
-          <a class="button" href="https://wa.me/4915253692878" style="margin-top: 18px;">Jetzt Anfrage per WhatsApp senden</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="impressum" class="band">
-      <div class="container">
-        <div class="section-head">
-          <h2>Impressum & Datenschutz</h2>
-          <p>Vollständige Kontaktdaten und rechtliche Angaben werden vor dem offiziellen Start ergänzt.</p>
-        </div>
-
-        <div class="legal-box">
-          <h3>Impressum</h3>
-          <p><strong>Name:</strong> Marco Weiss</p>
-          <p><strong>Unternehmen:</strong> CasaFix Costa</p>
-          <p><strong>Adresse:</strong> [Straße, Hausnummer, Postleitzahl, Ort ergänzen]</p>
-          <p><strong>E-Mail:</strong> [E-Mail ergänzen]</p>
-          <p><strong>Telefon:</strong> +49 152 53692878</p>
-          <p><strong>Verantwortlich für den Inhalt:</strong> Marco Weiss</p>
-        </div>
-
-        <div class="legal-box">
-          <h3>Datenschutz</h3>
-          <p>Beim Besuch dieser Website werden technisch notwendige Daten durch den Hosting-Anbieter verarbeitet. Wenn Sie über WhatsApp Kontakt aufnehmen, werden die von Ihnen übermittelten Daten zur Bearbeitung Ihrer Anfrage verwendet.</p>
-          <p>Diese Website verwendet aktuell kein Kontaktformular und keine Analyse-Tools. Bei einer Kontaktaufnahme über WhatsApp gelten zusätzlich die Datenschutzbestimmungen von WhatsApp.</p>
-          <p>Verantwortlich für die Datenverarbeitung im Rahmen dieser Website ist Marco Weiss. Eine Kontaktaufnahme ist über die oben genannten Kontaktdaten möglich.</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-line">
-      <div data-lang-block="de" class="active">© CasaFix Costa – Premium Property Care im Raum Alicante / Costa Blanca</div>
-      <div data-lang-block="en">© CasaFix Costa – Premium property care in the Alicante / Costa Blanca area</div>
-      <div data-lang-block="es">© CasaFix Costa – Servicio premium de cuidado de propiedades en la zona de Alicante / Costa Blanca</div>
-    </div>
-  </footer>
-
-  <script>
-    function setLang(lang) {
-      document.documentElement.lang = lang;
-
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
-      });
-
-      document.querySelectorAll('[data-lang-block]').forEach(block => {
-        block.classList.toggle('active', block.getAttribute('data-lang-block') === lang);
-      });
-
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        const displayType = el.getAttribute('data-display') || 'block';
-        if (el.getAttribute('data-lang') === lang) {
-          el.style.display = displayType;
-        } else {
-          el.style.display = 'none';
-        }
-      });
-    }
-
-    window.onload = function () {
-      setLang('de');
-    };
-  </script>
 </body>
 </html>
