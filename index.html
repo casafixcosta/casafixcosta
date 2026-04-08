@@ -242,6 +242,32 @@
       transform: translateY(-1px);
     }
 
+    .whatsapp-btn {
+      background: #25D366;
+      color: #111111;
+      border: 2px solid #111111;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      gap: 10px;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1fb857;
+    }
+
+    .wa-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #111111;
+      color: #25D366;
+      font-size: 0.9rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
     .cta-help {
       color: rgba(255,255,255,0.9);
       font-size: 0.95rem;
@@ -456,7 +482,10 @@
             Bereits jetzt beantworte ich Anfragen und plane zukünftige Betreuung – viele Eigentümer sichern sich frühzeitig einen festen Ansprechpartner vor Ort.
           </div>
           <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Jetzt Anfrage per WhatsApp senden</a>
+            <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
+              <span class="wa-icon">✆</span>
+              Jetzt Anfrage per WhatsApp senden
+            </a>
             <a class="button-outline" href="#kontakt">Kontakt aufnehmen</a>
           </div>
           <p class="cta-help">Antwort meist innerhalb weniger Stunden. Erste Einschätzung kostenlos.</p>
@@ -481,7 +510,10 @@
             I already answer inquiries and plan future property care – many owners prefer to secure a reliable local contact early.
           </div>
           <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Send WhatsApp inquiry now</a>
+            <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
+              <span class="wa-icon">✆</span>
+              Send WhatsApp inquiry now
+            </a>
             <a class="button-outline" href="#kontakt">Get in touch</a>
           </div>
           <p class="cta-help">Reply usually within a few hours. Initial assessment free of charge.</p>
@@ -506,7 +538,10 @@
             Ya respondo consultas y planifico futuros servicios de supervisión; muchos propietarios prefieren asegurar cuanto antes una persona de confianza sobre el terreno.
           </div>
           <div class="cta-row">
-            <a class="button" href="https://wa.me/4915253692878">Enviar consulta por WhatsApp</a>
+            <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
+              <span class="wa-icon">✆</span>
+              Enviar consulta por WhatsApp
+            </a>
             <a class="button-outline" href="#kontakt">Contactar</a>
           </div>
           <p class="cta-help">Respuesta normalmente en pocas horas. Primera valoración gratuita.</p>
@@ -815,7 +850,20 @@
             <div data-lang="es" data-display="block">✓ Posibilidad de planificar con antelación</div>
           </div>
 
-          <a class="button" href="https://wa.me/4915253692878">Jetzt direkt per WhatsApp schreiben</a>
+          <a class="button whatsapp-btn" data-lang="de" data-display="inline-flex" href="https://wa.me/4915253692878">
+            <span class="wa-icon">✆</span>
+            Jetzt direkt per WhatsApp schreiben
+          </a>
+
+          <a class="button whatsapp-btn" data-lang="en" data-display="inline-flex" href="https://wa.me/4915253692878">
+            <span class="wa-icon">✆</span>
+            Write on WhatsApp now
+          </a>
+
+          <a class="button whatsapp-btn" data-lang="es" data-display="inline-flex" href="https://wa.me/4915253692878">
+            <span class="wa-icon">✆</span>
+            Escribir por WhatsApp ahora
+          </a>
 
           <p style="margin-top:18px; margin-bottom:6px;"><strong>E-Mail</strong></p>
           <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
