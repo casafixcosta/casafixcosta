@@ -3,110 +3,208 @@ const byId = (id) => document.getElementById(id);
 
 let currentLang = 'de';
 
-const BASE_PRICES = {
-  inspectionBase: 28,
-  inspectionLivingFactor: 0.18,
-  inspectionPlotFactor: 0.03,
+const i18n = {
+  de: {
+    lineInspection: 'Objektkontrolle',
+    linePool: 'Poolservice',
+    lineGarden: 'Gartenpflege',
+    lineArrival: 'Vorbereitung vor Ankunft',
+    noServices: 'Noch keine Leistungen gewählt'
+  },
+  en: {
+    lineInspection: 'Property check',
+    linePool: 'Pool service',
+    lineGarden: 'Garden care',
+    lineArrival: 'Pre-arrival preparation',
+    noServices: 'No services selected yet'
+  },
+  es: {
+    lineInspection: 'Control del inmueble',
+    linePool: 'Servicio de piscina',
+    lineGarden: 'Mantenimiento de jardín',
+    lineArrival: 'Preparación antes de la llegada',
+    noServices: 'Aún no hay servicios seleccionados'
+  }
+};
 
-  poolBase: 24,
-  poolFactor: 1.9,
-
-  gardenBase: 25,
-  gardenFactor: 0.11,
-
-  arrivalBase: 34,
-  arrivalFactor: 0.14
+const PRICE_RULES = {
+  inspection: {
+    base: 45,
+    livingFactor: 0.12,
+    plotFactor: 0.01,
+    min: 45
+  },
+  pool: {
+    base: 35,
+    sizeFactor: 1.6,
+    min: 55
+  },
+  garden: {
+    base: 35,
+    plotFactor: 0.07,
+    min: 55
+  },
+  arrival: {
+    base: 55,
+    livingFactor: 0.12,
+    min: 55
+  },
+  monthlyMinimum: 140,
+  weeklyMinimum: 180,
+  oneTimeMinimum: 55,
+  propertyFactorApartment: 1.0,
+  propertyFactorHouse: 1.12,
+  frequencyFactor: {
+    weekly: 0.9,
+    monthly: 1.0,
+    oneTime: 1.15
+  }
 };
 
 function euro(value) {
-  return new Intl.NumberFormat(currentLang === 'de' ? 'de-DE' : currentLang === 'es' ? 'es-ES' : 'en-GB', {
-    style: 'currency',
-    currency: 'EUR',
-    maximumFractionDigits: 0
-  }).format(value);
+  return new Intl.NumberFormat(
+    currentLang === 'de' ? 'de-DE' : currentLang === 'es' ? 'es-ES' : 'en-GB',
+    {
+      style: 'currency',
+      currency: 'EUR',
+      maximumFractionDigits: 0
+    }
+  ).format(value);
+}
+
+function safeRound(value) {
+  return Math.round(value);
+}
+
+function getPropertyFactor() {
+  return byId('propertyType').value === 'house'
+    ? PRICE_RULES.propertyFactorHouse
+    : PRICE_RULES.propertyFactorApartment;
+}
+
+function getFrequencyFactor() {
+  const frequency = byId('serviceFrequency').value;
+  return PRICE_RULES.frequencyFactor[frequency] || 1;
+}
+
+function getGlobalMinimum() {
+  const frequency = byId('serviceFrequency').value;
+  if (frequency === 'weekly') return PRICE_RULES.weeklyMinimum;
+  if (frequency === 'monthly') return PRICE_RULES.monthlyMinimum;
+  return PRICE_RULES.oneTimeMinimum;
 }
 
 function calculatePrices() {
-  const propertyType = byId('propertyType').value;
-  const frequency = byId('serviceFrequency').value;
-
+  const propertyFactor = getPropertyFactor();
+  const frequencyFactor = getFrequencyFactor();
   const livingSize = Math.max(0, Number(byId('livingSize').value) || 0);
   const plotSize = Math.max(0, Number(byId('plotSize').value) || 0);
   const poolSize = Math.max(0, Number(byId('poolSize').value) || 0);
-
-  const propertyFactor = propertyType === 'house' ? 1.12 : 1;
-  const frequencyFactor = frequency === 'weekly' ? 0.82 : frequency === 'monthly' ? 1 : 1.18;
-
   const lines = [];
 
   if (byId('checkInspection').checked) {
-    const price = Math.round(
-      (BASE_PRICES.inspectionBase +
-        livingSize * BASE_PRICES.inspectionLivingFactor +
-        plotSize * BASE_PRICES.inspectionPlotFactor) *
-      propertyFactor *
-      frequencyFactor
-    );
+    let inspection = (
+      PRICE_RULES.inspection.base +
+      livingSize * PRICE_RULES.inspection.livingFactor +
+      plotSize * PRICE_RULES.inspection.plotFactor
+    ) * propertyFactor * frequencyFactor;
 
-    lines.push({ label: "Objektkontrolle", value: price });
+    inspection = Math.max(inspection, PRICE_RULES.inspection.min);
+    inspection = safeRound(inspection);
+    lines.push({ label: i18n[currentLang].lineInspection, value: inspection });
   }
 
   if (byId('checkPool').checked && poolSize > 0) {
-    const price = Math.round(
-      (BASE_PRICES.poolBase + poolSize * BASE_PRICES.poolFactor) *
-      propertyFactor *
-      frequencyFactor
-    );
+    let pool = (
+      PRICE_RULES.pool.base +
+      poolSize * PRICE_RULES.pool.sizeFactor
+    ) * propertyFactor * frequencyFactor;
 
-    lines.push({ label: "Poolservice", value: price });
+    pool = Math.max(pool, PRICE_RULES.pool.min);
+    pool = safeRound(pool);
+    lines.push({ label: i18n[currentLang].linePool, value: pool });
   }
 
   if (byId('checkGarden').checked && plotSize > 0) {
-    const price = Math.round(
-      (BASE_PRICES.gardenBase + plotSize * BASE_PRICES.gardenFactor) *
-      propertyFactor *
-      frequencyFactor
-    );
+    let garden = (
+      PRICE_RULES.garden.base +
+      plotSize * PRICE_RULES.garden.plotFactor
+    ) * propertyFactor * frequencyFactor;
 
-    lines.push({ label: "Gartenpflege", value: price });
+    garden = Math.max(garden, PRICE_RULES.garden.min);
+    garden = safeRound(garden);
+    lines.push({ label: i18n[currentLang].lineGarden, value: garden });
   }
 
   if (byId('checkArrival').checked) {
-    const price = Math.round(
-      (BASE_PRICES.arrivalBase + livingSize * BASE_PRICES.arrivalFactor) *
-      propertyFactor *
-      1.06
-    );
+    let arrival = (
+      PRICE_RULES.arrival.base +
+      livingSize * PRICE_RULES.arrival.livingFactor
+    ) * propertyFactor * 1.06;
 
-    lines.push({ label: "Vorbereitung vor Ankunft", value: price });
+    arrival = Math.max(arrival, PRICE_RULES.arrival.min);
+    arrival = safeRound(arrival);
+    lines.push({ label: i18n[currentLang].lineArrival, value: arrival });
   }
 
   const subtotal = lines.reduce((sum, item) => sum + item.value, 0);
-  const total = subtotal;
+  const globalMinimum = getGlobalMinimum();
+  const total = Math.max(subtotal, globalMinimum);
 
-  return { lines, subtotal, total };
+  return { lines, subtotal, total, globalMinimum };
 }
 
 function renderSummary() {
-  const { lines, subtotal, total } = calculatePrices();
   const summary = byId('summaryList');
+  const subtotalField = byId('subtotalValue');
+  const totalField = byId('grandTotal');
+  if (!summary || !subtotalField || !totalField) return;
 
+  const { lines, subtotal, total } = calculatePrices();
   summary.innerHTML = '';
 
   if (!lines.length) {
-    summary.innerHTML = `<div style="color:#777;">Keine Leistungen gewählt</div>`;
+    const empty = document.createElement('div');
+    empty.className = 'summary-empty';
+    empty.textContent = i18n[currentLang].noServices;
+    summary.appendChild(empty);
+    subtotalField.textContent = euro(0);
+    totalField.textContent = euro(0);
     return;
   }
 
-  lines.forEach(item => {
+  lines.forEach((item) => {
     const row = document.createElement('div');
     row.className = 'summary-row';
     row.innerHTML = `<span>${item.label}</span><span>${euro(item.value)}</span>`;
     summary.appendChild(row);
   });
 
-  byId('subtotalValue').textContent = euro(subtotal);
-  byId('grandTotal').textContent = euro(total);
+  if (total > subtotal) {
+    const minimumRow = document.createElement('div');
+    minimumRow.className = 'summary-row';
+    minimumRow.innerHTML = `<span>Mindestpreis</span><span>${euro(total - subtotal)}</span>`;
+    summary.appendChild(minimumRow);
+  }
+
+  subtotalField.textContent = euro(subtotal);
+  totalField.textContent = euro(total);
+}
+
+function detectLanguage() {
+  const activeLang = document.querySelector('.lang-btn.active');
+  if (activeLang?.dataset?.lang) {
+    currentLang = activeLang.dataset.lang;
+  }
+}
+
+function bindLanguageButtons() {
+  $$('.lang-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      currentLang = btn.dataset.lang || 'de';
+      setTimeout(renderSummary, 0);
+    });
+  });
 }
 
 [
@@ -119,8 +217,14 @@ function renderSummary() {
   'checkPool',
   'checkGarden',
   'checkArrival'
-].forEach(id => {
-  byId(id).addEventListener('input', renderSummary);
+].forEach((id) => {
+  const el = byId(id);
+  if (el) {
+    el.addEventListener('input', renderSummary);
+    el.addEventListener('change', renderSummary);
+  }
 });
 
+detectLanguage();
+bindLanguageButtons();
 renderSummary();
