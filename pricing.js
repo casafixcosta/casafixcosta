@@ -11,7 +11,7 @@ const BASE_PRICES = {
   poolBase: 24,
   poolFactor: 1.9,
 
-  gardenBase: 22,
+  gardenBase: 25,
   gardenFactor: 0.11,
 
   arrivalBase: 34,
