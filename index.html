@@ -98,45 +98,59 @@
     }
 
     .lang-btn {
-      border: 2px solid #111;
-      padding: 9px 12px;
+      position: relative;
+      border: 1px solid var(--line);
+      padding: 9px 14px 9px 38px;
       border-radius: 999px;
       font-weight: 800;
       cursor: pointer;
       transition: 0.2s ease;
-      min-width: 58px;
-      color: #fff;
+      min-width: 74px;
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 6px 16px rgba(16, 35, 52, 0.06);
     }
 
-    .lang-btn[data-lang="de"] {
+    .lang-btn::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,0.08);
+      overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.15);
+    }
+
+    .lang-btn[data-lang="de"]::before {
       background: linear-gradient(to bottom, #000 0 33.33%, #dd0000 33.33% 66.66%, #ffce00 66.66% 100%);
-      color: #fff;
     }
 
-    .lang-btn[data-lang="en"] {
+    .lang-btn[data-lang="en"]::before {
       background:
         linear-gradient(90deg, transparent 41%, #fff 41% 59%, transparent 59%),
         linear-gradient(transparent 41%, #fff 41% 59%, transparent 59%),
         linear-gradient(90deg, transparent 46%, #cf142b 46% 54%, transparent 54%),
         linear-gradient(transparent 46%, #cf142b 46% 54%, transparent 54%),
         #012169;
-      color: #fff;
     }
 
-    .lang-btn[data-lang="es"] {
+    .lang-btn[data-lang="es"]::before {
       background: linear-gradient(to bottom, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75% 100%);
-      color: #111;
     }
 
     .lang-btn.active {
-      outline: 3px solid #fff;
-      box-shadow: 0 0 0 2px var(--text);
+      border-color: var(--text);
+      box-shadow: 0 0 0 2px rgba(21,50,74,0.16), 0 8px 18px rgba(16, 35, 52, 0.08);
       transform: translateY(-1px);
     }
 
     .lang-btn:hover {
       transform: translateY(-1px);
-      filter: saturate(1.05);
+      background: #fbfdff;
     }
 
     .hero {
@@ -890,18 +904,118 @@
 
     const i18n = {
       de: {
+        brand: 'Costa Care Alicante',
+        brandSub: 'Betreuung, Kontrolle und Werterhalt',
+        navServices: 'Leistungen',
+        navCalc: 'Preisrechner',
+        navPricing: 'Preislogik',
+        navWhy: 'Warum wir',
         navContact: 'Kontakt',
-        freqOneTime: 'Einmaliger Einsatz / Einzelauftrag',
-        freqMonthly: 'Regelmäßig: 1 Besuch pro Monat',
-        freqWeekly: 'Regelmäßig: 1 Besuch pro Woche',
-        detailsBtn: 'Details anzeigen',
+        eyebrow: 'Zuverlässige Immobilienbetreuung an der Costa Blanca',
+        heroTitle: 'Sinnvolle Betreuung statt schöner Versprechen.',
+        heroText: 'Regelmäßige Kontrollen, koordinierte Einsätze und nachvollziehbare Preislogik. Keine Fantasiepakete, sondern Leistungen, die zur Immobilie und zum Aufwand passen.',
+        heroBtnPrimary: 'Preis grob berechnen',
+        heroBtnSecondary: 'Leistungen ansehen',
+        stat1Value: '3-sprachig',
+        stat1Label: 'Deutsch, Englisch, Spanisch',
+        stat2Value: 'Dynamisch',
+        stat2Label: 'Preis nach Größe und Aufwand',
+        stat3Value: 'Transparent',
+        stat3Label: 'Gesamtpreis inkl. Einzelpositionen',
+        aboutTitle: 'Warum diese Betreuung anders ist',
+        aboutText: 'Nicht austauschbare Standardbetreuung, sondern ein ruhiger, verlässlicher Vor-Ort-Service für Eigentümer, die ihre Immobilie nicht dem Zufall überlassen wollen.',
+        aboutBox1Title: 'Handwerkliches Verständnis',
+        aboutBox1Text: 'Kleine Schäden, beginnende Mängel und technische Auffälligkeiten werden früh erkannt. Das reduziert Folgekosten und spart unnötige Fremdeinsätze.',
+        aboutBox2Title: 'Dokumentierte Rückmeldung',
+        aboutBox2Text: 'Eigentümer erhalten klare Rückmeldungen mit Fotos, Videos und einer verständlichen Einordnung. Nicht viele Worte, sondern belastbare Informationen.',
+        aboutBox3Title: 'Koordination vor Ort',
+        aboutBox3Text: 'Wenn externe Firmen nötig sind, erfolgt die Abstimmung direkt vor Ort – inklusive Nachkontrolle und transparenter Rückmeldung an den Eigentümer.',
+        riskTitle: 'Was ohne laufende Betreuung schnell passiert',
+        riskText: 'Viele Probleme beginnen klein. Teuer werden sie erst dann, wenn über Wochen oder Monate niemand hinsieht.',
+        riskBox1Title: 'Feuchtigkeit und Standschäden',
+        riskBox1Text: 'Geschlossene Immobilien entwickeln schneller Gerüche, Feuchtigkeit oder unbemerkte Wasserschäden. Je später reagiert wird, desto teurer wird es.',
+        riskBox2Title: 'Außenbereiche kippen zuerst',
+        riskBox2Text: 'Pool, Garten und Terrasse verlieren ohne Kontrolle schnell ihren gepflegten Zustand. Aus kleinen Mängeln werden sichtbar vernachlässigte Außenflächen.',
+        riskBox3Title: 'Niemand koordiniert im Ernstfall',
+        riskBox3Text: 'Wenn Eigentümer nicht vor Ort sind, fehlt oft ein verlässlicher Ansprechpartner. Genau dann entstehen Verzögerungen, Missverständnisse und unnötige Mehrkosten.',
+        trustTitle: 'So sieht eine professionelle Rückmeldung aus',
+        trustText: 'Keine diffuse Aussage wie „alles okay“. Eigentümer bekommen eine knappe, klare und nachvollziehbare Rückmeldung zum Objektzustand.',
+        trustBullet1: 'Kontrolltermin durchgeführt und Immobilie innen sowie außen geprüft',
+        trustBullet2: 'Fotos oder kurzes Video vom aktuellen Zustand',
+        trustBullet3: 'Hinweis auf Auffälligkeiten, Priorität und empfohlene nächste Schritte',
+        trustBullet4: 'Rückmeldung nach erledigter Koordination mit externen Dienstleistern',
+        entryPriceTitle: 'Orientierung für den Einstieg',
+        entryPriceText: 'Für Eigentümer, die eine ruhige und verlässliche Betreuung suchen, sollte der Einstiegspreis sichtbar sein. Das wirkt seriöser als ein Kontaktformular ohne Rahmen.',
+        entryPriceLabel1: 'Laufende Betreuung',
+        entryPriceValue1: 'ab 120 € / Monat',
+        entryPriceLabel2: 'Objektkontrolle vor Ort',
+        entryPriceValue2: 'ab 35 € / Einsatz',
+        entryPriceLabel3: 'Individuelle Zusatzleistungen',
+        entryPriceValue3: 'nach Größe und Aufwand',
+        servicesTitle: 'Unsere Leistungen',
+        servicesText: 'Die Bilder wurden so gewählt, dass sie zur tatsächlichen Leistung passen. Poolservice zeigt einen Pool, Gartenpflege zeigt Gartenflächen, nicht irgendein hübsches Zufallsbild.',
+        poolTitle: 'Poolservice',
+        poolText: 'Koordination oder Durchführung der regelmäßigen Poolpflege für klare Wasserqualität, saubere Beckenränder und einen gepflegten Gesamteindruck.',
+        poolDetail1: 'Sichtkontrolle des Wasserspiegels und der Wasserqualität',
+        poolDetail2: 'Prüfung von Skimmer, Pumpe und Filterlaufzeit',
+        poolDetail3: 'Entfernung grober Verschmutzungen an Oberfläche und Rand',
+        poolDetail4: 'Koordination externer Pooltechnik bei Störungen',
+        gardenTitle: 'Gartenpflege',
+        gardenText: 'Pflege von Rasen, Terrassen, Hecken und Außenflächen – abgestimmt auf Grundstücksgröße, Vegetation und tatsächlichen Pflegeaufwand.',
+        gardenDetail1: 'Rasen mähen und einfache Nachpflege',
+        gardenDetail2: 'Laub, trockene Pflanzenteile und leichte Verschmutzungen entfernen',
+        gardenDetail3: 'Terrassen und Zugänge besenrein halten',
+        gardenDetail4: 'Hinweis auf erhöhten Aufwand bei großem Grundstück oder starker Bepflanzung',
+        arrivalTitle: 'Vorbereitung vor Ankunft',
+        arrivalText: 'Die Immobilie wird vor Eintreffen vorbereitet, damit Gäste oder Eigentümer nicht in ein abgestandenes oder ungepflegtes Objekt kommen.',
+        arrivalDetail1: 'Lüften und kurze Sichtkontrolle der Räume',
+        arrivalDetail2: 'Besenreiner Grundzustand bei leichter Verschmutzung',
+        arrivalDetail3: 'Terrasse prüfen, grob säubern und Möbel stellen',
+        arrivalDetail4: 'Kleine vorbereitende Handgriffe für einen gepflegten ersten Eindruck',
+        calcTitle: 'Preisrechner',
+        calcText: 'Der Rechner fasst alle Positionen im Gesamtpreis zusammen. Er ist bewusst wirtschaftlich gedacht: Größe, Aufwand und Frequenz treiben den Preis, nicht nur hübsche Paketnamen.',
+        fieldPropertyType: 'Immobilienart',
+        fieldFrequency: 'Betreuungsrhythmus',
+        fieldLivingSize: 'Wohnfläche (m²)',
+        fieldPlotSize: 'Grundstück / Außenfläche (m²)',
+        fieldPoolSize: 'Poolgröße (m²)',
+        fieldServices: 'Leistungen wählen',
+        typeApartment: 'Apartment',
+        typeHouse: 'Haus / Villa',
+        freqOneTime: 'Einzeltermin / einmaliger Einsatz',
+        freqMonthly: 'Regelmäßige Betreuung: 1 Besuch pro Monat',
+        freqWeekly: 'Regelmäßige Betreuung: 1 Besuch pro Woche',
+        serviceInspection: 'Objektkontrolle',
+        serviceInspectionSub: 'Sichtprüfung innen/außen, Lüften, kurze Meldung',
+        servicePool: 'Poolservice',
+        servicePoolSub: 'Preis steigt mit Poolgröße und Frequenz',
+        serviceGarden: 'Gartenpflege',
+        serviceGardenSub: 'Preis steigt mit Außenfläche',
+        serviceArrival: 'Vorbereitung vor Ankunft',
+        serviceArrivalSub: 'Einrichtung, Lüften, besenreiner Startzustand',
+        summaryTitle: 'Preisübersicht',
+        summaryText: 'Hier werden alle gewählten Positionen einzeln aufgeführt und unten als Gesamtpreis zusammengefasst.',
+        subtotalLabel: 'Zwischensumme',
+        grandTotalLabel: 'Gesamtpreis',
+        pricingNote: 'Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten.',
         contactTitle: 'Direkt anfragen',
-        contactText: 'Nicht nur klicken und hoffen. Die Anfrage wird mit den wichtigsten Eckdaten aus dem Rechner vorbereitet.',
+        contactText: 'Die Anfrage wird mit den wichtigsten Eckdaten aus dem Rechner vorbereitet. Dadurch bekommst du keine halbleeren Anfragen.',
         contactNameLabel: 'Name',
         contactEmailLabel: 'E-Mail',
         contactPhoneLabel: 'Telefon / WhatsApp',
         contactLocationLabel: 'Ort der Immobilie',
         contactMessageLabel: 'Zusätzliche Nachricht',
+        logicTitle: 'Warum diese Preislogik sinnvoller ist',
+        logicText: 'Fixe Fantasiepakete sehen im Marketing nett aus, sind aber betriebswirtschaftlich oft schlecht. Diese Seite nutzt daher eine nachvollziehbare Mischlogik aus Grundpreis, Größenfaktor und Aufwandsfaktor.',
+        logicBox1Title: '1. Grundpreis',
+        logicBox1Text: 'Jede Leistung startet mit einem wirtschaftlich sinnvollen Basissatz. Damit werden Anfahrt, Organisation und Mindestaufwand nicht verschenkt.',
+        logicBox2Title: '2. Größe treibt Aufwand',
+        logicBox2Text: 'Mehr Wohnfläche, mehr Außenfläche oder ein größerer Pool bedeuten real mehr Zeit. Genau deshalb steigt der Preis nicht pauschal, sondern mit dem tatsächlichen Umfang.',
+        logicBox3Title: '3. Frequenz und Erschwernis',
+        logicBox3Text: 'Wöchentliche Betreuung, schwer zugängige Objekte oder höherer Koordinationsaufwand müssen im Preis sichtbar sein. Sonst ist das Modell irgendwann unprofitabel.',
+        footerText: 'Costa Care Alicante – strukturierte Betreuung für Ferienimmobilien, Zweitwohnsitze und Vermietungsobjekte.',
+        detailsBtnOpen: 'Details anzeigen',
+        detailsBtnClose: 'Details ausblenden',
         emailBtn: '📧 Anfrage per E-Mail',
         whatsappBtn: '💬 Anfrage per WhatsApp',
         summaryInspection: 'Objektkontrolle',
@@ -915,24 +1029,124 @@
         requestEstimated: 'Geschätzter Preis'
       },
       en: {
+        brand: 'Costa Care Alicante',
+        brandSub: 'Care, inspections and value preservation',
+        navServices: 'Services',
+        navCalc: 'Price calculator',
+        navPricing: 'Pricing logic',
+        navWhy: 'Why us',
         navContact: 'Contact',
-        freqOneTime: 'One-time service / single request',
-        freqMonthly: 'Regular: 1 visit per month',
-        freqWeekly: 'Regular: 1 visit per week',
-        detailsBtn: 'Show details',
+        eyebrow: 'Reliable property care on the Costa Blanca',
+        heroTitle: 'Useful care instead of pretty promises.',
+        heroText: 'Regular inspections, coordinated visits and transparent pricing logic. No fantasy packages, but services that fit the property and the real workload.',
+        heroBtnPrimary: 'Estimate price',
+        heroBtnSecondary: 'View services',
+        stat1Value: '3 languages',
+        stat1Label: 'German, English, Spanish',
+        stat2Value: 'Dynamic',
+        stat2Label: 'Price based on size and workload',
+        stat3Value: 'Transparent',
+        stat3Label: 'Total price with line items',
+        aboutTitle: 'Why this care service is different',
+        aboutText: 'Not generic property support, but a calm and reliable on-site service for owners who do not want to leave their property to chance.',
+        aboutBox1Title: 'Practical understanding',
+        aboutBox1Text: 'Small damage, emerging defects and technical issues are spotted early. That reduces follow-up costs and avoids unnecessary outside call-outs.',
+        aboutBox2Title: 'Documented feedback',
+        aboutBox2Text: 'Owners receive clear updates with photos, videos and a sensible assessment. Not lots of words, but useful information.',
+        aboutBox3Title: 'Local coordination',
+        aboutBox3Text: 'If outside companies are needed, coordination happens directly on site, including follow-up checks and transparent feedback to the owner.',
+        riskTitle: 'What happens quickly without ongoing care',
+        riskText: 'Many problems start small. They become expensive when nobody checks the property for weeks or months.',
+        riskBox1Title: 'Moisture and standing damage',
+        riskBox1Text: 'Closed properties develop odors, moisture or unnoticed water damage more quickly. The later the reaction, the higher the cost.',
+        riskBox2Title: 'Outdoor areas decline first',
+        riskBox2Text: 'Pool, garden and terrace lose their maintained look quickly without supervision. Small issues become visible neglect.',
+        riskBox3Title: 'Nobody coordinates in urgent cases',
+        riskBox3Text: 'When owners are not on site, there is often no reliable local contact. That creates delays, misunderstandings and avoidable extra costs.',
+        trustTitle: 'What professional reporting looks like',
+        trustText: 'No vague statement like “everything is fine.” Owners receive a short, clear and traceable update on the property condition.',
+        trustBullet1: 'Inspection completed and property checked inside and outside',
+        trustBullet2: 'Photos or a short video of the current condition',
+        trustBullet3: 'Notes on issues, urgency and recommended next steps',
+        trustBullet4: 'Update after coordination with external service providers',
+        entryPriceTitle: 'Visible entry-level guidance',
+        entryPriceText: 'Owners looking for calm and reliable care should immediately see an entry price. That appears more credible than a contact form without context.',
+        entryPriceLabel1: 'Ongoing care',
+        entryPriceValue1: 'from €120 / month',
+        entryPriceLabel2: 'On-site inspection',
+        entryPriceValue2: 'from €35 / visit',
+        entryPriceLabel3: 'Additional services',
+        entryPriceValue3: 'based on size and workload',
+        servicesTitle: 'Our services',
+        servicesText: 'The images are chosen to match the real service. Pool service shows a pool, garden care shows outdoor areas, not random decorative stock photos.',
+        poolTitle: 'Pool service',
+        poolText: 'Coordination or execution of regular pool care for clear water, clean edges and a well-maintained overall appearance.',
+        poolDetail1: 'Visual check of water level and water quality',
+        poolDetail2: 'Check skimmer, pump and filter runtime',
+        poolDetail3: 'Remove coarse debris from surface and edges',
+        poolDetail4: 'Coordinate external pool technicians if needed',
+        gardenTitle: 'Garden care',
+        gardenText: 'Care for lawn, terraces, hedges and outside areas based on plot size, vegetation and actual workload.',
+        gardenDetail1: 'Mow lawn and basic follow-up care',
+        gardenDetail2: 'Remove leaves, dry plant matter and light debris',
+        gardenDetail3: 'Keep terraces and access areas swept and tidy',
+        gardenDetail4: 'Flag higher effort for large plots or dense planting',
+        arrivalTitle: 'Preparation before arrival',
+        arrivalText: 'The property is prepared before arrival so guests or owners do not enter a stale or neglected space.',
+        arrivalDetail1: 'Ventilate and perform a quick visual room check',
+        arrivalDetail2: 'Basic swept condition for light dirt',
+        arrivalDetail3: 'Check terrace, clean roughly and place furniture',
+        arrivalDetail4: 'Small prep tasks for a well-kept first impression',
+        calcTitle: 'Price calculator',
+        calcText: 'The calculator combines all selected positions into one total price. It is designed around real economics: size, effort and frequency drive pricing, not just package names.',
+        fieldPropertyType: 'Property type',
+        fieldFrequency: 'Service rhythm',
+        fieldLivingSize: 'Living area (m²)',
+        fieldPlotSize: 'Plot / outdoor area (m²)',
+        fieldPoolSize: 'Pool size (m²)',
+        fieldServices: 'Choose services',
+        typeApartment: 'Apartment',
+        typeHouse: 'House / villa',
+        freqOneTime: 'Single appointment / one-time service',
+        freqMonthly: 'Regular care: 1 visit per month',
+        freqWeekly: 'Regular care: 1 visit per week',
+        serviceInspection: 'Property inspection',
+        serviceInspectionSub: 'Visual check inside/outside, airing, short update',
+        servicePool: 'Pool service',
+        servicePoolSub: 'Price increases with pool size and frequency',
+        serviceGarden: 'Garden care',
+        serviceGardenSub: 'Price increases with outdoor area',
+        serviceArrival: 'Preparation before arrival',
+        serviceArrivalSub: 'Setup, airing, tidy starting condition',
+        summaryTitle: 'Price overview',
+        summaryText: 'All selected items are listed individually and summarized below as a total price.',
+        subtotalLabel: 'Subtotal',
+        grandTotalLabel: 'Total price',
+        pricingNote: 'Note: The calculator is a solid guideline, not a blind bargain offer. Special cases, repairs, emergency visits and intensive cleaning are not included automatically.',
         contactTitle: 'Request directly',
-        contactText: 'Not just click and hope. The request is prefilled with the key details from the calculator.',
+        contactText: 'The request is prefilled with the key calculator details so you do not receive half-empty inquiries.',
         contactNameLabel: 'Name',
         contactEmailLabel: 'Email',
         contactPhoneLabel: 'Phone / WhatsApp',
         contactLocationLabel: 'Property location',
         contactMessageLabel: 'Additional message',
+        logicTitle: 'Why this pricing logic makes more sense',
+        logicText: 'Fixed fantasy packages may look good in marketing, but they are often weak economically. This page therefore uses a mixed logic based on base fee, size factor and effort factor.',
+        logicBox1Title: '1. Base fee',
+        logicBox1Text: 'Every service starts with a sensible base rate so travel, coordination and minimum workload are not given away for free.',
+        logicBox2Title: '2. Size drives effort',
+        logicBox2Text: 'More living area, more outside area or a larger pool means more real time. That is why the price rises with actual scope rather than a flat guess.',
+        logicBox3Title: '3. Frequency and complexity',
+        logicBox3Text: 'Weekly care, hard-to-access properties or higher coordination effort must be visible in the price. Otherwise the model becomes unprofitable.',
+        footerText: 'Costa Care Alicante – structured care for holiday homes, second residences and rental properties.',
+        detailsBtnOpen: 'Show details',
+        detailsBtnClose: 'Hide details',
         emailBtn: '📧 Send email request',
         whatsappBtn: '💬 Send WhatsApp request',
         summaryInspection: 'Property inspection',
         summaryPool: 'Pool service',
         summaryGarden: 'Garden care',
-        summaryArrival: 'Arrival preparation',
+        summaryArrival: 'Preparation before arrival',
         summaryBase: 'Base property fee',
         currencyLocale: 'en-GB',
         requestSubject: 'New Property Care Alicante Request',
@@ -940,18 +1154,118 @@
         requestEstimated: 'Estimated price'
       },
       es: {
+        brand: 'Costa Care Alicante',
+        brandSub: 'Supervisión, control y conservación del valor',
+        navServices: 'Servicios',
+        navCalc: 'Calculadora',
+        navPricing: 'Lógica de precios',
+        navWhy: 'Por qué nosotros',
         navContact: 'Contacto',
-        freqOneTime: 'Servicio puntual / encargo único',
-        freqMonthly: 'Regular: 1 visita al mes',
-        freqWeekly: 'Regular: 1 visita por semana',
-        detailsBtn: 'Ver detalles',
+        eyebrow: 'Gestión fiable de propiedades en la Costa Blanca',
+        heroTitle: 'Atención útil en lugar de promesas bonitas.',
+        heroText: 'Controles periódicos, intervenciones coordinadas y una lógica de precios transparente. No paquetes inventados, sino servicios que encajan con la propiedad y el esfuerzo real.',
+        heroBtnPrimary: 'Calcular precio',
+        heroBtnSecondary: 'Ver servicios',
+        stat1Value: '3 idiomas',
+        stat1Label: 'Alemán, inglés, español',
+        stat2Value: 'Dinámico',
+        stat2Label: 'Precio según tamaño y esfuerzo',
+        stat3Value: 'Transparente',
+        stat3Label: 'Precio total con partidas individuales',
+        aboutTitle: 'Por qué este servicio es diferente',
+        aboutText: 'No es una asistencia genérica, sino un servicio tranquilo y fiable para propietarios que no quieren dejar su inmueble al azar.',
+        aboutBox1Title: 'Comprensión práctica',
+        aboutBox1Text: 'Se detectan pronto pequeños daños, defectos incipientes y anomalías técnicas. Eso reduce costes posteriores y evita desplazamientos innecesarios.',
+        aboutBox2Title: 'Respuesta documentada',
+        aboutBox2Text: 'Los propietarios reciben información clara con fotos, vídeos y una valoración comprensible. No muchas palabras, sino información útil.',
+        aboutBox3Title: 'Coordinación local',
+        aboutBox3Text: 'Si hacen falta empresas externas, la coordinación se realiza directamente in situ, con control posterior y comunicación transparente al propietario.',
+        riskTitle: 'Qué pasa rápido sin un seguimiento continuo',
+        riskText: 'Muchos problemas empiezan siendo pequeños. Se vuelven caros cuando nadie revisa la propiedad durante semanas o meses.',
+        riskBox1Title: 'Humedad y daños por inactividad',
+        riskBox1Text: 'Las propiedades cerradas desarrollan antes olores, humedad o daños por agua no detectados. Cuanto más tarde se reacciona, más caro resulta.',
+        riskBox2Title: 'Las zonas exteriores se deterioran primero',
+        riskBox2Text: 'Piscina, jardín y terraza pierden pronto su aspecto cuidado sin supervisión. Los pequeños fallos se convierten en abandono visible.',
+        riskBox3Title: 'Nadie coordina en caso urgente',
+        riskBox3Text: 'Cuando los propietarios no están en el lugar, a menudo falta un contacto fiable. Ahí aparecen retrasos, malentendidos y costes evitables.',
+        trustTitle: 'Así es un informe profesional',
+        trustText: 'Nada de mensajes vagos como “todo bien”. El propietario recibe una respuesta breve, clara y verificable sobre el estado del inmueble.',
+        trustBullet1: 'Control realizado y revisión del inmueble por dentro y por fuera',
+        trustBullet2: 'Fotos o vídeo corto del estado actual',
+        trustBullet3: 'Aviso sobre incidencias, prioridad y siguientes pasos recomendados',
+        trustBullet4: 'Respuesta tras coordinar con proveedores externos',
+        entryPriceTitle: 'Orientación visible para empezar',
+        entryPriceText: 'Los propietarios que buscan un servicio tranquilo y fiable deberían ver un precio inicial. Eso transmite más seriedad que un formulario sin contexto.',
+        entryPriceLabel1: 'Atención continua',
+        entryPriceValue1: 'desde 120 € / mes',
+        entryPriceLabel2: 'Control presencial',
+        entryPriceValue2: 'desde 35 € / visita',
+        entryPriceLabel3: 'Servicios adicionales',
+        entryPriceValue3: 'según tamaño y esfuerzo',
+        servicesTitle: 'Nuestros servicios',
+        servicesText: 'Las imágenes se eligieron para que coincidan con el servicio real. El servicio de piscina muestra una piscina, el jardín muestra zonas exteriores, no fotos decorativas al azar.',
+        poolTitle: 'Servicio de piscina',
+        poolText: 'Coordinación o ejecución del mantenimiento periódico de la piscina para agua clara, bordes limpios y una imagen cuidada.',
+        poolDetail1: 'Control visual del nivel y la calidad del agua',
+        poolDetail2: 'Revisión de skimmer, bomba y tiempo de filtrado',
+        poolDetail3: 'Retirada de suciedad gruesa de superficie y bordes',
+        poolDetail4: 'Coordinación de técnicos externos si hay incidencias',
+        gardenTitle: 'Cuidado del jardín',
+        gardenText: 'Mantenimiento de césped, terrazas, setos y exteriores según el tamaño del terreno, la vegetación y el esfuerzo real.',
+        gardenDetail1: 'Corte de césped y mantenimiento básico',
+        gardenDetail2: 'Retirada de hojas, restos secos y suciedad ligera',
+        gardenDetail3: 'Mantener terrazas y accesos barridos y ordenados',
+        gardenDetail4: 'Aviso de mayor esfuerzo en parcelas grandes o muy plantadas',
+        arrivalTitle: 'Preparación antes de la llegada',
+        arrivalText: 'La propiedad se prepara antes de la llegada para que propietarios o huéspedes no entren en un inmueble cargado o descuidado.',
+        arrivalDetail1: 'Ventilar y hacer una revisión visual rápida',
+        arrivalDetail2: 'Estado barrido básico con suciedad ligera',
+        arrivalDetail3: 'Revisar terraza, limpiar superficialmente y colocar mobiliario',
+        arrivalDetail4: 'Pequeñas tareas previas para una buena primera impresión',
+        calcTitle: 'Calculadora de precio',
+        calcText: 'La calculadora reúne todas las posiciones en un precio total. Está planteada con lógica económica real: tamaño, esfuerzo y frecuencia influyen, no solo nombres de paquetes.',
+        fieldPropertyType: 'Tipo de inmueble',
+        fieldFrequency: 'Ritmo del servicio',
+        fieldLivingSize: 'Superficie habitable (m²)',
+        fieldPlotSize: 'Parcela / exterior (m²)',
+        fieldPoolSize: 'Tamaño de piscina (m²)',
+        fieldServices: 'Elegir servicios',
+        typeApartment: 'Apartamento',
+        typeHouse: 'Casa / villa',
+        freqOneTime: 'Cita puntual / servicio único',
+        freqMonthly: 'Servicio regular: 1 visita al mes',
+        freqWeekly: 'Servicio regular: 1 visita por semana',
+        serviceInspection: 'Inspección del inmueble',
+        serviceInspectionSub: 'Revisión visual interior/exterior, ventilación y aviso breve',
+        servicePool: 'Servicio de piscina',
+        servicePoolSub: 'El precio sube con el tamaño de la piscina y la frecuencia',
+        serviceGarden: 'Cuidado del jardín',
+        serviceGardenSub: 'El precio sube con la superficie exterior',
+        serviceArrival: 'Preparación antes de la llegada',
+        serviceArrivalSub: 'Puesta a punto, ventilación y estado básico ordenado',
+        summaryTitle: 'Resumen de precio',
+        summaryText: 'Aquí se muestran todas las posiciones elegidas por separado y después como precio total.',
+        subtotalLabel: 'Subtotal',
+        grandTotalLabel: 'Precio total',
+        pricingNote: 'Nota: la calculadora es una orientación sólida, no una oferta ciega y barata. Casos especiales, reparaciones, urgencias y limpiezas intensivas no están incluidos automáticamente.',
         contactTitle: 'Solicitar directamente',
-        contactText: 'No solo hacer clic y esperar. La solicitud se prepara con los datos clave de la calculadora.',
+        contactText: 'La solicitud se rellena con los datos clave de la calculadora. Así no recibes consultas medio vacías.',
         contactNameLabel: 'Nombre',
         contactEmailLabel: 'Correo electrónico',
         contactPhoneLabel: 'Teléfono / WhatsApp',
-        contactLocationLabel: 'Ubicación de la propiedad',
+        contactLocationLabel: 'Ubicación del inmueble',
         contactMessageLabel: 'Mensaje adicional',
+        logicTitle: 'Por qué esta lógica de precios tiene más sentido',
+        logicText: 'Los paquetes fijos inventados pueden quedar bien en marketing, pero a nivel económico suelen ser malos. Por eso esta página usa una lógica mixta basada en tarifa base, tamaño y esfuerzo.',
+        logicBox1Title: '1. Tarifa base',
+        logicBox1Text: 'Cada servicio parte de una base económicamente razonable. Así no se regalan desplazamiento, organización y esfuerzo mínimo.',
+        logicBox2Title: '2. El tamaño aumenta el trabajo',
+        logicBox2Text: 'Más superficie habitable, más exterior o una piscina mayor significan más tiempo real. Por eso el precio sube con el alcance real y no con una cifra plana.',
+        logicBox3Title: '3. Frecuencia y complejidad',
+        logicBox3Text: 'La atención semanal, los inmuebles de acceso difícil o una coordinación más intensa deben verse en el precio. Si no, el modelo deja de ser rentable.',
+        footerText: 'Costa Care Alicante – atención estructurada para viviendas vacacionales, segundas residencias y propiedades de alquiler.',
+        detailsBtnOpen: 'Ver detalles',
+        detailsBtnClose: 'Ocultar detalles',
         emailBtn: '📧 Enviar solicitud por correo',
         whatsappBtn: '💬 Enviar solicitud por WhatsApp',
         summaryInspection: 'Inspección del inmueble',
@@ -1067,6 +1381,28 @@
         const key = el.dataset.i18n;
         if (i18n[currentLang][key]) el.textContent = i18n[currentLang][key];
       });
+
+      document.getElementById('propertyType').options[0].text = i18n[currentLang].typeApartment;
+      document.getElementById('propertyType').options[1].text = i18n[currentLang].typeHouse;
+      document.getElementById('serviceFrequency').options[0].text = i18n[currentLang].freqOneTime;
+      document.getElementById('serviceFrequency').options[1].text = i18n[currentLang].freqMonthly;
+      document.getElementById('serviceFrequency').options[2].text = i18n[currentLang].freqWeekly;
+      document.querySelector('[for="contactName"]').nextElementSibling.placeholder = currentLang === 'de' ? 'Ihr Name' : currentLang === 'en' ? 'Your name' : 'Su nombre';
+      document.querySelector('[for="contactEmail"]').nextElementSibling.placeholder = currentLang === 'de' ? 'ihre@email.de' : currentLang === 'en' ? 'your@email.com' : 'su@email.com';
+      document.querySelector('[for="contactPhone"]').nextElementSibling.placeholder = '+34 ...';
+      document.querySelector('[for="contactLocation"]').nextElementSibling.placeholder = currentLang === 'de' ? 'z. B. Alicante, Torrevieja' : currentLang === 'en' ? 'e.g. Alicante, Torrevieja' : 'p. ej. Alicante, Torrevieja';
+      document.getElementById('contactMessage').placeholder = currentLang === 'de' ? 'Kurze Zusatzinfos zur Immobilie oder zum Bedarf' : currentLang === 'en' ? 'Short extra information about the property or your needs' : 'Información adicional breve sobre la propiedad o la necesidad';
+      document.getElementById('emailButton').textContent = i18n[currentLang].emailBtn;
+      document.getElementById('whatsappButton').textContent = i18n[currentLang].whatsappBtn;
+      document.querySelectorAll('.detail-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        target.classList.toggle('open');
+        button.textContent = target.classList.contains('open') ? i18n[currentLang].detailsBtnClose : i18n[currentLang].detailsBtnOpen;
+      });
+    });
+      calculatePricing();
+    });
       calculatePricing();
     }
 
