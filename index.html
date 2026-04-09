@@ -3,387 +3,315 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Immobilienbetreuung Alicante | Haus, Garten, Pool & Gäste-Service</title>
-  <meta name="description" content="Professionelle Immobilienbetreuung in Alicante: Objektkontrollen, Gartenpflege, Poolservice, Reinigung und Vorbereitung vor Ankunft." />
+  <title>Immobilienbetreuung Alicante</title>
   <style>
     :root {
-      --bg: #f5f7fa;
-      --surface: #ffffff;
-      --surface-2: #eef4f8;
-      --text: #173042;
-      --muted: #5f7485;
-      --primary: #0d6e8a;
-      --primary-dark: #0a566b;
-      --accent: #d9a441;
-      --border: #d8e2ea;
-      --ok: #2d7a46;
-      --shadow: 0 12px 30px rgba(18, 41, 58, 0.12);
-      --radius: 18px;
-      --radius-sm: 12px;
-      --max: 1180px;
+      --bg: #f3f5f7;
+      --card: #ffffff;
+      --text: #15324a;
+      --muted: #5f7386;
+      --line: #dbe3ea;
+      --accent: #0d6efd;
+      --accent-dark: #0a58ca;
+      --soft: #eef5ff;
+      --success: #198754;
+      --warning: #b7791f;
+      --shadow: 0 12px 30px rgba(16, 35, 52, 0.08);
+      --radius: 22px;
+      --radius-sm: 16px;
+      --container: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background: var(--bg);
+      color: var(--text);
       line-height: 1.55;
     }
 
     img { max-width: 100%; display: block; }
     a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
 
-    .wrap {
-      width: min(var(--max), calc(100% - 32px));
+    .container {
+      width: min(100% - 32px, var(--container));
       margin: 0 auto;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,0.92);
+      z-index: 100;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(216,226,234,0.9);
+      background: rgba(243, 245, 247, 0.88);
+      border-bottom: 1px solid rgba(219, 227, 234, 0.8);
     }
 
     .nav {
-      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 18px;
+      min-height: 78px;
     }
 
     .brand {
       display: flex;
       align-items: center;
       gap: 12px;
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: 0.02em;
     }
 
-    .brand-mark {
+    .brand-badge {
       width: 42px;
       height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 14px;
+      background: linear-gradient(135deg, #0d6efd, #7fc4ff);
       box-shadow: var(--shadow);
-      font-weight: 700;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
-      flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .nav-links a:hover { color: var(--primary); }
-
-    .btn {
-      display: inline-flex;
       align-items: center;
-      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 12px;
+    }
+
+    .nav-links a:hover { background: #fff; color: var(--text); }
+
+    .lang-switch {
+      display: flex;
       gap: 8px;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      padding: 14px 22px;
-      font-size: 0.98rem;
-      font-weight: 700;
-      transition: 0.25s ease;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #fff;
-      box-shadow: 0 10px 22px rgba(13, 110, 138, 0.22);
-    }
-
-    .btn-primary:hover { transform: translateY(-1px); }
-
-    .btn-secondary {
+    .lang-btn {
+      border: 1px solid var(--line);
       background: #fff;
       color: var(--text);
-      border: 1px solid var(--border);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
     }
 
     .hero {
-      padding: 72px 0 38px;
+      padding: 52px 0 30px;
     }
 
-    .hero-grid {
+    .hero-wrap {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 28px;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 26px;
       align-items: stretch;
     }
 
     .hero-copy,
-    .hero-card,
-    .card,
-    .service-card,
-    .price-card,
-    .review,
-    .contact-card {
-      background: var(--surface);
-      border-radius: var(--radius);
+    .hero-panel {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 32px;
       box-shadow: var(--shadow);
-      border: 1px solid rgba(216,226,234,0.7);
-    }
-
-    .hero-copy {
-      padding: 42px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-copy::after {
-      content: "";
-      position: absolute;
-      inset: auto -60px -60px auto;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(217,164,65,0.25), rgba(217,164,65,0));
     }
 
     .eyebrow {
       display: inline-flex;
-      padding: 8px 14px;
+      align-items: center;
+      gap: 8px;
       border-radius: 999px;
-      background: var(--surface-2);
-      color: var(--primary-dark);
-      font-size: 0.88rem;
+      background: var(--soft);
+      color: var(--accent-dark);
+      padding: 8px 14px;
       font-weight: 700;
       margin-bottom: 16px;
     }
 
-    h1, h2, h3 { line-height: 1.15; margin: 0 0 14px; }
-    h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
-    h2 { font-size: clamp(1.6rem, 2.8vw, 2.4rem); }
-    h3 { font-size: 1.18rem; }
+    h1, h2, h3, h4, p { margin-top: 0; }
+    h1 {
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 16px;
+    }
 
     .lead {
-      font-size: 1.08rem;
+      font-size: 1.06rem;
       color: var(--muted);
-      max-width: 60ch;
-      margin-bottom: 22px;
+      max-width: 62ch;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .hero-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 12px;
-      margin-top: 18px;
+      margin-top: 22px;
     }
 
-    .hero-list div {
-      padding: 12px 14px;
-      background: var(--surface-2);
-      border-radius: var(--radius-sm);
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-weight: 800;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(13, 110, 253, 0.25);
+    }
+
+    .btn-primary:hover { background: var(--accent-dark); }
+
+    .btn-secondary {
+      background: #fff;
       color: var(--text);
-      font-weight: 600;
-      font-size: 0.95rem;
+      border: 1px solid var(--line);
     }
 
-    .hero-card {
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .hero-image {
-      min-height: 310px;
-      background:
-        linear-gradient(180deg, rgba(7,39,49,0.15), rgba(7,39,49,0.05)),
-        url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
-    }
-
-    .hero-card-content {
-      padding: 26px;
-    }
-
-    .hero-stat-grid {
+    .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 18px;
+      gap: 14px;
+      margin-top: 24px;
     }
 
     .stat {
-      background: var(--surface-2);
-      border-radius: var(--radius-sm);
-      padding: 16px 14px;
-      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: #fff;
     }
 
     .stat strong {
       display: block;
       font-size: 1.25rem;
       margin-bottom: 4px;
-      color: var(--primary-dark);
     }
 
-    section {
-      padding: 34px 0;
+    .hero-panel {
+      padding: 0;
+      overflow: hidden;
+      min-height: 420px;
     }
+
+    .hero-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 420px;
+    }
+
+    section { padding: 28px 0; }
 
     .section-head {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
       align-items: end;
-      margin-bottom: 24px;
+      gap: 20px;
+      margin-bottom: 18px;
     }
 
     .section-head p {
-      margin: 0;
-      max-width: 65ch;
       color: var(--muted);
+      max-width: 70ch;
+      margin-bottom: 0;
     }
 
-    .cards-3,
-    .cards-4,
-    .prices,
-    .reviews,
-    .footer-grid,
-    .contact-grid,
-    .why-grid {
+    .services-grid {
       display: grid;
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .cards-3,
-    .prices,
-    .reviews,
-    .contact-grid,
-    .why-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .service-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      border: 1px solid rgba(219, 227, 234, 0.55);
     }
 
-    .cards-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    .card, .service-card, .price-card, .review, .contact-card {
-      padding: 24px;
-    }
-
-    .icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(13,110,138,0.14), rgba(10,86,107,0.08));
-      color: var(--primary-dark);
-      font-size: 1.35rem;
-      margin-bottom: 16px;
-    }
-
-    ul.clean {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .service-card img {
+    .service-card .thumb {
       width: 100%;
-      height: 220px;
+      aspect-ratio: 1.15 / 1;
       object-fit: cover;
-      border-radius: 14px;
+      border-radius: 20px;
       margin-bottom: 18px;
-      background: #dce6ed;
+      background: #d9e7f4;
     }
 
-    .price-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .price-card.featured {
-      border: 1px solid rgba(13,110,138,0.25);
-      transform: translateY(-4px);
-    }
-
-    .badge {
-      display: inline-flex;
-      margin-bottom: 14px;
-      background: rgba(13,110,138,0.12);
-      color: var(--primary-dark);
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-    }
-
-    .price {
-      font-size: 2.3rem;
-      font-weight: 800;
-      margin: 12px 0 6px;
-      color: var(--primary-dark);
-    }
-
-    .price small {
-      font-size: 0.95rem;
+    .service-card p {
       color: var(--muted);
-      font-weight: 600;
+      min-height: 84px;
     }
 
-    .muted { color: var(--muted); }
-
-    .toggle-details {
-      margin-top: 14px;
-      border: 1px solid var(--border);
-      background: var(--surface-2);
-      color: var(--text);
-      padding: 12px 16px;
-      border-radius: 12px;
+    .detail-toggle {
       width: 100%;
-      text-align: left;
-      font-weight: 700;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #f8fbff;
+      color: var(--text);
+      padding: 12px 14px;
+      font-weight: 800;
       cursor: pointer;
+      text-align: left;
+      margin-top: 10px;
     }
+
+    .detail-toggle:hover { border-color: #b8c8d8; }
 
     .details {
       display: none;
       margin-top: 12px;
-      background: #fbfdff;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 16px;
-      color: var(--muted);
+      padding: 14px;
+      border-radius: 16px;
+      background: #f9fbfd;
+      border: 1px solid var(--line);
     }
 
     .details.open { display: block; }
+    .details ul { margin: 0; padding-left: 18px; color: var(--muted); }
 
-    .calc-box {
-      background: linear-gradient(180deg, #ffffff, #f8fbfd);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 28px;
+    .calculator-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: start;
     }
 
-    .calc-grid {
+    .card {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(219, 227, 234, 0.5);
+    }
+
+    .form-grid {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-      margin-top: 16px;
     }
 
     .field {
@@ -392,346 +320,241 @@
       gap: 8px;
     }
 
-    .field label {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text);
-    }
+    .field.full { grid-column: 1 / -1; }
+    .field label { font-weight: 700; }
 
     .field input,
-    .field select,
-    .field textarea {
-      width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 14px 14px;
-      font: inherit;
-      color: var(--text);
+    .field select {
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 13px 14px;
       background: #fff;
+      color: var(--text);
+      outline: none;
     }
 
-    .field textarea {
-      min-height: 140px;
-      resize: vertical;
+    .field input:focus,
+    .field select:focus {
+      border-color: #8bb8ff;
+      box-shadow: 0 0 0 4px rgba(13,110,253,0.08);
     }
 
-    .addons {
+    .checks {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      margin-top: 18px;
     }
 
     .check {
       display: flex;
       gap: 10px;
       align-items: start;
-      padding: 14px;
-      background: var(--surface-2);
-      border-radius: 14px;
-      border: 1px solid transparent;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfdff;
     }
 
     .check input { margin-top: 4px; }
+    .check small { display: block; color: var(--muted); }
 
-    .calc-result {
-      margin-top: 22px;
+    .summary-list {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
+      gap: 12px;
+      margin-top: 18px;
     }
 
-    .result-panel,
-    .result-note {
-      border-radius: 16px;
-      padding: 20px;
-      border: 1px solid var(--border);
-    }
-
-    .result-panel { background: #fff; }
-    .result-note { background: var(--surface-2); }
-
-    .result-total {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--primary-dark);
-      margin-top: 6px;
-    }
-
-    .line-items {
-      margin-top: 14px;
-      display: grid;
-      gap: 10px;
-    }
-
-    .line-item {
+    .summary-row {
       display: flex;
       justify-content: space-between;
-      gap: 12px;
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .summary-row span:last-child { font-weight: 800; white-space: nowrap; }
+    .summary-empty { color: var(--muted); }
+
+    .total-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #eef5ff, #f7fbff);
+      border: 1px solid #d7e7ff;
+    }
+
+    .total-box .mini {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
       color: var(--muted);
-      padding-bottom: 10px;
-      border-bottom: 1px dashed var(--border);
+      margin-bottom: 6px;
     }
 
-    .market-box {
-      border-left: 4px solid var(--accent);
-      padding: 18px 20px;
-      background: #fff9ef;
-      border-radius: 14px;
-      color: #5a4b28;
+    .grand-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      font-weight: 900;
+      margin-top: 8px;
     }
 
-    .review strong { display: block; margin-bottom: 8px; }
+    .note {
+      margin-top: 14px;
+      color: var(--warning);
+      font-size: 0.95rem;
+    }
 
-    .contact-grid { align-items: start; }
-
-    .contact-card form {
+    .pricing-grid {
       display: grid;
-      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
+
+    .pricing-box {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(219, 227, 234, 0.5);
+    }
+
+    .pricing-box p, .pricing-box li { color: var(--muted); }
 
     .footer {
-      margin-top: 24px;
-      padding: 28px 0 60px;
+      padding: 30px 0 50px;
       color: var(--muted);
+      text-align: center;
     }
 
-    .footer-grid {
-      grid-template-columns: 1.1fr 0.9fr 0.9fr;
-      align-items: start;
-    }
-
-    .footer small { color: var(--muted); }
-
-    .pill-row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
-
-    .pill {
-      border-radius: 999px;
-      padding: 8px 12px;
-      background: var(--surface-2);
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--primary-dark);
-    }
-
-    @media (max-width: 1080px) {
-      .hero-grid,
-      .cards-4,
-      .cards-3,
-      .prices,
-      .reviews,
-      .contact-grid,
-      .why-grid,
-      .footer-grid,
-      .calc-grid,
-      .calc-result {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 16px 0;
-      }
-
-      .hero-grid,
-      .cards-4,
-      .cards-3,
-      .prices,
-      .reviews,
-      .contact-grid,
-      .why-grid,
-      .footer-grid,
-      .calc-grid,
-      .calc-result,
-      .hero-list,
-      .addons,
-      .hero-stat-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy,
-      .card,
-      .service-card,
-      .price-card,
-      .review,
-      .contact-card,
-      .calc-box {
-        padding: 20px;
-      }
-
-      .hero {
-        padding-top: 40px;
-      }
-
-      .section-head {
-        flex-direction: column;
-        align-items: start;
-      }
+    @media (max-width: 980px) {
+      .hero-wrap,
+      .calculator-wrap,
+      .services-grid,
+      .pricing-grid { grid-template-columns: 1fr; }
+      .form-grid,
+      .checks,
+      .hero-stats { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; padding: 12px 0; }
+      .section-head { align-items: start; flex-direction: column; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="wrap nav">
-      <a href="#top" class="brand">
-        <span class="brand-mark">IB</span>
-        <span>Immobilienbetreuung Alicante</span>
-      </a>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-badge"></div>
+        <div>
+          <div data-i18n="brand">Costa Care Alicante</div>
+          <small style="color: var(--muted);" data-i18n="brandSub">Betreuung, Kontrolle und Werterhalt</small>
+        </div>
+      </div>
 
       <nav class="nav-links">
-        <a href="#leistungen">Leistungen</a>
-        <a href="#preise">Preise</a>
-        <a href="#rechner">Preisrechner</a>
-        <a href="#warum">Warum wir</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="#services" data-i18n="navServices">Leistungen</a>
+        <a href="#calculator" data-i18n="navCalc">Preisrechner</a>
+        <a href="#pricing" data-i18n="navPricing">Preislogik</a>
       </nav>
 
-      <a href="#kontakt" class="btn btn-primary">Anfrage senden</a>
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
+      </div>
     </div>
   </header>
 
-  <main id="top">
+  <main>
     <section class="hero">
-      <div class="wrap hero-grid">
+      <div class="container hero-wrap">
         <div class="hero-copy">
-          <div class="eyebrow">Zuverlässige Betreuung für Eigentümer in Alicante</div>
-          <h1>Ihre Immobilie in guten Händen – auch wenn Sie nicht vor Ort sind</h1>
-          <p class="lead">
-            Wir kümmern uns um Objektkontrollen, Gartenpflege, Poolservice, Reinigung und die Vorbereitung vor Ihrer oder der Ankunft Ihrer Gäste.
-            Transparent, wirtschaftlich und auf den tatsächlichen Aufwand abgestimmt.
+          <div class="eyebrow" data-i18n="eyebrow">Zuverlässige Immobilienbetreuung an der Costa Blanca</div>
+          <h1 data-i18n="heroTitle">Sinnvolle Betreuung statt schöner Versprechen.</h1>
+          <p class="lead" data-i18n="heroText">
+            Regelmäßige Kontrollen, koordinierte Einsätze und nachvollziehbare Preislogik. Keine Fantasiepakete, sondern Leistungen, die zur Immobilie und zum Aufwand passen.
           </p>
 
           <div class="hero-actions">
-            <a href="#rechner" class="btn btn-primary">Preis berechnen</a>
-            <a href="#leistungen" class="btn btn-secondary">Leistungen ansehen</a>
+            <a class="btn btn-primary" href="#calculator" data-i18n="heroBtnPrimary">Preis grob berechnen</a>
+            <a class="btn btn-secondary" href="#services" data-i18n="heroBtnSecondary">Leistungen ansehen</a>
           </div>
 
-          <div class="hero-list">
-            <div>Regelmäßige Objektkontrollen</div>
-            <div>Pool- und Gartenkoordination</div>
-            <div>Ankunftsvorbereitung & Lüften</div>
-            <div>Reinigung & Übergabe-Services</div>
-          </div>
-        </div>
-
-        <aside class="hero-card">
-          <div class="hero-image"></div>
-          <div class="hero-card-content">
-            <h3>Für Apartments, Reihenhäuser und Villen</h3>
-            <p class="muted">
-              Sinnvoll ist keine Fantasie-Flatrate, sondern ein Modell aus fester Grundbetreuung plus variablen Leistungen nach Größe und Aufwand.
-            </p>
-            <div class="hero-stat-grid">
-              <div class="stat"><strong>ab 69 €</strong><span>Grundbetreuung / Monat</span></div>
-              <div class="stat"><strong>klar</strong><span>strukturierte Zusatzkosten</span></div>
-              <div class="stat"><strong>fair</strong><span>nach Fläche und Nutzung</span></div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong data-i18n="stat1Value">3-sprachig</strong>
+              <span data-i18n="stat1Label">Deutsch, Englisch, Spanisch</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="stat2Value">Dynamisch</strong>
+              <span data-i18n="stat2Label">Preis nach Größe und Aufwand</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="stat3Value">Transparent</strong>
+              <span data-i18n="stat3Label">Gesamtpreis inkl. Einzelpositionen</span>
             </div>
           </div>
-        </aside>
-      </div>
-    </section>
-
-    <section>
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Marktlogik</div>
-            <h2>Was preislich sinnvoll ist</h2>
-          </div>
-          <p>
-            Für die Grundbetreuung sind Service-Pakete sinnvoll. Für Reinigung, Garten und Pool ist eine reine Paketlogik unpräzise, weil Aufwand und Objektgröße stark variieren.
-          </p>
         </div>
 
-        <div class="market-box">
-          <strong>Empfehlung:</strong> Hybrides Modell statt entweder-oder. 
-          Eine monatliche Basis deckt Kontrollen, Erreichbarkeit, Lüften, Sichtprüfungen und Koordination ab. 
-          Alles, was direkt von Größe, Saison oder Gästewechsel abhängt, wird separat kalkuliert. Das ist marktnäher, glaubwürdiger und wirtschaftlich sauber.
+        <div class="hero-panel">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80" alt="Alicante Küste und gepflegte Ferienimmobilie" />
         </div>
       </div>
     </section>
 
-    <section id="leistungen">
-      <div class="wrap">
+    <section id="services">
+      <div class="container">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Leistungen</div>
-            <h2>Komplette Betreuung rund um Ihre Immobilie</h2>
+            <h2 data-i18n="servicesTitle">Unsere Leistungen</h2>
+            <p data-i18n="servicesText">Die Bilder wurden so gewählt, dass sie zur tatsächlichen Leistung passen. Poolservice zeigt einen Pool, Gartenpflege zeigt Gartenflächen, nicht irgendein hübsches Zufallsbild.</p>
           </div>
-          <p>
-            Jede Zusatzleistung hat ihren eigenen Detailbereich. So bleibt das Angebot klar und der Kunde versteht, was tatsächlich enthalten ist.
-          </p>
         </div>
 
-        <div class="cards-4">
+        <div class="services-grid">
           <article class="service-card">
-            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1200&q=80" alt="Objektkontrolle Haus in Alicante" onerror="this.src='https://via.placeholder.com/800x500?text=Objektkontrolle';" />
-            <h3>Objektkontrollen</h3>
-            <p class="muted">Regelmäßige Sichtkontrolle, Lüften, Prüfung von Wasser, Strom, Feuchtigkeit und allgemeinem Zustand.</p>
-            <button class="toggle-details" data-target="detail-objekt">Details anzeigen</button>
-            <div class="details" id="detail-objekt">
-              <ul class="clean">
-                <li>Sichtprüfung innen und außen</li>
-                <li>Lüften der Räume</li>
-                <li>Kontrolle auf Feuchtigkeit, Gerüche und sichtbare Schäden</li>
-                <li>Kurzer Statusbericht nach Besuch</li>
-                <li>Meldung bei Auffälligkeiten mit Handlungsempfehlung</li>
+            <img class="thumb" src="https://images.unsplash.com/photo-1576013551627-0c2bcb74b4f6?auto=format&fit=crop&w=1200&q=80" alt="Poolservice mit sichtbarem Pool" />
+            <h3 data-i18n="poolTitle">Poolservice</h3>
+            <p data-i18n="poolText">Koordination oder Durchführung der regelmäßigen Poolpflege für klare Wasserqualität, saubere Beckenränder und einen gepflegten Gesamteindruck.</p>
+            <button class="detail-toggle" data-target="pool-details" data-i18n="detailsBtn">Details anzeigen</button>
+            <div class="details" id="pool-details">
+              <ul>
+                <li data-i18n="poolDetail1">Sichtkontrolle des Wasserspiegels und der Wasserqualität</li>
+                <li data-i18n="poolDetail2">Prüfung von Skimmer, Pumpe und Filterlaufzeit</li>
+                <li data-i18n="poolDetail3">Entfernung grober Verschmutzungen an Oberfläche und Rand</li>
+                <li data-i18n="poolDetail4">Koordination externer Pooltechnik bei Störungen</li>
               </ul>
             </div>
           </article>
 
           <article class="service-card">
-            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80" alt="Poolservice Alicante" onerror="this.src='https://via.placeholder.com/800x500?text=Poolservice';" />
-            <h3>Poolservice</h3>
-            <p class="muted">Koordination oder Durchführung der regelmäßigen Poolpflege für klare Wasserqualität und sauberen Eindruck.</p>
-            <button class="toggle-details" data-target="detail-pool">Details anzeigen</button>
-            <div class="details" id="detail-pool">
-              <ul class="clean">
-                <li>Kontrolle der Wasseroberfläche</li>
-                <li>Skimmer leeren und sichtbare Verschmutzungen entfernen</li>
-                <li>Überprüfung von Wasserstand und Technik</li>
-                <li>Organisation externer Poolwartung bei Bedarf</li>
-                <li>Saisonale Mehrfrequenz im Sommer möglich</li>
+            <img class="thumb" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Gartenpflege mit Rasen und Außenflächen" />
+            <h3 data-i18n="gardenTitle">Gartenpflege</h3>
+            <p data-i18n="gardenText">Pflege von Rasen, Terrassen, Hecken und Außenflächen – abgestimmt auf Grundstücksgröße, Vegetation und tatsächlichen Pflegeaufwand.</p>
+            <button class="detail-toggle" data-target="garden-details" data-i18n="detailsBtn">Details anzeigen</button>
+            <div class="details" id="garden-details">
+              <ul>
+                <li data-i18n="gardenDetail1">Rasen mähen und einfache Nachpflege</li>
+                <li data-i18n="gardenDetail2">Laub, trockene Pflanzenteile und leichte Verschmutzungen entfernen</li>
+                <li data-i18n="gardenDetail3">Terrassen und Zugänge besenrein halten</li>
+                <li data-i18n="gardenDetail4">Hinweis auf erhöhten Aufwand bei großem Grundstück oder starker Bepflanzung</li>
               </ul>
             </div>
           </article>
 
           <article class="service-card">
-            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Gartenpflege Alicante" onerror="this.src='https://via.placeholder.com/800x500?text=Gartenpflege';" />
-            <h3>Gartenpflege</h3>
-            <p class="muted">Pflege von Rasen, Terrassen, Hecken und Außenflächen – passend zur Größe des Grundstücks.</p>
-            <button class="toggle-details" data-target="detail-garten">Details anzeigen</button>
-            <div class="details" id="detail-garten">
-              <ul class="clean">
-                <li>Rasen mähen und Kanten nacharbeiten</li>
-                <li>Laub und lose Gartenabfälle entfernen</li>
-                <li>Hecken- und Formschnitt nach Aufwand</li>
-                <li>Bewässerung und sichtbare Pflanzenprobleme prüfen</li>
-                <li>Terrassen und Wege besenrein halten</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="service-card">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Vorbereitung vor Ankunft" onerror="this.src='https://via.placeholder.com/800x500?text=Vorbereitung';" />
-            <h3>Vorbereitung vor Ankunft</h3>
-            <p class="muted">Die Immobilie wird vor Ihrer oder der Ankunft Ihrer Gäste vorbereitet, damit alles ordentlich und einsatzbereit ist.</p>
-            <button class="toggle-details" data-target="detail-ankunft">Details anzeigen</button>
-            <div class="details" id="detail-ankunft">
-              <ul class="clean">
-                <li>Lüften aller relevanten Räume</li>
-                <li>Besenreiner Innen- und Außencheck</li>
-                <li>Terrasse kehren und Eingangsbereich kontrollieren</li>
-                <li>Kühlschrank, Licht, Wasser und sichtbare Funktion prüfen</li>
-                <li>Optional: Einkauf, Welcome-Paket, Wäsche und Check-in</li>
+            <img class="thumb" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80" alt="Vorbereitung vor Ankunft in einer Ferienimmobilie" />
+            <h3 data-i18n="arrivalTitle">Vorbereitung vor Ankunft</h3>
+            <p data-i18n="arrivalText">Die Immobilie wird vor Eintreffen vorbereitet, damit Gäste oder Eigentümer nicht in ein abgestandenes oder ungepflegtes Objekt kommen.</p>
+            <button class="detail-toggle" data-target="arrival-details" data-i18n="detailsBtn">Details anzeigen</button>
+            <div class="details" id="arrival-details">
+              <ul>
+                <li data-i18n="arrivalDetail1">Lüften und kurze Sichtkontrolle der Räume</li>
+                <li data-i18n="arrivalDetail2">Besenreiner Grundzustand bei leichter Verschmutzung</li>
+                <li data-i18n="arrivalDetail3">Terrasse prüfen, grob säubern und Möbel stellen</li>
+                <li data-i18n="arrivalDetail4">Kleine vorbereitende Handgriffe für einen gepflegten ersten Eindruck</li>
               </ul>
             </div>
           </article>
@@ -739,420 +562,552 @@
       </div>
     </section>
 
-    <section id="preise">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Preismodell</div>
-            <h2>Empfohlene Preisstruktur</h2>
+    <section id="calculator">
+      <div class="container calculator-wrap">
+        <div class="card">
+          <div class="section-head" style="margin-bottom: 22px;">
+            <div>
+              <h2 data-i18n="calcTitle">Preisrechner</h2>
+              <p data-i18n="calcText">Der Rechner fasst jetzt alle Positionen im Gesamtpreis zusammen. Er ist bewusst wirtschaftlich gedacht: Größe, Aufwand und Frequenz treiben den Preis, nicht nur hübsche Paketnamen.</p>
+            </div>
           </div>
-          <p>
-            Die Basis bleibt klar. Der variable Teil schützt dich davor, bei großen Grundstücken oder häufigen Gästewechseln unprofitabel zu arbeiten.
-          </p>
-        </div>
 
-        <div class="prices">
-          <article class="price-card">
-            <span class="badge">Apartment</span>
-            <h3>Basis</h3>
-            <div class="price">69 € <small>/ Monat</small></div>
-            <p class="muted">Für kleine Objekte mit geringem Außenaufwand.</p>
-            <ul class="clean">
-              <li>2 Objektkontrollen pro Monat</li>
-              <li>Lüften und Sichtprüfung</li>
-              <li>Kurzer Statusbericht</li>
-              <li>Koordination kleiner Anliegen</li>
-            </ul>
-          </article>
-
-          <article class="price-card featured">
-            <span class="badge">Reihenhaus / mittlere Immobilie</span>
-            <h3>Komfort</h3>
-            <div class="price">99 € <small>/ Monat</small></div>
-            <p class="muted">Für Eigentümer mit etwas mehr Außenfläche oder höherem Kontrollbedarf.</p>
-            <ul class="clean">
-              <li>2 Objektkontrollen pro Monat</li>
-              <li>Innen- und Außenkontrolle</li>
-              <li>Koordination von Reinigung / Handwerkern</li>
-              <li>Priorisierte Rückmeldung bei Problemen</li>
-            </ul>
-          </article>
-
-          <article class="price-card">
-            <span class="badge">Villa mit Außenbereich</span>
-            <h3>Premium</h3>
-            <div class="price">129 € <small>/ Monat</small></div>
-            <p class="muted">Für größere Immobilien, meist mit Pool oder pflegeintensiverem Außenbereich.</p>
-            <ul class="clean">
-              <li>2 Objektkontrollen pro Monat</li>
-              <li>Erweiterte Außenkontrolle</li>
-              <li>Koordination von Pool / Garten / Reinigung</li>
-              <li>Höherer Betreuungsumfang</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="cards-3" style="margin-top:20px;">
-          <article class="card">
-            <h3>Variable Leistungen separat</h3>
-            <ul class="clean">
-              <li>Poolbetreuung: ab 85 € / Monat bei kleinem privaten Pool</li>
-              <li>Gartenpflege: nach Fläche, Frequenz und Schnittaufwand</li>
-              <li>Reinigung bei Gästewechsel: pro Einsatz, nicht pauschal im Paket verstecken</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Warum nicht alles pauschal?</h3>
-            <p class="muted">
-              Weil ein 20-m²-Terrassenbereich nicht denselben Aufwand verursacht wie 400 m² Garten mit Hecken, Rasen und saisonalem Wachstum.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Wirtschaftlich sauber</h3>
-            <p class="muted">
-              Mit diesem Modell verkaufst du Vertrauen über die Basis und schützt deine Marge über klare Aufschläge für Fläche, Pool, Anfahrten und Gästewechsel.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="rechner">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Preisrechner</div>
-            <h2>Unverbindliche Beispielkalkulation</h2>
-          </div>
-          <p>
-            Dieser Rechner bildet genau die Logik ab, die für Alicante sinnvoll ist: Grundpaket plus variable Leistungen nach Fläche und Nutzung.
-          </p>
-        </div>
-
-        <div class="calc-box">
-          <div class="calc-grid">
+          <div class="form-grid">
             <div class="field">
-              <label for="propertyType">Objekttyp</label>
+              <label for="propertyType" data-i18n="fieldPropertyType">Immobilienart</label>
               <select id="propertyType">
-                <option value="apartment">Apartment</option>
-                <option value="townhouse">Reihenhaus</option>
-                <option value="villa">Villa</option>
+                <option value="apartment" data-i18n="typeApartment">Apartment</option>
+                <option value="house" data-i18n="typeHouse">Haus / Villa</option>
               </select>
             </div>
 
             <div class="field">
-              <label for="interiorSize">Wohnfläche in m²</label>
-              <input id="interiorSize" type="number" min="20" value="90" />
-            </div>
-
-            <div class="field">
-              <label for="gardenSize">Garten / Außenfläche in m²</label>
-              <input id="gardenSize" type="number" min="0" value="60" />
-            </div>
-
-            <div class="field">
-              <label for="visits">Kontrollbesuche / Monat</label>
-              <select id="visits">
-                <option value="2">2 Besuche</option>
-                <option value="4">4 Besuche</option>
+              <label for="serviceFrequency" data-i18n="fieldFrequency">Frequenz</label>
+              <select id="serviceFrequency">
+                <option value="oneTime" data-i18n="freqOneTime">Einmalig</option>
+                <option value="monthly" data-i18n="freqMonthly">Monatlich</option>
+                <option value="weekly" data-i18n="freqWeekly">Wöchentlich</option>
               </select>
             </div>
-          </div>
 
-          <div class="addons">
-            <label class="check">
-              <input type="checkbox" id="hasPool" />
-              <span><strong>Poolservice</strong><br /><span class="muted">Kleiner privater Pool mit normalem Reinigungsbedarf</span></span>
-            </label>
-
-            <label class="check">
-              <input type="checkbox" id="arrivalPrep" />
-              <span><strong>Vorbereitung vor Ankunft</strong><br /><span class="muted">Lüften, Sichtcheck, besenreiner Eindruck, kurze Vorbereitung</span></span>
-            </label>
-
-            <label class="check">
-              <input type="checkbox" id="cleaning" />
-              <span><strong>Reinigung bei Wechsel</strong><br /><span class="muted">Richtwert pro Einsatz abhängig von Wohnfläche</span></span>
-            </label>
-
-            <label class="check">
-              <input type="checkbox" id="checkin" />
-              <span><strong>Check-in / Schlüsselübergabe</strong><br /><span class="muted">Persönliche Übergabe oder organisierte Ankunft</span></span>
-            </label>
-          </div>
-
-          <div class="calc-result">
-            <div class="result-panel">
-              <div class="eyebrow">Beispielpreis</div>
-              <div class="result-total" id="resultTotal">0 € / Monat</div>
-              <p class="muted" id="resultSubline">Die Kalkulation erscheint nach Eingabe Ihrer Daten.</p>
-              <div class="line-items" id="lineItems"></div>
+            <div class="field">
+              <label for="livingSize" data-i18n="fieldLivingSize">Wohnfläche (m²)</label>
+              <input id="livingSize" type="number" min="20" step="1" value="120" />
             </div>
 
-            <div class="result-note">
-              <h3>Wichtiger Hinweis</h3>
-              <p class="muted">
-                Dieser Rechner ist bewusst kein Lockpreis-Rechner. Er soll realistische Spannweiten zeigen, damit das Angebot für den Kunden nachvollziehbar bleibt und für dich nicht unprofitabel wird.
-              </p>
-              <div class="pill-row">
-                <span class="pill">Basis + Aufwand</span>
-                <span class="pill">Keine Fantasie-Flatrate</span>
-                <span class="pill">Nach Größe skalierbar</span>
+            <div class="field">
+              <label for="plotSize" data-i18n="fieldPlotSize">Grundstück / Außenfläche (m²)</label>
+              <input id="plotSize" type="number" min="0" step="1" value="250" />
+            </div>
+
+            <div class="field">
+              <label for="poolSize" data-i18n="fieldPoolSize">Poolgröße (m²)</label>
+              <input id="poolSize" type="number" min="0" step="1" value="24" />
+            </div>
+
+            <div class="field">
+              <label for="distanceFactor" data-i18n="fieldEffort">Aufwand / Zugänglichkeit</label>
+              <select id="distanceFactor">
+                <option value="1" data-i18n="effortNormal">Normal</option>
+                <option value="1.12" data-i18n="effortElevated">Erhöht</option>
+                <option value="1.22" data-i18n="effortHigh">Hoch</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label data-i18n="fieldServices">Leistungen wählen</label>
+              <div class="checks">
+                <label class="check">
+                  <input type="checkbox" id="checkInspection" checked />
+                  <span>
+                    <strong data-i18n="serviceInspection">Objektkontrolle</strong>
+                    <small data-i18n="serviceInspectionSub">Sichtprüfung innen/außen, Lüften, kurze Meldung</small>
+                  </span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" id="checkPool" checked />
+                  <span>
+                    <strong data-i18n="servicePool">Poolservice</strong>
+                    <small data-i18n="servicePoolSub">Preis steigt mit Poolgröße und Frequenz</small>
+                  </span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" id="checkGarden" checked />
+                  <span>
+                    <strong data-i18n="serviceGarden">Gartenpflege</strong>
+                    <small data-i18n="serviceGardenSub">Preis steigt mit Außenfläche</small>
+                  </span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" id="checkArrival" />
+                  <span>
+                    <strong data-i18n="serviceArrival">Vorbereitung vor Ankunft</strong>
+                    <small data-i18n="serviceArrivalSub">Einrichtung, Lüften, besenreiner Startzustand</small>
+                  </span>
+                </label>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="warum">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Warum dieses Modell</div>
-            <h2>Robuster als reine Paketpreise</h2>
+        <div class="card">
+          <h2 data-i18n="summaryTitle">Preisübersicht</h2>
+          <p style="color: var(--muted);" data-i18n="summaryText">Hier werden alle gewählten Positionen einzeln aufgeführt und unten als Gesamtpreis zusammengefasst.</p>
+
+          <div id="summaryList" class="summary-list"></div>
+
+          <div class="total-box">
+            <div class="mini">
+              <span data-i18n="subtotalLabel">Zwischensumme</span>
+              <span id="subtotalValue">0 €</span>
+            </div>
+            <div class="mini">
+              <span data-i18n="effortLabel">Aufwandsfaktor</span>
+              <span id="effortValue">x 1.00</span>
+            </div>
+            <div class="grand-total">
+              <span data-i18n="grandTotalLabel">Gesamtpreis</span>
+              <span id="grandTotal">0 €</span>
+            </div>
           </div>
-          <p>
-            Viele Anbieter zeigen Basistarife für Betreuung. Der eigentliche operative Aufwand entsteht aber oft in Reinigung, Pool, Garten und Ankunftsorganisation.
-          </p>
-        </div>
 
-        <div class="why-grid">
-          <article class="card">
-            <div class="icon">1</div>
-            <h3>Verkaufbar</h3>
-            <p class="muted">Kunden verstehen ein klares Basispaket schneller als unübersichtliche Einzelleistungen ohne Struktur.</p>
-          </article>
-          <article class="card">
-            <div class="icon">2</div>
-            <h3>Fair</h3>
-            <p class="muted">Große Außenflächen, Pools und häufige Wechsel zahlen mehr als kleine, ruhige Objekte. Das ist logisch und vermittelbar.</p>
-          </article>
-          <article class="card">
-            <div class="icon">3</div>
-            <h3>Profitabel</h3>
-            <p class="muted">Du subventionierst keine großen Villen mit den Einnahmen kleiner Apartments. Genau das passiert bei zu flachen Pauschalen.</p>
-          </article>
+          <div class="note" data-i18n="pricingNote">Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten.</div>
         </div>
       </div>
     </section>
 
-    <section>
-      <div class="wrap">
+    <section id="pricing">
+      <div class="container">
         <div class="section-head">
           <div>
-            <div class="eyebrow">Kundenstimme</div>
-            <h2>Worauf Eigentümer achten</h2>
+            <h2 data-i18n="logicTitle">Warum diese Preislogik sinnvoller ist</h2>
+            <p data-i18n="logicText">Fixe Fantasiepakete sehen im Marketing nett aus, sind aber betriebswirtschaftlich oft schlecht. Diese Seite nutzt daher eine nachvollziehbare Mischlogik aus Grundpreis, Größenfaktor und Aufwandsfaktor.</p>
           </div>
-          <p>
-            Nicht nur auf Preis. Sondern auf Verlässlichkeit, Reaktionsgeschwindigkeit und das Gefühl, dass jemand Probleme erkennt, bevor sie teuer werden.
-          </p>
         </div>
 
-        <div class="reviews">
-          <article class="review">
-            <strong>„Endlich klare Preise statt schwammiger Aussagen.“</strong>
-            <p class="muted">Besonders wichtig war uns, dass Garten, Pool und Reinigung nicht einfach blind in eine Pauschale gepackt wurden.</p>
-          </article>
-          <article class="review">
-            <strong>„Wir sehen nach jedem Besuch, was gemacht wurde.“</strong>
-            <p class="muted">Kurze Rückmeldungen und nachvollziehbare Struktur geben Eigentümern mehr Sicherheit als Billigpreise.</p>
-          </article>
-          <article class="review">
-            <strong>„Das Modell ist verständlich und professionell.“</strong>
-            <p class="muted">Gerade für ausländische Eigentümer ist Transparenz oft wichtiger als der letzte gesparte Euro.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="kontakt">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Kontakt</div>
-            <h2>Anfrage für Ihre Immobilie in Alicante</h2>
+        <div class="pricing-grid">
+          <div class="pricing-box">
+            <h3 data-i18n="logicBox1Title">1. Grundpreis</h3>
+            <p data-i18n="logicBox1Text">Jede Leistung startet mit einem wirtschaftlich sinnvollen Basissatz. Damit werden Anfahrt, Organisation und Mindestaufwand nicht verschenkt.</p>
           </div>
-          <p>
-            Teilen Sie kurz mit, um welche Immobilie es geht. Auf dieser Basis lässt sich ein realistisches Angebot erstellen.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-          <article class="contact-card">
-            <h3>Kontaktformular</h3>
-            <form>
-              <div class="field">
-                <label for="name">Name</label>
-                <input id="name" type="text" placeholder="Ihr Name" />
-              </div>
-              <div class="field">
-                <label for="email">E-Mail</label>
-                <input id="email" type="email" placeholder="Ihre E-Mail-Adresse" />
-              </div>
-              <div class="field">
-                <label for="phone">Telefon</label>
-                <input id="phone" type="text" placeholder="Telefonnummer" />
-              </div>
-              <div class="field">
-                <label for="message">Nachricht</label>
-                <textarea id="message" placeholder="Objekttyp, Lage, Wohnfläche, Garten, Pool, gewünschte Leistungen"></textarea>
-              </div>
-              <button type="button" class="btn btn-primary">Anfrage senden</button>
-            </form>
-          </article>
-
-          <article class="contact-card">
-            <h3>Leistungsversprechen</h3>
-            <ul class="clean">
-              <li>Transparente Struktur statt versteckter Pauschalen</li>
-              <li>Betreuung passend zur Objektgröße</li>
-              <li>Klare Trennung zwischen Grundservice und Zusatzaufwand</li>
-              <li>Realistische Kalkulation statt Dumpingpreis</li>
-            </ul>
-          </article>
-
-          <article class="contact-card">
-            <h3>Geeignet für</h3>
-            <ul class="clean">
-              <li>Ferienimmobilien</li>
-              <li>Zweitwohnsitze</li>
-              <li>Vermietete Apartments</li>
-              <li>Villen mit Garten und Pool</li>
-            </ul>
-          </article>
+          <div class="pricing-box">
+            <h3 data-i18n="logicBox2Title">2. Größe treibt Aufwand</h3>
+            <p data-i18n="logicBox2Text">Mehr Wohnfläche, mehr Außenfläche oder ein größerer Pool bedeuten real mehr Zeit. Genau deshalb steigt der Preis nicht pauschal, sondern mit dem tatsächlichen Umfang.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="logicBox3Title">3. Frequenz und Erschwernis</h3>
+            <p data-i18n="logicBox3Text">Wöchentliche Betreuung, schwer zugängige Objekte oder höherer Koordinationsaufwand müssen im Preis sichtbar sein. Sonst ist das Modell irgendwann unprofitabel.</p>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <div class="brand" style="margin-bottom:12px;">
-          <span class="brand-mark">IB</span>
-          <span>Immobilienbetreuung Alicante</span>
-        </div>
-        <small>Professionelle Betreuung für Eigentümer, die ihre Immobilie in Alicante zuverlässig organisiert wissen wollen.</small>
-      </div>
-      <div>
-        <strong>Navigation</strong>
-        <div class="pill-row">
-          <a class="pill" href="#leistungen">Leistungen</a>
-          <a class="pill" href="#preise">Preise</a>
-          <a class="pill" href="#rechner">Rechner</a>
-        </div>
-      </div>
-      <div>
-        <strong>Hinweis</strong>
-        <small>Alle Preise auf dieser Seite sind Beispielpreise zur Orientierung und dienen der transparenten Angebotslogik.</small>
-      </div>
+    <div class="container">
+      <p data-i18n="footerText">Costa Care Alicante – strukturierte Betreuung für Ferienimmobilien, Zweitwohnsitze und Vermietungsobjekte.</p>
     </div>
   </footer>
 
+  <section id="legal" style="padding:30px 0;">
+    <div class="container" style="display:grid;gap:20px;">
+      <div class="card">
+        <h2>Impressum</h2>
+        <p><strong>Angaben gemäß § 5 TMG</strong></p>
+        <p>
+          Costa Care Alicante<br>
+          Inhaber: [Dein Name]<br>
+          Adresse: [Straße, PLZ, Ort]<br>
+          Spanien
+        </p>
+        <p>
+          Telefon: [Telefonnummer]<br>
+          E-Mail: [E-Mail-Adresse]
+        </p>
+        <p>
+          Umsatzsteuer-ID: [falls vorhanden]
+        </p>
+        <p style="color:var(--muted);">Hinweis: Bitte diese Daten unbedingt mit deinen echten Angaben ersetzen.</p>
+      </div>
+
+      <div class="card">
+        <h2>Datenschutz</h2>
+        <p>
+          Diese Website erhebt und verarbeitet personenbezogene Daten nur im notwendigen Umfang. Beim Nutzen des Preisrechners werden keine Daten gespeichert oder übertragen.
+        </p>
+        <p>
+          Beim Kontakt per E-Mail werden die übermittelten Daten ausschließlich zur Bearbeitung der Anfrage verwendet.
+        </p>
+        <p>
+          Verantwortlich für die Datenverarbeitung ist der oben genannte Betreiber.
+        </p>
+        <p style="color:var(--muted);">
+          Hinweis: Für eine rechtssichere Version (DSGVO) solltest du das von einem Anwalt oder Generator prüfen lassen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
   <script>
-    const detailButtons = document.querySelectorAll('.toggle-details');
-    detailButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const target = document.getElementById(button.dataset.target);
-        const isOpen = target.classList.contains('open');
-        target.classList.toggle('open');
-        button.textContent = isOpen ? 'Details anzeigen' : 'Details ausblenden';
+    const i18n = {
+      de: {
+        brand: "Costa Care Alicante",
+        brandSub: "Betreuung, Kontrolle und Werterhalt",
+        navServices: "Leistungen",
+        navCalc: "Preisrechner",
+        navPricing: "Preislogik",
+        eyebrow: "Zuverlässige Immobilienbetreuung an der Costa Blanca",
+        heroTitle: "Sinnvolle Betreuung statt schöner Versprechen.",
+        heroText: "Regelmäßige Kontrollen, koordinierte Einsätze und nachvollziehbare Preislogik. Keine Fantasiepakete, sondern Leistungen, die zur Immobilie und zum Aufwand passen.",
+        heroBtnPrimary: "Preis grob berechnen",
+        heroBtnSecondary: "Leistungen ansehen",
+        stat1Value: "3-sprachig",
+        stat1Label: "Deutsch, Englisch, Spanisch",
+        stat2Value: "Dynamisch",
+        stat2Label: "Preis nach Größe und Aufwand",
+        stat3Value: "Transparent",
+        stat3Label: "Gesamtpreis inkl. Einzelpositionen",
+        servicesTitle: "Unsere Leistungen",
+        servicesText: "Die Bilder wurden so gewählt, dass sie zur tatsächlichen Leistung passen. Poolservice zeigt einen Pool, Gartenpflege zeigt Gartenflächen, nicht irgendein hübsches Zufallsbild.",
+        poolTitle: "Poolservice",
+        poolText: "Koordination oder Durchführung der regelmäßigen Poolpflege für klare Wasserqualität, saubere Beckenränder und einen gepflegten Gesamteindruck.",
+        gardenTitle: "Gartenpflege",
+        gardenText: "Pflege von Rasen, Terrassen, Hecken und Außenflächen – abgestimmt auf Grundstücksgröße, Vegetation und tatsächlichen Pflegeaufwand.",
+        arrivalTitle: "Vorbereitung vor Ankunft",
+        arrivalText: "Die Immobilie wird vor Eintreffen vorbereitet, damit Gäste oder Eigentümer nicht in ein abgestandenes oder ungepflegtes Objekt kommen.",
+        detailsBtn: "Details anzeigen",
+        poolDetail1: "Sichtkontrolle des Wasserspiegels und der Wasserqualität",
+        poolDetail2: "Prüfung von Skimmer, Pumpe und Filterlaufzeit",
+        poolDetail3: "Entfernung grober Verschmutzungen an Oberfläche und Rand",
+        poolDetail4: "Koordination externer Pooltechnik bei Störungen",
+        gardenDetail1: "Rasen mähen und einfache Nachpflege",
+        gardenDetail2: "Laub, trockene Pflanzenteile und leichte Verschmutzungen entfernen",
+        gardenDetail3: "Terrassen und Zugänge besenrein halten",
+        gardenDetail4: "Hinweis auf erhöhten Aufwand bei großem Grundstück oder starker Bepflanzung",
+        arrivalDetail1: "Lüften und kurze Sichtkontrolle der Räume",
+        arrivalDetail2: "Besenreiner Grundzustand bei leichter Verschmutzung",
+        arrivalDetail3: "Terrasse prüfen, grob säubern und Möbel stellen",
+        arrivalDetail4: "Kleine vorbereitende Handgriffe für einen gepflegten ersten Eindruck",
+        calcTitle: "Preisrechner",
+        calcText: "Der Rechner fasst jetzt alle Positionen im Gesamtpreis zusammen. Er ist bewusst wirtschaftlich gedacht: Größe, Aufwand und Frequenz treiben den Preis, nicht nur hübsche Paketnamen.",
+        fieldPropertyType: "Immobilienart",
+        fieldFrequency: "Frequenz",
+        fieldLivingSize: "Wohnfläche (m²)",
+        fieldPlotSize: "Grundstück / Außenfläche (m²)",
+        fieldPoolSize: "Poolgröße (m²)",
+        fieldEffort: "Aufwand / Zugänglichkeit",
+        fieldServices: "Leistungen wählen",
+        typeApartment: "Apartment",
+        typeHouse: "Haus / Villa",
+        freqOneTime: "Einmalig",
+        freqMonthly: "Monatlich",
+        freqWeekly: "Wöchentlich",
+        effortNormal: "Normal",
+        effortElevated: "Erhöht",
+        effortHigh: "Hoch",
+        serviceInspection: "Objektkontrolle",
+        serviceInspectionSub: "Sichtprüfung innen/außen, Lüften, kurze Meldung",
+        servicePool: "Poolservice",
+        servicePoolSub: "Preis steigt mit Poolgröße und Frequenz",
+        serviceGarden: "Gartenpflege",
+        serviceGardenSub: "Preis steigt mit Außenfläche",
+        serviceArrival: "Vorbereitung vor Ankunft",
+        serviceArrivalSub: "Einrichtung, Lüften, besenreiner Startzustand",
+        summaryTitle: "Preisübersicht",
+        summaryText: "Hier werden alle gewählten Positionen einzeln aufgeführt und unten als Gesamtpreis zusammengefasst.",
+        subtotalLabel: "Zwischensumme",
+        effortLabel: "Aufwandsfaktor",
+        grandTotalLabel: "Gesamtpreis",
+        pricingNote: "Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten.",
+        logicTitle: "Warum diese Preislogik sinnvoller ist",
+        logicText: "Fixe Fantasiepakete sehen im Marketing nett aus, sind aber betriebswirtschaftlich oft schlecht. Diese Seite nutzt daher eine nachvollziehbare Mischlogik aus Grundpreis, Größenfaktor und Aufwandsfaktor.",
+        logicBox1Title: "1. Grundpreis",
+        logicBox1Text: "Jede Leistung startet mit einem wirtschaftlich sinnvollen Basissatz. Damit werden Anfahrt, Organisation und Mindestaufwand nicht verschenkt.",
+        logicBox2Title: "2. Größe treibt Aufwand",
+        logicBox2Text: "Mehr Wohnfläche, mehr Außenfläche oder ein größerer Pool bedeuten real mehr Zeit. Genau deshalb steigt der Preis nicht pauschal, sondern mit dem tatsächlichen Umfang.",
+        logicBox3Title: "3. Frequenz und Erschwernis",
+        logicBox3Text: "Wöchentliche Betreuung, schwer zugängige Objekte oder höherer Koordinationsaufwand müssen im Preis sichtbar sein. Sonst ist das Modell irgendwann unprofitabel.",
+        footerText: "Costa Care Alicante – strukturierte Betreuung für Ferienimmobilien, Zweitwohnsitze und Vermietungsobjekte.",
+        lineInspection: "Objektkontrolle",
+        linePool: "Poolservice",
+        lineGarden: "Gartenpflege",
+        lineArrival: "Vorbereitung vor Ankunft",
+        noServices: "Noch keine Leistungen gewählt"
+      },
+      en: {
+        brand: "Costa Care Alicante",
+        brandSub: "Care, checks and property value preservation",
+        navServices: "Services",
+        navCalc: "Price calculator",
+        navPricing: "Pricing logic",
+        eyebrow: "Reliable property care on the Costa Blanca",
+        heroTitle: "Practical property care instead of empty promises.",
+        heroText: "Regular checks, coordinated service and pricing based on actual effort. No fantasy bundles, but services that fit the property and workload.",
+        heroBtnPrimary: "Estimate price",
+        heroBtnSecondary: "View services",
+        stat1Value: "Trilingual",
+        stat1Label: "German, English, Spanish",
+        stat2Value: "Dynamic",
+        stat2Label: "Price by size and effort",
+        stat3Value: "Transparent",
+        stat3Label: "Total incl. line items",
+        servicesTitle: "Our services",
+        servicesText: "The images now match the actual service. Pool service shows a pool, garden care shows outdoor areas, not random stock photography.",
+        poolTitle: "Pool service",
+        poolText: "Coordination or execution of regular pool care for clear water quality, clean edges and a well-kept overall impression.",
+        gardenTitle: "Garden care",
+        gardenText: "Care of lawns, terraces, hedges and outdoor areas based on plot size, vegetation and real maintenance effort.",
+        arrivalTitle: "Pre-arrival preparation",
+        arrivalText: "The property is prepared before owners or guests arrive, so they do not enter a stale or neglected home.",
+        detailsBtn: "Show details",
+        poolDetail1: "Visual check of water level and water quality",
+        poolDetail2: "Check skimmer, pump and filter runtime",
+        poolDetail3: "Remove coarse dirt from surface and pool edge",
+        poolDetail4: "Coordinate external pool technician if needed",
+        gardenDetail1: "Mow lawn and basic follow-up care",
+        gardenDetail2: "Remove leaves, dry plant parts and light debris",
+        gardenDetail3: "Keep terraces and access paths broom-clean",
+        gardenDetail4: "Highlight extra effort for large plots or dense planting",
+        arrivalDetail1: "Ventilate and perform a short visual room check",
+        arrivalDetail2: "Provide broom-clean basic condition for light dirt",
+        arrivalDetail3: "Check terrace, clean roughly and position furniture",
+        arrivalDetail4: "Small practical steps for a well-kept first impression",
+        calcTitle: "Price calculator",
+        calcText: "The calculator now combines all selected items into one total. It is built to be economically sound: size, effort and frequency drive the price, not just nice package names.",
+        fieldPropertyType: "Property type",
+        fieldFrequency: "Frequency",
+        fieldLivingSize: "Living area (m²)",
+        fieldPlotSize: "Plot / outdoor area (m²)",
+        fieldPoolSize: "Pool size (m²)",
+        fieldEffort: "Effort / accessibility",
+        fieldServices: "Choose services",
+        typeApartment: "Apartment",
+        typeHouse: "House / villa",
+        freqOneTime: "One-time",
+        freqMonthly: "Monthly",
+        freqWeekly: "Weekly",
+        effortNormal: "Normal",
+        effortElevated: "Elevated",
+        effortHigh: "High",
+        serviceInspection: "Property check",
+        serviceInspectionSub: "Visual check inside/outside, ventilation, short report",
+        servicePool: "Pool service",
+        servicePoolSub: "Price increases with pool size and frequency",
+        serviceGarden: "Garden care",
+        serviceGardenSub: "Price increases with outdoor area",
+        serviceArrival: "Pre-arrival preparation",
+        serviceArrivalSub: "Setup, ventilation, broom-clean starting condition",
+        summaryTitle: "Price summary",
+        summaryText: "Each selected service is listed individually and combined into a final total below.",
+        subtotalLabel: "Subtotal",
+        effortLabel: "Effort factor",
+        grandTotalLabel: "Total price",
+        pricingNote: "Note: This calculator is a solid orientation, not a reckless discount quote. Special cases, repairs, emergency visits and deep cleaning are not automatically included.",
+        logicTitle: "Why this pricing logic is stronger",
+        logicText: "Fixed fantasy bundles may look cleaner in marketing, but they often fail financially. This page therefore uses a mixed logic of base rate, size factor and effort factor.",
+        logicBox1Title: "1. Base rate",
+        logicBox1Text: "Each service starts with a meaningful base price so travel, coordination and minimum effort are not given away for free.",
+        logicBox2Title: "2. Size drives effort",
+        logicBox2Text: "More living area, more outdoor area or a larger pool means more time in reality. That is why the price grows with actual scope.",
+        logicBox3Title: "3. Frequency and difficulty",
+        logicBox3Text: "Weekly care, hard-to-access properties or higher coordination effort must be visible in the price. Otherwise the model becomes unprofitable.",
+        footerText: "Costa Care Alicante – structured property care for holiday homes, second residences and rental properties.",
+        lineInspection: "Property check",
+        linePool: "Pool service",
+        lineGarden: "Garden care",
+        lineArrival: "Pre-arrival preparation",
+        noServices: "No services selected yet"
+      },
+      es: {
+        brand: "Costa Care Alicante",
+        brandSub: "Supervisión, control y conservación del valor",
+        navServices: "Servicios",
+        navCalc: "Calculadora",
+        navPricing: "Lógica de precios",
+        eyebrow: "Gestión fiable de inmuebles en la Costa Blanca",
+        heroTitle: "Gestión útil en lugar de promesas vacías.",
+        heroText: "Controles regulares, coordinación clara y precios basados en el esfuerzo real. Sin paquetes inventados, sino servicios ajustados al inmueble y al trabajo.",
+        heroBtnPrimary: "Calcular precio",
+        heroBtnSecondary: "Ver servicios",
+        stat1Value: "3 idiomas",
+        stat1Label: "Alemán, inglés, español",
+        stat2Value: "Dinámico",
+        stat2Label: "Precio según tamaño y esfuerzo",
+        stat3Value: "Transparente",
+        stat3Label: "Total con conceptos incluidos",
+        servicesTitle: "Nuestros servicios",
+        servicesText: "Las imágenes ahora sí encajan con el servicio real. El servicio de piscina muestra una piscina, el jardín muestra zonas exteriores, no una foto bonita sin sentido.",
+        poolTitle: "Servicio de piscina",
+        poolText: "Coordinación o ejecución del mantenimiento regular de la piscina para una buena calidad del agua, bordes limpios y una imagen cuidada.",
+        gardenTitle: "Mantenimiento de jardín",
+        gardenText: "Cuidado de césped, terrazas, setos y exteriores según el tamaño de la parcela, la vegetación y el esfuerzo real de mantenimiento.",
+        arrivalTitle: "Preparación antes de la llegada",
+        arrivalText: "El inmueble se prepara antes de la llegada de propietarios o huéspedes para evitar una entrada en una vivienda cerrada o descuidada.",
+        detailsBtn: "Ver detalles",
+        poolDetail1: "Revisión visual del nivel y de la calidad del agua",
+        poolDetail2: "Comprobación de skimmer, bomba y tiempo de filtrado",
+        poolDetail3: "Retirada de suciedad gruesa de la superficie y del borde",
+        poolDetail4: "Coordinación de técnico externo si hay incidencias",
+        gardenDetail1: "Corte de césped y mantenimiento básico posterior",
+        gardenDetail2: "Retirada de hojas, restos secos y suciedad ligera",
+        gardenDetail3: "Mantener terrazas y accesos barridos",
+        gardenDetail4: "Aviso de mayor esfuerzo en parcelas grandes o con vegetación densa",
+        arrivalDetail1: "Ventilar y realizar una revisión visual rápida",
+        arrivalDetail2: "Dejar un estado básico barrido si la suciedad es ligera",
+        arrivalDetail3: "Revisar terraza, limpieza ligera y colocar mobiliario",
+        arrivalDetail4: "Pequeños pasos prácticos para una buena primera impresión",
+        calcTitle: "Calculadora de precios",
+        calcText: "La calculadora ahora reúne todas las partidas en un precio total. Está pensada con criterio económico: el tamaño, el esfuerzo y la frecuencia marcan el precio, no solo nombres bonitos de paquetes.",
+        fieldPropertyType: "Tipo de inmueble",
+        fieldFrequency: "Frecuencia",
+        fieldLivingSize: "Superficie habitable (m²)",
+        fieldPlotSize: "Parcela / exterior (m²)",
+        fieldPoolSize: "Tamaño de piscina (m²)",
+        fieldEffort: "Esfuerzo / accesibilidad",
+        fieldServices: "Elegir servicios",
+        typeApartment: "Apartamento",
+        typeHouse: "Casa / villa",
+        freqOneTime: "Puntual",
+        freqMonthly: "Mensual",
+        freqWeekly: "Semanal",
+        effortNormal: "Normal",
+        effortElevated: "Elevado",
+        effortHigh: "Alto",
+        serviceInspection: "Control del inmueble",
+        serviceInspectionSub: "Revisión visual interior/exterior, ventilación e informe breve",
+        servicePool: "Servicio de piscina",
+        servicePoolSub: "El precio sube con el tamaño y la frecuencia",
+        serviceGarden: "Mantenimiento de jardín",
+        serviceGardenSub: "El precio sube con la superficie exterior",
+        serviceArrival: "Preparación antes de la llegada",
+        serviceArrivalSub: "Preparación, ventilación y estado inicial barrido",
+        summaryTitle: "Resumen de precio",
+        summaryText: "Cada servicio seleccionado aparece por separado y abajo se resume el precio total.",
+        subtotalLabel: "Subtotal",
+        effortLabel: "Factor de esfuerzo",
+        grandTotalLabel: "Precio total",
+        pricingNote: "Nota: Esta calculadora es una orientación sólida, no una oferta temeraria. Casos especiales, reparaciones, urgencias y limpiezas intensivas no se incluyen automáticamente.",
+        logicTitle: "Por qué esta lógica de precios es mejor",
+        logicText: "Los paquetes fijos inventados pueden quedar bonitos en marketing, pero muchas veces fallan económicamente. Por eso esta página usa una lógica mixta de base, tamaño y dificultad.",
+        logicBox1Title: "1. Base",
+        logicBox1Text: "Cada servicio empieza con un precio base razonable para no regalar desplazamiento, coordinación y esfuerzo mínimo.",
+        logicBox2Title: "2. El tamaño genera trabajo",
+        logicBox2Text: "Más metros habitables, más exterior o una piscina mayor implican más tiempo real. Por eso el precio crece con el alcance efectivo.",
+        logicBox3Title: "3. Frecuencia y dificultad",
+        logicBox3Text: "La atención semanal, los inmuebles de acceso difícil o una coordinación mayor deben reflejarse en el precio. Si no, el modelo deja de ser rentable.",
+        footerText: "Costa Care Alicante – gestión estructurada para viviendas vacacionales, segundas residencias e inmuebles de alquiler.",
+        lineInspection: "Control del inmueble",
+        linePool: "Servicio de piscina",
+        lineGarden: "Mantenimiento de jardín",
+        lineArrival: "Preparación antes de la llegada",
+        noServices: "Aún no hay servicios seleccionados"
+      }
+    };
+
+    let currentLang = 'de';
+
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+    const byId = (id) => document.getElementById(id);
+
+    function applyLanguage(lang) {
+      currentLang = lang;
+      $$('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (i18n[lang][key]) el.textContent = i18n[lang][key];
+      });
+      $$('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+      renderSummary();
+    }
+
+    function euro(value) {
+      return new Intl.NumberFormat(currentLang === 'de' ? 'de-DE' : currentLang === 'es' ? 'es-ES' : 'en-GB', {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+
+    function calculatePrices() {
+      const propertyType = byId('propertyType').value;
+      const frequency = byId('serviceFrequency').value;
+      const livingSize = Math.max(0, Number(byId('livingSize').value) || 0);
+      const plotSize = Math.max(0, Number(byId('plotSize').value) || 0);
+      const poolSize = Math.max(0, Number(byId('poolSize').value) || 0);
+      const effortFactor = Number(byId('distanceFactor').value) || 1;
+
+      const propertyFactor = propertyType === 'house' ? 1.12 : 1;
+      const frequencyFactor = frequency === 'weekly' ? 0.82 : frequency === 'monthly' ? 1 : 1.18;
+
+      const lines = [];
+
+      if (byId('checkInspection').checked) {
+        const inspection = Math.round((28 + livingSize * 0.18 + plotSize * 0.03) * propertyFactor * frequencyFactor);
+        lines.push({ label: i18n[currentLang].lineInspection, value: inspection });
+      }
+
+      if (byId('checkPool').checked && poolSize > 0) {
+        const pool = Math.round((24 + poolSize * 1.9) * propertyFactor * frequencyFactor);
+        lines.push({ label: i18n[currentLang].linePool, value: pool });
+      }
+
+      if (byId('checkGarden').checked && plotSize > 0) {
+        const garden = Math.round((22 + plotSize * 0.11) * propertyFactor * frequencyFactor);
+        lines.push({ label: i18n[currentLang].lineGarden, value: garden });
+      }
+
+      if (byId('checkArrival').checked) {
+        const arrival = Math.round((34 + livingSize * 0.14) * propertyFactor * 1.06);
+        lines.push({ label: i18n[currentLang].lineArrival, value: arrival });
+      }
+
+      const subtotal = lines.reduce((sum, item) => sum + item.value, 0);
+      const total = Math.round(subtotal * effortFactor);
+
+      return { lines, subtotal, total, effortFactor };
+    }
+
+    function renderSummary() {
+      const { lines, subtotal, total, effortFactor } = calculatePrices();
+      const summary = byId('summaryList');
+      summary.innerHTML = '';
+
+      if (!lines.length) {
+        const empty = document.createElement('div');
+        empty.className = 'summary-empty';
+        empty.textContent = i18n[currentLang].noServices;
+        summary.appendChild(empty);
+      } else {
+        lines.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'summary-row';
+          row.innerHTML = `<span>${item.label}</span><span>${euro(item.value)}</span>`;
+          summary.appendChild(row);
+        });
+      }
+
+      byId('subtotalValue').textContent = euro(subtotal);
+      byId('effortValue').textContent = `x ${effortFactor.toFixed(2)}`;
+      byId('grandTotal').textContent = euro(total);
+    }
+
+    $$('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+    });
+
+    $$('.detail-toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const box = byId(btn.dataset.target);
+        box.classList.toggle('open');
       });
     });
 
-    const fields = {
-      propertyType: document.getElementById('propertyType'),
-      interiorSize: document.getElementById('interiorSize'),
-      gardenSize: document.getElementById('gardenSize'),
-      visits: document.getElementById('visits'),
-      hasPool: document.getElementById('hasPool'),
-      arrivalPrep: document.getElementById('arrivalPrep'),
-      cleaning: document.getElementById('cleaning'),
-      checkin: document.getElementById('checkin')
-    };
+    ['propertyType','serviceFrequency','livingSize','plotSize','poolSize','distanceFactor','checkInspection','checkPool','checkGarden','checkArrival']
+      .forEach(id => byId(id).addEventListener('input', renderSummary));
 
-    const resultTotal = document.getElementById('resultTotal');
-    const resultSubline = document.getElementById('resultSubline');
-    const lineItems = document.getElementById('lineItems');
-
-    function euro(value) {
-      return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value);
-    }
-
-    function calculate() {
-      const type = fields.propertyType.value;
-      const interior = Math.max(0, Number(fields.interiorSize.value) || 0);
-      const garden = Math.max(0, Number(fields.gardenSize.value) || 0);
-      const visits = Number(fields.visits.value) || 2;
-
-      let base = 69;
-      if (type === 'townhouse') base = 99;
-      if (type === 'villa') base = 129;
-
-      let extraVisits = visits === 4 ? 35 : 0;
-
-      let sizeAdjustment = 0;
-      if (interior > 120) sizeAdjustment += 15;
-      if (interior > 180) sizeAdjustment += 20;
-
-      let gardenCost = 0;
-      if (garden > 0) {
-        if (garden <= 50) gardenCost = 25;
-        else if (garden <= 150) gardenCost = 45;
-        else if (garden <= 300) gardenCost = 75;
-        else gardenCost = 115;
-      }
-
-      let poolCost = fields.hasPool.checked ? 85 : 0;
-      if (fields.hasPool.checked && type === 'villa') poolCost += 15;
-
-      let arrivalCost = fields.arrivalPrep.checked ? 35 : 0;
-      let cleaningCost = 0;
-      if (fields.cleaning.checked) {
-        if (interior <= 60) cleaningCost = 60;
-        else if (interior <= 100) cleaningCost = 80;
-        else if (interior <= 150) cleaningCost = 110;
-        else cleaningCost = 145;
-      }
-
-      let checkinCost = fields.checkin.checked ? 20 : 0;
-
-      const monthly = base + extraVisits + sizeAdjustment + gardenCost + poolCost;
-      const arrivalRelated = arrivalCost + cleaningCost + checkinCost;
-
-      const rows = [
-        ['Grundbetreuung', base],
-        ['Mehrbesuche', extraVisits],
-        ['Aufschlag Objektgröße', sizeAdjustment],
-        ['Garten / Außenfläche', gardenCost],
-        ['Poolservice', poolCost],
-        ['Vorbereitung vor Ankunft', arrivalCost],
-        ['Reinigung pro Einsatz', cleaningCost],
-        ['Check-in / Übergabe', checkinCost]
-      ].filter(([, value]) => value > 0);
-
-      lineItems.innerHTML = rows.map(([label, value]) => `
-        <div class="line-item">
-          <span>${label}</span>
-          <strong>${euro(value)}</strong>
-        </div>
-      `).join('');
-
-      resultTotal.textContent = `${euro(monthly)} / Monat`;
-      resultSubline.textContent = arrivalRelated > 0
-        ? `Zusätzliche einmalige oder einsatzbezogene Leistungen: ${euro(arrivalRelated)} pro Einsatz / Ankunft.`
-        : 'Keine einsatzbezogenen Zusatzleistungen ausgewählt.';
-    }
-
-    Object.values(fields).forEach(el => {
-      el.addEventListener('input', calculate);
-      el.addEventListener('change', calculate);
-    });
-
-    calculate();
+    applyLanguage('de');
   </script>
 </body>
 </html>
