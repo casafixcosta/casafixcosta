@@ -466,6 +466,7 @@
         <a href="#services" data-i18n="navServices">Leistungen</a>
         <a href="#calculator" data-i18n="navCalc">Preisrechner</a>
         <a href="#pricing" data-i18n="navPricing">Preislogik</a>
+        <a href="#about" data-i18n="navWhy">Warum wir</a>
       </nav>
 
       <div class="lang-switch">
@@ -525,7 +526,82 @@
         <div class="pricing-grid">
           <div class="pricing-box">
             <h3 data-i18n="aboutBox1Title">Handwerkliches Verständnis</h3>
-            <p data-i18n="aboutBox1Text">Kleine Schäden, b
+            <p data-i18n="aboutBox1Text">Kleine Schäden, beginnende Mängel und technische Auffälligkeiten werden früh erkannt. Das reduziert Folgekosten und spart unnötige Fremdeinsätze.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="aboutBox2Title">Dokumentierte Rückmeldung</h3>
+            <p data-i18n="aboutBox2Text">Eigentümer erhalten klare Rückmeldungen mit Fotos, Videos und einer verständlichen Einordnung. Nicht viele Worte, sondern belastbare Informationen.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="aboutBox3Title">Koordination vor Ort</h3>
+            <p data-i18n="aboutBox3Text">Wenn externe Firmen nötig sind, erfolgt die Abstimmung direkt vor Ort – inklusive Nachkontrolle und transparenter Rückmeldung an den Eigentümer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="risks">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="riskTitle">Was ohne laufende Betreuung schnell passiert</h2>
+            <p data-i18n="riskText">Viele Probleme beginnen klein. Teuer werden sie erst dann, wenn über Wochen oder Monate niemand hinsieht.</p>
+          </div>
+        </div>
+        <div class="pricing-grid">
+          <div class="pricing-box">
+            <h3 data-i18n="riskBox1Title">Feuchtigkeit und Standschäden</h3>
+            <p data-i18n="riskBox1Text">Geschlossene Immobilien entwickeln schneller Gerüche, Feuchtigkeit oder unbemerkte Wasserschäden. Je später reagiert wird, desto teurer wird es.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="riskBox2Title">Außenbereiche kippen zuerst</h3>
+            <p data-i18n="riskBox2Text">Pool, Garten und Terrasse verlieren ohne Kontrolle schnell ihren gepflegten Zustand. Aus kleinen Mängeln werden sichtbar vernachlässigte Außenflächen.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="riskBox3Title">Niemand koordiniert im Ernstfall</h3>
+            <p data-i18n="riskBox3Text">Wenn Eigentümer nicht vor Ort sind, fehlt oft ein verlässlicher Ansprechpartner. Genau dann entstehen Verzögerungen, Missverständnisse und unnötige Mehrkosten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trust">
+      <div class="container calculator-wrap">
+        <div class="card">
+          <h2 data-i18n="trustTitle">So sieht eine professionelle Rückmeldung aus</h2>
+          <p data-i18n="trustText" style="color: var(--muted);">Keine diffuse Aussage wie „alles okay“. Eigentümer bekommen eine knappe, klare und nachvollziehbare Rückmeldung zum Objektzustand.</p>
+          <div class="details open" style="display:block; margin-top:18px;">
+            <ul>
+              <li data-i18n="trustBullet1">Kontrolltermin durchgeführt und Immobilie innen sowie außen geprüft</li>
+              <li data-i18n="trustBullet2">Fotos oder kurzes Video vom aktuellen Zustand</li>
+              <li data-i18n="trustBullet3">Hinweis auf Auffälligkeiten, Priorität und empfohlene nächste Schritte</li>
+              <li data-i18n="trustBullet4">Rückmeldung nach erledigter Koordination mit externen Dienstleistern</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 data-i18n="entryPriceTitle">Orientierung für den Einstieg</h2>
+          <p style="color: var(--muted);" data-i18n="entryPriceText">Für Eigentümer, die eine ruhige und verlässliche Betreuung suchen, sollte der Einstiegspreis sichtbar sein. Das wirkt seriöser als ein Kontaktformular ohne Rahmen.</p>
+          <div class="total-box">
+            <div class="mini">
+              <span data-i18n="entryPriceLabel1">Laufende Betreuung</span>
+              <span data-i18n="entryPriceValue1">ab 120 € / Monat</span>
+            </div>
+            <div class="mini">
+              <span data-i18n="entryPriceLabel2">Objektkontrolle vor Ort</span>
+              <span data-i18n="entryPriceValue2">ab 35 € / Einsatz</span>
+            </div>
+            <div class="mini">
+              <span data-i18n="entryPriceLabel3">Individuelle Zusatzleistungen</span>
+              <span data-i18n="entryPriceValue3">nach Größe und Aufwand</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
       <div class="container">
         <div class="section-head">
           <div>
@@ -791,6 +867,37 @@
   <script>
     const i18n = {
       de: {
+        navWhy: "Warum wir",
+        aboutTitle: "Warum diese Betreuung anders ist",
+        aboutText: "Nicht austauschbare Standardbetreuung, sondern ein ruhiger, verlässlicher Vor-Ort-Service für Eigentümer, die ihre Immobilie nicht dem Zufall überlassen wollen.",
+        aboutBox1Title: "Handwerkliches Verständnis",
+        aboutBox1Text: "Kleine Schäden, beginnende Mängel und technische Auffälligkeiten werden früh erkannt. Das reduziert Folgekosten und spart unnötige Fremdeinsätze.",
+        aboutBox2Title: "Dokumentierte Rückmeldung",
+        aboutBox2Text: "Eigentümer erhalten klare Rückmeldungen mit Fotos, Videos und einer verständlichen Einordnung. Nicht viele Worte, sondern belastbare Informationen.",
+        aboutBox3Title: "Koordination vor Ort",
+        aboutBox3Text: "Wenn externe Firmen nötig sind, erfolgt die Abstimmung direkt vor Ort – inklusive Nachkontrolle und transparenter Rückmeldung an den Eigentümer.",
+        riskTitle: "Was ohne laufende Betreuung schnell passiert",
+        riskText: "Viele Probleme beginnen klein. Teuer werden sie erst dann, wenn über Wochen oder Monate niemand hinsieht.",
+        riskBox1Title: "Feuchtigkeit und Standschäden",
+        riskBox1Text: "Geschlossene Immobilien entwickeln schneller Gerüche, Feuchtigkeit oder unbemerkte Wasserschäden. Je später reagiert wird, desto teurer wird es.",
+        riskBox2Title: "Außenbereiche kippen zuerst",
+        riskBox2Text: "Pool, Garten und Terrasse verlieren ohne Kontrolle schnell ihren gepflegten Zustand. Aus kleinen Mängeln werden sichtbar vernachlässigte Außenflächen.",
+        riskBox3Title: "Niemand koordiniert im Ernstfall",
+        riskBox3Text: "Wenn Eigentümer nicht vor Ort sind, fehlt oft ein verlässlicher Ansprechpartner. Genau dann entstehen Verzögerungen, Missverständnisse und unnötige Mehrkosten.",
+        trustTitle: "So sieht eine professionelle Rückmeldung aus",
+        trustText: "Keine diffuse Aussage wie „alles okay“. Eigentümer bekommen eine knappe, klare und nachvollziehbare Rückmeldung zum Objektzustand.",
+        trustBullet1: "Kontrolltermin durchgeführt und Immobilie innen sowie außen geprüft",
+        trustBullet2: "Fotos oder kurzes Video vom aktuellen Zustand",
+        trustBullet3: "Hinweis auf Auffälligkeiten, Priorität und empfohlene nächste Schritte",
+        trustBullet4: "Rückmeldung nach erledigter Koordination mit externen Dienstleistern",
+        entryPriceTitle: "Orientierung für den Einstieg",
+        entryPriceText: "Für Eigentümer, die eine ruhige und verlässliche Betreuung suchen, sollte der Einstiegspreis sichtbar sein. Das wirkt seriöser als ein Kontaktformular ohne Rahmen.",
+        entryPriceLabel1: "Laufende Betreuung",
+        entryPriceValue1: "ab 120 € / Monat",
+        entryPriceLabel2: "Objektkontrolle vor Ort",
+        entryPriceValue2: "ab 35 € / Einsatz",
+        entryPriceLabel3: "Individuelle Zusatzleistungen",
+        entryPriceValue3: "nach Größe und Aufwand",
         brand: "Costa Care Alicante",
         brandSub: "Betreuung, Kontrolle und Werterhalt",
         navServices: "Leistungen",
@@ -875,6 +982,37 @@
         noServices: "Noch keine Leistungen gewählt"
       },
       en: {
+        navWhy: "Why us",
+        aboutTitle: "Why this care service is different",
+        aboutText: "Not interchangeable standard supervision, but a calm and reliable on-site service for owners who do not want to leave their property to chance.",
+        aboutBox1Title: "Practical technical understanding",
+        aboutBox1Text: "Small defects, early warning signs and technical issues are spotted early. This reduces follow-up costs and avoids unnecessary external callouts.",
+        aboutBox2Title: "Documented reporting",
+        aboutBox2Text: "Owners receive clear updates with photos, videos and a useful assessment. Not empty wording, but relevant information.",
+        aboutBox3Title: "On-site coordination",
+        aboutBox3Text: "If external service providers are required, coordination happens directly on site – including follow-up checks and transparent owner feedback.",
+        riskTitle: "What happens quickly without ongoing supervision",
+        riskText: "Most problems start small. They become expensive only when nobody checks the property for weeks or months.",
+        riskBox1Title: "Moisture and standing damage",
+        riskBox1Text: "Closed properties develop smells, moisture or unnoticed water damage more quickly. The later the reaction, the higher the cost.",
+        riskBox2Title: "Outdoor areas decline first",
+        riskBox2Text: "Pool, garden and terrace lose their maintained condition quickly without supervision. Small issues turn into visible neglect.",
+        riskBox3Title: "No one coordinates when it matters",
+        riskBox3Text: "When owners are not on site, there is often no reliable contact person. That is exactly when delays, misunderstandings and unnecessary costs arise.",
+        trustTitle: "What professional feedback looks like",
+        trustText: "Not a vague message saying everything is fine. Owners receive short, clear and traceable reporting on the property condition.",
+        trustBullet1: "Inspection completed with indoor and outdoor check",
+        trustBullet2: "Photos or a short video of the current condition",
+        trustBullet3: "Clear note on issues, priority and recommended next steps",
+        trustBullet4: "Update after coordination with external service providers",
+        entryPriceTitle: "Clear entry-level guidance",
+        entryPriceText: "Owners looking for calm and reliable care should see a visible starting price. That appears more credible than a contact form without any frame of reference.",
+        entryPriceLabel1: "Ongoing supervision",
+        entryPriceValue1: "from €120 / month",
+        entryPriceLabel2: "On-site property check",
+        entryPriceValue2: "from €35 / visit",
+        entryPriceLabel3: "Additional individual services",
+        entryPriceValue3: "based on size and effort",
         brand: "Costa Care Alicante",
         brandSub: "Care, checks and property value preservation",
         navServices: "Services",
@@ -959,6 +1097,37 @@
         noServices: "No services selected yet"
       },
       es: {
+        navWhy: "Por qué nosotros",
+        aboutTitle: "Por qué este servicio es diferente",
+        aboutText: "No es una supervisión estándar e intercambiable, sino un servicio local tranquilo y fiable para propietarios que no quieren dejar su inmueble al azar.",
+        aboutBox1Title: "Comprensión técnica práctica",
+        aboutBox1Text: "Se detectan pronto pequeños daños, señales tempranas y problemas técnicos. Eso reduce costes posteriores y evita desplazamientos externos innecesarios.",
+        aboutBox2Title: "Información documentada",
+        aboutBox2Text: "Los propietarios reciben actualizaciones claras con fotos, vídeos y una valoración útil. No palabras vacías, sino información relevante.",
+        aboutBox3Title: "Coordinación in situ",
+        aboutBox3Text: "Si hacen falta proveedores externos, la coordinación se realiza directamente en el lugar, incluida la comprobación posterior y una comunicación transparente.",
+        riskTitle: "Lo que ocurre rápidamente sin supervisión continua",
+        riskText: "La mayoría de los problemas empiezan siendo pequeños. Se vuelven caros cuando nadie revisa el inmueble durante semanas o meses.",
+        riskBox1Title: "Humedad y daños acumulados",
+        riskBox1Text: "Los inmuebles cerrados desarrollan antes olores, humedad o daños de agua no detectados. Cuanto más tarde se actúe, mayor será el coste.",
+        riskBox2Title: "Las zonas exteriores caen primero",
+        riskBox2Text: "Piscina, jardín y terraza pierden rápido su estado cuidado sin supervisión. Pequeños fallos se convierten en un abandono visible.",
+        riskBox3Title: "Nadie coordina cuando importa",
+        riskBox3Text: "Cuando los propietarios no están presentes, a menudo falta una persona fiable sobre el terreno. Ahí es cuando aparecen retrasos, malentendidos y costes innecesarios.",
+        trustTitle: "Así es una comunicación profesional",
+        trustText: "No un mensaje difuso diciendo que todo está bien. El propietario recibe una información breve, clara y verificable sobre el estado del inmueble.",
+        trustBullet1: "Inspección realizada con revisión interior y exterior",
+        trustBullet2: "Fotos o un vídeo corto del estado actual",
+        trustBullet3: "Aviso claro sobre incidencias, prioridad y siguientes pasos recomendados",
+        trustBullet4: "Actualización tras coordinar con proveedores externos",
+        entryPriceTitle: "Orientación clara de entrada",
+        entryPriceText: "Los propietarios que buscan un servicio tranquilo y fiable deben ver un precio inicial visible. Eso transmite más seriedad que un formulario sin referencia.",
+        entryPriceLabel1: "Supervisión continua",
+        entryPriceValue1: "desde 120 € / mes",
+        entryPriceLabel2: "Control presencial del inmueble",
+        entryPriceValue2: "desde 35 € / visita",
+        entryPriceLabel3: "Servicios adicionales individuales",
+        entryPriceValue3: "según tamaño y esfuerzo",
         brand: "Costa Care Alicante",
         brandSub: "Supervisión, control y conservación del valor",
         navServices: "Servicios",
