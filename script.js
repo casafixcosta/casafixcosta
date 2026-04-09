@@ -14,7 +14,7 @@ const translations = {
     navContact: "Kontakt",
     eyebrow: "Zuverlässige Immobilienbetreuung an der Costa Blanca",
     heroTitle: "Verlässliche Immobilienbetreuung mit Struktur, Erfahrung und klarer Verantwortung vor Ort.",
-    heroText: "Handwerkliche Ausbildung, Qualifikation als geprüfter Logistikmeister (IHK) und Erfahrung aus dem diplomatischen Dienst sorgen für eine Betreuung, die nicht nur durchgeführt, sondern strukturiert geplant und zuverlässig umgesetzt wird. Für Eigentümer, die ihre Immobilie nicht dem Zufall überlassen wollen.",
+    heroText: "Handwerkliche Ausbildung, Qualifikation als geprüfter Logistikmeister (IHK) und Erfahrung aus dem diplomatischen Dienst sorgen für eine Betreuung, die nicht nur durchgeführt, sondern strukturiert geplant und zuverlässig umgesetzt wird. Dazu gehören neben Kontrolle, Pflege und Koordination auch Vorbereitung vor Ankunft, Welcome-Pakete, Einkaufsservice und priorisierte Notfall-Reaktion für Bestandskunden.",
     heroBtnPrimary: "Preis grob berechnen",
     heroBtnSecondary: "Leistungen ansehen",
     stat1Value: "3-sprachig",
@@ -59,25 +59,36 @@ const translations = {
     entryPriceValue3: "nach Größe und Aufwand",
 
     servicesTitle: "Unsere Leistungen",
-    servicesText: "Die Bilder wurden so gewählt, dass sie zur tatsächlichen Leistung passen. Poolservice zeigt einen Pool, Gartenpflege zeigt Gartenflächen, nicht irgendein hübsches Zufallsbild.",
+    servicesText: "Die Leistungen gehen über reine Kontrolle, Pool- und Gartenpflege hinaus. Auch Vorbereitung vor Ankunft, Welcome-Pakete, Einkaufsservice und priorisierte Notfall-Unterstützung gehören dazu – damit Eigentümer oder Gäste nicht in eine leere, unvorbereitete Immobilie kommen.",
+
     poolTitle: "Poolservice",
     poolText: "Koordination oder Durchführung der regelmäßigen Poolpflege für klare Wasserqualität, saubere Beckenränder und einen gepflegten Gesamteindruck.",
     poolDetail1: "Sichtkontrolle des Wasserspiegels und der Wasserqualität",
     poolDetail2: "Prüfung von Skimmer, Pumpe und Filterlaufzeit",
     poolDetail3: "Entfernung grober Verschmutzungen an Oberfläche und Rand",
     poolDetail4: "Koordination externer Pooltechnik bei Störungen",
+
     gardenTitle: "Gartenpflege",
     gardenText: "Pflege von Rasen, Terrassen, Hecken und Außenflächen – abgestimmt auf Grundstücksgröße, Vegetation und tatsächlichen Pflegeaufwand.",
     gardenDetail1: "Rasen mähen und einfache Nachpflege",
     gardenDetail2: "Laub, trockene Pflanzenteile und leichte Verschmutzungen entfernen",
     gardenDetail3: "Terrassen und Zugänge besenrein halten",
     gardenDetail4: "Hinweis auf erhöhten Aufwand bei großem Grundstück oder starker Bepflanzung",
+
     arrivalTitle: "Vorbereitung vor Ankunft",
     arrivalText: "Die Immobilie wird vor Eintreffen vorbereitet, damit Gäste oder Eigentümer nicht in ein abgestandenes oder ungepflegtes Objekt kommen.",
     arrivalDetail1: "Lüften und kurze Sichtkontrolle der Räume",
     arrivalDetail2: "Besenreiner Grundzustand bei leichter Verschmutzung",
     arrivalDetail3: "Terrasse prüfen, grob säubern und Möbel stellen",
     arrivalDetail4: "Kleine vorbereitende Handgriffe für einen gepflegten ersten Eindruck",
+
+    welcomeTitle: "Welcome-Pakete & Einkaufsservice",
+    welcomeText: "Von kleiner Grundversorgung bis zum Einkauf nach Liste: Auf Wunsch ist die Immobilie bei Ankunft nicht nur vorbereitet, sondern sinnvoll ausgestattet.",
+    welcomeDetail1: "Basis-Paket mit Toilettenpapier, Handseife, Spülmittel, Wasser sowie kleiner Grundversorgung",
+    welcomeDetail2: "Komfort-Paket mit zusätzlichem Kaffee oder Tee, Milch, Brot oder ähnlicher Ankunftsversorgung",
+    welcomeDetail3: "Individueller Einkaufsservice nach Kundenliste",
+    welcomeDetail4: "Servicepauschale jeweils separat, Warenkosten zusätzlich nach Beleg",
+
     detailsBtnOpen: "Details anzeigen",
     detailsBtnClose: "Details ausblenden",
 
@@ -89,6 +100,7 @@ const translations = {
     fieldPlotSize: "Grundstück / Außenfläche (m²)",
     fieldPoolSize: "Poolgröße (m²)",
     fieldServices: "Leistungen wählen",
+
     typeApartment: "Apartment",
     typeHouse: "Haus / Villa",
     freqOneTime: "Einzeltermin / einmaliger Einsatz",
@@ -110,18 +122,19 @@ const translations = {
     extraVentilation: "Lüften / Kurzcheck",
     extraVentilationSub: "Kurzer Zwischenbesuch ohne Vollservice",
     extraWelcomeBasic: "Welcome-Paket Basis",
-    extraWelcomeBasicSub: "Servicepauschale zzgl. Warenkosten nach Beleg",
+    extraWelcomeBasicSub: "Toilettenpapier, Seife, Wasser, kleine Grundversorgung. Servicepauschale, Waren extra",
     extraWelcomeComfort: "Welcome-Paket Komfort",
-    extraWelcomeComfortSub: "Erweiterte Vorbereitung inkl. Servicepauschale, Waren extra",
+    extraWelcomeComfortSub: "Zusätzlich Kaffee oder Tee, Milch und erste Ankunftsversorgung. Servicepauschale, Waren extra",
     extraShopping: "Einkaufsservice nach Liste",
-    extraShoppingSub: "Servicepauschale zzgl. Warenkosten nach Beleg",
+    extraShoppingSub: "Individueller Einkauf. Servicepauschale plus Warenkosten nach Beleg",
     extraEmergency: "Notfall-Erreichbarkeit & Soforteinsatz",
-    extraEmergencySub: "Priorisierte Reaktion bei Sturm, Schäden oder akuten Situationen",
+    extraEmergencySub: "Priorisierte Reaktion für Bestandskunden bei Sturm, Schäden oder akuten Situationen",
 
     summaryTitle: "Preisübersicht",
     summaryText: "Hier werden alle gewählten Positionen einzeln aufgeführt und unten als Gesamtpreis zusammengefasst.",
     grandTotalLabel: "Gesamtpreis",
-    pricingNote: "Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten.",
+    pricingNote: "Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten. Welcome-Pakete und Einkaufsservice enthalten Servicepauschalen, Warenkosten kommen zusätzlich nach Beleg hinzu.",
+
     summaryBase: "Grundpreis Objekt",
     summaryInspection: "Objektkontrolle",
     summaryPool: "Poolservice",
@@ -185,7 +198,7 @@ const translations = {
     navContact: "Contact",
     eyebrow: "Reliable property care on the Costa Blanca",
     heroTitle: "Reliable property care with structure, experience and clear responsibility on site.",
-    heroText: "Craft training, qualification as a certified logistics master (CCI) – Bachelor Professional of Logistics – and experience from diplomatic service create a level of property care that is not just carried out, but structured, planned and implemented reliably. For owners who do not want to leave their property to chance.",
+    heroText: "Craft training, qualification as a certified logistics master (CCI) – Bachelor Professional of Logistics – and experience from diplomatic service create a level of property care that is not just carried out, but structured, planned and implemented reliably. This also includes arrival preparation, welcome packages, shopping service and prioritized emergency response for existing clients.",
     heroBtnPrimary: "Estimate price",
     heroBtnSecondary: "View services",
     stat1Value: "3 languages",
@@ -230,25 +243,36 @@ const translations = {
     entryPriceValue3: "based on size and workload",
 
     servicesTitle: "Our services",
-    servicesText: "The images are chosen to match the real service. Pool service shows a pool, garden care shows outdoor areas, not random decorative stock photos.",
+    servicesText: "The service goes beyond inspections, pool and garden care. Arrival preparation, welcome packages, shopping service and prioritized emergency support are also included so owners or guests do not arrive at an empty, unprepared property.",
+
     poolTitle: "Pool service",
     poolText: "Coordination or execution of regular pool care for clear water, clean edges and a well-maintained overall appearance.",
     poolDetail1: "Visual check of water level and water quality",
     poolDetail2: "Check skimmer, pump and filter runtime",
     poolDetail3: "Remove coarse debris from surface and edges",
     poolDetail4: "Coordinate external pool technicians if needed",
+
     gardenTitle: "Garden care",
     gardenText: "Care for lawn, terraces, hedges and outside areas based on plot size, vegetation and actual workload.",
     gardenDetail1: "Mow lawn and basic follow-up care",
     gardenDetail2: "Remove leaves, dry plant matter and light debris",
     gardenDetail3: "Keep terraces and access areas swept and tidy",
     gardenDetail4: "Flag higher effort for large plots or dense planting",
+
     arrivalTitle: "Preparation before arrival",
     arrivalText: "The property is prepared before arrival so guests or owners do not enter a stale or neglected space.",
     arrivalDetail1: "Ventilate and perform a quick visual room check",
     arrivalDetail2: "Basic swept condition for light dirt",
     arrivalDetail3: "Check terrace, clean roughly and place furniture",
     arrivalDetail4: "Small prep tasks for a well-kept first impression",
+
+    welcomeTitle: "Welcome packages & shopping service",
+    welcomeText: "From small essentials to shopping by list: on request the property is not only prepared, but sensibly stocked for arrival.",
+    welcomeDetail1: "Basic package with toilet paper, hand soap, dishwashing liquid, water and small essentials",
+    welcomeDetail2: "Comfort package with additional coffee or tea, milk, bread or similar arrival supplies",
+    welcomeDetail3: "Individual shopping service based on the customer’s list",
+    welcomeDetail4: "Service fee charged separately, goods additionally by receipt",
+
     detailsBtnOpen: "Show details",
     detailsBtnClose: "Hide details",
 
@@ -260,6 +284,7 @@ const translations = {
     fieldPlotSize: "Plot / outdoor area (m²)",
     fieldPoolSize: "Pool size (m²)",
     fieldServices: "Choose services",
+
     typeApartment: "Apartment",
     typeHouse: "House / villa",
     freqOneTime: "Single appointment / one-time service",
@@ -281,18 +306,19 @@ const translations = {
     extraVentilation: "Airing / quick check",
     extraVentilationSub: "Short intermediate visit without full service",
     extraWelcomeBasic: "Welcome package basic",
-    extraWelcomeBasicSub: "Service fee plus goods charged by receipt",
+    extraWelcomeBasicSub: "Toilet paper, soap, water, small essentials. Service fee, goods extra",
     extraWelcomeComfort: "Welcome package comfort",
-    extraWelcomeComfortSub: "Extended arrival prep incl. service fee, goods extra",
+    extraWelcomeComfortSub: "Additionally coffee or tea, milk and first arrival supplies. Service fee, goods extra",
     extraShopping: "Shopping service by list",
-    extraShoppingSub: "Service fee plus goods charged by receipt",
+    extraShoppingSub: "Individual shopping. Service fee plus goods charged by receipt",
     extraEmergency: "Emergency availability & urgent call-out",
-    extraEmergencySub: "Prioritized response in storms, damage or acute situations",
+    extraEmergencySub: "Prioritized response for existing clients in storms, damage or acute situations",
 
     summaryTitle: "Price overview",
     summaryText: "All selected items are listed individually and summarized below as a total price.",
     grandTotalLabel: "Total price",
-    pricingNote: "Note: The calculator is a solid guideline, not a blind bargain offer. Special cases, repairs, emergency visits and intensive cleaning are not included automatically.",
+    pricingNote: "Note: The calculator is a solid guideline, not a blind bargain offer. Special cases, repairs, emergency visits and intensive cleaning are not included automatically. Welcome packages and shopping service include service fees, while goods are charged separately by receipt.",
+
     summaryBase: "Base property fee",
     summaryInspection: "Property inspection",
     summaryPool: "Pool service",
@@ -356,7 +382,7 @@ const translations = {
     navContact: "Contacto",
     eyebrow: "Gestión fiable de propiedades en la Costa Blanca",
     heroTitle: "Gestión de propiedades fiable con estructura, experiencia y responsabilidad clara sobre el terreno.",
-    heroText: "La formación técnica, la cualificación como maestro logístico titulado (CCI) – Bachelor Professional of Logistics – y la experiencia en el servicio diplomático permiten una gestión que no solo se realiza, sino que se planifica con estructura y se ejecuta con fiabilidad. Para propietarios que no quieren dejar su inmueble al azar.",
+    heroText: "La formación técnica, la cualificación como maestro logístico titulado (CCI) – Bachelor Professional of Logistics – y la experiencia en el servicio diplomático permiten una gestión que no solo se realiza, sino que se planifica con estructura y se ejecuta con fiabilidad. Esto incluye también preparación antes de la llegada, paquetes de bienvenida, servicio de compra y reacción prioritaria en emergencias para clientes existentes.",
     heroBtnPrimary: "Calcular precio",
     heroBtnSecondary: "Ver servicios",
     stat1Value: "3 idiomas",
@@ -401,25 +427,36 @@ const translations = {
     entryPriceValue3: "según tamaño y esfuerzo",
 
     servicesTitle: "Nuestros servicios",
-    servicesText: "Las imágenes se eligieron para que coincidan con el servicio real. El servicio de piscina muestra una piscina, el jardín muestra zonas exteriores, no fotos decorativas al azar.",
+    servicesText: "Los servicios van más allá del control, la piscina y el jardín. También incluyen preparación antes de la llegada, paquetes de bienvenida, servicio de compra y soporte prioritario en emergencias, para que propietarios o huéspedes no lleguen a una vivienda vacía y sin preparar.",
+
     poolTitle: "Servicio de piscina",
     poolText: "Coordinación o ejecución del mantenimiento periódico de la piscina para agua clara, bordes limpios y una imagen cuidada.",
     poolDetail1: "Control visual del nivel y la calidad del agua",
     poolDetail2: "Revisión de skimmer, bomba y tiempo de filtrado",
     poolDetail3: "Retirada de suciedad gruesa de superficie y bordes",
     poolDetail4: "Coordinación de técnicos externos si hay incidencias",
+
     gardenTitle: "Cuidado del jardín",
     gardenText: "Mantenimiento de césped, terrazas, setos y exteriores según el tamaño del terreno, la vegetación y el esfuerzo real.",
     gardenDetail1: "Corte de césped y mantenimiento básico",
     gardenDetail2: "Retirada de hojas, restos secos y suciedad ligera",
     gardenDetail3: "Mantener terrazas y accesos barridos y ordenados",
     gardenDetail4: "Aviso de mayor esfuerzo en parcelas grandes o muy plantadas",
+
     arrivalTitle: "Preparación antes de la llegada",
     arrivalText: "La propiedad se prepara antes de la llegada para que propietarios o huéspedes no entren en un inmueble cargado o descuidado.",
     arrivalDetail1: "Ventilar y hacer una revisión visual rápida",
     arrivalDetail2: "Estado barrido básico con suciedad ligera",
     arrivalDetail3: "Revisar terraza, limpiar superficialmente y colocar mobiliario",
     arrivalDetail4: "Pequeñas tareas previas para una buena primera impresión",
+
+    welcomeTitle: "Paquetes de bienvenida y servicio de compra",
+    welcomeText: "Desde una pequeña provisión hasta una compra según lista: si se desea, la vivienda no solo se prepara, sino que llega abastecida de forma útil.",
+    welcomeDetail1: "Paquete básico con papel higiénico, jabón de manos, lavavajillas, agua y pequeña provisión",
+    welcomeDetail2: "Paquete confort con café o té, leche, pan u otra provisión inicial de llegada",
+    welcomeDetail3: "Servicio de compra individual según la lista del cliente",
+    welcomeDetail4: "La tarifa de servicio se cobra por separado y la compra adicionalmente según ticket",
+
     detailsBtnOpen: "Ver detalles",
     detailsBtnClose: "Ocultar detalles",
 
@@ -431,6 +468,7 @@ const translations = {
     fieldPlotSize: "Parcela / exterior (m²)",
     fieldPoolSize: "Tamaño de piscina (m²)",
     fieldServices: "Elegir servicios",
+
     typeApartment: "Apartamento",
     typeHouse: "Casa / villa",
     freqOneTime: "Cita puntual / servicio único",
@@ -452,18 +490,19 @@ const translations = {
     extraVentilation: "Ventilación / revisión rápida",
     extraVentilationSub: "Visita breve sin servicio completo",
     extraWelcomeBasic: "Paquete de bienvenida básico",
-    extraWelcomeBasicSub: "Tarifa de servicio más compra según ticket",
+    extraWelcomeBasicSub: "Papel higiénico, jabón, agua, pequeña provisión. Tarifa de servicio, compra aparte",
     extraWelcomeComfort: "Paquete de bienvenida confort",
-    extraWelcomeComfortSub: "Preparación ampliada con tarifa de servicio, compra aparte",
+    extraWelcomeComfortSub: "Además café o té, leche y primera provisión de llegada. Tarifa de servicio, compra aparte",
     extraShopping: "Servicio de compra según lista",
-    extraShoppingSub: "Tarifa de servicio más compra según ticket",
+    extraShoppingSub: "Compra individual. Tarifa de servicio más compra según ticket",
     extraEmergency: "Disponibilidad de emergencia e intervención urgente",
-    extraEmergencySub: "Reacción prioritaria ante tormentas, daños o situaciones agudas",
+    extraEmergencySub: "Reacción prioritaria para clientes existentes ante tormentas, daños o situaciones agudas",
 
     summaryTitle: "Resumen de precio",
     summaryText: "Aquí se muestran todas las posiciones elegidas por separado y después como precio total.",
     grandTotalLabel: "Precio total",
-    pricingNote: "Nota: la calculadora es una orientación sólida, no una oferta ciega y barata. Casos especiales, reparaciones, urgencias y limpiezas intensivas no están incluidos automáticamente.",
+    pricingNote: "Nota: la calculadora es una orientación sólida, no una oferta ciega y barata. Casos especiales, reparaciones, urgencias y limpiezas intensivas no están incluidos automáticamente. Los paquetes de bienvenida y el servicio de compra incluyen tarifa de servicio; la compra se cobra aparte según ticket.",
+
     summaryBase: "Tarifa base del inmueble",
     summaryInspection: "Inspección del inmueble",
     summaryPool: "Servicio de piscina",
@@ -472,8 +511,8 @@ const translations = {
     summaryReport: "Informe con fotos y estado",
     summaryKeys: "Servicio de llaves",
     summaryVentilation: "Ventilación / revisión rápida",
-    summaryWelcomeBasic: "Paquete de bienvenida básico",
-    summaryWelcomeComfort: "Paquete de bienvenida confort",
+    summaryWelcomeBasic: "Paquete básico",
+    summaryWelcomeComfort: "Paquete confort",
     summaryShopping: "Servicio de compra",
     summaryEmergency: "Disponibilidad de emergencia",
 
@@ -655,8 +694,6 @@ function calculatePricing() {
   if (formEls.checkVentilation.checked) {
     lines.push([t("summaryVentilation"), Math.ceil((12 + livingSize * 0.03) * frequencyFactor)]);
   }
-
-  // Welcome-Pakete: Servicepauschale, Waren extra
   if (formEls.checkWelcomeBasic.checked) {
     lines.push([t("summaryWelcomeBasic"), 25]);
   }
@@ -666,8 +703,6 @@ function calculatePricing() {
   if (formEls.checkShopping.checked) {
     lines.push([t("summaryShopping"), 35]);
   }
-
-  // Notfall-Erreichbarkeit: jetzt mit sauberem Preis
   if (formEls.checkEmergency.checked) {
     const emergencyPrice = serviceFrequency === "weekly" ? 25 : serviceFrequency === "monthly" ? 20 : 18;
     lines.push([t("summaryEmergency"), emergencyPrice]);
@@ -683,7 +718,6 @@ function calculatePricing() {
   `).join("");
 
   formEls.grandTotal.textContent = formatEuro(total);
-
   updateContactLinks(total);
 }
 
