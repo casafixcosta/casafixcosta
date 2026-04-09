@@ -111,10 +111,11 @@ const translations = {
     extraVentilationSub: "Kurzer Zwischenbesuch ohne Vollservice",
     extraSupplies: "Grundbedarf auffüllen",
     extraSuppliesSub: "Kleine Verbrauchsmaterialien oder Vorbereitung",
+    extraEmergency: "Notfall-Erreichbarkeit & Soforteinsatz",
+    extraEmergencySub: "Priorisierte Reaktion bei Sturm, Schäden oder akuten Situationen",
 
     summaryTitle: "Preisübersicht",
     summaryText: "Hier werden alle gewählten Positionen einzeln aufgeführt und unten als Gesamtpreis zusammengefasst.",
-    subtotalLabel: "Zwischensumme",
     grandTotalLabel: "Gesamtpreis",
     pricingNote: "Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten.",
     summaryBase: "Grundpreis Objekt",
@@ -126,6 +127,7 @@ const translations = {
     summaryKeys: "Schlüsselservice",
     summaryVentilation: "Lüften / Kurzcheck",
     summarySupplies: "Grundbedarf auffüllen",
+    summaryEmergency: "Notfall-Erreichbarkeit",
 
     contactTitle: "Direkt anfragen",
     contactText: "Die Anfrage wird mit den wichtigsten Eckdaten aus dem Rechner vorbereitet. Dadurch bekommst du keine halbleeren Anfragen.",
@@ -274,10 +276,11 @@ const translations = {
     extraVentilationSub: "Short intermediate visit without full service",
     extraSupplies: "Refill basic supplies",
     extraSuppliesSub: "Small consumables or arrival prep",
+    extraEmergency: "Emergency availability & urgent call-out",
+    extraEmergencySub: "Prioritized response in storms, damage or acute situations",
 
     summaryTitle: "Price overview",
     summaryText: "All selected items are listed individually and summarized below as a total price.",
-    subtotalLabel: "Subtotal",
     grandTotalLabel: "Total price",
     pricingNote: "Note: The calculator is a solid guideline, not a blind bargain offer. Special cases, repairs, emergency visits and intensive cleaning are not included automatically.",
     summaryBase: "Base property fee",
@@ -289,6 +292,7 @@ const translations = {
     summaryKeys: "Key service",
     summaryVentilation: "Airing / quick check",
     summarySupplies: "Refill basic supplies",
+    summaryEmergency: "Emergency availability",
 
     contactTitle: "Request directly",
     contactText: "The request is prefilled with the key calculator details so you do not receive half-empty inquiries.",
@@ -437,10 +441,11 @@ const translations = {
     extraVentilationSub: "Visita breve sin servicio completo",
     extraSupplies: "Reponer básicos",
     extraSuppliesSub: "Pequeños consumibles o preparación de llegada",
+    extraEmergency: "Disponibilidad de emergencia e intervención urgente",
+    extraEmergencySub: "Reacción prioritaria ante tormentas, daños o situaciones agudas",
 
     summaryTitle: "Resumen de precio",
     summaryText: "Aquí se muestran todas las posiciones elegidas por separado y después como precio total.",
-    subtotalLabel: "Subtotal",
     grandTotalLabel: "Precio total",
     pricingNote: "Nota: la calculadora es una orientación sólida, no una oferta ciega y barata. Casos especiales, reparaciones, urgencias y limpiezas intensivas no están incluidos automáticamente.",
     summaryBase: "Tarifa base del inmueble",
@@ -452,6 +457,7 @@ const translations = {
     summaryKeys: "Servicio de llaves",
     summaryVentilation: "Ventilación / revisión rápida",
     summarySupplies: "Reponer básicos",
+    summaryEmergency: "Disponibilidad de emergencia",
 
     contactTitle: "Solicitar directamente",
     contactText: "La solicitud se rellena con los datos clave de la calculadora. Así no recibes consultas medio vacías.",
@@ -508,13 +514,13 @@ const formEls = {
   checkKeys: document.getElementById("checkKeys"),
   checkVentilation: document.getElementById("checkVentilation"),
   checkSupplies: document.getElementById("checkSupplies"),
+  checkEmergency: document.getElementById("checkEmergency"),
   contactName: document.getElementById("contactName"),
   contactEmail: document.getElementById("contactEmail"),
   contactPhone: document.getElementById("contactPhone"),
   contactLocation: document.getElementById("contactLocation"),
   contactMessage: document.getElementById("contactMessage"),
   summaryList: document.getElementById("summaryList"),
-  subtotalValue: document.getElementById("subtotalValue"),
   grandTotal: document.getElementById("grandTotal"),
   emailButton: document.getElementById("emailButton"),
   whatsappButton: document.getElementById("whatsappButton")
@@ -589,6 +595,7 @@ function selectedServices() {
   if (formEls.checkKeys.checked) items.push(t("summaryKeys"));
   if (formEls.checkVentilation.checked) items.push(t("summaryVentilation"));
   if (formEls.checkSupplies.checked) items.push(t("summarySupplies"));
+  if (formEls.checkEmergency.checked) items.push(t("summaryEmergency"));
   return items;
 }
 
@@ -629,9 +636,11 @@ function calculatePricing() {
   if (formEls.checkSupplies.checked) {
     lines.push([t("summarySupplies"), Math.ceil(10 * (serviceFrequency === "weekly" ? 1.3 : 1))]);
   }
+  if (formEls.checkEmergency.checked) {
+    lines.push([t("summaryEmergency"), Math.ceil(15 * (serviceFrequency === "weekly" ? 1.4 : 1))]);
+  }
 
-  const subtotal = lines.reduce((sum, [, price]) => sum + price, 0);
-  const total = Math.ceil(subtotal);
+  const total = Math.ceil(lines.reduce((sum, [, price]) => sum + price, 0));
 
   formEls.summaryList.innerHTML = lines.map(([label, price]) => `
     <div class="summary-row">
@@ -640,7 +649,6 @@ function calculatePricing() {
     </div>
   `).join("");
 
-  formEls.subtotalValue.textContent = formatEuro(subtotal);
   formEls.grandTotal.textContent = formatEuro(total);
 
   updateContactLinks(total);
