@@ -1,41 +1,609 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Impressum – CasaFix Costa</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum | CasaFix Costa</title>
+  <meta
+    name="description"
+    content="Impressum von CasaFix Costa – Anbieterkennzeichnung in Deutsch, Englisch und Spanisch."
+  />
+  <style>
+    :root {
+      --bg: #f3efe8;
+      --white: #ffffff;
+      --text: #22313a;
+      --muted: #5e6b73;
+      --primary: #0f4c5c;
+      --accent: #d97b4d;
+      --line: rgba(15, 76, 92, 0.1);
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+      --radius: 22px;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav a:hover { color: var(--primary); }
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switch button {
+      border: none;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .lang-de {
+      background: linear-gradient(
+        180deg,
+        #000000 0%, #000000 33%,
+        #dd0000 33%, #dd0000 66%,
+        #ffce00 66%, #ffce00 100%
+      );
+      color: #ffffff;
+    }
+
+    .lang-en {
+      background: linear-gradient(135deg, #012169 0%, #ffffff 50%, #c8102e 100%);
+      color: #111111;
+    }
+
+    .lang-es {
+      background: linear-gradient(
+        180deg,
+        #aa151b 0%, #aa151b 30%,
+        #f1bf00 30%, #f1bf00 70%,
+        #aa151b 70%, #aa151b 100%
+      );
+      color: #111111;
+    }
+
+    .lang-switch button.active {
+      transform: scale(1.06);
+      outline: 2px solid rgba(15, 76, 92, 0.22);
+    }
+
+    main {
+      padding: 56px 0 72px;
+    }
+
+    .hero-card,
+    .content-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px 28px;
+      margin-bottom: 22px;
+    }
+
+    .content-card {
+      padding: 30px 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(15,76,92,0.08);
+      color: var(--primary);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #f7f3ed;
+      border: 1px solid rgba(217, 123, 77, 0.18);
+      color: var(--text);
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 10px 18px;
+      margin-top: 12px;
+    }
+
+    .label {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .value {
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    .email-link {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid rgba(15,76,92,0.22);
+    }
+
+    footer {
+      padding: 28px 0 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-line {
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    [data-lang-block] { display: none; }
+    [data-lang-block].active { display: block; }
+    [data-lang] { display: none; }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+      }
+
+      .hero-card,
+      .content-card {
+        padding: 24px 20px;
+      }
+
+      main {
+        padding: 40px 0 60px;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Casa<span>Fix</span> Costa</div>
 
-<h1>Impressum</h1>
+      <nav class="nav">
+        <a href="index.html">Start</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </nav>
 
-<p><strong>Angaben gemäß § 5 TMG</strong></p>
+      <div class="lang-switch">
+        <button class="lang-de active" data-lang-btn="de" onclick="setLang('de')">DE</button>
+        <button class="lang-en" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-es" data-lang-btn="es" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
+  </header>
 
-<p>
-Marco Weiß<br>
-Schambacher Weg 45<br>
-93339 Riedenburg<br>
-Deutschland
-</p>
+  <main>
+    <div class="container">
+      <section class="hero-card">
+        <div data-lang-block="de" class="active">
+          <div class="eyebrow">Anbieterkennzeichnung</div>
+          <h1>Impressum</h1>
+          <p class="lead">
+            Angaben gemäß § 5 DDG sowie ergänzende Informationen zu diesem Webauftritt von CasaFix Costa.
+          </p>
+          <div class="notice">
+            Diese Website befindet sich aktuell in einer Vorbereitungs- und Aufbauphase. Der geplante Tätigkeitsstart vor Ort in Spanien ist für <strong>Dezember 2027</strong> vorgesehen. Bereits jetzt können Anfragen für zukünftige Betreuung und Zusammenarbeit gestellt werden.
+          </div>
+        </div>
 
-<p>
-E-Mail: Marco-weiss83@web.de
-</p>
+        <div data-lang-block="en">
+          <div class="eyebrow">Provider information</div>
+          <h1>Legal Notice</h1>
+          <p class="lead">
+            Information pursuant to Section 5 DDG and supplementary details regarding this CasaFix Costa website.
+          </p>
+          <div class="notice">
+            This website is currently in a preparation and development phase. The planned on-site start in Spain is scheduled for <strong>December 2027</strong>. Inquiries regarding future property care and cooperation are already welcome.
+          </div>
+        </div>
 
-<h2>Tätigkeit</h2>
-<p>
-Vorbereitung eines Dienstleistungsangebots im Bereich Property Care / Hausbetreuung an der Costa Blanca (Spanien).
-</p>
+        <div data-lang-block="es">
+          <div class="eyebrow">Información del prestador</div>
+          <h1>Aviso legal</h1>
+          <p class="lead">
+            Información conforme al artículo 5 DDG alemán y datos complementarios sobre este sitio web de CasaFix Costa.
+          </p>
+          <div class="notice">
+            Este sitio web se encuentra actualmente en fase de preparación y desarrollo. El inicio previsto de la actividad presencial en España está planificado para <strong>diciembre de 2027</strong>. Ya se pueden realizar consultas para futuros servicios y colaboraciones.
+          </div>
+        </div>
+      </section>
 
-<p>
-Geplanter Tätigkeitsstart vor Ort: Dezember 2027
-</p>
+      <section class="content-card">
+        <div data-lang-block="de" class="active">
+          <div class="section">
+            <h2>Angaben zum Anbieter</h2>
+            <div class="info-grid">
+              <div class="label">Name</div>
+              <div class="value">Marco Weiß</div>
 
-<h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
-<p>
-Marco Weiß<br>
-Schambacher Weg 45<br>
-93339 Riedenburg
-</p>
+              <div class="label">Anschrift</div>
+              <div class="value">
+                Schambacher Weg 45<br>
+                93339 Riedenburg<br>
+                Bayern<br>
+                Deutschland
+              </div>
 
+              <div class="label">E-Mail</div>
+              <div class="value">
+                <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>Verantwortlich für den Inhalt</h2>
+            <p>
+              Verantwortlich für die Inhalte dieser Website ist:
+            </p>
+            <p>
+              Marco Weiß<br>
+              Schambacher Weg 45<br>
+              93339 Riedenburg<br>
+              Bayern<br>
+              Deutschland
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Hinweis zum Projektstatus</h2>
+            <p>
+              CasaFix Costa ist ein Projekt im Aufbau. Der operative Tätigkeitsstart vor Ort in Spanien ist für Dezember 2027 vorgesehen. Zum Zeitpunkt dieses Webauftritts besteht noch keine endgültig eingerichtete dauerhafte operative Präsenz in Spanien.
+            </p>
+            <p>
+              Diese Website dient der Vorstellung des geplanten Leistungsangebots, der Kontaktaufnahme sowie der Vorbereitung zukünftiger Betreuungsleistungen im Raum Alicante / Costa Blanca.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Umsatzsteuer / weitere Registrierungen</h2>
+            <p>
+              Sofern gesetzlich erforderlich, werden weitere Pflichtangaben wie spanische Registrierungs- oder Steuernummern ergänzt, sobald diese endgültig vorliegen.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Verbraucherstreitbeilegung</h2>
+            <p>
+              Ich bin nicht verpflichtet und derzeit nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+            </p>
+          </div>
+
+          <div class="button-row">
+            <a class="button button-primary" href="index.html">Zurück zur Startseite</a>
+            <a class="button button-outline" href="datenschutz.html">Zur Datenschutzerklärung</a>
+          </div>
+        </div>
+
+        <div data-lang-block="en">
+          <div class="section">
+            <h2>Provider details</h2>
+            <div class="info-grid">
+              <div class="label">Name</div>
+              <div class="value">Marco Weiß</div>
+
+              <div class="label">Address</div>
+              <div class="value">
+                Schambacher Weg 45<br>
+                93339 Riedenburg<br>
+                Bavaria<br>
+                Germany
+              </div>
+
+              <div class="label">Email</div>
+              <div class="value">
+                <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>Responsible for content</h2>
+            <p>
+              Responsible for the content of this website:
+            </p>
+            <p>
+              Marco Weiß<br>
+              Schambacher Weg 45<br>
+              93339 Riedenburg<br>
+              Bavaria<br>
+              Germany
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Project status notice</h2>
+            <p>
+              CasaFix Costa is currently a project under development. The planned operational on-site start in Spain is scheduled for December 2027. At the time of this website, no final permanent operational establishment in Spain has yet been completed.
+            </p>
+            <p>
+              This website is intended to present the planned services, enable contact and prepare future property care services in the Alicante / Costa Blanca area.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>VAT / further registrations</h2>
+            <p>
+              Where legally required, further mandatory details such as Spanish registration or tax numbers will be added once finally available.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Consumer dispute resolution</h2>
+            <p>
+              I am neither obliged nor currently willing to participate in dispute resolution proceedings before a consumer arbitration board.
+            </p>
+          </div>
+
+          <div class="button-row">
+            <a class="button button-primary" href="index.html">Back to home page</a>
+            <a class="button button-outline" href="datenschutz.html">Go to privacy policy</a>
+          </div>
+        </div>
+
+        <div data-lang-block="es">
+          <div class="section">
+            <h2>Datos del prestador</h2>
+            <div class="info-grid">
+              <div class="label">Nombre</div>
+              <div class="value">Marco Weiß</div>
+
+              <div class="label">Dirección</div>
+              <div class="value">
+                Schambacher Weg 45<br>
+                93339 Riedenburg<br>
+                Baviera<br>
+                Alemania
+              </div>
+
+              <div class="label">Correo electrónico</div>
+              <div class="value">
+                <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>Responsable del contenido</h2>
+            <p>
+              Responsable del contenido de este sitio web:
+            </p>
+            <p>
+              Marco Weiß<br>
+              Schambacher Weg 45<br>
+              93339 Riedenburg<br>
+              Baviera<br>
+              Alemania
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Nota sobre el estado del proyecto</h2>
+            <p>
+              CasaFix Costa es actualmente un proyecto en desarrollo. El inicio operativo presencial en España está previsto para diciembre de 2027. En el momento de este sitio web, todavía no existe una estructura operativa permanente definitivamente establecida en España.
+            </p>
+            <p>
+              Este sitio web tiene como finalidad presentar los servicios previstos, facilitar el contacto y preparar futuros servicios de supervisión y cuidado de inmuebles en la zona de Alicante / Costa Blanca.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>IVA / otros registros</h2>
+            <p>
+              Cuando sea legalmente necesario, se añadirán otros datos obligatorios, como números de registro o fiscales en España, en cuanto estén definitivamente disponibles.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>Resolución de conflictos con consumidores</h2>
+            <p>
+              No estoy obligado ni actualmente dispuesto a participar en procedimientos de resolución de conflictos ante una entidad de arbitraje de consumo.
+            </p>
+          </div>
+
+          <div class="button-row">
+            <a class="button button-primary" href="index.html">Volver a la página principal</a>
+            <a class="button button-outline" href="datenschutz.html">Ir a la política de privacidad</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-line">
+      <div>© CasaFix Costa</div>
+      <div class="footer-links">
+        <a href="index.html">Start</a> |
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+      });
+
+      document.querySelectorAll('[data-lang-block]').forEach(block => {
+        block.classList.toggle('active', block.getAttribute('data-lang-block') === lang);
+      });
+
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        const displayType = el.getAttribute('data-display') || 'block';
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = displayType;
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+
+    window.onload = function () {
+      setLang('de');
+    };
+  </script>
 </body>
 </html>
