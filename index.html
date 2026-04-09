@@ -40,7 +40,7 @@
           <div class="eyebrow" data-i18n="eyebrow">Zuverlässige Immobilienbetreuung an der Costa Blanca</div>
           <h1 data-i18n="heroTitle">Verlässliche Immobilienbetreuung mit Struktur, Erfahrung und klarer Verantwortung vor Ort.</h1>
           <p class="lead" data-i18n="heroText">
-            Handwerkliche Ausbildung, Qualifikation als geprüfter Logistikmeister (IHK) und Erfahrung aus dem diplomatischen Dienst sorgen für eine Betreuung, die nicht nur durchgeführt, sondern strukturiert geplant und zuverlässig umgesetzt wird. Für Eigentümer, die ihre Immobilie nicht dem Zufall überlassen wollen.
+            Handwerkliche Ausbildung, Qualifikation als geprüfter Logistikmeister (IHK) und Erfahrung aus dem diplomatischen Dienst sorgen für eine Betreuung, die nicht nur durchgeführt, sondern strukturiert geplant und zuverlässig umgesetzt wird. Dazu gehören neben Kontrolle, Pflege und Koordination auch Vorbereitung vor Ankunft, Welcome-Pakete, Einkaufsservice und priorisierte Notfall-Reaktion für Bestandskunden.
           </p>
 
           <div class="hero-actions">
@@ -165,15 +165,15 @@
             Für Eigentümer, die eine ruhige und verlässliche Betreuung suchen, sollte der Einstiegspreis sichtbar sein. Das wirkt seriöser als ein Kontaktformular ohne Rahmen.
           </p>
           <div class="total-box">
-            <div class="mini">
+            <div class="mini-row">
               <span data-i18n="entryPriceLabel1">Laufende Betreuung</span>
               <span data-i18n="entryPriceValue1">ab 120 € / Monat</span>
             </div>
-            <div class="mini">
+            <div class="mini-row">
               <span data-i18n="entryPriceLabel2">Objektkontrolle vor Ort</span>
               <span data-i18n="entryPriceValue2">ab 35 € / Einsatz</span>
             </div>
-            <div class="mini">
+            <div class="mini-row">
               <span data-i18n="entryPriceLabel3">Individuelle Zusatzleistungen</span>
               <span data-i18n="entryPriceValue3">nach Größe und Aufwand</span>
             </div>
@@ -188,7 +188,7 @@
           <div>
             <h2 data-i18n="servicesTitle">Unsere Leistungen</h2>
             <p data-i18n="servicesText">
-              Die Bilder wurden so gewählt, dass sie zur tatsächlichen Leistung passen. Poolservice zeigt einen Pool, Gartenpflege zeigt Gartenflächen, nicht irgendein hübsches Zufallsbild.
+              Die Leistungen gehen über reine Kontrolle, Pool- und Gartenpflege hinaus. Auch Vorbereitung vor Ankunft, Welcome-Pakete, Einkaufsservice und priorisierte Notfall-Unterstützung gehören dazu – damit Eigentümer oder Gäste nicht in eine leere, unvorbereitete Immobilie kommen.
             </p>
           </div>
         </div>
@@ -238,6 +238,21 @@
               </ul>
             </div>
           </article>
+
+          <article class="service-card">
+            <img class="thumb" src="welcome.jpg" alt="Welcome-Pakete und Einkaufsservice" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=1200&q=80';" />
+            <h3 data-i18n="welcomeTitle">Welcome-Pakete & Einkaufsservice</h3>
+            <p data-i18n="welcomeText">Von kleiner Grundversorgung bis zum Einkauf nach Liste: Auf Wunsch ist die Immobilie bei Ankunft nicht nur vorbereitet, sondern sinnvoll ausgestattet.</p>
+            <button class="detail-toggle" data-target="welcome-details" data-i18n="detailsBtnOpen">Details anzeigen</button>
+            <div class="details" id="welcome-details">
+              <ul>
+                <li data-i18n="welcomeDetail1">Basis-Paket mit Toilettenpapier, Handseife, Spülmittel, Wasser sowie kleiner Grundversorgung</li>
+                <li data-i18n="welcomeDetail2">Komfort-Paket mit zusätzlichem Kaffee oder Tee, Milch, Brot oder ähnlicher Ankunftsversorgung</li>
+                <li data-i18n="welcomeDetail3">Individueller Einkaufsservice nach Kundenliste</li>
+                <li data-i18n="welcomeDetail4">Servicepauschale jeweils separat, Warenkosten zusätzlich nach Beleg</li>
+              </ul>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -245,7 +260,7 @@
     <section id="calculator">
       <div class="container calculator-wrap">
         <div class="card">
-          <div class="section-head">
+          <div class="section-head calc-head">
             <div>
               <h2 data-i18n="calcTitle">Preisrechner</h2>
               <p data-i18n="calcText">
@@ -350,7 +365,7 @@
                   <input type="checkbox" id="checkWelcomeBasic" />
                   <span>
                     <strong data-i18n="extraWelcomeBasic">Welcome-Paket Basis</strong>
-                    <small data-i18n="extraWelcomeBasicSub">Servicepauschale zzgl. Warenkosten nach Beleg</small>
+                    <small data-i18n="extraWelcomeBasicSub">Toilettenpapier, Seife, Wasser, kleine Grundversorgung. Servicepauschale, Waren extra</small>
                   </span>
                 </label>
 
@@ -358,7 +373,7 @@
                   <input type="checkbox" id="checkWelcomeComfort" />
                   <span>
                     <strong data-i18n="extraWelcomeComfort">Welcome-Paket Komfort</strong>
-                    <small data-i18n="extraWelcomeComfortSub">Erweiterte Vorbereitung inkl. Servicepauschale, Waren extra</small>
+                    <small data-i18n="extraWelcomeComfortSub">Zusätzlich Kaffee oder Tee, Milch und erste Ankunftsversorgung. Servicepauschale, Waren extra</small>
                   </span>
                 </label>
 
@@ -366,7 +381,7 @@
                   <input type="checkbox" id="checkShopping" />
                   <span>
                     <strong data-i18n="extraShopping">Einkaufsservice nach Liste</strong>
-                    <small data-i18n="extraShoppingSub">Servicepauschale zzgl. Warenkosten nach Beleg</small>
+                    <small data-i18n="extraShoppingSub">Individueller Einkauf. Servicepauschale plus Warenkosten nach Beleg</small>
                   </span>
                 </label>
 
@@ -374,7 +389,7 @@
                   <input type="checkbox" id="checkEmergency" />
                   <span>
                     <strong data-i18n="extraEmergency">Notfall-Erreichbarkeit & Soforteinsatz</strong>
-                    <small data-i18n="extraEmergencySub">Priorisierte Reaktion bei Sturm, Schäden oder akuten Situationen</small>
+                    <small data-i18n="extraEmergencySub">Priorisierte Reaktion für Bestandskunden bei Sturm, Schäden oder akuten Situationen</small>
                   </span>
                 </label>
               </div>
@@ -398,7 +413,7 @@
           </div>
 
           <div class="note" data-i18n="pricingNote">
-            Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten.
+            Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten. Welcome-Pakete und Einkaufsservice enthalten Servicepauschalen, Warenkosten kommen zusätzlich nach Beleg hinzu.
           </div>
         </div>
       </div>
@@ -407,7 +422,7 @@
     <section id="contact">
       <div class="container">
         <div class="card">
-          <div class="section-head">
+          <div class="section-head calc-head">
             <div>
               <h2 data-i18n="contactTitle">Direkt anfragen</h2>
               <p data-i18n="contactText">
