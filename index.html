@@ -902,7 +902,7 @@
       whatsapp: '34123456789'
     };
 
-    const i18n = {
+    const translations = {
       de: {
         brand: 'Costa Care Alicante',
         brandSub: 'Betreuung, Kontrolle und Werterhalt',
@@ -972,6 +972,8 @@
         arrivalDetail2: 'Besenreiner Grundzustand bei leichter Verschmutzung',
         arrivalDetail3: 'Terrasse prüfen, grob säubern und Möbel stellen',
         arrivalDetail4: 'Kleine vorbereitende Handgriffe für einen gepflegten ersten Eindruck',
+        detailsBtnOpen: 'Details anzeigen',
+        detailsBtnClose: 'Details ausblenden',
         calcTitle: 'Preisrechner',
         calcText: 'Der Rechner fasst alle Positionen im Gesamtpreis zusammen. Er ist bewusst wirtschaftlich gedacht: Größe, Aufwand und Frequenz treiben den Preis, nicht nur hübsche Paketnamen.',
         fieldPropertyType: 'Immobilienart',
@@ -993,6 +995,14 @@
         serviceGardenSub: 'Preis steigt mit Außenfläche',
         serviceArrival: 'Vorbereitung vor Ankunft',
         serviceArrivalSub: 'Einrichtung, Lüften, besenreiner Startzustand',
+        extraReport: 'Foto- und Statusbericht',
+        extraReportSub: 'Mehr Dokumentation für Eigentümer',
+        extraKeys: 'Schlüsselservice',
+        extraKeysSub: 'Übergabe, Empfang oder Schlüssellogistik',
+        extraVentilation: 'Lüften / Kurzcheck',
+        extraVentilationSub: 'Kurzer Zwischenbesuch ohne Vollservice',
+        extraSupplies: 'Grundbedarf auffüllen',
+        extraSuppliesSub: 'Kleine Verbrauchsmaterialien oder Vorbereitung',
         summaryTitle: 'Preisübersicht',
         summaryText: 'Hier werden alle gewählten Positionen einzeln aufgeführt und unten als Gesamtpreis zusammengefasst.',
         subtotalLabel: 'Zwischensumme',
@@ -1014,19 +1024,34 @@
         logicBox3Title: '3. Frequenz und Erschwernis',
         logicBox3Text: 'Wöchentliche Betreuung, schwer zugängige Objekte oder höherer Koordinationsaufwand müssen im Preis sichtbar sein. Sonst ist das Modell irgendwann unprofitabel.',
         footerText: 'Costa Care Alicante – strukturierte Betreuung für Ferienimmobilien, Zweitwohnsitze und Vermietungsobjekte.',
-        detailsBtnOpen: 'Details anzeigen',
-        detailsBtnClose: 'Details ausblenden',
         emailBtn: '📧 Anfrage per E-Mail',
         whatsappBtn: '💬 Anfrage per WhatsApp',
+        summaryBase: 'Grundpreis Objekt',
         summaryInspection: 'Objektkontrolle',
         summaryPool: 'Poolservice',
         summaryGarden: 'Gartenpflege',
         summaryArrival: 'Vorbereitung vor Ankunft',
-        summaryBase: 'Grundpreis Objekt',
-        currencyLocale: 'de-DE',
+        summaryReport: 'Foto- und Statusbericht',
+        summaryKeys: 'Schlüsselservice',
+        summaryVentilation: 'Lüften / Kurzcheck',
+        summarySupplies: 'Grundbedarf auffüllen',
         requestSubject: 'Neue Anfrage Immobilienbetreuung Alicante',
         requestHeadline: 'Neue Anfrage über die Website',
-        requestEstimated: 'Geschätzter Preis'
+        requestEstimated: 'Geschätzter Preis',
+        placeholderName: 'Ihr Name',
+        placeholderEmail: 'ihre@email.de',
+        placeholderLocation: 'z. B. Alicante, Torrevieja',
+        placeholderMessage: 'Kurze Zusatzinfos zur Immobilie oder zum Bedarf',
+        requestPropertyType: 'Objektart',
+        requestFrequency: 'Betreuung',
+        requestLiving: 'Wohnfläche',
+        requestPlot: 'Außenfläche',
+        requestPool: 'Poolgröße',
+        requestServices: 'Leistungen',
+        requestMessage: 'Nachricht',
+        requestPhone: 'Telefon / WhatsApp',
+        requestEmail: 'E-Mail',
+        requestLocation: 'Ort der Immobilie'
       },
       en: {
         brand: 'Costa Care Alicante',
@@ -1097,6 +1122,8 @@
         arrivalDetail2: 'Basic swept condition for light dirt',
         arrivalDetail3: 'Check terrace, clean roughly and place furniture',
         arrivalDetail4: 'Small prep tasks for a well-kept first impression',
+        detailsBtnOpen: 'Show details',
+        detailsBtnClose: 'Hide details',
         calcTitle: 'Price calculator',
         calcText: 'The calculator combines all selected positions into one total price. It is designed around real economics: size, effort and frequency drive pricing, not just package names.',
         fieldPropertyType: 'Property type',
@@ -1118,6 +1145,14 @@
         serviceGardenSub: 'Price increases with outdoor area',
         serviceArrival: 'Preparation before arrival',
         serviceArrivalSub: 'Setup, airing, tidy starting condition',
+        extraReport: 'Photo and status report',
+        extraReportSub: 'More documentation for owners',
+        extraKeys: 'Key service',
+        extraKeysSub: 'Handover, reception or key logistics',
+        extraVentilation: 'Airing / quick check',
+        extraVentilationSub: 'Short intermediate visit without full service',
+        extraSupplies: 'Refill basic supplies',
+        extraSuppliesSub: 'Small consumables or arrival prep',
         summaryTitle: 'Price overview',
         summaryText: 'All selected items are listed individually and summarized below as a total price.',
         subtotalLabel: 'Subtotal',
@@ -1139,19 +1174,34 @@
         logicBox3Title: '3. Frequency and complexity',
         logicBox3Text: 'Weekly care, hard-to-access properties or higher coordination effort must be visible in the price. Otherwise the model becomes unprofitable.',
         footerText: 'Costa Care Alicante – structured care for holiday homes, second residences and rental properties.',
-        detailsBtnOpen: 'Show details',
-        detailsBtnClose: 'Hide details',
         emailBtn: '📧 Send email request',
         whatsappBtn: '💬 Send WhatsApp request',
+        summaryBase: 'Base property fee',
         summaryInspection: 'Property inspection',
         summaryPool: 'Pool service',
         summaryGarden: 'Garden care',
         summaryArrival: 'Preparation before arrival',
-        summaryBase: 'Base property fee',
-        currencyLocale: 'en-GB',
+        summaryReport: 'Photo and status report',
+        summaryKeys: 'Key service',
+        summaryVentilation: 'Airing / quick check',
+        summarySupplies: 'Refill basic supplies',
         requestSubject: 'New Property Care Alicante Request',
         requestHeadline: 'New request from the website',
-        requestEstimated: 'Estimated price'
+        requestEstimated: 'Estimated price',
+        placeholderName: 'Your name',
+        placeholderEmail: 'your@email.com',
+        placeholderLocation: 'e.g. Alicante, Torrevieja',
+        placeholderMessage: 'Short extra information about the property or your needs',
+        requestPropertyType: 'Property type',
+        requestFrequency: 'Service',
+        requestLiving: 'Living area',
+        requestPlot: 'Outdoor area',
+        requestPool: 'Pool size',
+        requestServices: 'Services',
+        requestMessage: 'Message',
+        requestPhone: 'Phone / WhatsApp',
+        requestEmail: 'Email',
+        requestLocation: 'Property location'
       },
       es: {
         brand: 'Costa Care Alicante',
@@ -1222,6 +1272,8 @@
         arrivalDetail2: 'Estado barrido básico con suciedad ligera',
         arrivalDetail3: 'Revisar terraza, limpiar superficialmente y colocar mobiliario',
         arrivalDetail4: 'Pequeñas tareas previas para una buena primera impresión',
+        detailsBtnOpen: 'Ver detalles',
+        detailsBtnClose: 'Ocultar detalles',
         calcTitle: 'Calculadora de precio',
         calcText: 'La calculadora reúne todas las posiciones en un precio total. Está planteada con lógica económica real: tamaño, esfuerzo y frecuencia influyen, no solo nombres de paquetes.',
         fieldPropertyType: 'Tipo de inmueble',
@@ -1243,6 +1295,14 @@
         serviceGardenSub: 'El precio sube con la superficie exterior',
         serviceArrival: 'Preparación antes de la llegada',
         serviceArrivalSub: 'Puesta a punto, ventilación y estado básico ordenado',
+        extraReport: 'Informe con fotos y estado',
+        extraReportSub: 'Más documentación para el propietario',
+        extraKeys: 'Servicio de llaves',
+        extraKeysSub: 'Entrega, recepción o logística de llaves',
+        extraVentilation: 'Ventilación / revisión rápida',
+        extraVentilationSub: 'Visita breve sin servicio completo',
+        extraSupplies: 'Reponer básicos',
+        extraSuppliesSub: 'Pequeños consumibles o preparación de llegada',
         summaryTitle: 'Resumen de precio',
         summaryText: 'Aquí se muestran todas las posiciones elegidas por separado y después como precio total.',
         subtotalLabel: 'Subtotal',
@@ -1264,169 +1324,276 @@
         logicBox3Title: '3. Frecuencia y complejidad',
         logicBox3Text: 'La atención semanal, los inmuebles de acceso difícil o una coordinación más intensa deben verse en el precio. Si no, el modelo deja de ser rentable.',
         footerText: 'Costa Care Alicante – atención estructurada para viviendas vacacionales, segundas residencias y propiedades de alquiler.',
-        detailsBtnOpen: 'Ver detalles',
-        detailsBtnClose: 'Ocultar detalles',
         emailBtn: '📧 Enviar solicitud por correo',
         whatsappBtn: '💬 Enviar solicitud por WhatsApp',
+        summaryBase: 'Tarifa base del inmueble',
         summaryInspection: 'Inspección del inmueble',
         summaryPool: 'Servicio de piscina',
         summaryGarden: 'Cuidado del jardín',
         summaryArrival: 'Preparación antes de la llegada',
-        summaryBase: 'Tarifa base del inmueble',
-        currencyLocale: 'es-ES',
+        summaryReport: 'Informe con fotos y estado',
+        summaryKeys: 'Servicio de llaves',
+        summaryVentilation: 'Ventilación / revisión rápida',
+        summarySupplies: 'Reponer básicos',
         requestSubject: 'Nueva solicitud Gestión de Propiedades Alicante',
         requestHeadline: 'Nueva solicitud desde la web',
-        requestEstimated: 'Precio estimado'
+        requestEstimated: 'Precio estimado',
+        placeholderName: 'Su nombre',
+        placeholderEmail: 'su@email.com',
+        placeholderLocation: 'p. ej. Alicante, Torrevieja',
+        placeholderMessage: 'Información adicional breve sobre la propiedad o la necesidad',
+        requestPropertyType: 'Tipo de inmueble',
+        requestFrequency: 'Servicio',
+        requestLiving: 'Superficie habitable',
+        requestPlot: 'Superficie exterior',
+        requestPool: 'Tamaño de piscina',
+        requestServices: 'Servicios',
+        requestMessage: 'Mensaje',
+        requestPhone: 'Teléfono / WhatsApp',
+        requestEmail: 'Correo electrónico',
+        requestLocation: 'Ubicación del inmueble'
       }
     };
 
+    const detailButtons = Array.from(document.querySelectorAll('.detail-toggle'));
+    const langButtons = Array.from(document.querySelectorAll('.lang-btn'));
+    const translatableNodes = Array.from(document.querySelectorAll('[data-i18n]'));
+
+    const formEls = {
+      propertyType: document.getElementById('propertyType'),
+      serviceFrequency: document.getElementById('serviceFrequency'),
+      livingSize: document.getElementById('livingSize'),
+      plotSize: document.getElementById('plotSize'),
+      poolSize: document.getElementById('poolSize'),
+      checkInspection: document.getElementById('checkInspection'),
+      checkPool: document.getElementById('checkPool'),
+      checkGarden: document.getElementById('checkGarden'),
+      checkArrival: document.getElementById('checkArrival'),
+      contactName: document.getElementById('contactName'),
+      contactEmail: document.getElementById('contactEmail'),
+      contactPhone: document.getElementById('contactPhone'),
+      contactLocation: document.getElementById('contactLocation'),
+      contactMessage: document.getElementById('contactMessage'),
+      summaryList: document.getElementById('summaryList'),
+      subtotalValue: document.getElementById('subtotalValue'),
+      grandTotal: document.getElementById('grandTotal'),
+      emailButton: document.getElementById('emailButton'),
+      whatsappButton: document.getElementById('whatsappButton')
+    };
+
+    function injectExtraServiceOptions() {
+      const checks = document.querySelector('.checks');
+      if (!checks || document.getElementById('checkReport')) return;
+      checks.insertAdjacentHTML('beforeend', `
+        <label class="check">
+          <input type="checkbox" id="checkReport" />
+          <span>
+            <strong data-i18n="extraReport">Foto- und Statusbericht</strong>
+            <small data-i18n="extraReportSub">Mehr Dokumentation für Eigentümer</small>
+          </span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="checkKeys" />
+          <span>
+            <strong data-i18n="extraKeys">Schlüsselservice</strong>
+            <small data-i18n="extraKeysSub">Übergabe, Empfang oder Schlüssellogistik</small>
+          </span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="checkVentilation" />
+          <span>
+            <strong data-i18n="extraVentilation">Lüften / Kurzcheck</strong>
+            <small data-i18n="extraVentilationSub">Kurzer Zwischenbesuch ohne Vollservice</small>
+          </span>
+        </label>
+        <label class="check">
+          <input type="checkbox" id="checkSupplies" />
+          <span>
+            <strong data-i18n="extraSupplies">Grundbedarf auffüllen</strong>
+            <small data-i18n="extraSuppliesSub">Kleine Verbrauchsmaterialien oder Vorbereitung</small>
+          </span>
+        </label>
+      `);
+    }
+
+    injectExtraServiceOptions();
+
+    formEls.checkReport = document.getElementById('checkReport');
+    formEls.checkKeys = document.getElementById('checkKeys');
+    formEls.checkVentilation = document.getElementById('checkVentilation');
+    formEls.checkSupplies = document.getElementById('checkSupplies');
+
     let currentLang = 'de';
 
+    function t(key) {
+      return translations[currentLang][key] ?? key;
+    }
+
     function formatEuro(value) {
-      return new Intl.NumberFormat(i18n[currentLang].currencyLocale, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value);
+      const locale = currentLang === 'de' ? 'de-DE' : currentLang === 'en' ? 'en-GB' : 'es-ES';
+      return new Intl.NumberFormat(locale, {
+        style: 'currency',
+        currency: 'EUR',
+        maximumFractionDigits: 0
+      }).format(value);
+    }
+
+    function applyLanguage() {
+      langButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.lang === currentLang));
+      translatableNodes.forEach(node => {
+        const key = node.dataset.i18n;
+        const value = translations[currentLang][key];
+        if (typeof value === 'string') node.textContent = value;
+      });
+
+      formEls.propertyType.options[0].text = t('typeApartment');
+      formEls.propertyType.options[1].text = t('typeHouse');
+      formEls.serviceFrequency.options[0].text = t('freqOneTime');
+      formEls.serviceFrequency.options[1].text = t('freqMonthly');
+      formEls.serviceFrequency.options[2].text = t('freqWeekly');
+
+      formEls.contactName.placeholder = t('placeholderName');
+      formEls.contactEmail.placeholder = t('placeholderEmail');
+      formEls.contactLocation.placeholder = t('placeholderLocation');
+      formEls.contactMessage.placeholder = t('placeholderMessage');
+      formEls.emailButton.textContent = t('emailBtn');
+      formEls.whatsappButton.textContent = t('whatsappBtn');
+
+      detailButtons.forEach(button => {
+        const target = document.getElementById(button.dataset.target);
+        button.textContent = target.classList.contains('open') ? t('detailsBtnClose') : t('detailsBtnOpen');
+      });
+
+      calculatePricing();
+    }
+
+    function getFrequencyFactor(value) {
+      if (value === 'weekly') return 3.4;
+      if (value === 'monthly') return 1;
+      return 1.25;
+    }
+
+    function buildSelectedServices() {
+      const selected = [];
+      if (formEls.checkInspection.checked) selected.push(t('summaryInspection'));
+      if (formEls.checkPool.checked) selected.push(t('summaryPool'));
+      if (formEls.checkGarden.checked) selected.push(t('summaryGarden'));
+      if (formEls.checkArrival.checked) selected.push(t('summaryArrival'));
+      if (formEls.checkReport.checked) selected.push(t('summaryReport'));
+      if (formEls.checkKeys.checked) selected.push(t('summaryKeys'));
+      if (formEls.checkVentilation.checked) selected.push(t('summaryVentilation'));
+      if (formEls.checkSupplies.checked) selected.push(t('summarySupplies'));
+      return selected;
     }
 
     function calculatePricing() {
-      const propertyType = document.getElementById('propertyType').value;
-      const serviceFrequency = document.getElementById('serviceFrequency').value;
-      const livingSize = Math.max(0, Number(document.getElementById('livingSize').value) || 0);
-      const plotSize = Math.max(0, Number(document.getElementById('plotSize').value) || 0);
-      const poolSize = Math.max(0, Number(document.getElementById('poolSize').value) || 0);
-      const checkInspection = document.getElementById('checkInspection').checked;
-      const checkPool = document.getElementById('checkPool').checked;
-      const checkGarden = document.getElementById('checkGarden').checked;
-      const checkArrival = document.getElementById('checkArrival').checked;
+      const propertyType = formEls.propertyType.value;
+      const serviceFrequency = formEls.serviceFrequency.value;
+      const livingSize = Math.max(0, Number(formEls.livingSize.value) || 0);
+      const plotSize = Math.max(0, Number(formEls.plotSize.value) || 0);
+      const poolSize = Math.max(0, Number(formEls.poolSize.value) || 0);
+      const frequencyFactor = getFrequencyFactor(serviceFrequency);
 
       const baseProperty = propertyType === 'house' ? 58 : 42;
       const livingFactor = Math.ceil(livingSize * 0.12);
-      const frequencyFactor = serviceFrequency === 'weekly' ? 3.4 : serviceFrequency === 'monthly' ? 1 : 1.25;
 
       const lines = [];
-      lines.push([i18n[currentLang].summaryBase, baseProperty + livingFactor]);
+      lines.push([t('summaryBase'), baseProperty + livingFactor]);
 
-      if (checkInspection) lines.push([i18n[currentLang].summaryInspection, Math.ceil((22 + livingSize * 0.06) * frequencyFactor)]);
-      if (checkPool && poolSize > 0) lines.push([i18n[currentLang].summaryPool, Math.ceil((18 + poolSize * 0.85) * frequencyFactor)]);
-      if (checkGarden && plotSize > 0) lines.push([i18n[currentLang].summaryGarden, Math.ceil((16 + plotSize * 0.07) * frequencyFactor)]);
-      if (checkArrival) lines.push([i18n[currentLang].summaryArrival, Math.ceil(28 * (serviceFrequency === 'weekly' ? 1.15 : 1))]);
+      if (formEls.checkInspection.checked) {
+        lines.push([t('summaryInspection'), Math.ceil((22 + livingSize * 0.06) * frequencyFactor)]);
+      }
+      if (formEls.checkPool.checked && poolSize > 0) {
+        lines.push([t('summaryPool'), Math.ceil((18 + poolSize * 0.85) * frequencyFactor)]);
+      }
+      if (formEls.checkGarden.checked && plotSize > 0) {
+        lines.push([t('summaryGarden'), Math.ceil((16 + plotSize * 0.07) * frequencyFactor)]);
+      }
+      if (formEls.checkArrival.checked) {
+        lines.push([t('summaryArrival'), Math.ceil(28 * (serviceFrequency === 'weekly' ? 1.15 : 1))]);
+      }
+      if (formEls.checkReport.checked) {
+        lines.push([t('summaryReport'), Math.ceil(14 * frequencyFactor)]);
+      }
+      if (formEls.checkKeys.checked) {
+        lines.push([t('summaryKeys'), Math.ceil(18 * (serviceFrequency === 'weekly' ? 1.2 : 1))]);
+      }
+      if (formEls.checkVentilation.checked) {
+        lines.push([t('summaryVentilation'), Math.ceil((12 + livingSize * 0.03) * frequencyFactor)]);
+      }
+      if (formEls.checkSupplies.checked) {
+        lines.push([t('summarySupplies'), Math.ceil(10 * (serviceFrequency === 'weekly' ? 1.3 : 1))]);
+      }
 
       const subtotal = lines.reduce((sum, [, price]) => sum + price, 0);
       const total = Math.ceil(subtotal);
 
-      const summaryList = document.getElementById('summaryList');
-      summaryList.innerHTML = lines.length
-        ? lines.map(([label, price]) => `<div class="summary-row"><span>${label}</span><span>${formatEuro(price)}</span></div>`).join('')
-        : `<div class="summary-empty">-</div>`;
-
-      document.getElementById('subtotalValue').textContent = formatEuro(subtotal);
-      document.getElementById('grandTotal').textContent = formatEuro(total);
+      formEls.summaryList.innerHTML = lines.map(([label, price]) => (
+        `<div class="summary-row"><span>${label}</span><span>${formatEuro(price)}</span></div>`
+      )).join('');
+      formEls.subtotalValue.textContent = formatEuro(subtotal);
+      formEls.grandTotal.textContent = formatEuro(total);
 
       updateContactLinks(total);
     }
 
     function updateContactLinks(total) {
-      const propertyTypeText = document.getElementById('propertyType').selectedOptions[0].text;
-      const frequencyText = document.getElementById('serviceFrequency').selectedOptions[0].text;
-      const livingSize = document.getElementById('livingSize').value || '-';
-      const plotSize = document.getElementById('plotSize').value || '-';
-      const poolSize = document.getElementById('poolSize').value || '-';
-      const name = document.getElementById('contactName').value.trim() || '-';
-      const email = document.getElementById('contactEmail').value.trim() || '-';
-      const phone = document.getElementById('contactPhone').value.trim() || '-';
-      const location = document.getElementById('contactLocation').value.trim() || '-';
-      const message = document.getElementById('contactMessage').value.trim() || '-';
-      const services = [
-        document.getElementById('checkInspection').checked ? i18n[currentLang].summaryInspection : null,
-        document.getElementById('checkPool').checked ? i18n[currentLang].summaryPool : null,
-        document.getElementById('checkGarden').checked ? i18n[currentLang].summaryGarden : null,
-        document.getElementById('checkArrival').checked ? i18n[currentLang].summaryArrival : null
-      ].filter(Boolean).join(', ') || '-';
-
-      const body = `${i18n[currentLang].requestHeadline}
+      const services = buildSelectedServices().join(', ') || '-';
+      const body = `${t('requestHeadline')}
 
 `
-        + `Name: ${name}
+        + `Name: ${formEls.contactName.value.trim() || '-'}
 `
-        + `E-Mail: ${email}
+        + `${t('requestEmail')}: ${formEls.contactEmail.value.trim() || '-'}
 `
-        + `Telefon / WhatsApp: ${phone}
+        + `${t('requestPhone')}: ${formEls.contactPhone.value.trim() || '-'}
 `
-        + `Ort der Immobilie: ${location}
+        + `${t('requestLocation')}: ${formEls.contactLocation.value.trim() || '-'}
 `
-        + `Objektart: ${propertyTypeText}
+        + `${t('requestPropertyType')}: ${formEls.propertyType.selectedOptions[0].text}
 `
-        + `Betreuung: ${frequencyText}
+        + `${t('requestFrequency')}: ${formEls.serviceFrequency.selectedOptions[0].text}
 `
-        + `Wohnfläche: ${livingSize} m²
+        + `${t('requestLiving')}: ${formEls.livingSize.value || '-'} m²
 `
-        + `Außenfläche: ${plotSize} m²
+        + `${t('requestPlot')}: ${formEls.plotSize.value || '-'} m²
 `
-        + `Poolgröße: ${poolSize} m²
+        + `${t('requestPool')}: ${formEls.poolSize.value || '-'} m²
 `
-        + `Leistungen: ${services}
+        + `${t('requestServices')}: ${services}
 `
-        + `${i18n[currentLang].requestEstimated}: ${formatEuro(total)}
+        + `${t('requestEstimated')}: ${formatEuro(total)}
 `
-        + `Nachricht: ${message}
+        + `${t('requestMessage')}: ${formEls.contactMessage.value.trim() || '-'}
 `;
 
-      const subject = encodeURIComponent(i18n[currentLang].requestSubject);
+      const subject = encodeURIComponent(t('requestSubject'));
       const encodedBody = encodeURIComponent(body);
-      document.getElementById('emailButton').href = `mailto:${CONFIG.email}?subject=${subject}&body=${encodedBody}`;
-      document.getElementById('whatsappButton').href = `https://wa.me/${CONFIG.whatsapp}?text=${encodedBody}`;
+      formEls.emailButton.href = `mailto:${CONFIG.email}?subject=${subject}&body=${encodedBody}`;
+      formEls.whatsappButton.href = `https://wa.me/${CONFIG.whatsapp}?text=${encodedBody}`;
     }
 
-    function applyLanguage() {
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === currentLang));
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.dataset.i18n;
-        if (i18n[currentLang][key]) el.textContent = i18n[currentLang][key];
-      });
-
-      document.getElementById('propertyType').options[0].text = i18n[currentLang].typeApartment;
-      document.getElementById('propertyType').options[1].text = i18n[currentLang].typeHouse;
-      document.getElementById('serviceFrequency').options[0].text = i18n[currentLang].freqOneTime;
-      document.getElementById('serviceFrequency').options[1].text = i18n[currentLang].freqMonthly;
-      document.getElementById('serviceFrequency').options[2].text = i18n[currentLang].freqWeekly;
-      document.querySelector('[for="contactName"]').nextElementSibling.placeholder = currentLang === 'de' ? 'Ihr Name' : currentLang === 'en' ? 'Your name' : 'Su nombre';
-      document.querySelector('[for="contactEmail"]').nextElementSibling.placeholder = currentLang === 'de' ? 'ihre@email.de' : currentLang === 'en' ? 'your@email.com' : 'su@email.com';
-      document.querySelector('[for="contactPhone"]').nextElementSibling.placeholder = '+34 ...';
-      document.querySelector('[for="contactLocation"]').nextElementSibling.placeholder = currentLang === 'de' ? 'z. B. Alicante, Torrevieja' : currentLang === 'en' ? 'e.g. Alicante, Torrevieja' : 'p. ej. Alicante, Torrevieja';
-      document.getElementById('contactMessage').placeholder = currentLang === 'de' ? 'Kurze Zusatzinfos zur Immobilie oder zum Bedarf' : currentLang === 'en' ? 'Short extra information about the property or your needs' : 'Información adicional breve sobre la propiedad o la necesidad';
-      document.getElementById('emailButton').textContent = i18n[currentLang].emailBtn;
-      document.getElementById('whatsappButton').textContent = i18n[currentLang].whatsappBtn;
-      document.querySelectorAll('.detail-toggle').forEach(button => {
+    detailButtons.forEach(button => {
       button.addEventListener('click', () => {
         const target = document.getElementById(button.dataset.target);
         target.classList.toggle('open');
-        button.textContent = target.classList.contains('open') ? i18n[currentLang].detailsBtnClose : i18n[currentLang].detailsBtnOpen;
-      });
-    });
-      calculatePricing();
-    });
-      calculatePricing();
-    }
-
-    document.querySelectorAll('.detail-toggle').forEach(button => {
-      button.addEventListener('click', () => {
-        const target = document.getElementById(button.dataset.target);
-        target.classList.toggle('open');
+        button.textContent = target.classList.contains('open') ? t('detailsBtnClose') : t('detailsBtnOpen');
       });
     });
 
-    document.querySelectorAll('.lang-btn').forEach(button => {
+    langButtons.forEach(button => {
       button.addEventListener('click', () => {
         currentLang = button.dataset.lang;
         applyLanguage();
       });
     });
 
-    ['propertyType', 'serviceFrequency', 'livingSize', 'plotSize', 'poolSize', 'checkInspection', 'checkPool', 'checkGarden', 'checkArrival', 'contactName', 'contactEmail', 'contactPhone', 'contactLocation', 'contactMessage'].forEach(id => {
-      const el = document.getElementById(id);
+    Object.values(formEls).forEach(el => {
+      if (!el || !('addEventListener' in el)) return;
       el.addEventListener('input', calculatePricing);
       el.addEventListener('change', calculatePricing);
     });
 
-    calculatePricing();
     applyLanguage();
   </script>
 </body>
