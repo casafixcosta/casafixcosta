@@ -99,13 +99,20 @@
 
     .lang-btn {
       border: 1px solid var(--line);
-      background: #fff;
-      color: var(--text);
       padding: 9px 12px;
       border-radius: 999px;
       font-weight: 700;
       cursor: pointer;
       transition: 0.2s ease;
+    }
+
+    .lang-btn[data-lang="de"] { background:#000; color:#fff; }
+    .lang-btn[data-lang="en"] { background:#00247d; color:#fff; }
+    .lang-btn[data-lang="es"] { background:#c60b1e; color:#fff; }
+
+    .lang-btn.active {
+      outline:3px solid #fff;
+      box-shadow:0 0 0 2px var(--text);
     }
 
     .lang-btn.active,
@@ -454,6 +461,8 @@
       </div>
 
       <nav class="nav-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
         <a href="#services" data-i18n="navServices">Leistungen</a>
         <a href="#calculator" data-i18n="navCalc">Preisrechner</a>
         <a href="#pricing" data-i18n="navPricing">Preislogik</a>
@@ -508,29 +517,15 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <h2>Warum diese Betreuung anders ist</h2>
-            <p>Der entscheidende Unterschied ist nicht nur die Leistung selbst, sondern die Kombination aus praktischer Erfahrung, handwerklichem Verständnis und transparenter Kommunikation mit dem Eigentümer.</p>
+            <h2 data-i18n="aboutTitle">Warum diese Betreuung anders ist</h2>
+            <p data-i18n="aboutText">Nicht austauschbare Standardbetreuung, sondern ein ruhiger, verlässlicher Vor-Ort-Service für Eigentümer, die ihre Immobilie nicht dem Zufall überlassen wollen.</p>
           </div>
         </div>
 
         <div class="pricing-grid">
           <div class="pricing-box">
-            <h3>Handwerkliche Kompetenz</h3>
-            <p>Kleine Reparaturen, technische Einschätzungen und das frühzeitige Erkennen von Problemen sparen langfristig Kosten. Es wird nicht für jede Kleinigkeit sofort eine externe Firma benötigt.</p>
-          </div>
-          <div class="pricing-box">
-            <h3>Dokumentierte Objektkontrolle</h3>
-            <p>Regelmäßige Updates mit Fotos, Videos und klarer Rückmeldung. Eigentümer wissen jederzeit, in welchem Zustand sich ihre Immobilie befindet.</p>
-          </div>
-          <div class="pricing-box">
-            <h3>Koordination vor Ort</h3>
-            <p>Falls externe Dienstleister nötig sind, erfolgt die direkte Abstimmung vor Ort – inklusive Kontrolle der ausgeführten Arbeiten.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="services">
+            <h3 data-i18n="aboutBox1Title">Handwerkliches Verständnis</h3>
+            <p data-i18n="aboutBox1Text">Kleine Schäden, b
       <div class="container">
         <div class="section-head">
           <div>
@@ -541,7 +536,7 @@
 
         <div class="services-grid">
           <article class="service-card">
-            <img class="thumb" src="https://images.unsplash.com/photo-1576013551627-0c2bcb74b4f6?auto=format&fit=crop&w=1200&q=80" alt="Poolservice mit sichtbarem Pool" />
+            <img class="thumb" src="Pool.jpg" alt="Poolservice mit sichtbarem Pool" />
             <h3 data-i18n="poolTitle">Poolservice</h3>
             <p data-i18n="poolText">Koordination oder Durchführung der regelmäßigen Poolpflege für klare Wasserqualität, saubere Beckenränder und einen gepflegten Gesamteindruck.</p>
             <button class="detail-toggle" data-target="pool-details" data-i18n="detailsBtn">Details anzeigen</button>
@@ -556,7 +551,7 @@
           </article>
 
           <article class="service-card">
-            <img class="thumb" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Gartenpflege mit Rasen und Außenflächen" />
+            <img class="thumb" src="work.jpg" alt="Gartenpflege mit Rasen und Außenflächen" />
             <h3 data-i18n="gardenTitle">Gartenpflege</h3>
             <p data-i18n="gardenText">Pflege von Rasen, Terrassen, Hecken und Außenflächen – abgestimmt auf Grundstücksgröße, Vegetation und tatsächlichen Pflegeaufwand.</p>
             <button class="detail-toggle" data-target="garden-details" data-i18n="detailsBtn">Details anzeigen</button>
@@ -571,7 +566,7 @@
           </article>
 
           <article class="service-card">
-            <img class="thumb" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80" alt="Vorbereitung vor Ankunft in einer Ferienimmobilie" />
+            <img class="thumb" src="hero.jpg" alt="Vorbereitung vor Ankunft in einer Ferienimmobilie" />
             <h3 data-i18n="arrivalTitle">Vorbereitung vor Ankunft</h3>
             <p data-i18n="arrivalText">Die Immobilie wird vor Eintreffen vorbereitet, damit Gäste oder Eigentümer nicht in ein abgestandenes oder ungepflegtes Objekt kommen.</p>
             <button class="detail-toggle" data-target="arrival-details" data-i18n="detailsBtn">Details anzeigen</button>
