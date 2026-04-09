@@ -701,15 +701,6 @@
               <input id="poolSize" type="number" min="0" step="1" value="24" />
             </div>
 
-            <div class="field">
-              <label for="distanceFactor" data-i18n="fieldEffort">Aufwand / Zugänglichkeit</label>
-              <select id="distanceFactor">
-                <option value="1" data-i18n="effortNormal">Normal</option>
-                <option value="1.12" data-i18n="effortElevated">Erhöht</option>
-                <option value="1.22" data-i18n="effortHigh">Hoch</option>
-              </select>
-            </div>
-
             <div class="field full">
               <label data-i18n="fieldServices">Leistungen wählen</label>
               <div class="checks">
@@ -756,10 +747,6 @@
             <div class="mini">
               <span data-i18n="subtotalLabel">Zwischensumme</span>
               <span id="subtotalValue">0 €</span>
-            </div>
-            <div class="mini">
-              <span data-i18n="effortLabel">Aufwandsfaktor</span>
-              <span id="effortValue">x 1.00</span>
             </div>
             <div class="grand-total">
               <span data-i18n="grandTotalLabel">Gesamtpreis</span>
@@ -886,7 +873,7 @@
         arrivalDetail3: "Terrasse prüfen, grob säubern und Möbel stellen",
         arrivalDetail4: "Kleine vorbereitende Handgriffe für einen gepflegten ersten Eindruck",
         calcTitle: "Preisrechner",
-        calcText: "Der Rechner fasst jetzt alle Positionen im Gesamtpreis zusammen. Er ist bewusst wirtschaftlich gedacht: Größe, Aufwand und Frequenz treiben den Preis, nicht nur hübsche Paketnamen.",
+        calcText: "Der Rechner fasst jetzt alle Positionen im Gesamtpreis zusammen. Für den Kunden bleibt er klar und nachvollziehbar: Größe, Leistungsumfang und Frequenz bestimmen den Preis.",
         fieldPropertyType: "Immobilienart",
         fieldFrequency: "Frequenz",
         fieldLivingSize: "Wohnfläche (m²)",
@@ -913,7 +900,6 @@
         summaryTitle: "Preisübersicht",
         summaryText: "Hier werden alle gewählten Positionen einzeln aufgeführt und unten als Gesamtpreis zusammengefasst.",
         subtotalLabel: "Zwischensumme",
-        effortLabel: "Aufwandsfaktor",
         grandTotalLabel: "Gesamtpreis",
         pricingNote: "Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten.",
         logicTitle: "Warum diese Preislogik sinnvoller ist",
@@ -1001,7 +987,7 @@
         arrivalDetail3: "Check terrace, clean roughly and position furniture",
         arrivalDetail4: "Small practical steps for a well-kept first impression",
         calcTitle: "Price calculator",
-        calcText: "The calculator now combines all selected items into one total. It is built to be economically sound: size, effort and frequency drive the price, not just nice package names.",
+        calcText: "The calculator now combines all selected items into one total. For the customer it stays clear and understandable: size, service scope and frequency determine the price.",
         fieldPropertyType: "Property type",
         fieldFrequency: "Frequency",
         fieldLivingSize: "Living area (m²)",
@@ -1028,7 +1014,6 @@
         summaryTitle: "Price summary",
         summaryText: "Each selected service is listed individually and combined into a final total below.",
         subtotalLabel: "Subtotal",
-        effortLabel: "Effort factor",
         grandTotalLabel: "Total price",
         pricingNote: "Note: This calculator is a solid orientation, not a reckless discount quote. Special cases, repairs, emergency visits and deep cleaning are not automatically included.",
         logicTitle: "Why this pricing logic is stronger",
@@ -1116,7 +1101,7 @@
         arrivalDetail3: "Revisar terraza, limpieza ligera y colocar mobiliario",
         arrivalDetail4: "Pequeños pasos prácticos para una buena primera impresión",
         calcTitle: "Calculadora de precios",
-        calcText: "La calculadora ahora reúne todas las partidas en un precio total. Está pensada con criterio económico: el tamaño, el esfuerzo y la frecuencia marcan el precio, no solo nombres bonitos de paquetes.",
+        calcText: "La calculadora ahora reúne todas las partidas en un precio total. Para el cliente sigue siendo clara y comprensible: el tamaño, el alcance del servicio y la frecuencia determinan el precio.",
         fieldPropertyType: "Tipo de inmueble",
         fieldFrequency: "Frecuencia",
         fieldLivingSize: "Superficie habitable (m²)",
@@ -1143,7 +1128,6 @@
         summaryTitle: "Resumen de precio",
         summaryText: "Cada servicio seleccionado aparece por separado y abajo se resume el precio total.",
         subtotalLabel: "Subtotal",
-        effortLabel: "Factor de esfuerzo",
         grandTotalLabel: "Precio total",
         pricingNote: "Nota: Esta calculadora es una orientación sólida, no una oferta temeraria. Casos especiales, reparaciones, urgencias y limpiezas intensivas no se incluyen automáticamente.",
         logicTitle: "Por qué esta lógica de precios es mejor",
@@ -1192,7 +1176,7 @@
       const livingSize = Math.max(0, Number(byId('livingSize').value) || 0);
       const plotSize = Math.max(0, Number(byId('plotSize').value) || 0);
       const poolSize = Math.max(0, Number(byId('poolSize').value) || 0);
-      const effortFactor = Number(byId('distanceFactor').value) || 1;
+      const effortFactor = 1;
 
       const propertyFactor = propertyType === 'house' ? 1.12 : 1;
       const frequencyFactor = frequency === 'weekly' ? 0.82 : frequency === 'monthly' ? 1 : 1.18;
@@ -1245,7 +1229,6 @@
       }
 
       byId('subtotalValue').textContent = euro(subtotal);
-      byId('effortValue').textContent = `x ${effortFactor.toFixed(2)}`;
       byId('grandTotal').textContent = euro(total);
     }
 
@@ -1260,7 +1243,7 @@
       });
     });
 
-    ['propertyType','serviceFrequency','livingSize','plotSize','poolSize','distanceFactor','checkInspection','checkPool','checkGarden','checkArrival']
+    ['propertyType','serviceFrequency','livingSize','plotSize','poolSize','checkInspection','checkPool','checkGarden','checkArrival']
       .forEach(id => byId(id).addEventListener('input', renderSummary));
 
     applyLanguage('de');
