@@ -18,6 +18,7 @@
       --primary-dark: #0b3945;
       --accent: #d97b4d;
       --accent-soft: rgba(217, 123, 77, 0.12);
+      --email-yellow: #f4c400;
       --line: rgba(15, 76, 92, 0.1);
       --line-strong: rgba(15, 76, 92, 0.18);
       --overlay: rgba(11, 25, 31, 0.56);
@@ -171,7 +172,7 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      width: min(920px, 100%);
+      width: min(940px, 100%);
       padding: 88px 0 78px;
     }
 
@@ -210,7 +211,7 @@
       margin: 8px 0 24px;
       font-size: 1rem;
       color: rgba(255,255,255,0.98);
-      max-width: 780px;
+      max-width: 800px;
     }
 
     .cta-row {
@@ -252,6 +253,33 @@
       transform: translateY(-1px);
     }
 
+    .email-btn {
+      background: var(--email-yellow);
+      color: #111111;
+      border: 2px solid #111111;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.14);
+      gap: 10px;
+    }
+
+    .email-btn:hover {
+      background: #ddb100;
+    }
+
+    .mail-icon,
+    .wa-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: #111111;
+      color: var(--email-yellow);
+      font-size: 0.82rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
     .whatsapp-btn {
       background: #25D366;
       color: #111111;
@@ -265,17 +293,7 @@
     }
 
     .wa-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: #111111;
       color: #25D366;
-      font-size: 0.9rem;
-      font-weight: 800;
-      flex-shrink: 0;
     }
 
     .cta-help {
@@ -296,7 +314,7 @@
     section { padding: 76px 0; }
 
     .section-head {
-      max-width: 850px;
+      max-width: 860px;
       margin-bottom: 26px;
     }
 
@@ -313,7 +331,6 @@
       font-size: 1.05rem;
     }
 
-    .grid-2,
     .grid-3,
     .grid-4,
     .steps,
@@ -324,7 +341,6 @@
       gap: 18px;
     }
 
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .grid-4 { grid-template-columns: repeat(4, 1fr); }
     .steps { grid-template-columns: repeat(4, 1fr); }
@@ -442,6 +458,28 @@
       color: var(--muted);
     }
 
+    .extra-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 24px;
+      border: 1px solid var(--line-strong);
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .extra-price {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(15, 76, 92, 0.08);
+      color: var(--primary);
+      font-weight: 800;
+      font-size: 0.95rem;
+    }
+
     .gallery-item {
       background: var(--white);
       border-radius: 20px;
@@ -522,7 +560,6 @@
         padding: 60px 0;
       }
 
-      .grid-2,
       .grid-3,
       .grid-4,
       .steps,
@@ -558,8 +595,8 @@
       <nav class="nav">
         <a href="#leistungen">Leistungen</a>
         <a href="#modell">Pakete</a>
+        <a href="#extras">Zusatzleistungen</a>
         <a href="#vertrauen">Vertrauen</a>
-        <a href="#ablauf">Ablauf</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
@@ -585,13 +622,18 @@
             Bereits jetzt beantworte ich Anfragen, bespreche passende Betreuungsmodelle und plane zukünftige Objektbetreuung im Raum Alicante / Costa Blanca.
           </div>
           <div class="cta-row">
+            <a class="button email-btn" href="mailto:Marco-weiss83@web.de?subject=Anfrage%20CasaFix%20Costa">
+              <span class="mail-icon">✉</span>
+              Anfrage per E-Mail senden
+            </a>
             <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
               <span class="wa-icon">✆</span>
-              Betreuung per WhatsApp anfragen
+              Nur im dringenden Fall per WhatsApp
             </a>
-            <a class="button-outline" href="#modell">Betreuungsmodelle ansehen</a>
           </div>
-          <p class="cta-help">Antwort meist innerhalb weniger Stunden. Erste Einschätzung kostenlos.</p>
+          <p class="cta-help">
+            Für eine strukturierte Erstprüfung bitte Anfragen zunächst per E-Mail senden. Bei dringenden Anliegen ist WhatsApp zusätzlich möglich.
+          </p>
           <div class="hero-points">
             <span>✓ Regelmäßige Objektkontrollen</span>
             <span>✓ Fotodokumentation</span>
@@ -611,13 +653,18 @@
             Inquiries are already welcome. I discuss suitable care models and plan future property support in the Alicante / Costa Blanca area.
           </div>
           <div class="cta-row">
+            <a class="button email-btn" href="mailto:Marco-weiss83@web.de?subject=Inquiry%20CasaFix%20Costa">
+              <span class="mail-icon">✉</span>
+              Send inquiry by email
+            </a>
             <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
               <span class="wa-icon">✆</span>
-              Request care via WhatsApp
+              WhatsApp for urgent cases only
             </a>
-            <a class="button-outline" href="#modell">View care packages</a>
           </div>
-          <p class="cta-help">Reply usually within a few hours. Initial assessment free of charge.</p>
+          <p class="cta-help">
+            For a structured first review, please send inquiries by email first. WhatsApp is additionally possible for urgent matters.
+          </p>
           <div class="hero-points">
             <span>✓ Regular property checks</span>
             <span>✓ Photo documentation</span>
@@ -637,13 +684,18 @@
             Ya se pueden realizar consultas. Analizo modelos de supervisión adecuados y planifico futuras atenciones de inmuebles en la zona de Alicante / Costa Blanca.
           </div>
           <div class="cta-row">
+            <a class="button email-btn" href="mailto:Marco-weiss83@web.de?subject=Consulta%20CasaFix%20Costa">
+              <span class="mail-icon">✉</span>
+              Enviar consulta por correo
+            </a>
             <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
               <span class="wa-icon">✆</span>
-              Solicitar supervisión por WhatsApp
+              WhatsApp solo en caso urgente
             </a>
-            <a class="button-outline" href="#modell">Ver paquetes de servicio</a>
           </div>
-          <p class="cta-help">Respuesta normalmente en pocas horas. Primera valoración gratuita.</p>
+          <p class="cta-help">
+            Para una primera evaluación estructurada, envíe su consulta primero por correo electrónico. WhatsApp también es posible en casos urgentes.
+          </p>
           <div class="hero-points">
             <span>✓ Controles periódicos del inmueble</span>
             <span>✓ Documentación fotográfica</span>
@@ -911,7 +963,7 @@
 
             <p class="package-note" data-lang="de" data-display="block">Für Eigentümer, die mehr Sichtbarkeit, schnellere Rückmeldung und regelmäßige Kontrolle wünschen.</p>
             <p class="package-note" data-lang="en" data-display="block">For owners who want more visibility, faster feedback and regular supervision.</p>
-            <p class="package-note" data-lang="es" data-display="block">Para propietarios que desean más visibilidad, respuesta más rápida y supervisión regular.</p>
+            <p data-lang="es" data-display="block" class="package-note">Para propietarios que desean más visibilidad, respuesta más rápida y supervisión regular.</p>
           </div>
 
           <div class="package-card">
@@ -962,87 +1014,120 @@
     <section id="extras" class="band">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>Zusatzleistungen bei Bedarf</h2>
+          <h2>Zusatzleistungen sinnvoll und transparent</h2>
           <p>
-            Diese Leistungen ergänzen die laufende Betreuung. Sie sind nicht der Kern des Angebots, aber sie schaffen im Problemfall oder vor Anreise echten Mehrwert.
+            Diese Leistungen ergänzen die laufende Betreuung. Die Preise sind bewusst wirtschaftlich kalkuliert: nicht billig, sondern nachvollziehbar für Planung, Präsenz und Verantwortung.
           </p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>Additional services when needed</h2>
+          <h2>Additional services with transparent pricing</h2>
           <p>
-            These services complement the ongoing care. They are not the core of the offer, but they create real value in urgent situations or before arrival.
+            These services complement ongoing care. The pricing is deliberately business-minded: not cheap, but reasonable for planning, presence and responsibility.
           </p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Servicios adicionales cuando se necesiten</h2>
+          <h2>Servicios adicionales con precios transparentes</h2>
           <p>
-            Estos servicios complementan la supervisión continua. No son el núcleo de la oferta, pero aportan valor real en situaciones urgentes o antes de la llegada del propietario.
+            Estos servicios complementan la supervisión continua. Los precios están calculados de forma empresarial: no baratos, sino razonables para planificación, presencia y responsabilidad.
           </p>
         </div>
 
         <div class="grid-3">
-          <div class="card">
-            <div class="icon">A</div>
-            <h3 data-lang="de" data-display="block">Koordination & Organisation</h3>
-            <h3 data-lang="en" data-display="block">Coordination & organisation</h3>
-            <h3 data-lang="es" data-display="block">Coordinación y organización</h3>
+          <div class="extra-card">
+            <h3 data-lang="de" data-display="block">Handwerkerkoordination</h3>
+            <h3 data-lang="en" data-display="block">Contractor coordination</h3>
+            <h3 data-lang="es" data-display="block">Coordinación de profesionales</h3>
 
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Handwerkerkoordination</li>
-              <li data-lang="de" data-display="list-item">Abstimmung mit Dienstleistern</li>
-              <li data-lang="de" data-display="list-item">Rückmeldung an Eigentümer</li>
+            <p data-lang="de" data-display="block">Abstimmung mit Handwerkern oder Dienstleistern, Terminorganisation, Rückmeldung an den Eigentümer und einfache Vor-Ort-Begleitung.</p>
+            <p data-lang="en" data-display="block">Coordination with contractors or service providers, appointment organisation, owner feedback and simple on-site support.</p>
+            <p data-lang="es" data-display="block">Coordinación con profesionales o proveedores, organización de citas, información al propietario y apoyo sencillo sobre el terreno.</p>
 
-              <li data-lang="en" data-display="list-item">Contractor coordination</li>
-              <li data-lang="en" data-display="list-item">Coordination with service providers</li>
-              <li data-lang="en" data-display="list-item">Feedback to owners</li>
-
-              <li data-lang="es" data-display="list-item">Coordinación de profesionales</li>
-              <li data-lang="es" data-display="list-item">Coordinación con proveedores</li>
-              <li data-lang="es" data-display="list-item">Información al propietario</li>
-            </ul>
+            <span class="extra-price" data-lang="de" data-display="inline-block">ab 79 € pro Einsatz</span>
+            <span class="extra-price" data-lang="en" data-display="inline-block">from €79 per assignment</span>
+            <span class="extra-price" data-lang="es" data-display="inline-block">desde 79 € por intervención</span>
           </div>
 
-          <div class="card">
-            <div class="icon">B</div>
-            <h3 data-lang="de" data-display="block">Vorbereitung & Objektpflege</h3>
-            <h3 data-lang="en" data-display="block">Preparation & property readiness</h3>
-            <h3 data-lang="es" data-display="block">Preparación y puesta a punto</h3>
+          <div class="extra-card">
+            <h3 data-lang="de" data-display="block">Notfall-Einsatz</h3>
+            <h3 data-lang="en" data-display="block">Emergency visit</h3>
+            <h3 data-lang="es" data-display="block">Intervención de emergencia</h3>
 
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Vorbereitung vor Ankunft</li>
-              <li data-lang="de" data-display="list-item">Kleinere Objektpflege</li>
-              <li data-lang="de" data-display="list-item">Praktische Unterstützung im sinnvollen Rahmen</li>
+            <p data-lang="de" data-display="block">Kurzfristige Reaktion bei dringenden Auffälligkeiten, erste Lageeinschätzung vor Ort und direkte Rückmeldung mit Fotos.</p>
+            <p data-lang="en" data-display="block">Short-notice response in urgent situations, first on-site assessment and direct feedback with photos.</p>
+            <p data-lang="es" data-display="block">Respuesta a corto plazo ante incidencias urgentes, primera valoración sobre el terreno y respuesta directa con fotos.</p>
 
-              <li data-lang="en" data-display="list-item">Pre-arrival preparation</li>
-              <li data-lang="en" data-display="list-item">Small-scale property readiness</li>
-              <li data-lang="en" data-display="list-item">Practical support within a sensible scope</li>
-
-              <li data-lang="es" data-display="list-item">Preparación antes de la llegada</li>
-              <li data-lang="es" data-display="list-item">Pequeña puesta a punto del inmueble</li>
-              <li data-lang="es" data-display="list-item">Apoyo práctico dentro de un marco razonable</li>
-            </ul>
+            <span class="extra-price" data-lang="de" data-display="inline-block">ab 119 € pro Einsatz</span>
+            <span class="extra-price" data-lang="en" data-display="inline-block">from €119 per visit</span>
+            <span class="extra-price" data-lang="es" data-display="inline-block">desde 119 € por intervención</span>
           </div>
 
-          <div class="card">
-            <div class="icon">C</div>
-            <h3 data-lang="de" data-display="block">Notfall & Sonderfälle</h3>
-            <h3 data-lang="en" data-display="block">Emergency & special cases</h3>
-            <h3 data-lang="es" data-display="block">Emergencias y casos especiales</h3>
+          <div class="extra-card">
+            <h3 data-lang="de" data-display="block">Sonderfahrt</h3>
+            <h3 data-lang="en" data-display="block">Special trip</h3>
+            <h3 data-lang="es" data-display="block">Desplazamiento especial</h3>
 
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Notfall-Einsätze</li>
-              <li data-lang="de" data-display="list-item">Sonderfahrten</li>
-              <li data-lang="de" data-display="list-item">Schnelle Reaktion nach Auffälligkeiten</li>
+            <p data-lang="de" data-display="block">Zusätzliche außerplanmäßige Anfahrt außerhalb regulärer Kontrolltermine, etwa für Übergaben, Nachschau oder spontane Prüfungen.</p>
+            <p data-lang="en" data-display="block">Additional unscheduled visit outside regular inspections, for example for handovers, follow-up checks or spontaneous reviews.</p>
+            <p data-lang="es" data-display="block">Desplazamiento adicional fuera de los controles regulares, por ejemplo para entregas, revisiones posteriores o comprobaciones espontáneas.</p>
 
-              <li data-lang="en" data-display="list-item">Emergency visits</li>
-              <li data-lang="en" data-display="list-item">Special trips</li>
-              <li data-lang="en" data-display="list-item">Fast response after incidents</li>
-
-              <li data-lang="es" data-display="list-item">Intervenciones de emergencia</li>
-              <li data-lang="es" data-display="list-item">Desplazamientos especiales</li>
-              <li data-lang="es" data-display="list-item">Respuesta rápida ante incidencias</li>
-            </ul>
+            <span class="extra-price" data-lang="de" data-display="inline-block">ab 69 € pro Fahrt</span>
+            <span class="extra-price" data-lang="en" data-display="inline-block">from €69 per trip</span>
+            <span class="extra-price" data-lang="es" data-display="inline-block">desde 69 € por desplazamiento</span>
           </div>
+
+          <div class="extra-card">
+            <h3 data-lang="de" data-display="block">Vorbereitung vor Ankunft</h3>
+            <h3 data-lang="en" data-display="block">Pre-arrival preparation</h3>
+            <h3 data-lang="es" data-display="block">Preparación antes de la llegada</h3>
+
+            <p data-lang="de" data-display="block">Kurzer Vorab-Check vor Ihrer Anreise, Lüften, Sichtprüfung und einfache Vorbereitung, damit das Objekt bei Ankunft geordnet wirkt.</p>
+            <p data-lang="en" data-display="block">Short pre-arrival check, airing, visual review and simple preparation so the property feels ready when you arrive.</p>
+            <p data-lang="es" data-display="block">Control previo a su llegada, ventilación, revisión visual y preparación sencilla para que el inmueble esté presentable a la llegada.</p>
+
+            <span class="extra-price" data-lang="de" data-display="inline-block">ab 89 € pro Termin</span>
+            <span class="extra-price" data-lang="en" data-display="inline-block">from €89 per appointment</span>
+            <span class="extra-price" data-lang="es" data-display="inline-block">desde 89 € por cita</span>
+          </div>
+
+          <div class="extra-card">
+            <h3 data-lang="de" data-display="block">Kleinere Arbeiten & Instandhaltung</h3>
+            <h3 data-lang="en" data-display="block">Small jobs & upkeep</h3>
+            <h3 data-lang="es" data-display="block">Pequeños trabajos y mantenimiento</h3>
+
+            <p data-lang="de" data-display="block">Kleinreparaturen, kleinere Montagen oder praktische Objektunterstützung im sinnvollen Rahmen – keine Großbaustellen und keine Komplettsanierungen.</p>
+            <p data-lang="en" data-display="block">Minor repairs, small installations or practical property support within a sensible scope – no major construction and no full renovations.</p>
+            <p data-lang="es" data-display="block">Pequeñas reparaciones, montajes menores o apoyo práctico al inmueble dentro de un marco razonable; no grandes obras ni reformas completas.</p>
+
+            <span class="extra-price" data-lang="de" data-display="inline-block">ab 65 € / Stunde</span>
+            <span class="extra-price" data-lang="en" data-display="inline-block">from €65 / hour</span>
+            <span class="extra-price" data-lang="es" data-display="inline-block">desde 65 € / hora</span>
+          </div>
+
+          <div class="extra-card">
+            <h3 data-lang="de" data-display="block">Schlüsselservice</h3>
+            <h3 data-lang="en" data-display="block">Key handling service</h3>
+            <h3 data-lang="es" data-display="block">Servicio de llaves</h3>
+
+            <p data-lang="de" data-display="block">Verwaltung, Übergabe oder organisierte Koordination von Schlüsseln im Rahmen der Betreuung, wenn dies für den Ablauf erforderlich ist.</p>
+            <p data-lang="en" data-display="block">Handling, handover or organised coordination of keys within the care arrangement where required for operations.</p>
+            <p data-lang="es" data-display="block">Gestión, entrega o coordinación organizada de llaves dentro del servicio, cuando sea necesario para la operativa.</p>
+
+            <span class="extra-price" data-lang="de" data-display="inline-block">ab 49 € pro Vorgang</span>
+            <span class="extra-price" data-lang="en" data-display="inline-block">from €49 per arrangement</span>
+            <span class="extra-price" data-lang="es" data-display="inline-block">desde 49 € por gestión</span>
+          </div>
+        </div>
+
+        <div class="subtle-note">
+          <p data-lang="de" data-display="block">
+            <strong>Hinweis:</strong> Die genannten Preise sind Richtwerte für eine seriöse Erstorientierung. Der endgültige Preis hängt von Aufwand, Entfernung, Dringlichkeit und Objektlage ab.
+          </p>
+          <p data-lang="en" data-display="block">
+            <strong>Note:</strong> The prices shown are guide prices for an initial serious orientation. Final pricing depends on scope, distance, urgency and property location.
+          </p>
+          <p data-lang="es" data-display="block">
+            <strong>Nota:</strong> Los precios indicados son orientativos para una primera referencia seria. El precio final depende del alcance, la distancia, la urgencia y la ubicación del inmueble.
+          </p>
         </div>
       </div>
     </section>
@@ -1122,9 +1207,9 @@
             <h3 data-lang="en" data-display="block">Send your inquiry</h3>
             <h3 data-lang="es" data-display="block">Envíe su consulta</h3>
 
-            <p data-lang="de" data-display="block">Kontakt per WhatsApp oder E-Mail mit kurzer Beschreibung Ihrer Immobilie, Ihrer Situation und Ihres Betreuungsbedarfs.</p>
-            <p data-lang="en" data-display="block">Reach out by WhatsApp or email with a short description of your property, your situation and your care needs.</p>
-            <p data-lang="es" data-display="block">Contacte por WhatsApp o correo electrónico con una breve descripción de su inmueble, su situación y sus necesidades de supervisión.</p>
+            <p data-lang="de" data-display="block">Bitte senden Sie Ihre erste Anfrage bevorzugt per E-Mail mit kurzer Beschreibung Ihrer Immobilie, Ihrer Situation und Ihres Betreuungsbedarfs.</p>
+            <p data-lang="en" data-display="block">Please send your first inquiry preferably by email with a short description of your property, your situation and your care needs.</p>
+            <p data-lang="es" data-display="block">Envíe su primera consulta preferiblemente por correo electrónico con una breve descripción de su inmueble, su situación y sus necesidades de supervisión.</p>
           </div>
 
           <div class="card">
@@ -1133,9 +1218,9 @@
             <h3 data-lang="en" data-display="block">Receive an assessment</h3>
             <h3 data-lang="es" data-display="block">Reciba una valoración</h3>
 
-            <p data-lang="de" data-display="block">Sie erhalten eine erste Einschätzung, welche Form der Betreuung sinnvoll ist und welche Struktur zu Ihrem Objekt passt.</p>
-            <p data-lang="en" data-display="block">You receive an initial assessment of which type of care is suitable and which structure fits your property best.</p>
-            <p data-lang="es" data-display="block">Recibirá una primera valoración sobre qué tipo de servicio es adecuado y qué estructura encaja mejor con su inmueble.</p>
+            <p data-lang="de" data-display="block">Sie erhalten eine strukturierte Ersteinschätzung, welche Form der Betreuung sinnvoll ist und welche Leistungen zu Ihrem Objekt passen.</p>
+            <p data-lang="en" data-display="block">You receive a structured first assessment of which care model is suitable and which services fit your property.</p>
+            <p data-lang="es" data-display="block">Recibirá una primera valoración estructurada sobre qué modelo de servicio resulta adecuado y qué prestaciones encajan con su inmueble.</p>
           </div>
 
           <div class="card">
@@ -1144,9 +1229,9 @@
             <h3 data-lang="en" data-display="block">Agree on the care model</h3>
             <h3 data-lang="es" data-display="block">Definir el modelo de servicio</h3>
 
-            <p data-lang="de" data-display="block">Gemeinsam wird festgelegt, ob Light, Standard oder Premium zu Ihrer Situation passt und welche Zusatzleistungen relevant sind.</p>
-            <p data-lang="en" data-display="block">Together we define whether Light, Standard or Premium fits your situation and which add-on services may be relevant.</p>
-            <p data-lang="es" data-display="block">Definimos conjuntamente si Light, Standard o Premium se ajusta a su situación y qué servicios adicionales pueden ser relevantes.</p>
+            <p data-lang="de" data-display="block">Gemeinsam wird festgelegt, ob Light, Standard oder Premium zu Ihrer Situation passt und welche Zusatzleistungen sinnvoll sind.</p>
+            <p data-lang="en" data-display="block">Together we define whether Light, Standard or Premium fits your situation and which add-on services make sense.</p>
+            <p data-lang="es" data-display="block">Definimos conjuntamente si Light, Standard o Premium se ajusta a su situación y qué servicios adicionales tienen sentido.</p>
           </div>
 
           <div class="card">
@@ -1209,19 +1294,19 @@
           <div data-lang-block="de" class="section-head active">
             <h2>Kontakt & zukünftige Betreuung anfragen</h2>
             <p>
-              Am schnellsten erreichen Sie mich schriftlich per WhatsApp. Alternativ gern per E-Mail. Bereits jetzt bespreche ich zukünftige Betreuung, Objektkontrollen und passende Betreuungsmodelle für Ihre Immobilie an der Costa Blanca.
+              Für eine saubere Erstprüfung senden Sie Ihre Anfrage bitte zunächst per E-Mail. So kann ich Ihr Anliegen strukturiert prüfen und passend beantworten. Bei dringenden Fällen ist WhatsApp zusätzlich möglich.
             </p>
           </div>
           <div data-lang-block="en" class="section-head">
             <h2>Contact & request future property care</h2>
             <p>
-              The fastest way to reach me is in writing via WhatsApp. Email is also welcome. I already discuss future property care, inspections and suitable care models for your property on the Costa Blanca.
+              For a proper first review, please send your inquiry by email first. This allows me to assess your request in a structured way and respond appropriately. WhatsApp is additionally possible for urgent cases.
             </p>
           </div>
           <div data-lang-block="es" class="section-head">
             <h2>Contacto y solicitud de futura supervisión</h2>
             <p>
-              La forma más rápida de contactarme es por escrito mediante WhatsApp. También puede escribir por correo electrónico. Ya analizo futuras supervisiones, controles del inmueble y modelos de servicio adecuados para su propiedad en la Costa Blanca.
+              Para una primera revisión adecuada, envíe su consulta primero por correo electrónico. Así podré evaluar su caso de forma estructurada y responder de manera adecuada. WhatsApp también es posible en casos urgentes.
             </p>
           </div>
         </div>
@@ -1232,32 +1317,49 @@
           <h3 data-lang="es" data-display="block">Contacto directo</h3>
 
           <div class="contact-list">
-            <div data-lang="de" data-display="block">✓ Antwort meist innerhalb weniger Stunden</div>
-            <div data-lang="de" data-display="block">✓ Erste Einschätzung kostenlos</div>
-            <div data-lang="de" data-display="block">✓ Frühzeitige Planung künftiger Betreuung möglich</div>
+            <div data-lang="de" data-display="block">✓ Primärer Kontaktweg: E-Mail</div>
+            <div data-lang="de" data-display="block">✓ Strukturierte Erstprüfung Ihrer Anfrage</div>
+            <div data-lang="de" data-display="block">✓ WhatsApp für dringende Anliegen möglich</div>
 
-            <div data-lang="en" data-display="block">✓ Reply usually within a few hours</div>
-            <div data-lang="en" data-display="block">✓ Initial assessment free of charge</div>
-            <div data-lang="en" data-display="block">✓ Early planning for future property care possible</div>
+            <div data-lang="en" data-display="block">✓ Primary contact method: email</div>
+            <div data-lang="en" data-display="block">✓ Structured first review of your inquiry</div>
+            <div data-lang="en" data-display="block">✓ WhatsApp possible for urgent matters</div>
 
-            <div data-lang="es" data-display="block">✓ Respuesta normalmente en pocas horas</div>
-            <div data-lang="es" data-display="block">✓ Primera valoración gratuita</div>
-            <div data-lang="es" data-display="block">✓ Posibilidad de planificar la supervisión con antelación</div>
+            <div data-lang="es" data-display="block">✓ Vía principal de contacto: correo electrónico</div>
+            <div data-lang="es" data-display="block">✓ Primera revisión estructurada de su consulta</div>
+            <div data-lang="es" data-display="block">✓ WhatsApp posible en asuntos urgentes</div>
           </div>
+
+          <a class="button email-btn" data-lang="de" data-display="inline-flex" href="mailto:Marco-weiss83@web.de?subject=Anfrage%20CasaFix%20Costa">
+            <span class="mail-icon">✉</span>
+            Jetzt per E-Mail anfragen
+          </a>
+
+          <a class="button email-btn" data-lang="en" data-display="inline-flex" href="mailto:Marco-weiss83@web.de?subject=Inquiry%20CasaFix%20Costa">
+            <span class="mail-icon">✉</span>
+            Send inquiry by email now
+          </a>
+
+          <a class="button email-btn" data-lang="es" data-display="inline-flex" href="mailto:Marco-weiss83@web.de?subject=Consulta%20CasaFix%20Costa">
+            <span class="mail-icon">✉</span>
+            Enviar consulta por correo
+          </a>
+
+          <div style="height: 12px;"></div>
 
           <a class="button whatsapp-btn" data-lang="de" data-display="inline-flex" href="https://wa.me/4915253692878">
             <span class="wa-icon">✆</span>
-            Jetzt per WhatsApp schreiben
+            Dringender Fall per WhatsApp
           </a>
 
           <a class="button whatsapp-btn" data-lang="en" data-display="inline-flex" href="https://wa.me/4915253692878">
             <span class="wa-icon">✆</span>
-            Write on WhatsApp now
+            Urgent case via WhatsApp
           </a>
 
           <a class="button whatsapp-btn" data-lang="es" data-display="inline-flex" href="https://wa.me/4915253692878">
             <span class="wa-icon">✆</span>
-            Escribir por WhatsApp ahora
+            Caso urgente por WhatsApp
           </a>
 
           <p style="margin-top:18px; margin-bottom:6px;"><strong>E-Mail</strong></p>
