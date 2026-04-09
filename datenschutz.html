@@ -1,135 +1,891 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<title>Datenschutz – CasaFix Costa</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutz | CasaFix Costa</title>
+  <meta
+    name="description"
+    content="Datenschutzerklärung von CasaFix Costa – Informationen zur Verarbeitung personenbezogener Daten in Deutsch, Englisch und Spanisch."
+  />
+  <style>
+    :root {
+      --bg: #f3efe8;
+      --white: #ffffff;
+      --text: #22313a;
+      --muted: #5e6b73;
+      --primary: #0f4c5c;
+      --accent: #d97b4d;
+      --line: rgba(15, 76, 92, 0.1);
+      --shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+      --radius: 22px;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .brand span { color: var(--accent); }
+
+    .nav {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav a:hover { color: var(--primary); }
+
+    .lang-switch {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .lang-switch button {
+      border: none;
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .lang-de {
+      background: linear-gradient(
+        180deg,
+        #000000 0%, #000000 33%,
+        #dd0000 33%, #dd0000 66%,
+        #ffce00 66%, #ffce00 100%
+      );
+      color: #ffffff;
+    }
+
+    .lang-en {
+      background: linear-gradient(135deg, #012169 0%, #ffffff 50%, #c8102e 100%);
+      color: #111111;
+    }
+
+    .lang-es {
+      background: linear-gradient(
+        180deg,
+        #aa151b 0%, #aa151b 30%,
+        #f1bf00 30%, #f1bf00 70%,
+        #aa151b 70%, #aa151b 100%
+      );
+      color: #111111;
+    }
+
+    .lang-switch button.active {
+      transform: scale(1.06);
+      outline: 2px solid rgba(15, 76, 92, 0.22);
+    }
+
+    main {
+      padding: 56px 0 72px;
+    }
+
+    .hero-card,
+    .content-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 34px 28px;
+      margin-bottom: 22px;
+    }
+
+    .content-card {
+      padding: 30px 28px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: rgba(15,76,92,0.08);
+      color: var(--primary);
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      line-height: 1.08;
+      color: var(--primary);
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      margin: 0;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #f7f3ed;
+      border: 1px solid rgba(217, 123, 77, 0.18);
+      color: var(--text);
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      color: var(--primary);
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 10px 18px;
+      margin-top: 12px;
+    }
+
+    .label {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .value {
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    .email-link,
+    .text-link {
+      color: var(--primary);
+      font-weight: 700;
+      word-break: break-word;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.98rem;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .button-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .button-outline {
+      background: transparent;
+      color: var(--primary);
+      border: 1px solid rgba(15,76,92,0.22);
+    }
+
+    footer {
+      padding: 28px 0 48px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-line {
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-top: 10px;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    [data-lang-block] { display: none; }
+    [data-lang-block].active { display: block; }
+    [data-lang] { display: none; }
+
+    @media (max-width: 760px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .info-grid {
+        grid-template-columns: 1fr;
+        gap: 4px 0;
+      }
+
+      .hero-card,
+      .content-card {
+        padding: 24px 20px;
+      }
+
+      main {
+        padding: 40px 0 60px;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="brand">Casa<span>Fix</span> Costa</div>
 
-<h1>Datenschutzerklärung</h1>
+      <nav class="nav">
+        <a href="index.html">Start</a>
+        <a href="impressum.html">Impressum</a>
+      </nav>
 
-<h2>1. Verantwortlicher</h2>
-<p>
-Marco Weiß<br>
-Schambacher Weg 45<br>
-93339 Riedenburg<br>
-Deutschland<br>
-E-Mail: Marco-weiss83@web.de
-</p>
+      <div class="lang-switch">
+        <button class="lang-de active" data-lang-btn="de" onclick="setLang('de')">DE</button>
+        <button class="lang-en" data-lang-btn="en" onclick="setLang('en')">EN</button>
+        <button class="lang-es" data-lang-btn="es" onclick="setLang('es')">ES</button>
+      </div>
+    </div>
+  </header>
 
-<h2>2. Hosting</h2>
-<p>
-Diese Website wird über GitHub Pages betrieben. Anbieter ist GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (Teil von Microsoft).
-</p>
+  <main>
+    <div class="container">
+      <section class="hero-card">
+        <div data-lang-block="de" class="active">
+          <div class="eyebrow">Datenschutzinformationen</div>
+          <h1>Datenschutzerklärung</h1>
+          <p class="lead">
+            Hier finden Sie Informationen darüber, welche personenbezogenen Daten beim Besuch dieser Website sowie bei einer Kontaktaufnahme per E-Mail oder WhatsApp verarbeitet werden.
+          </p>
+          <div class="notice">
+            Diese Website befindet sich in einer Vorbereitungs- und Aufbauphase. Der geplante Tätigkeitsstart vor Ort in Spanien ist für <strong>Dezember 2027</strong> vorgesehen. Bereits jetzt können Anfragen für zukünftige Betreuung und Zusammenarbeit gestellt werden.
+          </div>
+        </div>
 
-<p>
-Beim Aufruf der Website werden durch GitHub automatisch technische Daten erfasst (z.B. IP-Adresse, Datum, Uhrzeit, Browser). Diese Daten sind notwendig, um die Website bereitzustellen.
-</p>
+        <div data-lang-block="en">
+          <div class="eyebrow">Privacy information</div>
+          <h1>Privacy Policy</h1>
+          <p class="lead">
+            Here you can find information about which personal data may be processed when you visit this website or contact CasaFix Costa by email or WhatsApp.
+          </p>
+          <div class="notice">
+            This website is currently in a preparation and development phase. The planned on-site start in Spain is scheduled for <strong>December 2027</strong>. Inquiries regarding future property care and cooperation are already welcome.
+          </div>
+        </div>
 
-<p>
-Es kann nicht ausgeschlossen werden, dass Daten in die USA übertragen werden.
-</p>
+        <div data-lang-block="es">
+          <div class="eyebrow">Información sobre privacidad</div>
+          <h1>Política de privacidad</h1>
+          <p class="lead">
+            Aquí encontrará información sobre qué datos personales pueden tratarse al visitar este sitio web o al contactar con CasaFix Costa por correo electrónico o WhatsApp.
+          </p>
+          <div class="notice">
+            Este sitio web se encuentra actualmente en fase de preparación y desarrollo. El inicio previsto de la actividad presencial en España está planificado para <strong>diciembre de 2027</strong>. Ya se pueden realizar consultas para futuros servicios y colaboraciones.
+          </div>
+        </div>
+      </section>
 
-<h2>3. Kontaktaufnahme</h2>
+      <section class="content-card">
+        <div data-lang-block="de" class="active">
+          <div class="section">
+            <h2>1. Verantwortlicher</h2>
+            <div class="info-grid">
+              <div class="label">Verantwortlicher</div>
+              <div class="value">Marco Weiß</div>
 
-<h3>E-Mail</h3>
-<p>
-Wenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert.
-</p>
+              <div class="label">Anschrift</div>
+              <div class="value">
+                Schambacher Weg 45<br>
+                93339 Riedenburg<br>
+                Bayern<br>
+                Deutschland
+              </div>
 
-<h3>WhatsApp</h3>
-<p>
-Bei Kontaktaufnahme über WhatsApp erfolgt die Datenverarbeitung über WhatsApp Ireland Ltd. bzw. Meta Platforms.
-</p>
+              <div class="label">E-Mail</div>
+              <div class="value">
+                <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
+              </div>
+            </div>
+          </div>
 
-<p>
-Dabei können personenbezogene Daten (z.B. Telefonnummer, Nachrichten) auch außerhalb der EU verarbeitet werden.
-</p>
+          <div class="section">
+            <h2>2. Allgemeine Hinweise zur Datenverarbeitung</h2>
+            <p>
+              Personenbezogene Daten werden auf dieser Website nur insoweit verarbeitet, wie dies zur Bereitstellung der Website, zur Bearbeitung von Anfragen oder zur technischen Sicherheit des Webangebots erforderlich ist.
+            </p>
+            <p>
+              Ich verwende nach aktuellem Stand keine eigenen Analyse- oder Tracking-Tools und setze keine bewusst eingebundenen Marketing-Cookies ein, soweit auf dieser Website nichts anderes ausdrücklich angegeben ist.
+            </p>
+          </div>
 
-<p>
-Die Nutzung von WhatsApp erfolgt freiwillig.
-</p>
+          <div class="section">
+            <h2>3. Hosting über GitHub Pages</h2>
+            <p>
+              Diese Website wird über GitHub Pages gehostet. Beim Aufruf der Website können durch den Hosting-Anbieter technisch erforderliche Verbindungsdaten verarbeitet werden, insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, angeforderte Inhalte, Browser- und Geräteinformationen sowie Protokolldaten.
+            </p>
+            <p>
+              Die Verarbeitung erfolgt zur technischen Bereitstellung, Stabilität und Sicherheit der Website.
+            </p>
+            <p>
+              Weitere Informationen zur Datenverarbeitung durch GitHub finden Sie in den Datenschutzhinweisen von GitHub:
+              <a class="text-link" href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>
+            </p>
+          </div>
 
-<h2>4. Rechtsgrundlage</h2>
-<p>
-Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. b DSGVO (Anfrage / vorvertragliche Maßnahmen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
-</p>
+          <div class="section">
+            <h2>4. Server-Logfiles / technische Zugriffsdaten</h2>
+            <p>
+              Beim Besuch dieser Website können technisch notwendige Zugriffsdaten in Server-Logfiles verarbeitet werden. Dazu können insbesondere gehören:
+            </p>
+            <ul>
+              <li>IP-Adresse</li>
+              <li>Datum und Uhrzeit des Zugriffs</li>
+              <li>aufgerufene Datei bzw. Seite</li>
+              <li>Browsertyp und Browserversion</li>
+              <li>Betriebssystem</li>
+              <li>Referrer-URL, soweit vom Browser übermittelt</li>
+            </ul>
+            <p>
+              Die Verarbeitung dieser Daten erfolgt auf Grundlage des berechtigten Interesses an einem sicheren, stabilen und technisch funktionsfähigen Webauftritt.
+            </p>
+          </div>
 
-<h2>5. Ihre Rechte</h2>
-<p>
-Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie ein Recht auf Datenübertragbarkeit.
-</p>
+          <div class="section">
+            <h2>5. Kontaktaufnahme per E-Mail</h2>
+            <p>
+              Wenn Sie per E-Mail Kontakt aufnehmen, werden die von Ihnen übermittelten Daten verarbeitet, um Ihre Anfrage zu bearbeiten. Dazu gehören regelmäßig Ihr Name, Ihre E-Mail-Adresse, der Inhalt Ihrer Nachricht sowie gegebenenfalls weitere von Ihnen freiwillig mitgeteilte Informationen.
+            </p>
+            <p>
+              Die Verarbeitung erfolgt zur Bearbeitung Ihrer Anfrage sowie zur vorvertraglichen Kommunikation.
+            </p>
+          </div>
 
-<p>
-Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
-</p>
+          <div class="section">
+            <h2>6. Kontaktaufnahme per WhatsApp</h2>
+            <p>
+              Wenn Sie den angebotenen WhatsApp-Link nutzen oder mich über WhatsApp kontaktieren, erfolgt die weitere Kommunikation über den Dienst WhatsApp. Dabei können insbesondere Ihre Telefonnummer, Ihr Profilname, Nachrichteninhalte sowie weitere von Ihnen übermittelte Informationen verarbeitet werden.
+            </p>
+            <p>
+              Bitte beachten Sie, dass bei der Nutzung von WhatsApp Daten auch durch WhatsApp als eigener Anbieter verarbeitet werden. Auf diese Datenverarbeitung habe ich keinen vollständigen Einfluss.
+            </p>
+            <p>
+              Weitere Informationen finden Sie in der Datenschutzerklärung von WhatsApp:
+              <a class="text-link" href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer">WhatsApp Privacy Policy (EEA)</a>
+            </p>
+          </div>
 
-</body>
-</html><!DOCTYPE html>
-<html lang="de">
-<head>
-<meta charset="UTF-8">
-<title>Datenschutz – CasaFix Costa</title>
-</head>
-<body>
+          <div class="section">
+            <h2>7. Rechtsgrundlagen der Verarbeitung</h2>
+            <p>
+              Soweit personenbezogene Daten verarbeitet werden, erfolgt dies – je nach konkretem Fall – insbesondere auf folgenden Rechtsgrundlagen:
+            </p>
+            <ul>
+              <li>zur technischen Bereitstellung und Sicherheit der Website auf Grundlage berechtigter Interessen,</li>
+              <li>zur Bearbeitung von Anfragen und zur vorvertraglichen Kommunikation,</li>
+              <li>gegebenenfalls auf Grundlage einer von Ihnen erteilten Einwilligung.</li>
+            </ul>
+          </div>
 
-<h1>Datenschutzerklärung</h1>
+          <div class="section">
+            <h2>8. Speicherdauer</h2>
+            <p>
+              Personenbezogene Daten werden nur so lange gespeichert, wie dies für die jeweiligen Zwecke erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.
+            </p>
+            <p>
+              Anfragen per E-Mail oder WhatsApp werden grundsätzlich nur so lange aufbewahrt, wie dies zur Bearbeitung, Anschlusskommunikation oder rechtlichen Absicherung erforderlich ist.
+            </p>
+          </div>
 
-<h2>1. Verantwortlicher</h2>
-<p>
-Marco Weiß<br>
-Schambacher Weg 45<br>
-93339 Riedenburg<br>
-Deutschland<br>
-E-Mail: Marco-weiss83@web.de
-</p>
+          <div class="section">
+            <h2>9. Empfänger und Drittlandbezug</h2>
+            <p>
+              Empfänger personenbezogener Daten können insbesondere technische Dienstleister sein, soweit dies für Hosting, Kommunikation oder den sicheren Betrieb der Website erforderlich ist.
+            </p>
+            <p>
+              Da GitHub und WhatsApp internationale Dienste betreiben, kann nicht ausgeschlossen werden, dass Daten auch in Staaten außerhalb der Europäischen Union bzw. des Europäischen Wirtschaftsraums verarbeitet werden. In solchen Fällen erfolgt die Datenverarbeitung nach den jeweiligen Angaben des Anbieters.
+            </p>
+          </div>
 
-<h2>2. Hosting</h2>
-<p>
-Diese Website wird über GitHub Pages betrieben. Anbieter ist GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (Teil von Microsoft).
-</p>
+          <div class="section">
+            <h2>10. Ihre Rechte</h2>
+            <p>
+              Sie haben nach Maßgabe der gesetzlichen Vorschriften insbesondere das Recht:
+            </p>
+            <ul>
+              <li>Auskunft über die zu Ihrer Person gespeicherten Daten zu verlangen,</li>
+              <li>unrichtige Daten berichtigen zu lassen,</li>
+              <li>die Löschung oder Einschränkung der Verarbeitung zu verlangen,</li>
+              <li>der Verarbeitung zu widersprechen,</li>
+              <li>Datenübertragbarkeit zu verlangen, soweit anwendbar,</li>
+              <li>eine erteilte Einwilligung mit Wirkung für die Zukunft zu widerrufen,</li>
+              <li>sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.</li>
+            </ul>
+          </div>
 
-<p>
-Beim Aufruf der Website werden durch GitHub automatisch technische Daten erfasst (z.B. IP-Adresse, Datum, Uhrzeit, Browser). Diese Daten sind notwendig, um die Website bereitzustellen.
-</p>
+          <div class="section">
+            <h2>11. Externe Links</h2>
+            <p>
+              Diese Website kann Links zu externen Websites oder Diensten enthalten, insbesondere zu WhatsApp. Für die Inhalte und die Datenverarbeitung auf externen Seiten sind ausschließlich deren jeweilige Betreiber verantwortlich.
+            </p>
+          </div>
 
-<p>
-Es kann nicht ausgeschlossen werden, dass Daten in die USA übertragen werden.
-</p>
+          <div class="section">
+            <h2>12. Stand dieser Datenschutzerklärung</h2>
+            <p>
+              Diese Datenschutzerklärung gilt für den aktuellen Stand dieser Website auf GitHub Pages. Sie kann angepasst werden, wenn sich Funktionen, eingesetzte Dienste oder die rechtlichen Rahmenbedingungen ändern.
+            </p>
+          </div>
 
-<h2>3. Kontaktaufnahme</h2>
+          <div class="button-row">
+            <a class="button button-primary" href="index.html">Zurück zur Startseite</a>
+            <a class="button button-outline" href="impressum.html">Zum Impressum</a>
+          </div>
+        </div>
 
-<h3>E-Mail</h3>
-<p>
-Wenn Sie per E-Mail Kontakt aufnehmen, werden Ihre Angaben zur Bearbeitung der Anfrage gespeichert.
-</p>
+        <div data-lang-block="en">
+          <div class="section">
+            <h2>1. Controller</h2>
+            <div class="info-grid">
+              <div class="label">Controller</div>
+              <div class="value">Marco Weiß</div>
 
-<h3>WhatsApp</h3>
-<p>
-Bei Kontaktaufnahme über WhatsApp erfolgt die Datenverarbeitung über WhatsApp Ireland Ltd. bzw. Meta Platforms.
-</p>
+              <div class="label">Address</div>
+              <div class="value">
+                Schambacher Weg 45<br>
+                93339 Riedenburg<br>
+                Bavaria<br>
+                Germany
+              </div>
 
-<p>
-Dabei können personenbezogene Daten (z.B. Telefonnummer, Nachrichten) auch außerhalb der EU verarbeitet werden.
-</p>
+              <div class="label">Email</div>
+              <div class="value">
+                <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
+              </div>
+            </div>
+          </div>
 
-<p>
-Die Nutzung von WhatsApp erfolgt freiwillig.
-</p>
+          <div class="section">
+            <h2>2. General information on data processing</h2>
+            <p>
+              Personal data is processed on this website only to the extent necessary to provide the website, respond to inquiries or ensure the technical security of the online presence.
+            </p>
+            <p>
+              Based on the current setup, I do not use my own analytics or tracking tools and do not intentionally use marketing cookies, unless explicitly stated otherwise on this website.
+            </p>
+          </div>
 
-<h2>4. Rechtsgrundlage</h2>
-<p>
-Die Verarbeitung erfolgt gemäß Art. 6 Abs. 1 lit. b DSGVO (Anfrage / vorvertragliche Maßnahmen) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
-</p>
+          <div class="section">
+            <h2>3. Hosting via GitHub Pages</h2>
+            <p>
+              This website is hosted via GitHub Pages. When accessing the website, the hosting provider may process technically necessary connection data, in particular IP address, date and time of access, requested content, browser and device information and log data.
+            </p>
+            <p>
+              This processing is carried out for the technical provision, stability and security of the website.
+            </p>
+            <p>
+              Further information about GitHub’s data processing can be found here:
+              <a class="text-link" href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>
+            </p>
+          </div>
 
-<h2>5. Ihre Rechte</h2>
-<p>
-Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Einschränkung der Verarbeitung Ihrer Daten sowie ein Recht auf Datenübertragbarkeit.
-</p>
+          <div class="section">
+            <h2>4. Server log files / technical access data</h2>
+            <p>
+              When visiting this website, technically necessary access data may be processed in server log files. This may include in particular:
+            </p>
+            <ul>
+              <li>IP address</li>
+              <li>date and time of access</li>
+              <li>requested file or page</li>
+              <li>browser type and browser version</li>
+              <li>operating system</li>
+              <li>referrer URL, if transmitted by the browser</li>
+            </ul>
+            <p>
+              This data is processed on the basis of legitimate interests in a secure, stable and technically functional website.
+            </p>
+          </div>
 
-<p>
-Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren.
-</p>
+          <div class="section">
+            <h2>5. Contact by email</h2>
+            <p>
+              If you contact CasaFix Costa by email, the data you provide will be processed in order to handle your request. This usually includes your name, your email address, the content of your message and any other information you voluntarily provide.
+            </p>
+            <p>
+              The processing is carried out for handling your inquiry and for pre-contractual communication.
+            </p>
+          </div>
 
+          <div class="section">
+            <h2>6. Contact by WhatsApp</h2>
+            <p>
+              If you use the WhatsApp link offered on this website or contact me via WhatsApp, further communication will take place through WhatsApp. In particular, your phone number, profile name, message content and other information you provide may be processed.
+            </p>
+            <p>
+              Please note that when using WhatsApp, data may also be processed by WhatsApp as an independent provider. I do not have full control over that processing.
+            </p>
+            <p>
+              Further information can be found in WhatsApp’s privacy policy:
+              <a class="text-link" href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer">WhatsApp Privacy Policy (EEA)</a>
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>7. Legal bases for processing</h2>
+            <p>
+              Where personal data is processed, this is done – depending on the specific case – in particular on the following legal bases:
+            </p>
+            <ul>
+              <li>for the technical provision and security of the website on the basis of legitimate interests,</li>
+              <li>for handling inquiries and pre-contractual communication,</li>
+              <li>where applicable, on the basis of your consent.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>8. Storage period</h2>
+            <p>
+              Personal data is stored only for as long as necessary for the respective purposes or as long as statutory retention obligations apply.
+            </p>
+            <p>
+              Inquiries sent by email or WhatsApp are generally kept only as long as necessary for processing, follow-up communication or legal safeguarding.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>9. Recipients and third-country transfers</h2>
+            <p>
+              Recipients of personal data may in particular include technical service providers where this is necessary for hosting, communication or the secure operation of the website.
+            </p>
+            <p>
+              As GitHub and WhatsApp operate international services, it cannot be ruled out that data may also be processed in countries outside the European Union or the European Economic Area. In such cases, processing is carried out in accordance with the respective provider’s information.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>10. Your rights</h2>
+            <p>
+              Subject to the applicable legal requirements, you have in particular the right:
+            </p>
+            <ul>
+              <li>to request information about your stored personal data,</li>
+              <li>to request correction of inaccurate data,</li>
+              <li>to request deletion or restriction of processing,</li>
+              <li>to object to processing,</li>
+              <li>to request data portability, where applicable,</li>
+              <li>to withdraw consent with effect for the future,</li>
+              <li>to lodge a complaint with a data protection supervisory authority.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>11. External links</h2>
+            <p>
+              This website may contain links to external websites or services, in particular WhatsApp. The respective operators are solely responsible for the content and data processing on those external sites.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>12. Version of this privacy policy</h2>
+            <p>
+              This privacy policy applies to the current version of this website on GitHub Pages. It may be updated if functions, services used or legal requirements change.
+            </p>
+          </div>
+
+          <div class="button-row">
+            <a class="button button-primary" href="index.html">Back to home page</a>
+            <a class="button button-outline" href="impressum.html">Go to legal notice</a>
+          </div>
+        </div>
+
+        <div data-lang-block="es">
+          <div class="section">
+            <h2>1. Responsable del tratamiento</h2>
+            <div class="info-grid">
+              <div class="label">Responsable</div>
+              <div class="value">Marco Weiß</div>
+
+              <div class="label">Dirección</div>
+              <div class="value">
+                Schambacher Weg 45<br>
+                93339 Riedenburg<br>
+                Baviera<br>
+                Alemania
+              </div>
+
+              <div class="label">Correo electrónico</div>
+              <div class="value">
+                <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <h2>2. Información general sobre el tratamiento de datos</h2>
+            <p>
+              Los datos personales solo se tratan en este sitio web en la medida necesaria para ofrecer la web, responder a consultas o garantizar la seguridad técnica de la presencia en línea.
+            </p>
+            <p>
+              Según la configuración actual, no utilizo herramientas propias de análisis o seguimiento ni cookies de marketing incorporadas intencionadamente, salvo que se indique expresamente lo contrario en este sitio web.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>3. Alojamiento a través de GitHub Pages</h2>
+            <p>
+              Este sitio web está alojado mediante GitHub Pages. Al acceder al sitio, el proveedor de alojamiento puede tratar datos de conexión técnicamente necesarios, en particular la dirección IP, fecha y hora de acceso, contenidos solicitados, información del navegador y del dispositivo, así como datos de registro.
+            </p>
+            <p>
+              Este tratamiento se realiza para la provisión técnica, la estabilidad y la seguridad del sitio web.
+            </p>
+            <p>
+              Puede consultar más información sobre el tratamiento de datos por parte de GitHub aquí:
+              <a class="text-link" href="https://docs.github.com/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>4. Archivos de registro del servidor / datos técnicos de acceso</h2>
+            <p>
+              Al visitar este sitio web pueden tratarse datos de acceso técnicamente necesarios en archivos de registro del servidor. Esto puede incluir, en particular:
+            </p>
+            <ul>
+              <li>dirección IP</li>
+              <li>fecha y hora del acceso</li>
+              <li>archivo o página solicitada</li>
+              <li>tipo y versión del navegador</li>
+              <li>sistema operativo</li>
+              <li>URL de referencia, en la medida en que el navegador la transmita</li>
+            </ul>
+            <p>
+              Estos datos se tratan sobre la base del interés legítimo en disponer de un sitio web seguro, estable y técnicamente funcional.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>5. Contacto por correo electrónico</h2>
+            <p>
+              Si contacta con CasaFix Costa por correo electrónico, los datos que facilite se tratarán para gestionar su consulta. Normalmente esto incluye su nombre, su dirección de correo electrónico, el contenido del mensaje y cualquier otra información que facilite voluntariamente.
+            </p>
+            <p>
+              El tratamiento se realiza para gestionar su consulta y para la comunicación precontractual.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>6. Contacto por WhatsApp</h2>
+            <p>
+              Si utiliza el enlace de WhatsApp ofrecido en este sitio web o me contacta por WhatsApp, la comunicación posterior tendrá lugar a través de WhatsApp. En particular, pueden tratarse su número de teléfono, nombre de perfil, contenido de los mensajes y otra información que facilite.
+            </p>
+            <p>
+              Tenga en cuenta que al utilizar WhatsApp, los datos también pueden ser tratados por WhatsApp como proveedor independiente. No tengo control total sobre ese tratamiento.
+            </p>
+            <p>
+              Encontrará más información en la política de privacidad de WhatsApp:
+              <a class="text-link" href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener noreferrer">WhatsApp Privacy Policy (EEA)</a>
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>7. Bases jurídicas del tratamiento</h2>
+            <p>
+              Cuando se tratan datos personales, ello se realiza —según el caso concreto— en particular sobre las siguientes bases jurídicas:
+            </p>
+            <ul>
+              <li>para la provisión técnica y la seguridad del sitio web, sobre la base de intereses legítimos,</li>
+              <li>para gestionar consultas y la comunicación precontractual,</li>
+              <li>en su caso, sobre la base del consentimiento otorgado por usted.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>8. Plazo de conservación</h2>
+            <p>
+              Los datos personales solo se conservan durante el tiempo necesario para los fines correspondientes o mientras existan obligaciones legales de conservación.
+            </p>
+            <p>
+              Las consultas enviadas por correo electrónico o WhatsApp se conservan, por regla general, solo el tiempo necesario para su gestión, la comunicación posterior o la protección jurídica.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>9. Destinatarios y transferencias internacionales</h2>
+            <p>
+              Los destinatarios de los datos personales pueden incluir, en particular, proveedores técnicos de servicios, en la medida en que ello sea necesario para el alojamiento, la comunicación o el funcionamiento seguro del sitio web.
+            </p>
+            <p>
+              Dado que GitHub y WhatsApp operan servicios internacionales, no puede excluirse que los datos también sean tratados en países fuera de la Unión Europea o del Espacio Económico Europeo. En tales casos, el tratamiento se realizará conforme a la información facilitada por el proveedor correspondiente.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>10. Sus derechos</h2>
+            <p>
+              De conformidad con la normativa aplicable, usted tiene en particular derecho a:
+            </p>
+            <ul>
+              <li>solicitar información sobre los datos personales almacenados sobre su persona,</li>
+              <li>solicitar la rectificación de datos inexactos,</li>
+              <li>solicitar la supresión o limitación del tratamiento,</li>
+              <li>oponerse al tratamiento,</li>
+              <li>solicitar la portabilidad de los datos, cuando proceda,</li>
+              <li>retirar un consentimiento otorgado con efectos para el futuro,</li>
+              <li>presentar una reclamación ante una autoridad de control de protección de datos.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2>11. Enlaces externos</h2>
+            <p>
+              Este sitio web puede contener enlaces a sitios web o servicios externos, en particular a WhatsApp. Los respectivos operadores son los únicos responsables del contenido y del tratamiento de datos en esas páginas externas.
+            </p>
+          </div>
+
+          <div class="section">
+            <h2>12. Versión de esta política de privacidad</h2>
+            <p>
+              Esta política de privacidad se aplica a la versión actual de este sitio web en GitHub Pages. Puede actualizarse si cambian las funciones, los servicios utilizados o los requisitos legales.
+            </p>
+          </div>
+
+          <div class="button-row">
+            <a class="button button-primary" href="index.html">Volver a la página principal</a>
+            <a class="button button-outline" href="impressum.html">Ir al aviso legal</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-line">
+      <div>© CasaFix Costa</div>
+      <div class="footer-links">
+        <a href="index.html">Start</a> |
+        <a href="impressum.html">Impressum</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+      });
+
+      document.querySelectorAll('[data-lang-block]').forEach(block => {
+        block.classList.toggle('active', block.getAttribute('data-lang-block') === lang);
+      });
+
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        const displayType = el.getAttribute('data-display') || 'block';
+        if (el.getAttribute('data-lang') === lang) {
+          el.style.display = displayType;
+        } else {
+          el.style.display = 'none';
+        }
+      });
+    }
+
+    window.onload = function () {
+      setLang('de');
+    };
+  </script>
 </body>
 </html>
