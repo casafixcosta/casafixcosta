@@ -3,53 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CasaFix Costa | Property Care & Hausbetreuung Costa Blanca</title>
-  <meta
-    name="description"
-    content="CasaFix Costa – Ihre Vertrauensperson vor Ort für Immobilienbetreuung, Objektkontrolle, Unwetter-Checks, Bauüberwachung und kleinere praktische Arbeiten an der Costa Blanca. Aufbauphase, geplanter Start vor Ort ab Dezember 2027."
-  />
+  <title>Immobilienbetreuung Alicante | Haus, Garten, Pool & Gäste-Service</title>
+  <meta name="description" content="Professionelle Immobilienbetreuung in Alicante: Objektkontrollen, Gartenpflege, Poolservice, Reinigung und Vorbereitung vor Ankunft." />
   <style>
     :root {
-      --bg: #f3efe8;
-      --white: #ffffff;
-      --text: #22313a;
-      --muted: #5e6b73;
-      --primary: #0f4c5c;
-      --primary-dark: #0b3945;
-      --accent: #d97b4d;
-      --accent-soft: rgba(217, 123, 77, 0.12);
-      --email-yellow: #f4c400;
-      --line: rgba(15, 76, 92, 0.1);
-      --line-strong: rgba(15, 76, 92, 0.18);
-      --overlay: rgba(11, 25, 31, 0.56);
-      --shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
-      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
-      --radius: 22px;
-      --max: 1160px;
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --surface-2: #eef4f8;
+      --text: #173042;
+      --muted: #5f7485;
+      --primary: #0d6e8a;
+      --primary-dark: #0a566b;
+      --accent: #d9a441;
+      --border: #d8e2ea;
+      --ok: #2d7a46;
+      --shadow: 0 12px 30px rgba(18, 41, 58, 0.12);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
+      background: var(--bg);
+      line-height: 1.55;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
+    .wrap {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
     }
@@ -57,1337 +44,1115 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.96);
+      z-index: 50;
+      background: rgba(255,255,255,0.92);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid rgba(216,226,234,0.9);
     }
 
-    .topbar-inner {
+    .nav {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      flex-wrap: wrap;
+      gap: 24px;
     }
 
     .brand {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
       letter-spacing: 0.02em;
-      white-space: nowrap;
     }
 
-    .brand span { color: var(--accent); }
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow: var(--shadow);
+      font-weight: 700;
+    }
 
-    .nav {
+    .nav-links {
       display: flex;
-      gap: 16px;
+      gap: 18px;
       flex-wrap: wrap;
       color: var(--muted);
       font-size: 0.95rem;
     }
 
-    .nav a {
-      transition: color 0.2s ease;
-    }
+    .nav-links a:hover { color: var(--primary); }
 
-    .nav a:hover { color: var(--primary); }
-
-    .lang-switch {
-      display: flex;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .lang-switch button {
       border: none;
       border-radius: 999px;
-      padding: 9px 14px;
-      font-weight: 700;
       cursor: pointer;
-      transition: 0.2s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 14px 22px;
+      font-size: 0.98rem;
+      font-weight: 700;
+      transition: 0.25s ease;
     }
 
-    .lang-de {
-      background: linear-gradient(
-        180deg,
-        #000000 0%, #000000 33%,
-        #dd0000 33%, #dd0000 66%,
-        #ffce00 66%, #ffce00 100%
-      );
-      color: #ffffff;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(13, 110, 138, 0.22);
     }
 
-    .lang-en {
-      background: linear-gradient(135deg, #012169 0%, #ffffff 50%, #c8102e 100%);
-      color: #111111;
-    }
+    .btn-primary:hover { transform: translateY(-1px); }
 
-    .lang-es {
-      background: linear-gradient(
-        180deg,
-        #aa151b 0%, #aa151b 30%,
-        #f1bf00 30%, #f1bf00 70%,
-        #aa151b 70%, #aa151b 100%
-      );
-      color: #111111;
-    }
-
-    .lang-switch button.active {
-      transform: scale(1.06);
-      outline: 2px solid rgba(15, 76, 92, 0.22);
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+      border: 1px solid var(--border);
     }
 
     .hero {
+      padding: 72px 0 38px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-copy,
+    .hero-card,
+    .card,
+    .service-card,
+    .price-card,
+    .review,
+    .contact-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(216,226,234,0.7);
+    }
+
+    .hero-copy {
+      padding: 42px;
       position: relative;
-      min-height: 90vh;
-      display: flex;
-      align-items: center;
-      color: var(--white);
       overflow: hidden;
     }
 
-    .hero::before {
+    .hero-copy::after {
       content: "";
       position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(var(--overlay), var(--overlay)),
-        url('./hero.jpg');
-      background-size: cover;
-      background-position: center;
-      animation: heroZoom 18s ease-in-out infinite alternate;
-      transform-origin: center;
-    }
-
-    @keyframes heroZoom {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.06); }
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      width: min(960px, 100%);
-      padding: 90px 0 80px;
+      inset: auto -60px -60px auto;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,164,65,0.25), rgba(217,164,65,0));
     }
 
     .eyebrow {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: #fff;
-      padding: 9px 14px;
+      display: inline-flex;
+      padding: 8px 14px;
       border-radius: 999px;
-      font-size: 0.92rem;
-      margin-bottom: 18px;
+      background: var(--surface-2);
+      color: var(--primary-dark);
+      font-size: 0.88rem;
       font-weight: 700;
+      margin-bottom: 16px;
     }
 
-    h1 {
-      font-size: clamp(2.4rem, 5vw, 5rem);
-      line-height: 1.02;
-      margin: 0 0 16px;
-      letter-spacing: -0.03em;
-    }
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 14px; }
+    h1 { font-size: clamp(2rem, 4vw, 3.5rem); }
+    h2 { font-size: clamp(1.6rem, 2.8vw, 2.4rem); }
+    h3 { font-size: 1.18rem; }
 
     .lead {
-      font-size: 1.14rem;
-      max-width: 68ch;
-      color: rgba(255,255,255,0.95);
-      margin: 0 0 18px;
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 60ch;
+      margin-bottom: 22px;
     }
 
-    .launch-note {
-      display: inline-block;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.22);
-      padding: 14px 16px;
-      border-radius: 16px;
-      margin: 8px 0 24px;
-      font-size: 1rem;
-      color: rgba(255,255,255,0.98);
-      max-width: 820px;
-    }
-
-    .cta-row {
+    .hero-actions {
       display: flex;
+      gap: 14px;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 24px;
     }
 
-    .button,
-    .button-outline {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 15px 22px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1rem;
-      transition: 0.2s ease;
-      cursor: pointer;
-      border: none;
+    .hero-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .hero-list div {
+      padding: 12px 14px;
+      background: var(--surface-2);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .hero-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-image {
+      min-height: 310px;
+      background:
+        linear-gradient(180deg, rgba(7,39,49,0.15), rgba(7,39,49,0.05)),
+        url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+    }
+
+    .hero-card-content {
+      padding: 26px;
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .stat {
+      background: var(--surface-2);
+      border-radius: var(--radius-sm);
+      padding: 16px 14px;
       text-align: center;
     }
 
-    .button {
-      background: var(--accent);
-      color: var(--white);
-      box-shadow: var(--shadow);
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+      color: var(--primary-dark);
     }
 
-    .button-outline {
-      background: transparent;
-      color: var(--white);
-      border: 1px solid rgba(255,255,255,0.68);
+    section {
+      padding: 34px 0;
     }
-
-    .button:hover,
-    .button-outline:hover {
-      transform: translateY(-1px);
-    }
-
-    .email-btn {
-      background: var(--email-yellow);
-      color: #111111;
-      border: 2px solid #111111;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.14);
-      gap: 10px;
-    }
-
-    .email-btn:hover {
-      background: #ddb100;
-    }
-
-    .whatsapp-btn {
-      background: #25D366;
-      color: #111111;
-      border: 2px solid #111111;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.14);
-      gap: 10px;
-    }
-
-    .whatsapp-btn:hover {
-      background: #1fb857;
-    }
-
-    .mail-icon,
-    .wa-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: #111111;
-      font-size: 0.82rem;
-      font-weight: 800;
-      flex-shrink: 0;
-    }
-
-    .mail-icon { color: var(--email-yellow); }
-    .wa-icon { color: #25D366; }
-
-    .cta-help {
-      color: rgba(255,255,255,0.9);
-      font-size: 0.95rem;
-      margin: 10px 0 8px;
-      max-width: 70ch;
-    }
-
-    .hero-points {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      color: rgba(255,255,255,0.93);
-      font-size: 0.95rem;
-      margin-top: 16px;
-    }
-
-    section { padding: 76px 0; }
 
     .section-head {
-      max-width: 880px;
-      margin-bottom: 26px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.9rem, 3vw, 2.9rem);
-      margin: 0 0 10px;
-      color: var(--primary);
-      letter-spacing: -0.02em;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 24px;
     }
 
     .section-head p {
       margin: 0;
+      max-width: 65ch;
       color: var(--muted);
-      font-size: 1.05rem;
     }
 
-    .grid-3,
-    .grid-4,
-    .steps,
-    .contact-wrap,
-    .photo-grid,
-    .package-grid {
+    .cards-3,
+    .cards-4,
+    .prices,
+    .reviews,
+    .footer-grid,
+    .contact-grid,
+    .why-grid {
       display: grid;
-      gap: 18px;
+      gap: 20px;
     }
 
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .steps { grid-template-columns: repeat(4, 1fr); }
-    .contact-wrap { grid-template-columns: 1.1fr 0.9fr; }
-    .photo-grid { grid-template-columns: repeat(3, 1fr); }
-    .package-grid { grid-template-columns: repeat(3, 1fr); }
+    .cards-3,
+    .prices,
+    .reviews,
+    .contact-grid,
+    .why-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
-    .card {
-      background: var(--white);
-      border-radius: var(--radius);
+    .cards-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card, .service-card, .price-card, .review, .contact-card {
       padding: 24px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .card h3 {
-      margin-top: 0;
-      margin-bottom: 10px;
-      color: var(--primary);
-      font-size: 1.16rem;
-    }
-
-    .card p,
-    .card li,
-    .contact-list div,
-    .muted {
-      color: var(--muted);
     }
 
     .icon {
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
       border-radius: 14px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(15,76,92,0.08);
-      color: var(--primary);
-      font-size: 1.2rem;
-      font-weight: 800;
-      margin-bottom: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(13,110,138,0.14), rgba(10,86,107,0.08));
+      color: var(--primary-dark);
+      font-size: 1.35rem;
+      margin-bottom: 16px;
     }
 
     ul.clean {
-      list-style: none;
-      padding: 0;
       margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      background: #dce6ed;
+    }
+
+    .price-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .price-card.featured {
+      border: 1px solid rgba(13,110,138,0.25);
+      transform: translateY(-4px);
+    }
+
+    .badge {
+      display: inline-flex;
+      margin-bottom: 14px;
+      background: rgba(13,110,138,0.12);
+      color: var(--primary-dark);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .price {
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin: 12px 0 6px;
+      color: var(--primary-dark);
+    }
+
+    .price small {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .muted { color: var(--muted); }
+
+    .toggle-details {
+      margin-top: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface-2);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 12px;
+      width: 100%;
+      text-align: left;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .details {
+      display: none;
+      margin-top: 12px;
+      background: #fbfdff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      color: var(--muted);
+    }
+
+    .details.open { display: block; }
+
+    .calc-box {
+      background: linear-gradient(180deg, #ffffff, #f8fbfd);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 14px 14px;
+      font: inherit;
+      color: var(--text);
+      background: #fff;
+    }
+
+    .field textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .addons {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .check {
+      display: flex;
+      gap: 10px;
+      align-items: start;
+      padding: 14px;
+      background: var(--surface-2);
+      border-radius: 14px;
+      border: 1px solid transparent;
+    }
+
+    .check input { margin-top: 4px; }
+
+    .calc-result {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .result-panel,
+    .result-note {
+      border-radius: 16px;
+      padding: 20px;
+      border: 1px solid var(--border);
+    }
+
+    .result-panel { background: #fff; }
+    .result-note { background: var(--surface-2); }
+
+    .result-total {
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-top: 6px;
+    }
+
+    .line-items {
+      margin-top: 14px;
       display: grid;
       gap: 10px;
     }
 
-    ul.clean li::before {
-      content: '✓ ';
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .band {
-      background: #ece7df;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .package-card {
-      position: relative;
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 26px;
-      border: 1px solid var(--line-strong);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .package-card.featured {
-      border: 1px solid rgba(217, 123, 77, 0.35);
-      box-shadow: 0 14px 34px rgba(217, 123, 77, 0.14);
-    }
-
-    .package-badge {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.02em;
-    }
-
-    .package-title {
-      margin: 0 0 8px;
-      font-size: 1.4rem;
-      color: var(--primary);
-    }
-
-    .package-price {
-      margin: 0 0 12px;
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: var(--text);
-    }
-
-    .package-note {
-      margin-top: 12px;
-      font-size: 0.92rem;
-      color: var(--muted);
-    }
-
-    .subtle-note {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: #f7f3ed;
-      border: 1px solid rgba(15, 76, 92, 0.08);
-      color: var(--muted);
-    }
-
-    .extra-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid var(--line-strong);
-      box-shadow: var(--shadow-soft);
+    .line-item {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
       gap: 12px;
-    }
-
-    .extra-price {
-      display: inline-block;
-      align-self: flex-start;
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(15, 76, 92, 0.08);
-      color: var(--primary);
-      font-weight: 800;
-      font-size: 0.95rem;
-    }
-
-    .gallery-item {
-      background: var(--white);
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .gallery-item img {
-      width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-    }
-
-    .gallery-caption {
-      padding: 14px 16px 16px;
       color: var(--muted);
-      font-size: 0.96rem;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed var(--border);
     }
 
-    .contact-list {
+    .market-box {
+      border-left: 4px solid var(--accent);
+      padding: 18px 20px;
+      background: #fff9ef;
+      border-radius: 14px;
+      color: #5a4b28;
+    }
+
+    .review strong { display: block; margin-bottom: 8px; }
+
+    .contact-grid { align-items: start; }
+
+    .contact-card form {
       display: grid;
-      gap: 12px;
-      margin-bottom: 18px;
+      gap: 14px;
     }
 
-    .email-link {
-      color: var(--primary);
-      font-weight: 700;
-      word-break: break-word;
-    }
-
-    footer {
-      padding: 28px 0 48px;
+    .footer {
+      margin-top: 24px;
+      padding: 28px 0 60px;
       color: var(--muted);
-      font-size: 0.95rem;
     }
 
-    .footer-line {
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-      text-align: center;
+    .footer-grid {
+      grid-template-columns: 1.1fr 0.9fr 0.9fr;
+      align-items: start;
     }
 
-    .footer-links {
+    .footer small { color: var(--muted); }
+
+    .pill-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
       margin-top: 10px;
     }
 
-    .footer-links a {
-      color: var(--primary);
+    .pill {
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: var(--surface-2);
+      font-size: 0.88rem;
       font-weight: 700;
+      color: var(--primary-dark);
     }
 
-    [data-lang-block] { display: none; }
-    [data-lang-block].active { display: block; }
-    [data-lang] { display: none; }
-
-    @media (max-width: 1040px) {
-      .grid-4,
-      .steps { grid-template-columns: repeat(2, 1fr); }
-      .grid-3,
-      .package-grid,
-      .photo-grid { grid-template-columns: 1fr 1fr; }
-      .contact-wrap { grid-template-columns: 1fr; }
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .cards-4,
+      .cards-3,
+      .prices,
+      .reviews,
+      .contact-grid,
+      .why-grid,
+      .footer-grid,
+      .calc-grid,
+      .calc-result {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
-    @media (max-width: 700px) {
-      .topbar-inner {
+    @media (max-width: 760px) {
+      .nav {
         flex-direction: column;
         align-items: flex-start;
+        padding: 16px 0;
       }
 
-      .hero {
-        min-height: auto;
-      }
-
-      .hero-content {
-        padding: 60px 0;
-      }
-
-      .grid-3,
-      .grid-4,
-      .steps,
-      .package-grid,
-      .photo-grid {
+      .hero-grid,
+      .cards-4,
+      .cards-3,
+      .prices,
+      .reviews,
+      .contact-grid,
+      .why-grid,
+      .footer-grid,
+      .calc-grid,
+      .calc-result,
+      .hero-list,
+      .addons,
+      .hero-stat-grid {
         grid-template-columns: 1fr;
       }
 
-      .cta-row {
+      .hero-copy,
+      .card,
+      .service-card,
+      .price-card,
+      .review,
+      .contact-card,
+      .calc-box {
+        padding: 20px;
+      }
+
+      .hero {
+        padding-top: 40px;
+      }
+
+      .section-head {
         flex-direction: column;
-      }
-
-      .button,
-      .button-outline {
-        width: 100%;
-      }
-
-      section {
-        padding: 58px 0;
-      }
-
-      .nav {
-        gap: 10px;
+        align-items: start;
       }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="container topbar-inner">
-      <div class="brand">Casa<span>Fix</span> Costa</div>
+    <div class="wrap nav">
+      <a href="#top" class="brand">
+        <span class="brand-mark">IB</span>
+        <span>Immobilienbetreuung Alicante</span>
+      </a>
 
-      <nav class="nav">
+      <nav class="nav-links">
         <a href="#leistungen">Leistungen</a>
-        <a href="#modell">Pakete</a>
-        <a href="#extras">Zusatzleistungen</a>
-        <a href="#vertrauen">Vertrauen</a>
+        <a href="#preise">Preise</a>
+        <a href="#rechner">Preisrechner</a>
+        <a href="#warum">Warum wir</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
-      <div class="lang-switch">
-        <button class="lang-de active" data-lang-btn="de" onclick="setLang('de')">DE</button>
-        <button class="lang-en" data-lang-btn="en" onclick="setLang('en')">EN</button>
-        <button class="lang-es" data-lang-btn="es" onclick="setLang('es')">ES</button>
-      </div>
+      <a href="#kontakt" class="btn btn-primary">Anfrage senden</a>
     </div>
   </header>
 
-  <main>
+  <main id="top">
     <section class="hero">
-      <div class="container hero-content">
-        <div data-lang-block="de" class="active">
-          <div class="eyebrow">Deutsch · Englisch · Spanisch</div>
-          <h1>Ihre Vertrauensperson vor Ort für Ihre Immobilie an der Costa Blanca</h1>
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">Zuverlässige Betreuung für Eigentümer in Alicante</div>
+          <h1>Ihre Immobilie in guten Händen – auch wenn Sie nicht vor Ort sind</h1>
           <p class="lead">
-            CasaFix Costa richtet sich an Eigentümer, die nicht dauerhaft vor Ort sind und für Haus, Wohnung oder Ferienimmobilie einen verlässlichen Ansprechpartner brauchen. Ich kontrolliere regelmäßig, dokumentiere sichtbar, melde Auffälligkeiten direkt und koordiniere bei Bedarf die nächsten sinnvollen Schritte.
+            Wir kümmern uns um Objektkontrollen, Gartenpflege, Poolservice, Reinigung und die Vorbereitung vor Ihrer oder der Ankunft Ihrer Gäste.
+            Transparent, wirtschaftlich und auf den tatsächlichen Aufwand abgestimmt.
           </p>
-          <div class="launch-note">
-            <strong>Aktuell in Aufbauphase · geplanter Tätigkeitsstart vor Ort: Dezember 2027</strong><br>
-            Bereits jetzt beantworte ich Anfragen, bespreche passende Betreuungsmodelle und plane zukünftige Objektbetreuung im Raum Alicante / Costa Blanca.
+
+          <div class="hero-actions">
+            <a href="#rechner" class="btn btn-primary">Preis berechnen</a>
+            <a href="#leistungen" class="btn btn-secondary">Leistungen ansehen</a>
           </div>
-          <div class="cta-row">
-            <a class="button email-btn" href="mailto:Marco-weiss83@web.de?subject=Anfrage%20CasaFix%20Costa">
-              <span class="mail-icon">✉</span>
-              Anfrage per E-Mail senden
-            </a>
-            <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
-              <span class="wa-icon">✆</span>
-              Nur im dringenden Fall per WhatsApp
-            </a>
-          </div>
-          <p class="cta-help">
-            Für eine strukturierte Erstprüfung bitte Anfragen zunächst per E-Mail senden. So kann ich Inhalte, Umfang und Rahmenbedingungen sauber prüfen. Bei dringenden Anliegen ist WhatsApp zusätzlich möglich.
-          </p>
-          <div class="hero-points">
-            <span>✓ Regelmäßige Objektkontrollen</span>
-            <span>✓ Fotodokumentation</span>
-            <span>✓ Direkte Rückmeldung im Problemfall</span>
-            <span>✓ Persönlicher Ansprechpartner vor Ort</span>
+
+          <div class="hero-list">
+            <div>Regelmäßige Objektkontrollen</div>
+            <div>Pool- und Gartenkoordination</div>
+            <div>Ankunftsvorbereitung & Lüften</div>
+            <div>Reinigung & Übergabe-Services</div>
           </div>
         </div>
 
-        <div data-lang-block="en">
-          <div class="eyebrow">German · English · Spanish</div>
-          <h1>Your trusted local contact for your property on the Costa Blanca</h1>
-          <p class="lead">
-            CasaFix Costa is designed for owners who are not permanently on site and need a reliable person to look after their house, apartment or holiday property. I carry out regular checks, provide visible documentation, report issues directly and coordinate the next sensible steps when needed.
+        <aside class="hero-card">
+          <div class="hero-image"></div>
+          <div class="hero-card-content">
+            <h3>Für Apartments, Reihenhäuser und Villen</h3>
+            <p class="muted">
+              Sinnvoll ist keine Fantasie-Flatrate, sondern ein Modell aus fester Grundbetreuung plus variablen Leistungen nach Größe und Aufwand.
+            </p>
+            <div class="hero-stat-grid">
+              <div class="stat"><strong>ab 69 €</strong><span>Grundbetreuung / Monat</span></div>
+              <div class="stat"><strong>klar</strong><span>strukturierte Zusatzkosten</span></div>
+              <div class="stat"><strong>fair</strong><span>nach Fläche und Nutzung</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Marktlogik</div>
+            <h2>Was preislich sinnvoll ist</h2>
+          </div>
+          <p>
+            Für die Grundbetreuung sind Service-Pakete sinnvoll. Für Reinigung, Garten und Pool ist eine reine Paketlogik unpräzise, weil Aufwand und Objektgröße stark variieren.
           </p>
-          <div class="launch-note">
-            <strong>Currently in development · planned on-site start: December 2027</strong><br>
-            Inquiries are already welcome. I discuss suitable care models and plan future property support in the Alicante / Costa Blanca area.
-          </div>
-          <div class="cta-row">
-            <a class="button email-btn" href="mailto:Marco-weiss83@web.de?subject=Inquiry%20CasaFix%20Costa">
-              <span class="mail-icon">✉</span>
-              Send inquiry by email
-            </a>
-            <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
-              <span class="wa-icon">✆</span>
-              WhatsApp for urgent cases only
-            </a>
-          </div>
-          <p class="cta-help">
-            For a structured first review, please send inquiries by email first. This allows me to assess scope, content and next steps properly. WhatsApp is additionally possible for urgent matters.
-          </p>
-          <div class="hero-points">
-            <span>✓ Regular property checks</span>
-            <span>✓ Photo documentation</span>
-            <span>✓ Direct reporting if something is wrong</span>
-            <span>✓ One trusted local contact</span>
-          </div>
         </div>
 
-        <div data-lang-block="es">
-          <div class="eyebrow">Alemán · Inglés · Español</div>
-          <h1>Su persona de confianza sobre el terreno para su propiedad en la Costa Blanca</h1>
-          <p class="lead">
-            CasaFix Costa está pensado para propietarios que no se encuentran de forma permanente en la zona y necesitan una persona fiable para supervisar su casa, apartamento o vivienda vacacional. Realizo controles periódicos, documento de forma clara, informo directamente de cualquier incidencia y coordino los siguientes pasos razonables cuando sea necesario.
-          </p>
-          <div class="launch-note">
-            <strong>Actualmente en fase de desarrollo · inicio previsto sobre el terreno: diciembre 2027</strong><br>
-            Ya se pueden realizar consultas. Analizo modelos de supervisión adecuados y planifico futuras atenciones de inmuebles en la zona de Alicante / Costa Blanca.
+        <div class="market-box">
+          <strong>Empfehlung:</strong> Hybrides Modell statt entweder-oder. 
+          Eine monatliche Basis deckt Kontrollen, Erreichbarkeit, Lüften, Sichtprüfungen und Koordination ab. 
+          Alles, was direkt von Größe, Saison oder Gästewechsel abhängt, wird separat kalkuliert. Das ist marktnäher, glaubwürdiger und wirtschaftlich sauber.
+        </div>
+      </div>
+    </section>
+
+    <section id="leistungen">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Leistungen</div>
+            <h2>Komplette Betreuung rund um Ihre Immobilie</h2>
           </div>
-          <div class="cta-row">
-            <a class="button email-btn" href="mailto:Marco-weiss83@web.de?subject=Consulta%20CasaFix%20Costa">
-              <span class="mail-icon">✉</span>
-              Enviar consulta por correo
-            </a>
-            <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
-              <span class="wa-icon">✆</span>
-              WhatsApp solo en caso urgente
-            </a>
-          </div>
-          <p class="cta-help">
-            Para una primera evaluación estructurada, envíe su consulta primero por correo electrónico. Así puedo revisar bien el alcance, el contenido y los siguientes pasos. WhatsApp también es posible en casos urgentes.
+          <p>
+            Jede Zusatzleistung hat ihren eigenen Detailbereich. So bleibt das Angebot klar und der Kunde versteht, was tatsächlich enthalten ist.
           </p>
-          <div class="hero-points">
-            <span>✓ Controles periódicos del inmueble</span>
-            <span>✓ Documentación fotográfica</span>
-            <span>✓ Aviso directo ante incidencias</span>
-            <span>✓ Una persona de confianza local</span>
+        </div>
+
+        <div class="cards-4">
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1200&q=80" alt="Objektkontrolle Haus in Alicante" onerror="this.src='https://via.placeholder.com/800x500?text=Objektkontrolle';" />
+            <h3>Objektkontrollen</h3>
+            <p class="muted">Regelmäßige Sichtkontrolle, Lüften, Prüfung von Wasser, Strom, Feuchtigkeit und allgemeinem Zustand.</p>
+            <button class="toggle-details" data-target="detail-objekt">Details anzeigen</button>
+            <div class="details" id="detail-objekt">
+              <ul class="clean">
+                <li>Sichtprüfung innen und außen</li>
+                <li>Lüften der Räume</li>
+                <li>Kontrolle auf Feuchtigkeit, Gerüche und sichtbare Schäden</li>
+                <li>Kurzer Statusbericht nach Besuch</li>
+                <li>Meldung bei Auffälligkeiten mit Handlungsempfehlung</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80" alt="Poolservice Alicante" onerror="this.src='https://via.placeholder.com/800x500?text=Poolservice';" />
+            <h3>Poolservice</h3>
+            <p class="muted">Koordination oder Durchführung der regelmäßigen Poolpflege für klare Wasserqualität und sauberen Eindruck.</p>
+            <button class="toggle-details" data-target="detail-pool">Details anzeigen</button>
+            <div class="details" id="detail-pool">
+              <ul class="clean">
+                <li>Kontrolle der Wasseroberfläche</li>
+                <li>Skimmer leeren und sichtbare Verschmutzungen entfernen</li>
+                <li>Überprüfung von Wasserstand und Technik</li>
+                <li>Organisation externer Poolwartung bei Bedarf</li>
+                <li>Saisonale Mehrfrequenz im Sommer möglich</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80" alt="Gartenpflege Alicante" onerror="this.src='https://via.placeholder.com/800x500?text=Gartenpflege';" />
+            <h3>Gartenpflege</h3>
+            <p class="muted">Pflege von Rasen, Terrassen, Hecken und Außenflächen – passend zur Größe des Grundstücks.</p>
+            <button class="toggle-details" data-target="detail-garten">Details anzeigen</button>
+            <div class="details" id="detail-garten">
+              <ul class="clean">
+                <li>Rasen mähen und Kanten nacharbeiten</li>
+                <li>Laub und lose Gartenabfälle entfernen</li>
+                <li>Hecken- und Formschnitt nach Aufwand</li>
+                <li>Bewässerung und sichtbare Pflanzenprobleme prüfen</li>
+                <li>Terrassen und Wege besenrein halten</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80" alt="Vorbereitung vor Ankunft" onerror="this.src='https://via.placeholder.com/800x500?text=Vorbereitung';" />
+            <h3>Vorbereitung vor Ankunft</h3>
+            <p class="muted">Die Immobilie wird vor Ihrer oder der Ankunft Ihrer Gäste vorbereitet, damit alles ordentlich und einsatzbereit ist.</p>
+            <button class="toggle-details" data-target="detail-ankunft">Details anzeigen</button>
+            <div class="details" id="detail-ankunft">
+              <ul class="clean">
+                <li>Lüften aller relevanten Räume</li>
+                <li>Besenreiner Innen- und Außencheck</li>
+                <li>Terrasse kehren und Eingangsbereich kontrollieren</li>
+                <li>Kühlschrank, Licht, Wasser und sichtbare Funktion prüfen</li>
+                <li>Optional: Einkauf, Welcome-Paket, Wäsche und Check-in</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="preise">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Preismodell</div>
+            <h2>Empfohlene Preisstruktur</h2>
+          </div>
+          <p>
+            Die Basis bleibt klar. Der variable Teil schützt dich davor, bei großen Grundstücken oder häufigen Gästewechseln unprofitabel zu arbeiten.
+          </p>
+        </div>
+
+        <div class="prices">
+          <article class="price-card">
+            <span class="badge">Apartment</span>
+            <h3>Basis</h3>
+            <div class="price">69 € <small>/ Monat</small></div>
+            <p class="muted">Für kleine Objekte mit geringem Außenaufwand.</p>
+            <ul class="clean">
+              <li>2 Objektkontrollen pro Monat</li>
+              <li>Lüften und Sichtprüfung</li>
+              <li>Kurzer Statusbericht</li>
+              <li>Koordination kleiner Anliegen</li>
+            </ul>
+          </article>
+
+          <article class="price-card featured">
+            <span class="badge">Reihenhaus / mittlere Immobilie</span>
+            <h3>Komfort</h3>
+            <div class="price">99 € <small>/ Monat</small></div>
+            <p class="muted">Für Eigentümer mit etwas mehr Außenfläche oder höherem Kontrollbedarf.</p>
+            <ul class="clean">
+              <li>2 Objektkontrollen pro Monat</li>
+              <li>Innen- und Außenkontrolle</li>
+              <li>Koordination von Reinigung / Handwerkern</li>
+              <li>Priorisierte Rückmeldung bei Problemen</li>
+            </ul>
+          </article>
+
+          <article class="price-card">
+            <span class="badge">Villa mit Außenbereich</span>
+            <h3>Premium</h3>
+            <div class="price">129 € <small>/ Monat</small></div>
+            <p class="muted">Für größere Immobilien, meist mit Pool oder pflegeintensiverem Außenbereich.</p>
+            <ul class="clean">
+              <li>2 Objektkontrollen pro Monat</li>
+              <li>Erweiterte Außenkontrolle</li>
+              <li>Koordination von Pool / Garten / Reinigung</li>
+              <li>Höherer Betreuungsumfang</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="cards-3" style="margin-top:20px;">
+          <article class="card">
+            <h3>Variable Leistungen separat</h3>
+            <ul class="clean">
+              <li>Poolbetreuung: ab 85 € / Monat bei kleinem privaten Pool</li>
+              <li>Gartenpflege: nach Fläche, Frequenz und Schnittaufwand</li>
+              <li>Reinigung bei Gästewechsel: pro Einsatz, nicht pauschal im Paket verstecken</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Warum nicht alles pauschal?</h3>
+            <p class="muted">
+              Weil ein 20-m²-Terrassenbereich nicht denselben Aufwand verursacht wie 400 m² Garten mit Hecken, Rasen und saisonalem Wachstum.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Wirtschaftlich sauber</h3>
+            <p class="muted">
+              Mit diesem Modell verkaufst du Vertrauen über die Basis und schützt deine Marge über klare Aufschläge für Fläche, Pool, Anfahrten und Gästewechsel.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rechner">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Preisrechner</div>
+            <h2>Unverbindliche Beispielkalkulation</h2>
+          </div>
+          <p>
+            Dieser Rechner bildet genau die Logik ab, die für Alicante sinnvoll ist: Grundpaket plus variable Leistungen nach Fläche und Nutzung.
+          </p>
+        </div>
+
+        <div class="calc-box">
+          <div class="calc-grid">
+            <div class="field">
+              <label for="propertyType">Objekttyp</label>
+              <select id="propertyType">
+                <option value="apartment">Apartment</option>
+                <option value="townhouse">Reihenhaus</option>
+                <option value="villa">Villa</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="interiorSize">Wohnfläche in m²</label>
+              <input id="interiorSize" type="number" min="20" value="90" />
+            </div>
+
+            <div class="field">
+              <label for="gardenSize">Garten / Außenfläche in m²</label>
+              <input id="gardenSize" type="number" min="0" value="60" />
+            </div>
+
+            <div class="field">
+              <label for="visits">Kontrollbesuche / Monat</label>
+              <select id="visits">
+                <option value="2">2 Besuche</option>
+                <option value="4">4 Besuche</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="addons">
+            <label class="check">
+              <input type="checkbox" id="hasPool" />
+              <span><strong>Poolservice</strong><br /><span class="muted">Kleiner privater Pool mit normalem Reinigungsbedarf</span></span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" id="arrivalPrep" />
+              <span><strong>Vorbereitung vor Ankunft</strong><br /><span class="muted">Lüften, Sichtcheck, besenreiner Eindruck, kurze Vorbereitung</span></span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" id="cleaning" />
+              <span><strong>Reinigung bei Wechsel</strong><br /><span class="muted">Richtwert pro Einsatz abhängig von Wohnfläche</span></span>
+            </label>
+
+            <label class="check">
+              <input type="checkbox" id="checkin" />
+              <span><strong>Check-in / Schlüsselübergabe</strong><br /><span class="muted">Persönliche Übergabe oder organisierte Ankunft</span></span>
+            </label>
+          </div>
+
+          <div class="calc-result">
+            <div class="result-panel">
+              <div class="eyebrow">Beispielpreis</div>
+              <div class="result-total" id="resultTotal">0 € / Monat</div>
+              <p class="muted" id="resultSubline">Die Kalkulation erscheint nach Eingabe Ihrer Daten.</p>
+              <div class="line-items" id="lineItems"></div>
+            </div>
+
+            <div class="result-note">
+              <h3>Wichtiger Hinweis</h3>
+              <p class="muted">
+                Dieser Rechner ist bewusst kein Lockpreis-Rechner. Er soll realistische Spannweiten zeigen, damit das Angebot für den Kunden nachvollziehbar bleibt und für dich nicht unprofitabel wird.
+              </p>
+              <div class="pill-row">
+                <span class="pill">Basis + Aufwand</span>
+                <span class="pill">Keine Fantasie-Flatrate</span>
+                <span class="pill">Nach Größe skalierbar</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="probleme">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Wenn Sie nicht vor Ort sind, entstehen Risiken oft unbemerkt</h2>
+    <section id="warum">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Warum dieses Modell</div>
+            <h2>Robuster als reine Paketpreise</h2>
+          </div>
           <p>
-            Leerstehende oder nur zeitweise genutzte Immobilien brauchen sichtbare Präsenz und regelmäßige Kontrolle. Genau dort entstehen Probleme, wenn niemand verlässlich hinsieht und rechtzeitig reagiert.
-          </p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>When you are not on site, risks often go unnoticed</h2>
-          <p>
-            Vacant or only occasionally used properties need visible presence and regular checks. This is exactly where problems arise when nobody monitors them reliably and reacts in time.
-          </p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Cuando usted no está presente, muchos riesgos pasan desapercibidos</h2>
-          <p>
-            Las propiedades vacías o usadas solo en determinadas épocas necesitan presencia visible y controles periódicos. Ahí es donde surgen los problemas cuando nadie supervisa con fiabilidad y reacciona a tiempo.
+            Viele Anbieter zeigen Basistarife für Betreuung. Der eigentliche operative Aufwand entsteht aber oft in Reinigung, Pool, Garten und Ankunftsorganisation.
           </p>
         </div>
 
-        <div class="grid-4">
-          <div class="card">
+        <div class="why-grid">
+          <article class="card">
             <div class="icon">1</div>
-            <h3 data-lang="de" data-display="block">Unentdeckte Schäden</h3>
-            <h3 data-lang="en" data-display="block">Undetected damage</h3>
-            <h3 data-lang="es" data-display="block">Daños no detectados</h3>
-            <p data-lang="de" data-display="block">Wasser, Sturm, Feuchtigkeit oder technische Probleme werden oft erst bemerkt, wenn sie bereits Folgekosten verursacht haben.</p>
-            <p data-lang="en" data-display="block">Water, storms, moisture or technical problems are often noticed only after they have already caused additional costs.</p>
-            <p data-lang="es" data-display="block">El agua, las tormentas, la humedad o los problemas técnicos a menudo solo se detectan cuando ya han generado costes adicionales.</p>
-          </div>
-
-          <div class="card">
+            <h3>Verkaufbar</h3>
+            <p class="muted">Kunden verstehen ein klares Basispaket schneller als unübersichtliche Einzelleistungen ohne Struktur.</p>
+          </article>
+          <article class="card">
             <div class="icon">2</div>
-            <h3 data-lang="de" data-display="block">Fehlende Kontrolle aus der Distanz</h3>
-            <h3 data-lang="en" data-display="block">Lack of control from afar</h3>
-            <h3 data-lang="es" data-display="block">Falta de control a distancia</h3>
-            <p data-lang="de" data-display="block">Eigentümer brauchen Klarheit über den Zustand des Objekts – nicht Vermutungen, Verzögerungen oder unklare Aussagen.</p>
-            <p data-lang="en" data-display="block">Owners need clarity about the condition of the property – not assumptions, delays or vague statements.</p>
-            <p data-lang="es" data-display="block">Los propietarios necesitan claridad sobre el estado del inmueble, no suposiciones, retrasos ni respuestas imprecisas.</p>
-          </div>
-
-          <div class="card">
+            <h3>Fair</h3>
+            <p class="muted">Große Außenflächen, Pools und häufige Wechsel zahlen mehr als kleine, ruhige Objekte. Das ist logisch und vermittelbar.</p>
+          </article>
+          <article class="card">
             <div class="icon">3</div>
-            <h3 data-lang="de" data-display="block">Stress mit Dienstleistern</h3>
-            <h3 data-lang="en" data-display="block">Stress with service providers</h3>
-            <h3 data-lang="es" data-display="block">Estrés con proveedores</h3>
-            <p data-lang="de" data-display="block">Wenn Eigentümer nicht vor Ort sind, wird jede Abstimmung mit Handwerkern, Dienstleistern oder Nachkontrollen unnötig kompliziert.</p>
-            <p data-lang="en" data-display="block">If owners are not on site, every coordination step with contractors, service providers or follow-up checks becomes unnecessarily complicated.</p>
-            <p data-lang="es" data-display="block">Cuando los propietarios no están presentes, cualquier coordinación con profesionales, proveedores o revisiones posteriores se vuelve innecesariamente complicada.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">4</div>
-            <h3 data-lang="de" data-display="block">Unsicherheit bei leerstehenden Immobilien</h3>
-            <h3 data-lang="en" data-display="block">Uncertainty with vacant properties</h3>
-            <h3 data-lang="es" data-display="block">Incertidumbre en inmuebles vacíos</h3>
-            <p data-lang="de" data-display="block">Gerade bei längerer Abwesenheit steigt das Risiko von Einbruch, unbemerkten Problemen oder unerwünschter Nutzung deutlich an.</p>
-            <p data-lang="en" data-display="block">Especially during longer absences, the risk of break-ins, unnoticed issues or unwanted use increases significantly.</p>
-            <p data-lang="es" data-display="block">Especialmente durante ausencias largas, aumenta claramente el riesgo de robos, incidencias no detectadas o usos no deseados.</p>
-          </div>
+            <h3>Profitabel</h3>
+            <p class="muted">Du subventionierst keine großen Villen mit den Einnahmen kleiner Apartments. Genau das passiert bei zu flachen Pauschalen.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="leistungen" class="band">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Was CasaFix Costa für Sie übernimmt</h2>
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Kundenstimme</div>
+            <h2>Worauf Eigentümer achten</h2>
+          </div>
           <p>
-            Der Schwerpunkt liegt auf Kontrolle, Dokumentation, Reaktion und Koordination. Praktische Arbeiten ergänzen den Service dort, wo sie sinnvoll sind, stehen aber nicht im Mittelpunkt des Modells.
-          </p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>What CasaFix Costa takes care of for you</h2>
-          <p>
-            The focus is on control, documentation, response and coordination. Practical work complements the service where useful, but it is not the centre of the model.
-          </p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Qué asume CasaFix Costa por usted</h2>
-          <p>
-            El enfoque está en el control, la documentación, la reacción y la coordinación. Los trabajos prácticos complementan el servicio cuando tienen sentido, pero no son el centro del modelo.
+            Nicht nur auf Preis. Sondern auf Verlässlichkeit, Reaktionsgeschwindigkeit und das Gefühl, dass jemand Probleme erkennt, bevor sie teuer werden.
           </p>
         </div>
 
-        <div class="grid-4">
-          <div class="card">
-            <div class="icon">1</div>
-            <h3 data-lang="de" data-display="block">Gebäudeüberwachung</h3>
-            <h3 data-lang="en" data-display="block">Property monitoring</h3>
-            <h3 data-lang="es" data-display="block">Supervisión del inmueble</h3>
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Regelmäßige Objektkontrollen</li>
-              <li data-lang="de" data-display="list-item">Präsenz, Sichtprüfung und Basis-Check</li>
-              <li data-lang="de" data-display="list-item">Früherkennung von Auffälligkeiten</li>
-
-              <li data-lang="en" data-display="list-item">Regular property inspections</li>
-              <li data-lang="en" data-display="list-item">Visible presence, visual review and base check</li>
-              <li data-lang="en" data-display="list-item">Early detection of irregularities</li>
-
-              <li data-lang="es" data-display="list-item">Controles periódicos del inmueble</li>
-              <li data-lang="es" data-display="list-item">Presencia, revisión visual y control básico</li>
-              <li data-lang="es" data-display="list-item">Detección temprana de incidencias</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="icon">2</div>
-            <h3 data-lang="de" data-display="block">Unwetter-Check</h3>
-            <h3 data-lang="en" data-display="block">Storm and weather check</h3>
-            <h3 data-lang="es" data-display="block">Control tras temporales</h3>
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Schnelle Kontrolle nach Starkregen oder Sturm</li>
-              <li data-lang="de" data-display="list-item">Fotodokumentation sichtbarer Schäden</li>
-              <li data-lang="de" data-display="list-item">Direkte Rückmeldung an den Eigentümer</li>
-
-              <li data-lang="en" data-display="list-item">Fast inspection after heavy rain or storms</li>
-              <li data-lang="en" data-display="list-item">Photo documentation of visible damage</li>
-              <li data-lang="en" data-display="list-item">Direct feedback to the owner</li>
-
-              <li data-lang="es" data-display="list-item">Inspección rápida tras lluvias fuertes o tormentas</li>
-              <li data-lang="es" data-display="list-item">Documentación fotográfica de daños visibles</li>
-              <li data-lang="es" data-display="list-item">Comunicación directa al propietario</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="icon">3</div>
-            <h3 data-lang="de" data-display="block">Bauüberwachung</h3>
-            <h3 data-lang="en" data-display="block">Renovation supervision</h3>
-            <h3 data-lang="es" data-display="block">Supervisión de reformas</h3>
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Kontrolle laufender Arbeiten vor Ort</li>
-              <li data-lang="de" data-display="list-item">Dokumentation von Fortschritt und Zustand</li>
-              <li data-lang="de" data-display="list-item">Ansprechpartner für Eigentümer und Gewerke</li>
-
-              <li data-lang="en" data-display="list-item">On-site checks of ongoing works</li>
-              <li data-lang="en" data-display="list-item">Documentation of progress and condition</li>
-              <li data-lang="en" data-display="list-item">Contact point for owners and trades</li>
-
-              <li data-lang="es" data-display="list-item">Control sobre el terreno de trabajos en curso</li>
-              <li data-lang="es" data-display="list-item">Documentación del avance y del estado</li>
-              <li data-lang="es" data-display="list-item">Persona de contacto para propietarios y gremios</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="icon">4</div>
-            <h3 data-lang="de" data-display="block">Kleinere Arbeiten & Instandhaltung</h3>
-            <h3 data-lang="en" data-display="block">Small jobs & upkeep</h3>
-            <h3 data-lang="es" data-display="block">Pequeños trabajos y mantenimiento</h3>
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Kleinreparaturen und kleinere Montagearbeiten</li>
-              <li data-lang="de" data-display="list-item">Praktische Unterstützung im sinnvollen Rahmen</li>
-              <li data-lang="de" data-display="list-item">Keine Großbaustellen</li>
-
-              <li data-lang="en" data-display="list-item">Small repairs and minor installation work</li>
-              <li data-lang="en" data-display="list-item">Practical support within a sensible scope</li>
-              <li data-lang="en" data-display="list-item">No large construction projects</li>
-
-              <li data-lang="es" data-display="list-item">Pequeñas reparaciones y trabajos de montaje</li>
-              <li data-lang="es" data-display="list-item">Apoyo práctico dentro de un marco razonable</li>
-              <li data-lang="es" data-display="list-item">No grandes obras</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="modell">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Betreuungsmodelle mit klarer Struktur</h2>
-          <p>
-            Ziel ist nicht der Verkauf einzelner Arbeitsstunden, sondern planbare Betreuung mit festen Abläufen. Zusatzleistungen wie Koordination, Sonderfahrten oder Notfälle werden separat berechnet.
-          </p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Care models with a clear structure</h2>
-          <p>
-            The goal is not to sell isolated working hours, but reliable ongoing care with clear routines. Add-on services such as coordination, special trips or emergency support are charged separately.
-          </p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Modelos de servicio con estructura clara</h2>
-          <p>
-            El objetivo no es vender horas sueltas de trabajo, sino una supervisión planificable con procesos definidos. Los servicios adicionales como coordinación, desplazamientos especiales o emergencias se facturan por separado.
-          </p>
-        </div>
-
-        <div class="package-grid">
-          <div class="package-card">
-            <div class="package-badge" data-lang="de" data-display="inline-block">Einstieg</div>
-            <div class="package-badge" data-lang="en" data-display="inline-block">Entry</div>
-            <div class="package-badge" data-lang="es" data-display="inline-block">Entrada</div>
-            <h3 class="package-title">Light</h3>
-
-            <p class="package-price" data-lang="de" data-display="block">ab 129 € / Monat</p>
-            <p class="package-price" data-lang="en" data-display="block">from €129 / month</p>
-            <p class="package-price" data-lang="es" data-display="block">desde 129 € / mes</p>
-
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">1 Kontrolle pro Monat</li>
-              <li data-lang="de" data-display="list-item">Fotodokumentation</li>
-              <li data-lang="de" data-display="list-item">Basis-Check von Objekt und Zustand</li>
-
-              <li data-lang="en" data-display="list-item">1 inspection per month</li>
-              <li data-lang="en" data-display="list-item">Photo documentation</li>
-              <li data-lang="en" data-display="list-item">Basic property and condition check</li>
-
-              <li data-lang="es" data-display="list-item">1 control al mes</li>
-              <li data-lang="es" data-display="list-item">Documentación fotográfica</li>
-              <li data-lang="es" data-display="list-item">Control básico del inmueble y su estado</li>
-            </ul>
-
-            <p class="package-note" data-lang="de" data-display="block">Geeignet für Eigentümer mit geringerem Betreuungsbedarf und planbarer Nutzung.</p>
-            <p class="package-note" data-lang="en" data-display="block">Suitable for owners with lower care needs and predictable usage.</p>
-            <p class="package-note" data-lang="es" data-display="block">Adecuado para propietarios con menor necesidad de supervisión y uso previsible.</p>
-          </div>
-
-          <div class="package-card featured">
-            <div class="package-badge" data-lang="de" data-display="inline-block">Empfohlen</div>
-            <div class="package-badge" data-lang="en" data-display="inline-block">Recommended</div>
-            <div class="package-badge" data-lang="es" data-display="inline-block">Recomendado</div>
-            <h3 class="package-title">Standard</h3>
-
-            <p class="package-price" data-lang="de" data-display="block">ab 199 € / Monat</p>
-            <p class="package-price" data-lang="en" data-display="block">from €199 / month</p>
-            <p class="package-price" data-lang="es" data-display="block">desde 199 € / mes</p>
-
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">2 Kontrollen pro Monat</li>
-              <li data-lang="de" data-display="list-item">Fotodokumentation und priorisierte Rückmeldung</li>
-              <li data-lang="de" data-display="list-item">Einfache Koordination bei Bedarf</li>
-
-              <li data-lang="en" data-display="list-item">2 inspections per month</li>
-              <li data-lang="en" data-display="list-item">Photo documentation and prioritised feedback</li>
-              <li data-lang="en" data-display="list-item">Basic coordination when required</li>
-
-              <li data-lang="es" data-display="list-item">2 controles al mes</li>
-              <li data-lang="es" data-display="list-item">Documentación fotográfica y respuesta prioritaria</li>
-              <li data-lang="es" data-display="list-item">Coordinación básica cuando sea necesaria</li>
-            </ul>
-
-            <p class="package-note" data-lang="de" data-display="block">Für Eigentümer, die mehr Sichtbarkeit, schnellere Rückmeldung und regelmäßige Kontrolle wünschen.</p>
-            <p class="package-note" data-lang="en" data-display="block">For owners who want more visibility, faster feedback and regular supervision.</p>
-            <p class="package-note" data-lang="es" data-display="block">Para propietarios que desean más visibilidad, respuesta más rápida y supervisión regular.</p>
-          </div>
-
-          <div class="package-card">
-            <div class="package-badge" data-lang="de" data-display="inline-block">Intensiv</div>
-            <div class="package-badge" data-lang="en" data-display="inline-block">Intensive</div>
-            <div class="package-badge" data-lang="es" data-display="inline-block">Intensivo</div>
-            <h3 class="package-title">Premium</h3>
-
-            <p class="package-price" data-lang="de" data-display="block">ab 349 € / Monat</p>
-            <p class="package-price" data-lang="en" data-display="block">from €349 / month</p>
-            <p class="package-price" data-lang="es" data-display="block">desde 349 € / mes</p>
-
-            <ul class="clean">
-              <li data-lang="de" data-display="list-item">Wöchentliche Kontrolle</li>
-              <li data-lang="de" data-display="list-item">Schnellere Reaktionszeiten</li>
-              <li data-lang="de" data-display="list-item">Intensivere Betreuung und engere Abstimmung</li>
-
-              <li data-lang="en" data-display="list-item">Weekly inspection</li>
-              <li data-lang="en" data-display="list-item">Faster response times</li>
-              <li data-lang="en" data-display="list-item">More intensive support and closer coordination</li>
-
-              <li data-lang="es" data-display="list-item">Control semanal</li>
-              <li data-lang="es" data-display="list-item">Tiempos de reacción más rápidos</li>
-              <li data-lang="es" data-display="list-item">Atención más intensa y coordinación más estrecha</li>
-            </ul>
-
-            <p class="package-note" data-lang="de" data-display="block">Für anspruchsvollere Objekte oder Eigentümer, die möglichst viel Kontrolle und Präsenz vor Ort wünschen.</p>
-            <p class="package-note" data-lang="en" data-display="block">For more demanding properties or owners who want maximum control and visible presence on site.</p>
-            <p class="package-note" data-lang="es" data-display="block">Para inmuebles más exigentes o propietarios que desean el máximo control y presencia visible sobre el terreno.</p>
-          </div>
-        </div>
-
-        <div class="subtle-note">
-          <p data-lang="de" data-display="block">
-            <strong>Wichtig:</strong> Zusatzleistungen wie Handwerkerkoordination, Notfall-Einsätze, Sonderfahrten, Gartenpflege oder Vorbereitungen vor Ankunft sind bewusst nicht pauschal im Abo enthalten und werden separat berechnet.
-          </p>
-          <p data-lang="en" data-display="block">
-            <strong>Important:</strong> Add-on services such as contractor coordination, emergency visits, special trips, garden care or pre-arrival preparation are deliberately not included as flat-rate elements in the subscription and are billed separately.
-          </p>
-          <p data-lang="es" data-display="block">
-            <strong>Importante:</strong> Los servicios adicionales como coordinación de profesionales, intervenciones de emergencia, desplazamientos especiales, cuidado del jardín o preparativos antes de la llegada no están incluidos de forma global en la cuota y se facturan por separado.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="extras" class="band">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Zusatzleistungen sinnvoll und transparent</h2>
-          <p>
-            Diese Leistungen ergänzen die laufende Betreuung. Alle Preise sind bewusst als <strong>ab-Preise</strong> formuliert, weil Umfang, Objektgröße, Entfernung und Dringlichkeit den tatsächlichen Aufwand beeinflussen.
-          </p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Additional services with sensible and transparent pricing</h2>
-          <p>
-            These services complement the ongoing care. All prices are shown as <strong>from-prices</strong> because scope, property size, distance and urgency directly influence the actual effort involved.
-          </p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Servicios adicionales con precios razonables y transparentes</h2>
-          <p>
-            Estos servicios complementan la supervisión continua. Todos los precios se muestran como <strong>precios desde</strong>, porque el alcance, el tamaño del inmueble, la distancia y la urgencia influyen directamente en el trabajo real.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <div class="extra-card">
-            <h3 data-lang="de" data-display="block">Handwerkerkoordination</h3>
-            <h3 data-lang="en" data-display="block">Contractor coordination</h3>
-            <h3 data-lang="es" data-display="block">Coordinación de profesionales</h3>
-
-            <p data-lang="de" data-display="block">Abstimmung mit Handwerkern oder Dienstleistern, Terminorganisation, Rückmeldung an den Eigentümer und einfache Vor-Ort-Begleitung.</p>
-            <p data-lang="en" data-display="block">Coordination with contractors or service providers, appointment organisation, owner feedback and simple on-site support.</p>
-            <p data-lang="es" data-display="block">Coordinación con profesionales o proveedores, organización de citas, información al propietario y apoyo sencillo sobre el terreno.</p>
-
-            <span class="extra-price" data-lang="de" data-display="inline-block">ab 79 € pro Einsatz</span>
-            <span class="extra-price" data-lang="en" data-display="inline-block">from €79 per assignment</span>
-            <span class="extra-price" data-lang="es" data-display="inline-block">desde 79 € por intervención</span>
-          </div>
-
-          <div class="extra-card">
-            <h3 data-lang="de" data-display="block">Notfall-Einsatz</h3>
-            <h3 data-lang="en" data-display="block">Emergency visit</h3>
-            <h3 data-lang="es" data-display="block">Intervención de emergencia</h3>
-
-            <p data-lang="de" data-display="block">Kurzfristige Reaktion bei dringenden Auffälligkeiten, erste Lageeinschätzung vor Ort und direkte Rückmeldung mit Fotos.</p>
-            <p data-lang="en" data-display="block">Short-notice response in urgent situations, first on-site assessment and direct feedback with photos.</p>
-            <p data-lang="es" data-display="block">Respuesta a corto plazo ante incidencias urgentes, primera valoración sobre el terreno y respuesta directa con fotos.</p>
-
-            <span class="extra-price" data-lang="de" data-display="inline-block">ab 119 € pro Einsatz</span>
-            <span class="extra-price" data-lang="en" data-display="inline-block">from €119 per visit</span>
-            <span class="extra-price" data-lang="es" data-display="inline-block">desde 119 € por intervención</span>
-          </div>
-
-          <div class="extra-card">
-            <h3 data-lang="de" data-display="block">Sonderfahrt</h3>
-            <h3 data-lang="en" data-display="block">Special trip</h3>
-            <h3 data-lang="es" data-display="block">Desplazamiento especial</h3>
-
-            <p data-lang="de" data-display="block">Zusätzliche außerplanmäßige Anfahrt außerhalb regulärer Kontrolltermine, etwa für Übergaben, Nachschau oder spontane Prüfungen.</p>
-            <p data-lang="en" data-display="block">Additional unscheduled visit outside regular inspections, for example for handovers, follow-up checks or spontaneous reviews.</p>
-            <p data-lang="es" data-display="block">Desplazamiento adicional fuera de los controles regulares, por ejemplo para entregas, revisiones posteriores o comprobaciones espontáneas.</p>
-
-            <span class="extra-price" data-lang="de" data-display="inline-block">ab 69 € pro Fahrt</span>
-            <span class="extra-price" data-lang="en" data-display="inline-block">from €69 per trip</span>
-            <span class="extra-price" data-lang="es" data-display="inline-block">desde 69 € por desplazamiento</span>
-          </div>
-
-          <div class="extra-card">
-            <h3 data-lang="de" data-display="block">Vorbereitung vor Ankunft</h3>
-            <h3 data-lang="en" data-display="block">Pre-arrival preparation</h3>
-            <h3 data-lang="es" data-display="block">Preparación antes de la llegada</h3>
-
-            <p data-lang="de" data-display="block">Kurzer Vorab-Check vor Ihrer Anreise, Lüften, Sichtprüfung und einfache Vorbereitung, damit das Objekt bei Ankunft geordnet und betreut wirkt.</p>
-            <p data-lang="en" data-display="block">Short pre-arrival check, airing, visual review and simple preparation so the property feels orderly and cared for when you arrive.</p>
-            <p data-lang="es" data-display="block">Control previo a su llegada, ventilación, revisión visual y preparación sencilla para que el inmueble esté ordenado y atendido a la llegada.</p>
-
-            <span class="extra-price" data-lang="de" data-display="inline-block">ab 89 € pro Termin</span>
-            <span class="extra-price" data-lang="en" data-display="inline-block">from €89 per appointment</span>
-            <span class="extra-price" data-lang="es" data-display="inline-block">desde 89 € por cita</span>
-          </div>
-
-          <div class="extra-card">
-            <h3 data-lang="de" data-display="block">Kleinere Arbeiten & Instandhaltung</h3>
-            <h3 data-lang="en" data-display="block">Small jobs & upkeep</h3>
-            <h3 data-lang="es" data-display="block">Pequeños trabajos y mantenimiento</h3>
-
-            <p data-lang="de" data-display="block">Kleinreparaturen, kleinere Montagen oder praktische Objektunterstützung im sinnvollen Rahmen – keine Großbaustellen und keine Komplettsanierungen.</p>
-            <p data-lang="en" data-display="block">Minor repairs, small installations or practical property support within a sensible scope – no major construction and no full renovations.</p>
-            <p data-lang="es" data-display="block">Pequeñas reparaciones, montajes menores o apoyo práctico al inmueble dentro de un marco razonable; no grandes obras ni reformas completas.</p>
-
-            <span class="extra-price" data-lang="de" data-display="inline-block">ab 65 € / Stunde</span>
-            <span class="extra-price" data-lang="en" data-display="inline-block">from €65 / hour</span>
-            <span class="extra-price" data-lang="es" data-display="inline-block">desde 65 € / hora</span>
-          </div>
-
-          <div class="extra-card">
-            <h3 data-lang="de" data-display="block">Schlüsselservice</h3>
-            <h3 data-lang="en" data-display="block">Key handling service</h3>
-            <h3 data-lang="es" data-display="block">Servicio de llaves</h3>
-
-            <p data-lang="de" data-display="block">Verwaltung, Übergabe oder organisierte Koordination von Schlüsseln im Rahmen der Betreuung, wenn dies für einen geregelten Ablauf erforderlich ist.</p>
-            <p data-lang="en" data-display="block">Handling, handover or organised coordination of keys within the care arrangement where required for an orderly process.</p>
-            <p data-lang="es" data-display="block">Gestión, entrega o coordinación organizada de llaves dentro del servicio, cuando sea necesario para un proceso ordenado.</p>
-
-            <span class="extra-price" data-lang="de" data-display="inline-block">ab 49 € pro Vorgang</span>
-            <span class="extra-price" data-lang="en" data-display="inline-block">from €49 per arrangement</span>
-            <span class="extra-price" data-lang="es" data-display="inline-block">desde 49 € por gestión</span>
-          </div>
-        </div>
-
-        <div class="subtle-note">
-          <p data-lang="de" data-display="block">
-            <strong>Hinweis:</strong> Die genannten Preise sind Richtwerte für eine seriöse Erstorientierung. Der endgültige Preis hängt insbesondere von Objektgröße, Aufwand, Entfernung, Zugänglichkeit und Dringlichkeit ab.
-          </p>
-          <p data-lang="en" data-display="block">
-            <strong>Note:</strong> The prices shown are guide prices for a serious initial orientation. Final pricing depends in particular on property size, effort, distance, accessibility and urgency.
-          </p>
-          <p data-lang="es" data-display="block">
-            <strong>Nota:</strong> Los precios indicados son orientativos para una primera referencia seria. El precio final depende especialmente del tamaño del inmueble, del trabajo necesario, de la distancia, de la accesibilidad y de la urgencia.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="vertrauen">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Warum Eigentümer mir vertrauen können</h2>
-          <p>
-            In diesem Modell entscheidet nicht Lautstärke, sondern Verlässlichkeit. Wer eine Immobilie aus der Distanz betreut, muss präsent, strukturiert, diskret und belastbar sein.
-          </p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Why owners can trust me</h2>
-          <p>
-            In this model, credibility matters more than noise. Looking after property from a distance requires presence, structure, discretion and reliability.
-          </p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Por qué los propietarios pueden confiar en mí</h2>
-          <p>
-            En este modelo importa más la credibilidad que la apariencia. Cuidar un inmueble a distancia exige presencia, estructura, discreción y fiabilidad.
-          </p>
-        </div>
-
-        <div class="grid-4">
-          <div class="card">
-            <div class="icon">A</div>
-            <p data-lang="de" data-display="block">Auf Baustellen groß geworden und gelernter Bau- und Möbelschreiner – mit Blick für Zustand, Details und praktische Lösungen.</p>
-            <p data-lang="en" data-display="block">Grew up around construction sites and trained as a carpenter and cabinet maker – with an eye for condition, detail and practical solutions.</p>
-            <p data-lang="es" data-display="block">Crecí en obras y me formé como carpintero de obra y de muebles, con criterio para el estado del inmueble, los detalles y las soluciones prácticas.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">B</div>
-            <p data-lang="de" data-display="block">8 Jahre diplomatischer Dienst – geprägt von Zuverlässigkeit, Diskretion und verantwortungsbewusstem Auftreten.</p>
-            <p data-lang="en" data-display="block">8 years in diplomatic service – shaped by reliability, discretion and a strong sense of responsibility.</p>
-            <p data-lang="es" data-display="block">8 años en servicio diplomático, marcados por la fiabilidad, la discreción y un alto sentido de la responsabilidad.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">C</div>
-            <p data-lang="de" data-display="block">Geprüfter Logistikmeister (IHK) mit Planungs- und Koordinationskompetenz – wichtig, wenn mehrere Schritte organisiert werden müssen.</p>
-            <p data-lang="en" data-display="block">Certified logistics manager with planning and coordination skills – essential when several steps and parties need to be organised.</p>
-            <p data-lang="es" data-display="block">Maestro logístico certificado con capacidad de planificación y coordinación, algo clave cuando deben organizarse varios pasos y actores.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">D</div>
-            <p data-lang="de" data-display="block">Persönliche Verantwortung statt anonymer Verwaltung – ein direkter Ansprechpartner, der mitdenkt und Rückmeldung gibt.</p>
-            <p data-lang="en" data-display="block">Personal responsibility instead of anonymous administration – one direct contact who thinks ahead and gives feedback.</p>
-            <p data-lang="es" data-display="block">Responsabilidad personal en lugar de gestión anónima: una persona de contacto directa que anticipa y da respuesta.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="ablauf" class="band">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>So läuft die Zusammenarbeit ab</h2>
-          <p>Klare Kommunikation, einfache Abstimmung und ein strukturiertes Betreuungsmodell.</p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>How the cooperation works</h2>
-          <p>Clear communication, straightforward coordination and a structured care model.</p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Así funciona la colaboración</h2>
-          <p>Comunicación clara, coordinación sencilla y un modelo de servicio estructurado.</p>
-        </div>
-
-        <div class="steps">
-          <div class="card">
-            <div class="icon">1</div>
-            <h3 data-lang="de" data-display="block">Anfrage senden</h3>
-            <h3 data-lang="en" data-display="block">Send your inquiry</h3>
-            <h3 data-lang="es" data-display="block">Envíe su consulta</h3>
-
-            <p data-lang="de" data-display="block">Bitte senden Sie Ihre erste Anfrage bevorzugt per E-Mail mit kurzer Beschreibung Ihrer Immobilie, Ihrer Situation und Ihres Betreuungsbedarfs.</p>
-            <p data-lang="en" data-display="block">Please send your first inquiry preferably by email with a short description of your property, your situation and your care needs.</p>
-            <p data-lang="es" data-display="block">Envíe su primera consulta preferiblemente por correo electrónico con una breve descripción de su inmueble, su situación y sus necesidades de supervisión.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">2</div>
-            <h3 data-lang="de" data-display="block">Einschätzung erhalten</h3>
-            <h3 data-lang="en" data-display="block">Receive an assessment</h3>
-            <h3 data-lang="es" data-display="block">Reciba una valoración</h3>
-
-            <p data-lang="de" data-display="block">Sie erhalten eine strukturierte Ersteinschätzung, welche Form der Betreuung sinnvoll ist und welche Leistungen zu Ihrem Objekt passen.</p>
-            <p data-lang="en" data-display="block">You receive a structured first assessment of which care model is suitable and which services fit your property.</p>
-            <p data-lang="es" data-display="block">Recibirá una primera valoración estructurada sobre qué modelo de servicio resulta adecuado y qué prestaciones encajan con su inmueble.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">3</div>
-            <h3 data-lang="de" data-display="block">Betreuungsmodell abstimmen</h3>
-            <h3 data-lang="en" data-display="block">Agree on the care model</h3>
-            <h3 data-lang="es" data-display="block">Definir el modelo de servicio</h3>
-
-            <p data-lang="de" data-display="block">Gemeinsam wird festgelegt, ob Light, Standard oder Premium zu Ihrer Situation passt und welche Zusatzleistungen sinnvoll sind.</p>
-            <p data-lang="en" data-display="block">Together we define whether Light, Standard or Premium fits your situation and which add-on services make sense.</p>
-            <p data-lang="es" data-display="block">Definimos conjuntamente si Light, Standard o Premium se ajusta a su situación y qué servicios adicionales tienen sentido.</p>
-          </div>
-
-          <div class="card">
-            <div class="icon">4</div>
-            <h3 data-lang="de" data-display="block">Zuverlässige Betreuung</h3>
-            <h3 data-lang="en" data-display="block">Reliable ongoing care</h3>
-            <h3 data-lang="es" data-display="block">Supervisión fiable y continua</h3>
-
-            <p data-lang="de" data-display="block">Regelmäßige Kontrolle, Dokumentation und direkte Rückmeldung – mit einem Ansprechpartner vor Ort, der nicht erst im Problemfall sichtbar wird.</p>
-            <p data-lang="en" data-display="block">Regular checks, documentation and direct feedback – with a local contact who does not only become visible once a problem has already happened.</p>
-            <p data-lang="es" data-display="block">Controles regulares, documentación y respuesta directa, con una persona de contacto local que no aparece solo cuando el problema ya existe.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="fotos">
-      <div class="container">
-        <div data-lang-block="de" class="section-head active">
-          <h2>Einblicke in Präsenz, Arbeit und sichtbare Ergebnisse</h2>
-          <p>Die Bilder unterstützen genau das, worum es auf dieser Website geht: Vertrauen, praktische Kompetenz und Werterhalt.</p>
-        </div>
-        <div data-lang-block="en" class="section-head">
-          <h2>Impressions of presence, practical work and visible results</h2>
-          <p>The images support exactly what this website is about: trust, practical competence and property preservation.</p>
-        </div>
-        <div data-lang-block="es" class="section-head">
-          <h2>Imágenes de presencia, trabajo práctico y resultados visibles</h2>
-          <p>Las imágenes apoyan exactamente lo que representa este sitio: confianza, capacidad práctica y conservación del valor del inmueble.</p>
-        </div>
-
-        <div class="photo-grid">
-          <div class="gallery-item">
-            <img src="./hero.jpg" alt="CasaFix Costa vor einer Villa" />
-            <div class="gallery-caption" data-lang="de" data-display="block">Präsenz vor Ort und klare Positionierung als persönlicher Ansprechpartner.</div>
-            <div class="gallery-caption" data-lang="en" data-display="block">Visible local presence and clear positioning as a personal point of contact.</div>
-            <div class="gallery-caption" data-lang="es" data-display="block">Presencia visible sobre el terreno y posicionamiento claro como persona de contacto directa.</div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="./work.jpg" alt="CasaFix Costa bei praktischer Arbeit" />
-            <div class="gallery-caption" data-lang="de" data-display="block">Praktische Kompetenz für kleinere Arbeiten, Kontrollen und sinnvolle Unterstützung.</div>
-            <div class="gallery-caption" data-lang="en" data-display="block">Practical capability for smaller tasks, inspections and useful on-site support.</div>
-            <div class="gallery-caption" data-lang="es" data-display="block">Capacidad práctica para pequeños trabajos, controles y apoyo útil sobre el terreno.</div>
-          </div>
-
-          <div class="gallery-item">
-            <img src="./Pool.jpg" alt="Vorher Nachher Pool Vergleich" />
-            <div class="gallery-caption" data-lang="de" data-display="block">Sichtbare Ergebnisse und Werterhalt statt bloßer Versprechen.</div>
-            <div class="gallery-caption" data-lang="en" data-display="block">Visible results and value protection instead of empty promises.</div>
-            <div class="gallery-caption" data-lang="es" data-display="block">Resultados visibles y conservación del valor en lugar de promesas vacías.</div>
-          </div>
+        <div class="reviews">
+          <article class="review">
+            <strong>„Endlich klare Preise statt schwammiger Aussagen.“</strong>
+            <p class="muted">Besonders wichtig war uns, dass Garten, Pool und Reinigung nicht einfach blind in eine Pauschale gepackt wurden.</p>
+          </article>
+          <article class="review">
+            <strong>„Wir sehen nach jedem Besuch, was gemacht wurde.“</strong>
+            <p class="muted">Kurze Rückmeldungen und nachvollziehbare Struktur geben Eigentümern mehr Sicherheit als Billigpreise.</p>
+          </article>
+          <article class="review">
+            <strong>„Das Modell ist verständlich und professionell.“</strong>
+            <p class="muted">Gerade für ausländische Eigentümer ist Transparenz oft wichtiger als der letzte gesparte Euro.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section id="kontakt">
-      <div class="container contact-wrap">
-        <div class="card">
-          <div data-lang-block="de" class="section-head active">
-            <h2>Kontakt & zukünftige Betreuung anfragen</h2>
-            <p>
-              Für eine saubere Erstprüfung senden Sie Ihre Anfrage bitte zunächst per E-Mail. So kann ich Ihr Anliegen strukturiert prüfen und passend beantworten. Bei dringenden Fällen ist WhatsApp zusätzlich möglich.
-            </p>
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Kontakt</div>
+            <h2>Anfrage für Ihre Immobilie in Alicante</h2>
           </div>
-          <div data-lang-block="en" class="section-head">
-            <h2>Contact & request future property care</h2>
-            <p>
-              For a proper first review, please send your inquiry by email first. This allows me to assess your request in a structured way and respond appropriately. WhatsApp is additionally possible for urgent cases.
-            </p>
-          </div>
-          <div data-lang-block="es" class="section-head">
-            <h2>Contacto y solicitud de futura supervisión</h2>
-            <p>
-              Para una primera revisión adecuada, envíe su consulta primero por correo electrónico. Así podré evaluar su caso de forma estructurada y responder de manera adecuada. WhatsApp también es posible en casos urgentes.
-            </p>
-          </div>
+          <p>
+            Teilen Sie kurz mit, um welche Immobilie es geht. Auf dieser Basis lässt sich ein realistisches Angebot erstellen.
+          </p>
         </div>
 
-        <div class="card">
-          <h3 data-lang="de" data-display="block">Direktkontakt</h3>
-          <h3 data-lang="en" data-display="block">Direct contact</h3>
-          <h3 data-lang="es" data-display="block">Contacto directo</h3>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>Kontaktformular</h3>
+            <form>
+              <div class="field">
+                <label for="name">Name</label>
+                <input id="name" type="text" placeholder="Ihr Name" />
+              </div>
+              <div class="field">
+                <label for="email">E-Mail</label>
+                <input id="email" type="email" placeholder="Ihre E-Mail-Adresse" />
+              </div>
+              <div class="field">
+                <label for="phone">Telefon</label>
+                <input id="phone" type="text" placeholder="Telefonnummer" />
+              </div>
+              <div class="field">
+                <label for="message">Nachricht</label>
+                <textarea id="message" placeholder="Objekttyp, Lage, Wohnfläche, Garten, Pool, gewünschte Leistungen"></textarea>
+              </div>
+              <button type="button" class="btn btn-primary">Anfrage senden</button>
+            </form>
+          </article>
 
-          <div class="contact-list">
-            <div data-lang="de" data-display="block">✓ Primärer Kontaktweg: E-Mail</div>
-            <div data-lang="de" data-display="block">✓ Strukturierte Erstprüfung Ihrer Anfrage</div>
-            <div data-lang="de" data-display="block">✓ WhatsApp für dringende Anliegen möglich</div>
+          <article class="contact-card">
+            <h3>Leistungsversprechen</h3>
+            <ul class="clean">
+              <li>Transparente Struktur statt versteckter Pauschalen</li>
+              <li>Betreuung passend zur Objektgröße</li>
+              <li>Klare Trennung zwischen Grundservice und Zusatzaufwand</li>
+              <li>Realistische Kalkulation statt Dumpingpreis</li>
+            </ul>
+          </article>
 
-            <div data-lang="en" data-display="block">✓ Primary contact method: email</div>
-            <div data-lang="en" data-display="block">✓ Structured first review of your inquiry</div>
-            <div data-lang="en" data-display="block">✓ WhatsApp possible for urgent matters</div>
-
-            <div data-lang="es" data-display="block">✓ Vía principal de contacto: correo electrónico</div>
-            <div data-lang="es" data-display="block">✓ Primera revisión estructurada de su consulta</div>
-            <div data-lang="es" data-display="block">✓ WhatsApp posible en asuntos urgentes</div>
-          </div>
-
-          <a class="button email-btn" data-lang="de" data-display="inline-flex" href="mailto:Marco-weiss83@web.de?subject=Anfrage%20CasaFix%20Costa">
-            <span class="mail-icon">✉</span>
-            Jetzt per E-Mail anfragen
-          </a>
-          <a class="button email-btn" data-lang="en" data-display="inline-flex" href="mailto:Marco-weiss83@web.de?subject=Inquiry%20CasaFix%20Costa">
-            <span class="mail-icon">✉</span>
-            Send inquiry by email now
-          </a>
-          <a class="button email-btn" data-lang="es" data-display="inline-flex" href="mailto:Marco-weiss83@web.de?subject=Consulta%20CasaFix%20Costa">
-            <span class="mail-icon">✉</span>
-            Enviar consulta por correo
-          </a>
-
-          <div style="height: 12px;"></div>
-
-          <a class="button whatsapp-btn" data-lang="de" data-display="inline-flex" href="https://wa.me/4915253692878">
-            <span class="wa-icon">✆</span>
-            Dringender Fall per WhatsApp
-          </a>
-          <a class="button whatsapp-btn" data-lang="en" data-display="inline-flex" href="https://wa.me/4915253692878">
-            <span class="wa-icon">✆</span>
-            Urgent case via WhatsApp
-          </a>
-          <a class="button whatsapp-btn" data-lang="es" data-display="inline-flex" href="https://wa.me/4915253692878">
-            <span class="wa-icon">✆</span>
-            Caso urgente por WhatsApp
-          </a>
-
-          <p style="margin-top:18px; margin-bottom:6px;"><strong>E-Mail</strong></p>
-          <a class="email-link" href="mailto:Marco-weiss83@web.de">Marco-weiss83@web.de</a>
+          <article class="contact-card">
+            <h3>Geeignet für</h3>
+            <ul class="clean">
+              <li>Ferienimmobilien</li>
+              <li>Zweitwohnsitze</li>
+              <li>Vermietete Apartments</li>
+              <li>Villen mit Garten und Pool</li>
+            </ul>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-line">
-      <div>© CasaFix Costa</div>
-      <div class="footer-links">
-        <a href="impressum.html">Impressum</a> |
-        <a href="datenschutz.html">Datenschutz</a>
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:12px;">
+          <span class="brand-mark">IB</span>
+          <span>Immobilienbetreuung Alicante</span>
+        </div>
+        <small>Professionelle Betreuung für Eigentümer, die ihre Immobilie in Alicante zuverlässig organisiert wissen wollen.</small>
+      </div>
+      <div>
+        <strong>Navigation</strong>
+        <div class="pill-row">
+          <a class="pill" href="#leistungen">Leistungen</a>
+          <a class="pill" href="#preise">Preise</a>
+          <a class="pill" href="#rechner">Rechner</a>
+        </div>
+      </div>
+      <div>
+        <strong>Hinweis</strong>
+        <small>Alle Preise auf dieser Seite sind Beispielpreise zur Orientierung und dienen der transparenten Angebotslogik.</small>
       </div>
     </div>
   </footer>
 
   <script>
-    function setLang(lang) {
-      document.documentElement.lang = lang;
-
-      document.querySelectorAll('[data-lang-btn]').forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+    const detailButtons = document.querySelectorAll('.toggle-details');
+    detailButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        const isOpen = target.classList.contains('open');
+        target.classList.toggle('open');
+        button.textContent = isOpen ? 'Details anzeigen' : 'Details ausblenden';
       });
+    });
 
-      document.querySelectorAll('[data-lang-block]').forEach(block => {
-        block.classList.toggle('active', block.getAttribute('data-lang-block') === lang);
-      });
+    const fields = {
+      propertyType: document.getElementById('propertyType'),
+      interiorSize: document.getElementById('interiorSize'),
+      gardenSize: document.getElementById('gardenSize'),
+      visits: document.getElementById('visits'),
+      hasPool: document.getElementById('hasPool'),
+      arrivalPrep: document.getElementById('arrivalPrep'),
+      cleaning: document.getElementById('cleaning'),
+      checkin: document.getElementById('checkin')
+    };
 
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        const displayType = el.getAttribute('data-display') || 'block';
-        if (el.getAttribute('data-lang') === lang) {
-          el.style.display = displayType;
-        } else {
-          el.style.display = 'none';
-        }
-      });
+    const resultTotal = document.getElementById('resultTotal');
+    const resultSubline = document.getElementById('resultSubline');
+    const lineItems = document.getElementById('lineItems');
+
+    function euro(value) {
+      return new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value);
     }
 
-    window.onload = function () {
-      setLang('de');
-    };
+    function calculate() {
+      const type = fields.propertyType.value;
+      const interior = Math.max(0, Number(fields.interiorSize.value) || 0);
+      const garden = Math.max(0, Number(fields.gardenSize.value) || 0);
+      const visits = Number(fields.visits.value) || 2;
+
+      let base = 69;
+      if (type === 'townhouse') base = 99;
+      if (type === 'villa') base = 129;
+
+      let extraVisits = visits === 4 ? 35 : 0;
+
+      let sizeAdjustment = 0;
+      if (interior > 120) sizeAdjustment += 15;
+      if (interior > 180) sizeAdjustment += 20;
+
+      let gardenCost = 0;
+      if (garden > 0) {
+        if (garden <= 50) gardenCost = 25;
+        else if (garden <= 150) gardenCost = 45;
+        else if (garden <= 300) gardenCost = 75;
+        else gardenCost = 115;
+      }
+
+      let poolCost = fields.hasPool.checked ? 85 : 0;
+      if (fields.hasPool.checked && type === 'villa') poolCost += 15;
+
+      let arrivalCost = fields.arrivalPrep.checked ? 35 : 0;
+      let cleaningCost = 0;
+      if (fields.cleaning.checked) {
+        if (interior <= 60) cleaningCost = 60;
+        else if (interior <= 100) cleaningCost = 80;
+        else if (interior <= 150) cleaningCost = 110;
+        else cleaningCost = 145;
+      }
+
+      let checkinCost = fields.checkin.checked ? 20 : 0;
+
+      const monthly = base + extraVisits + sizeAdjustment + gardenCost + poolCost;
+      const arrivalRelated = arrivalCost + cleaningCost + checkinCost;
+
+      const rows = [
+        ['Grundbetreuung', base],
+        ['Mehrbesuche', extraVisits],
+        ['Aufschlag Objektgröße', sizeAdjustment],
+        ['Garten / Außenfläche', gardenCost],
+        ['Poolservice', poolCost],
+        ['Vorbereitung vor Ankunft', arrivalCost],
+        ['Reinigung pro Einsatz', cleaningCost],
+        ['Check-in / Übergabe', checkinCost]
+      ].filter(([, value]) => value > 0);
+
+      lineItems.innerHTML = rows.map(([label, value]) => `
+        <div class="line-item">
+          <span>${label}</span>
+          <strong>${euro(value)}</strong>
+        </div>
+      `).join('');
+
+      resultTotal.textContent = `${euro(monthly)} / Monat`;
+      resultSubline.textContent = arrivalRelated > 0
+        ? `Zusätzliche einmalige oder einsatzbezogene Leistungen: ${euro(arrivalRelated)} pro Einsatz / Ankunft.`
+        : 'Keine einsatzbezogenen Zusatzleistungen ausgewählt.';
+    }
+
+    Object.values(fields).forEach(el => {
+      el.addEventListener('input', calculate);
+      el.addEventListener('change', calculate);
+    });
+
+    calculate();
   </script>
 </body>
 </html>
