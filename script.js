@@ -109,8 +109,12 @@ const translations = {
     extraKeysSub: "Übergabe, Empfang oder Schlüssellogistik",
     extraVentilation: "Lüften / Kurzcheck",
     extraVentilationSub: "Kurzer Zwischenbesuch ohne Vollservice",
-    extraSupplies: "Grundbedarf auffüllen",
-    extraSuppliesSub: "Kleine Verbrauchsmaterialien oder Vorbereitung",
+    extraWelcomeBasic: "Welcome-Paket Basis",
+    extraWelcomeBasicSub: "Servicepauschale zzgl. Warenkosten nach Beleg",
+    extraWelcomeComfort: "Welcome-Paket Komfort",
+    extraWelcomeComfortSub: "Erweiterte Vorbereitung inkl. Servicepauschale, Waren extra",
+    extraShopping: "Einkaufsservice nach Liste",
+    extraShoppingSub: "Servicepauschale zzgl. Warenkosten nach Beleg",
     extraEmergency: "Notfall-Erreichbarkeit & Soforteinsatz",
     extraEmergencySub: "Priorisierte Reaktion bei Sturm, Schäden oder akuten Situationen",
 
@@ -126,7 +130,9 @@ const translations = {
     summaryReport: "Foto- und Statusbericht",
     summaryKeys: "Schlüsselservice",
     summaryVentilation: "Lüften / Kurzcheck",
-    summarySupplies: "Grundbedarf auffüllen",
+    summaryWelcomeBasic: "Welcome-Paket Basis",
+    summaryWelcomeComfort: "Welcome-Paket Komfort",
+    summaryShopping: "Einkaufsservice",
     summaryEmergency: "Notfall-Erreichbarkeit",
 
     contactTitle: "Direkt anfragen",
@@ -274,8 +280,12 @@ const translations = {
     extraKeysSub: "Handover, reception or key logistics",
     extraVentilation: "Airing / quick check",
     extraVentilationSub: "Short intermediate visit without full service",
-    extraSupplies: "Refill basic supplies",
-    extraSuppliesSub: "Small consumables or arrival prep",
+    extraWelcomeBasic: "Welcome package basic",
+    extraWelcomeBasicSub: "Service fee plus goods charged by receipt",
+    extraWelcomeComfort: "Welcome package comfort",
+    extraWelcomeComfortSub: "Extended arrival prep incl. service fee, goods extra",
+    extraShopping: "Shopping service by list",
+    extraShoppingSub: "Service fee plus goods charged by receipt",
     extraEmergency: "Emergency availability & urgent call-out",
     extraEmergencySub: "Prioritized response in storms, damage or acute situations",
 
@@ -291,7 +301,9 @@ const translations = {
     summaryReport: "Photo and status report",
     summaryKeys: "Key service",
     summaryVentilation: "Airing / quick check",
-    summarySupplies: "Refill basic supplies",
+    summaryWelcomeBasic: "Welcome package basic",
+    summaryWelcomeComfort: "Welcome package comfort",
+    summaryShopping: "Shopping service",
     summaryEmergency: "Emergency availability",
 
     contactTitle: "Request directly",
@@ -439,8 +451,12 @@ const translations = {
     extraKeysSub: "Entrega, recepción o logística de llaves",
     extraVentilation: "Ventilación / revisión rápida",
     extraVentilationSub: "Visita breve sin servicio completo",
-    extraSupplies: "Reponer básicos",
-    extraSuppliesSub: "Pequeños consumibles o preparación de llegada",
+    extraWelcomeBasic: "Paquete de bienvenida básico",
+    extraWelcomeBasicSub: "Tarifa de servicio más compra según ticket",
+    extraWelcomeComfort: "Paquete de bienvenida confort",
+    extraWelcomeComfortSub: "Preparación ampliada con tarifa de servicio, compra aparte",
+    extraShopping: "Servicio de compra según lista",
+    extraShoppingSub: "Tarifa de servicio más compra según ticket",
     extraEmergency: "Disponibilidad de emergencia e intervención urgente",
     extraEmergencySub: "Reacción prioritaria ante tormentas, daños o situaciones agudas",
 
@@ -456,7 +472,9 @@ const translations = {
     summaryReport: "Informe con fotos y estado",
     summaryKeys: "Servicio de llaves",
     summaryVentilation: "Ventilación / revisión rápida",
-    summarySupplies: "Reponer básicos",
+    summaryWelcomeBasic: "Paquete de bienvenida básico",
+    summaryWelcomeComfort: "Paquete de bienvenida confort",
+    summaryShopping: "Servicio de compra",
     summaryEmergency: "Disponibilidad de emergencia",
 
     contactTitle: "Solicitar directamente",
@@ -513,7 +531,9 @@ const formEls = {
   checkReport: document.getElementById("checkReport"),
   checkKeys: document.getElementById("checkKeys"),
   checkVentilation: document.getElementById("checkVentilation"),
-  checkSupplies: document.getElementById("checkSupplies"),
+  checkWelcomeBasic: document.getElementById("checkWelcomeBasic"),
+  checkWelcomeComfort: document.getElementById("checkWelcomeComfort"),
+  checkShopping: document.getElementById("checkShopping"),
   checkEmergency: document.getElementById("checkEmergency"),
   contactName: document.getElementById("contactName"),
   contactEmail: document.getElementById("contactEmail"),
@@ -594,7 +614,9 @@ function selectedServices() {
   if (formEls.checkReport.checked) items.push(t("summaryReport"));
   if (formEls.checkKeys.checked) items.push(t("summaryKeys"));
   if (formEls.checkVentilation.checked) items.push(t("summaryVentilation"));
-  if (formEls.checkSupplies.checked) items.push(t("summarySupplies"));
+  if (formEls.checkWelcomeBasic.checked) items.push(t("summaryWelcomeBasic"));
+  if (formEls.checkWelcomeComfort.checked) items.push(t("summaryWelcomeComfort"));
+  if (formEls.checkShopping.checked) items.push(t("summaryShopping"));
   if (formEls.checkEmergency.checked) items.push(t("summaryEmergency"));
   return items;
 }
@@ -633,11 +655,22 @@ function calculatePricing() {
   if (formEls.checkVentilation.checked) {
     lines.push([t("summaryVentilation"), Math.ceil((12 + livingSize * 0.03) * frequencyFactor)]);
   }
-  if (formEls.checkSupplies.checked) {
-    lines.push([t("summarySupplies"), Math.ceil(10 * (serviceFrequency === "weekly" ? 1.3 : 1))]);
+
+  // Welcome-Pakete: Servicepauschale, Waren extra
+  if (formEls.checkWelcomeBasic.checked) {
+    lines.push([t("summaryWelcomeBasic"), 25]);
   }
+  if (formEls.checkWelcomeComfort.checked) {
+    lines.push([t("summaryWelcomeComfort"), 45]);
+  }
+  if (formEls.checkShopping.checked) {
+    lines.push([t("summaryShopping"), 35]);
+  }
+
+  // Notfall-Erreichbarkeit: jetzt mit sauberem Preis
   if (formEls.checkEmergency.checked) {
-    lines.push([t("summaryEmergency"), Math.ceil(15 * (serviceFrequency === "weekly" ? 1.4 : 1))]);
+    const emergencyPrice = serviceFrequency === "weekly" ? 25 : serviceFrequency === "monthly" ? 20 : 18;
+    lines.push([t("summaryEmergency"), emergencyPrice]);
   }
 
   const total = Math.ceil(lines.reduce((sum, [, price]) => sum + price, 0));
