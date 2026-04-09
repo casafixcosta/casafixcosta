@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CasaFix Costa</title>
+  <title>CasaFix Costa | Property Care & Hausbetreuung Costa Blanca</title>
   <meta
     name="description"
-    content="CasaFix Costa – Premium Property Care, Hausüberwachung, Bauüberwachung und kleinere Instandhaltung im Raum Alicante / Costa Blanca. Start vor Ort ab Dezember 2027, Anfragen vorab willkommen."
+    content="CasaFix Costa – Ihre Vertrauensperson vor Ort für Immobilienbetreuung, Objektkontrolle, Unwetter-Checks, Bauüberwachung und kleinere praktische Arbeiten an der Costa Blanca. Aufbauphase, geplanter Start vor Ort ab Dezember 2027."
   />
   <style>
     :root {
@@ -15,10 +15,14 @@
       --text: #22313a;
       --muted: #5e6b73;
       --primary: #0f4c5c;
+      --primary-dark: #0b3945;
       --accent: #d97b4d;
+      --accent-soft: rgba(217, 123, 77, 0.12);
       --line: rgba(15, 76, 92, 0.1);
-      --overlay: rgba(13, 31, 38, 0.50);
-      --shadow: 0 14px 40px rgba(0, 0, 0, 0.12);
+      --line-strong: rgba(15, 76, 92, 0.18);
+      --overlay: rgba(11, 25, 31, 0.56);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.08);
       --radius: 22px;
       --max: 1160px;
     }
@@ -31,7 +35,7 @@
       font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     a {
@@ -52,7 +56,7 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 100;
       background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
@@ -83,6 +87,10 @@
       flex-wrap: wrap;
       color: var(--muted);
       font-size: 0.95rem;
+    }
+
+    .nav a {
+      transition: color 0.2s ease;
     }
 
     .nav a:hover { color: var(--primary); }
@@ -135,7 +143,7 @@
 
     .hero {
       position: relative;
-      min-height: 88vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       color: var(--white);
@@ -163,14 +171,14 @@
     .hero-content {
       position: relative;
       z-index: 1;
-      width: min(900px, 100%);
-      padding: 80px 0;
+      width: min(920px, 100%);
+      padding: 88px 0 78px;
     }
 
     .eyebrow {
       display: inline-block;
-      background: rgba(255,255,255,0.15);
-      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
       color: #fff;
       padding: 9px 14px;
       border-radius: 999px;
@@ -180,28 +188,29 @@
     }
 
     h1 {
-      font-size: clamp(2.4rem, 5vw, 4.8rem);
-      line-height: 1.03;
-      margin: 0 0 14px;
+      font-size: clamp(2.4rem, 5vw, 5rem);
+      line-height: 1.02;
+      margin: 0 0 16px;
       letter-spacing: -0.03em;
     }
 
     .lead {
       font-size: 1.14rem;
-      max-width: 64ch;
-      color: rgba(255,255,255,0.94);
+      max-width: 68ch;
+      color: rgba(255,255,255,0.95);
       margin: 0 0 18px;
     }
 
     .launch-note {
       display: inline-block;
       background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.22);
       padding: 14px 16px;
       border-radius: 16px;
       margin: 8px 0 24px;
       font-size: 1rem;
       color: rgba(255,255,255,0.98);
+      max-width: 780px;
     }
 
     .cta-row {
@@ -223,6 +232,7 @@
       transition: 0.2s ease;
       cursor: pointer;
       border: none;
+      text-align: center;
     }
 
     .button {
@@ -234,7 +244,7 @@
     .button-outline {
       background: transparent;
       color: var(--white);
-      border: 1px solid rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.68);
     }
 
     .button:hover,
@@ -246,7 +256,7 @@
       background: #25D366;
       color: #111111;
       border: 2px solid #111111;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.14);
       gap: 10px;
     }
 
@@ -274,31 +284,24 @@
       margin: 10px 0 8px;
     }
 
-    .risk-note {
-      color: rgba(255,255,255,0.88);
-      font-size: 0.95rem;
-      max-width: 60ch;
-      margin-top: 12px;
-    }
-
     .hero-points {
       display: flex;
       flex-wrap: wrap;
       gap: 18px;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.93);
       font-size: 0.95rem;
       margin-top: 16px;
     }
 
-    section { padding: 72px 0; }
+    section { padding: 76px 0; }
 
     .section-head {
-      max-width: 820px;
-      margin-bottom: 24px;
+      max-width: 850px;
+      margin-bottom: 26px;
     }
 
     .section-head h2 {
-      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-size: clamp(1.9rem, 3vw, 2.9rem);
       margin: 0 0 10px;
       color: var(--primary);
       letter-spacing: -0.02em;
@@ -310,38 +313,44 @@
       font-size: 1.05rem;
     }
 
+    .grid-2,
+    .grid-3,
     .grid-4,
     .steps,
     .contact-wrap,
-    .photo-grid {
+    .photo-grid,
+    .package-grid {
       display: grid;
       gap: 18px;
     }
 
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .grid-4 { grid-template-columns: repeat(4, 1fr); }
     .steps { grid-template-columns: repeat(4, 1fr); }
     .contact-wrap { grid-template-columns: 1.1fr 0.9fr; }
     .photo-grid { grid-template-columns: repeat(3, 1fr); }
+    .package-grid { grid-template-columns: repeat(3, 1fr); }
 
     .card {
       background: var(--white);
       border-radius: var(--radius);
       padding: 24px;
       border: 1px solid var(--line);
-      box-shadow: 0 8px 26px rgba(0,0,0,0.06);
+      box-shadow: var(--shadow-soft);
     }
 
     .card h3 {
       margin-top: 0;
       margin-bottom: 10px;
       color: var(--primary);
-      font-size: 1.15rem;
+      font-size: 1.16rem;
     }
 
     .card p,
     .card li,
     .contact-list div,
-    .usp-text {
+    .muted {
       color: var(--muted);
     }
 
@@ -354,7 +363,7 @@
       justify-content: center;
       background: rgba(15,76,92,0.08);
       color: var(--primary);
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 800;
       margin-bottom: 12px;
     }
@@ -379,12 +388,78 @@
       border-bottom: 1px solid var(--line);
     }
 
-    .gallery-item img {
+    .package-card {
+      position: relative;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 26px;
+      border: 1px solid var(--line-strong);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .package-card.featured {
+      border: 1px solid rgba(217, 123, 77, 0.35);
+      box-shadow: 0 14px 34px rgba(217, 123, 77, 0.14);
+    }
+
+    .package-badge {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .package-title {
+      margin: 0 0 8px;
+      font-size: 1.4rem;
+      color: var(--primary);
+    }
+
+    .package-price {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text);
+    }
+
+    .package-note {
+      margin-top: 12px;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .subtle-note {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #f7f3ed;
+      border: 1px solid rgba(15, 76, 92, 0.08);
+      color: var(--muted);
+    }
+
+    .gallery-item {
+      background: var(--white);
       border-radius: 20px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .gallery-item img {
       width: 100%;
       aspect-ratio: 4 / 3;
       object-fit: cover;
+    }
+
+    .gallery-caption {
+      padding: 14px 16px 16px;
+      color: var(--muted);
+      font-size: 0.96rem;
     }
 
     .contact-list {
@@ -393,7 +468,7 @@
       margin-bottom: 18px;
     }
 
-    .contact-box a.email-link {
+    .email-link {
       color: var(--primary);
       font-weight: 700;
       word-break: break-word;
@@ -424,21 +499,54 @@
     [data-lang-block].active { display: block; }
     [data-lang] { display: none; }
 
-    @media (max-width: 980px) {
-      .grid-4, .photo-grid { grid-template-columns: 1fr 1fr; }
-      .steps { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 1040px) {
+      .grid-4,
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .grid-3,
+      .package-grid,
+      .photo-grid { grid-template-columns: 1fr 1fr; }
       .contact-wrap { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 680px) {
-      .topbar-inner { flex-direction: column; align-items: flex-start; }
-      .hero { min-height: auto; }
-      .hero-content { padding: 58px 0; }
-      .grid-4, .steps, .photo-grid { grid-template-columns: 1fr; }
-      .cta-row { flex-direction: column; }
-      .button, .button-outline { width: 100%; }
-      section { padding: 56px 0; }
-      .nav { gap: 10px; }
+    @media (max-width: 700px) {
+      .topbar-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-content {
+        padding: 60px 0;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .steps,
+      .package-grid,
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-row {
+        flex-direction: column;
+      }
+
+      .button,
+      .button-outline {
+        width: 100%;
+      }
+
+      section {
+        padding: 58px 0;
+      }
+
+      .nav {
+        gap: 10px;
+      }
     }
   </style>
 </head>
@@ -449,9 +557,9 @@
 
       <nav class="nav">
         <a href="#leistungen">Leistungen</a>
-        <a href="#usp">USP</a>
+        <a href="#modell">Pakete</a>
+        <a href="#vertrauen">Vertrauen</a>
         <a href="#ablauf">Ablauf</a>
-        <a href="#fotos">Fotos</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
@@ -468,126 +576,172 @@
       <div class="container hero-content">
         <div data-lang-block="de" class="active">
           <div class="eyebrow">Deutsch · Englisch · Spanisch</div>
-          <h1>Ihr Auge vor Ort im Raum Alicante</h1>
+          <h1>Ihre Vertrauensperson vor Ort für Ihre Immobilie an der Costa Blanca</h1>
           <p class="lead">
-            Premium Property Care für internationale und lokale Eigentümer, die ihre Immobilie an der Costa Blanca zuverlässig überwacht, betreut und vor Ort vertreten wissen wollen. Ich kontrolliere, koordiniere, dokumentiere und übernehme zusätzlich kleinere praktische Arbeiten selbst.
+            CasaFix Costa richtet sich an Eigentümer, die nicht dauerhaft vor Ort sind und für ihr Haus, ihre Wohnung oder Ferienimmobilie einen verlässlichen Ansprechpartner brauchen. Ich kontrolliere regelmäßig, dokumentiere sichtbar, melde Auffälligkeiten direkt und koordiniere bei Bedarf die nächsten Schritte.
           </p>
           <div class="launch-note">
-            <strong>Start vor Ort: Dezember 2027</strong><br>
-            Bereits jetzt beantworte ich Anfragen und plane zukünftige Betreuung – viele Eigentümer sichern sich frühzeitig einen festen Ansprechpartner vor Ort.
+            <strong>Aktuell in Aufbauphase · geplanter Tätigkeitsstart vor Ort: Dezember 2027</strong><br>
+            Bereits jetzt beantworte ich Anfragen, bespreche passende Betreuungsmodelle und plane zukünftige Objektbetreuung im Raum Alicante / Costa Blanca.
           </div>
           <div class="cta-row">
             <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
               <span class="wa-icon">✆</span>
-              Jetzt Anfrage per WhatsApp senden
+              Betreuung per WhatsApp anfragen
             </a>
-            <a class="button-outline" href="#kontakt">Kontakt aufnehmen</a>
+            <a class="button-outline" href="#modell">Betreuungsmodelle ansehen</a>
           </div>
           <p class="cta-help">Antwort meist innerhalb weniger Stunden. Erste Einschätzung kostenlos.</p>
-          <p class="risk-note">
-            Gerade leerstehende Immobilien sind besonders anfällig für Schäden, Einbruch oder unbemerkte Probleme – regelmäßige Kontrolle vor Ort reduziert dieses Risiko erheblich.
-          </p>
           <div class="hero-points">
-            <span>✓ Hausüberwachung</span>
-            <span>✓ Bauüberwachung</span>
-            <span>✓ Kleinere Arbeiten & Instandhaltung</span>
+            <span>✓ Regelmäßige Objektkontrollen</span>
+            <span>✓ Fotodokumentation</span>
+            <span>✓ Direkte Rückmeldung im Problemfall</span>
+            <span>✓ Persönlicher Ansprechpartner vor Ort</span>
           </div>
         </div>
 
         <div data-lang-block="en">
           <div class="eyebrow">German · English · Spanish</div>
-          <h1>Your eyes on site in the Alicante area</h1>
+          <h1>Your trusted local contact for your property on the Costa Blanca</h1>
           <p class="lead">
-            Premium property care for international and local owners who want their property on the Costa Blanca to be reliably monitored, cared for and represented locally. I inspect, coordinate, document and also handle smaller practical tasks myself.
+            CasaFix Costa is designed for owners who are not permanently on site and need a reliable person to look after their house, apartment or holiday property. I carry out regular checks, provide visible documentation, report issues directly and coordinate the next steps when needed.
           </p>
           <div class="launch-note">
-            <strong>On-site start: December 2027</strong><br>
-            I already answer inquiries and plan future property care – many owners prefer to secure a reliable local contact early.
+            <strong>Currently in development · planned on-site start: December 2027</strong><br>
+            Inquiries are already welcome. I discuss suitable care models and plan future property support in the Alicante / Costa Blanca area.
           </div>
           <div class="cta-row">
             <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
               <span class="wa-icon">✆</span>
-              Send WhatsApp inquiry now
+              Request care via WhatsApp
             </a>
-            <a class="button-outline" href="#kontakt">Get in touch</a>
+            <a class="button-outline" href="#modell">View care packages</a>
           </div>
           <p class="cta-help">Reply usually within a few hours. Initial assessment free of charge.</p>
-          <p class="risk-note">
-            Vacant properties are especially vulnerable to damage, break-ins or unnoticed problems – regular local inspections reduce this risk significantly.
-          </p>
           <div class="hero-points">
-            <span>✓ Property monitoring</span>
-            <span>✓ Renovation supervision</span>
-            <span>✓ Small jobs & upkeep</span>
+            <span>✓ Regular property checks</span>
+            <span>✓ Photo documentation</span>
+            <span>✓ Direct reporting if something is wrong</span>
+            <span>✓ One trusted local contact</span>
           </div>
         </div>
 
         <div data-lang-block="es">
           <div class="eyebrow">Alemán · Inglés · Español</div>
-          <h1>Sus ojos sobre el terreno en la zona de Alicante</h1>
+          <h1>Su persona de confianza sobre el terreno para su propiedad en la Costa Blanca</h1>
           <p class="lead">
-            Servicio premium de cuidado de propiedades para propietarios internacionales y locales que quieren su inmueble en la Costa Blanca controlado, cuidado y representado localmente. Inspecciono, coordino, documento y también realizo pequeños trabajos prácticos personalmente.
+            CasaFix Costa está pensado para propietarios que no se encuentran de forma permanente en la zona y necesitan una persona fiable para supervisar su casa, apartamento o vivienda vacacional. Realizo controles periódicos, documento de forma clara, informo directamente de cualquier incidencia y coordino los siguientes pasos cuando sea necesario.
           </p>
           <div class="launch-note">
-            <strong>Inicio en la zona: diciembre 2027</strong><br>
-            Ya respondo consultas y planifico futuros servicios de supervisión; muchos propietarios prefieren asegurar cuanto antes una persona de confianza sobre el terreno.
+            <strong>Actualmente en fase de desarrollo · inicio previsto sobre el terreno: diciembre 2027</strong><br>
+            Ya se pueden realizar consultas. Analizo modelos de supervisión adecuados y planifico futuras atenciones de inmuebles en la zona de Alicante / Costa Blanca.
           </div>
           <div class="cta-row">
             <a class="button whatsapp-btn" href="https://wa.me/4915253692878">
               <span class="wa-icon">✆</span>
-              Enviar consulta por WhatsApp
+              Solicitar supervisión por WhatsApp
             </a>
-            <a class="button-outline" href="#kontakt">Contactar</a>
+            <a class="button-outline" href="#modell">Ver paquetes de servicio</a>
           </div>
           <p class="cta-help">Respuesta normalmente en pocas horas. Primera valoración gratuita.</p>
-          <p class="risk-note">
-            Las propiedades vacías son especialmente vulnerables a daños, robos o problemas no detectados; un control regular sobre el terreno reduce este riesgo de forma notable.
-          </p>
           <div class="hero-points">
-            <span>✓ Supervisión del inmueble</span>
-            <span>✓ Supervisión de reformas</span>
-            <span>✓ Pequeños trabajos y mantenimiento</span>
+            <span>✓ Controles periódicos del inmueble</span>
+            <span>✓ Documentación fotográfica</span>
+            <span>✓ Aviso directo ante incidencias</span>
+            <span>✓ Una persona de confianza local</span>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="usp">
+    <section id="probleme">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>Alleinstellungsmerkmal</h2>
-          <p class="usp-text">
-            Ich bin nicht einfach nur ein Handwerker und nicht einfach nur eine Hausverwaltung. Ich bin der persönliche Ansprechpartner vor Ort, der als Vertrauensperson für den Eigentümer regelmäßig präsent ist, Risiken früh erkennt und den Wert der Immobilie durch Kontrolle, Dokumentation und pragmatische Lösungen schützt.
+          <h2>Wenn Sie nicht vor Ort sind, entstehen Risiken oft unbemerkt</h2>
+          <p>
+            Leerstehende oder nur zeitweise genutzte Immobilien brauchen sichtbare Präsenz und regelmäßige Kontrolle. Genau dort entstehen die Probleme, wenn niemand verlässlich hinsieht.
           </p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>Unique value proposition</h2>
-          <p class="usp-text">
-            I am not just a handyman and not just property administration. I am the personal local contact who acts as a trusted representative for the owner, is regularly present on site, identifies risks early and protects the value of the property through inspection, documentation and practical solutions.
+          <h2>When you are not on site, risks often go unnoticed</h2>
+          <p>
+            Vacant or only occasionally used properties need visible presence and regular checks. This is exactly where problems arise when nobody is looking after them reliably.
           </p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Propuesta de valor</h2>
-          <p class="usp-text">
-            No soy solo un manitas ni solo una administración de fincas. Soy la persona de contacto local de confianza para el propietario, con presencia regular sobre el terreno, detección temprana de riesgos y protección del valor del inmueble mediante control, documentación y soluciones prácticas.
+          <h2>Cuando usted no está presente, muchos riesgos pasan desapercibidos</h2>
+          <p>
+            Las propiedades vacías o usadas solo en determinadas épocas necesitan presencia visible y controles periódicos. Ahí es donde aparecen los problemas cuando nadie supervisa con fiabilidad.
           </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="icon">1</div>
+            <h3 data-lang="de" data-display="block">Unentdeckte Schäden</h3>
+            <h3 data-lang="en" data-display="block">Undetected damage</h3>
+            <h3 data-lang="es" data-display="block">Daños no detectados</h3>
+
+            <p data-lang="de" data-display="block">Wasser, Sturm, Feuchtigkeit oder technische Probleme werden oft erst spät bemerkt – dann wird es meist teurer.</p>
+            <p data-lang="en" data-display="block">Water, storms, moisture or technical issues are often noticed too late – and then usually become more expensive.</p>
+            <p data-lang="es" data-display="block">Agua, tormentas, humedad o problemas técnicos suelen detectarse demasiado tarde y entonces casi siempre resultan más costosos.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">2</div>
+            <h3 data-lang="de" data-display="block">Fehlende Kontrolle aus der Distanz</h3>
+            <h3 data-lang="en" data-display="block">Lack of control from afar</h3>
+            <h3 data-lang="es" data-display="block">Falta de control a distancia</h3>
+
+            <p data-lang="de" data-display="block">Eigentümer brauchen Klarheit, ob am Objekt alles in Ordnung ist – nicht nur Vermutungen oder verspätete Informationen.</p>
+            <p data-lang="en" data-display="block">Owners need clarity about whether everything is fine at the property – not assumptions or delayed information.</p>
+            <p data-lang="es" data-display="block">Los propietarios necesitan claridad sobre el estado del inmueble, no suposiciones ni información tardía.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">3</div>
+            <h3 data-lang="de" data-display="block">Stress mit Dienstleistern</h3>
+            <h3 data-lang="en" data-display="block">Stress with service providers</h3>
+            <h3 data-lang="es" data-display="block">Estrés con proveedores</h3>
+
+            <p data-lang="de" data-display="block">Wenn Eigentümer nicht vor Ort sind, wird jede Reparatur, Abstimmung oder Rückfrage unnötig kompliziert.</p>
+            <p data-lang="en" data-display="block">If owners are not on site, every repair, coordination step or follow-up becomes unnecessarily complicated.</p>
+            <p data-lang="es" data-display="block">Cuando los propietarios no están presentes, cualquier reparación, coordinación o consulta se vuelve innecesariamente complicada.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">4</div>
+            <h3 data-lang="de" data-display="block">Unsicherheit bei leerstehenden Immobilien</h3>
+            <h3 data-lang="en" data-display="block">Uncertainty with vacant properties</h3>
+            <h3 data-lang="es" data-display="block">Incertidumbre en inmuebles vacíos</h3>
+
+            <p data-lang="de" data-display="block">Gerade bei längerer Abwesenheit steigt das Risiko von Einbruch, unbemerkten Problemen oder unerwünschter Nutzung.</p>
+            <p data-lang="en" data-display="block">Especially during longer absences, the risk of break-ins, unnoticed issues or unwanted use increases.</p>
+            <p data-lang="es" data-display="block">Especialmente durante ausencias largas, aumenta el riesgo de robos, incidencias no detectadas o usos no deseados.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="leistungen">
+    <section id="leistungen" class="band">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>Kernleistungen</h2>
-          <p>Die Hauptleistung ist Betreuung und Überwachung. Kleinere Arbeiten & Instandhaltung ergänzen den Service. Keine Großbaustellen.</p>
+          <h2>Was CasaFix Costa für Sie übernimmt</h2>
+          <p>
+            Der Schwerpunkt liegt auf Kontrolle, Dokumentation, Reaktion und Koordination. Praktische Arbeiten ergänzen den Service, sind aber nicht der Kern des Modells.
+          </p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>Core services</h2>
-          <p>The main service is care and supervision. Smaller jobs and upkeep are an addition, not the main focus. No large construction projects.</p>
+          <h2>What CasaFix Costa takes care of for you</h2>
+          <p>
+            The focus is on control, documentation, response and coordination. Practical work complements the service, but it is not the core of the model.
+          </p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Servicios principales</h2>
-          <p>El servicio principal es el cuidado y la supervisión. Los pequeños trabajos y el mantenimiento son un complemento, no el enfoque principal. No grandes obras.</p>
+          <h2>Qué asume CasaFix Costa por usted</h2>
+          <p>
+            El enfoque está en el control, la documentación, la reacción y la coordinación. Los trabajos prácticos complementan el servicio, pero no son el núcleo del modelo.
+          </p>
         </div>
 
         <div class="grid-4">
@@ -596,38 +750,40 @@
             <h3 data-lang="de" data-display="block">Gebäudeüberwachung</h3>
             <h3 data-lang="en" data-display="block">Property monitoring</h3>
             <h3 data-lang="es" data-display="block">Supervisión del inmueble</h3>
+
             <ul class="clean">
-              <li data-lang="de" data-display="list-item">Regelmäßige Kontrollgänge</li>
-              <li data-lang="de" data-display="list-item">Briefkasten, Sichtkontrolle und Präsenz</li>
-              <li data-lang="de" data-display="list-item">Früherkennung von Risiken und Schäden</li>
+              <li data-lang="de" data-display="list-item">Regelmäßige Objektkontrollen</li>
+              <li data-lang="de" data-display="list-item">Präsenz, Sichtprüfung und Basis-Check</li>
+              <li data-lang="de" data-display="list-item">Früherkennung von Auffälligkeiten</li>
 
-              <li data-lang="en" data-display="list-item">Regular inspection visits</li>
-              <li data-lang="en" data-display="list-item">Mailbox, visual checks and visible presence</li>
-              <li data-lang="en" data-display="list-item">Early detection of risks and damage</li>
+              <li data-lang="en" data-display="list-item">Regular property inspections</li>
+              <li data-lang="en" data-display="list-item">Visible presence, visual review and base check</li>
+              <li data-lang="en" data-display="list-item">Early detection of irregularities</li>
 
-              <li data-lang="es" data-display="list-item">Visitas periódicas de control</li>
-              <li data-lang="es" data-display="list-item">Buzón, revisión visual y presencia</li>
-              <li data-lang="es" data-display="list-item">Detección temprana de riesgos y daños</li>
+              <li data-lang="es" data-display="list-item">Controles periódicos del inmueble</li>
+              <li data-lang="es" data-display="list-item">Presencia, revisión visual y control básico</li>
+              <li data-lang="es" data-display="list-item">Detección temprana de incidencias</li>
             </ul>
           </div>
 
           <div class="card">
             <div class="icon">2</div>
             <h3 data-lang="de" data-display="block">Unwetter-Check</h3>
-            <h3 data-lang="en" data-display="block">Storm damage check</h3>
+            <h3 data-lang="en" data-display="block">Storm and weather check</h3>
             <h3 data-lang="es" data-display="block">Control tras temporales</h3>
+
             <ul class="clean">
-              <li data-lang="de" data-display="list-item">Schnelle Begehung nach Starkregen oder Sturm</li>
-              <li data-lang="de" data-display="list-item">Schadensaufnahme und Rückmeldung</li>
-              <li data-lang="de" data-display="list-item">Dokumentation für Eigentümer</li>
+              <li data-lang="de" data-display="list-item">Schnelle Kontrolle nach Starkregen oder Sturm</li>
+              <li data-lang="de" data-display="list-item">Fotodokumentation sichtbarer Schäden</li>
+              <li data-lang="de" data-display="list-item">Direkte Rückmeldung an den Eigentümer</li>
 
-              <li data-lang="en" data-display="list-item">Quick visit after heavy rain or storms</li>
-              <li data-lang="en" data-display="list-item">Damage inspection and feedback</li>
-              <li data-lang="en" data-display="list-item">Documentation for the owner</li>
+              <li data-lang="en" data-display="list-item">Fast inspection after heavy rain or storms</li>
+              <li data-lang="en" data-display="list-item">Photo documentation of visible damage</li>
+              <li data-lang="en" data-display="list-item">Direct feedback to the owner</li>
 
-              <li data-lang="es" data-display="list-item">Visita rápida tras lluvias fuertes o tormentas</li>
-              <li data-lang="es" data-display="list-item">Revisión de daños y respuesta</li>
-              <li data-lang="es" data-display="list-item">Documentación para el propietario</li>
+              <li data-lang="es" data-display="list-item">Inspección rápida tras lluvias fuertes o tormentas</li>
+              <li data-lang="es" data-display="list-item">Documentación fotográfica de daños visibles</li>
+              <li data-lang="es" data-display="list-item">Comunicación directa al propietario</li>
             </ul>
           </div>
 
@@ -636,18 +792,19 @@
             <h3 data-lang="de" data-display="block">Bauüberwachung</h3>
             <h3 data-lang="en" data-display="block">Renovation supervision</h3>
             <h3 data-lang="es" data-display="block">Supervisión de reformas</h3>
+
             <ul class="clean">
-              <li data-lang="de" data-display="list-item">Kontrolle und Dokumentation von Arbeiten vor Ort</li>
+              <li data-lang="de" data-display="list-item">Kontrolle laufender Arbeiten vor Ort</li>
+              <li data-lang="de" data-display="list-item">Dokumentation von Fortschritt und Zustand</li>
               <li data-lang="de" data-display="list-item">Ansprechpartner für Eigentümer und Gewerke</li>
-              <li data-lang="de" data-display="list-item">Klare Rückmeldung über Fortschritt und Zustand</li>
 
-              <li data-lang="en" data-display="list-item">On-site control and documentation of works</li>
+              <li data-lang="en" data-display="list-item">On-site checks of ongoing works</li>
+              <li data-lang="en" data-display="list-item">Documentation of progress and condition</li>
               <li data-lang="en" data-display="list-item">Contact point for owners and trades</li>
-              <li data-lang="en" data-display="list-item">Clear feedback on progress and condition</li>
 
-              <li data-lang="es" data-display="list-item">Control y documentación de trabajos sobre el terreno</li>
+              <li data-lang="es" data-display="list-item">Control sobre el terreno de trabajos en curso</li>
+              <li data-lang="es" data-display="list-item">Documentación del avance y del estado</li>
               <li data-lang="es" data-display="list-item">Persona de contacto para propietarios y gremios</li>
-              <li data-lang="es" data-display="list-item">Información clara sobre avance y estado</li>
             </ul>
           </div>
 
@@ -656,125 +813,351 @@
             <h3 data-lang="de" data-display="block">Kleinere Arbeiten & Instandhaltung</h3>
             <h3 data-lang="en" data-display="block">Small jobs & upkeep</h3>
             <h3 data-lang="es" data-display="block">Pequeños trabajos y mantenimiento</h3>
+
             <ul class="clean">
               <li data-lang="de" data-display="list-item">Kleinreparaturen und kleinere Montagearbeiten</li>
-              <li data-lang="de" data-display="list-item">Möbel, Garten und Objektpflege im kleinen Rahmen</li>
-              <li data-lang="de" data-display="list-item">Direkte Hilfe ohne unnötige Umwege</li>
+              <li data-lang="de" data-display="list-item">Praktische Hilfe im sinnvollen Rahmen</li>
+              <li data-lang="de" data-display="list-item">Keine Großbaustellen</li>
 
               <li data-lang="en" data-display="list-item">Small repairs and minor installation work</li>
-              <li data-lang="en" data-display="list-item">Furniture, garden and small-scale property care</li>
-              <li data-lang="en" data-display="list-item">Direct help without unnecessary delays</li>
+              <li data-lang="en" data-display="list-item">Practical support within a sensible scope</li>
+              <li data-lang="en" data-display="list-item">No large construction projects</li>
 
               <li data-lang="es" data-display="list-item">Pequeñas reparaciones y trabajos de montaje</li>
-              <li data-lang="es" data-display="list-item">Muebles, jardín y cuidado del inmueble a pequeña escala</li>
-              <li data-lang="es" data-display="list-item">Ayuda directa sin rodeos innecesarios</li>
+              <li data-lang="es" data-display="list-item">Ayuda práctica dentro de un marco razonable</li>
+              <li data-lang="es" data-display="list-item">No grandes obras</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="band">
+    <section id="modell">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>Warum Eigentümer mir vertrauen können</h2>
-          <p>Gerade bei Haus- und Wohnungsbetreuung zählen nicht große Worte, sondern Verlässlichkeit, Diskretion und Organisation.</p>
+          <h2>Betreuungsmodelle mit klarer Struktur</h2>
+          <p>
+            Ziel ist nicht der Verkauf einzelner Arbeitsstunden, sondern planbare Betreuung. Zusatzleistungen wie Koordination, Sonderfahrten oder Notfälle werden separat berechnet.
+          </p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>Why property owners can trust me</h2>
-          <p>When it comes to looking after homes and apartments, reliability, discretion and organisation matter more than big promises.</p>
+          <h2>Care models with a clear structure</h2>
+          <p>
+            The goal is not to sell isolated working hours, but reliable ongoing care. Add-on services such as coordination, special trips or emergency support are charged separately.
+          </p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Por qué los propietarios pueden confiar en mí</h2>
-          <p>En el cuidado de casas y apartamentos cuentan más la fiabilidad, la discreción y la organización que las grandes promesas.</p>
+          <h2>Modelos de servicio con estructura clara</h2>
+          <p>
+            El objetivo no es vender horas sueltas de trabajo, sino una supervisión planificable. Los servicios adicionales como coordinación, desplazamientos especiales o emergencias se facturan por separado.
+          </p>
         </div>
 
-        <div class="grid-4">
+        <div class="package-grid">
+          <div class="package-card">
+            <div class="package-badge" data-lang="de" data-display="inline-block">Einstieg</div>
+            <div class="package-badge" data-lang="en" data-display="inline-block">Entry</div>
+            <div class="package-badge" data-lang="es" data-display="inline-block">Entrada</div>
+
+            <h3 class="package-title">Light</h3>
+
+            <p class="package-price" data-lang="de" data-display="block">ca. 129 € / Monat</p>
+            <p class="package-price" data-lang="en" data-display="block">approx. €129 / month</p>
+            <p class="package-price" data-lang="es" data-display="block">aprox. 129 € / mes</p>
+
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">1 Kontrolle pro Monat</li>
+              <li data-lang="de" data-display="list-item">Fotodokumentation</li>
+              <li data-lang="de" data-display="list-item">Basis-Check von Objekt und Zustand</li>
+
+              <li data-lang="en" data-display="list-item">1 inspection per month</li>
+              <li data-lang="en" data-display="list-item">Photo documentation</li>
+              <li data-lang="en" data-display="list-item">Basic property and condition check</li>
+
+              <li data-lang="es" data-display="list-item">1 control al mes</li>
+              <li data-lang="es" data-display="list-item">Documentación fotográfica</li>
+              <li data-lang="es" data-display="list-item">Control básico del inmueble y su estado</li>
+            </ul>
+
+            <p class="package-note" data-lang="de" data-display="block">Geeignet für Eigentümer mit geringerem Betreuungsbedarf und planbarer Nutzung.</p>
+            <p class="package-note" data-lang="en" data-display="block">Suitable for owners with lower care needs and predictable usage.</p>
+            <p class="package-note" data-lang="es" data-display="block">Adecuado para propietarios con menor necesidad de supervisión y uso previsible.</p>
+          </div>
+
+          <div class="package-card featured">
+            <div class="package-badge" data-lang="de" data-display="inline-block">Empfohlen</div>
+            <div class="package-badge" data-lang="en" data-display="inline-block">Recommended</div>
+            <div class="package-badge" data-lang="es" data-display="inline-block">Recomendado</div>
+
+            <h3 class="package-title">Standard</h3>
+
+            <p class="package-price" data-lang="de" data-display="block">ca. 199–249 € / Monat</p>
+            <p class="package-price" data-lang="en" data-display="block">approx. €199–249 / month</p>
+            <p class="package-price" data-lang="es" data-display="block">aprox. 199–249 € / mes</p>
+
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">2 Kontrollen pro Monat</li>
+              <li data-lang="de" data-display="list-item">Fotodokumentation und priorisierte Rückmeldung</li>
+              <li data-lang="de" data-display="list-item">Einfache Koordination bei Bedarf</li>
+
+              <li data-lang="en" data-display="list-item">2 inspections per month</li>
+              <li data-lang="en" data-display="list-item">Photo documentation and prioritised feedback</li>
+              <li data-lang="en" data-display="list-item">Basic coordination when required</li>
+
+              <li data-lang="es" data-display="list-item">2 controles al mes</li>
+              <li data-lang="es" data-display="list-item">Documentación fotográfica y respuesta prioritaria</li>
+              <li data-lang="es" data-display="list-item">Coordinación básica cuando sea necesaria</li>
+            </ul>
+
+            <p class="package-note" data-lang="de" data-display="block">Für Eigentümer, die mehr Sichtbarkeit, schnellere Rückmeldung und regelmäßige Kontrolle wünschen.</p>
+            <p class="package-note" data-lang="en" data-display="block">For owners who want more visibility, faster feedback and regular supervision.</p>
+            <p class="package-note" data-lang="es" data-display="block">Para propietarios que desean más visibilidad, respuesta más rápida y supervisión regular.</p>
+          </div>
+
+          <div class="package-card">
+            <div class="package-badge" data-lang="de" data-display="inline-block">Intensiv</div>
+            <div class="package-badge" data-lang="en" data-display="inline-block">Intensive</div>
+            <div class="package-badge" data-lang="es" data-display="inline-block">Intensivo</div>
+
+            <h3 class="package-title">Premium</h3>
+
+            <p class="package-price" data-lang="de" data-display="block">ca. 349–399 € / Monat</p>
+            <p class="package-price" data-lang="en" data-display="block">approx. €349–399 / month</p>
+            <p class="package-price" data-lang="es" data-display="block">aprox. 349–399 € / mes</p>
+
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">Wöchentliche Kontrolle</li>
+              <li data-lang="de" data-display="list-item">Schnellere Reaktionszeiten</li>
+              <li data-lang="de" data-display="list-item">Intensivere Betreuung und engere Abstimmung</li>
+
+              <li data-lang="en" data-display="list-item">Weekly inspection</li>
+              <li data-lang="en" data-display="list-item">Faster response times</li>
+              <li data-lang="en" data-display="list-item">More intensive support and closer coordination</li>
+
+              <li data-lang="es" data-display="list-item">Control semanal</li>
+              <li data-lang="es" data-display="list-item">Tiempos de reacción más rápidos</li>
+              <li data-lang="es" data-display="list-item">Atención más intensa y coordinación más estrecha</li>
+            </ul>
+
+            <p class="package-note" data-lang="de" data-display="block">Für anspruchsvollere Objekte oder Eigentümer, die möglichst viel Kontrolle und Präsenz vor Ort wünschen.</p>
+            <p class="package-note" data-lang="en" data-display="block">For more demanding properties or owners who want maximum control and visible presence on site.</p>
+            <p class="package-note" data-lang="es" data-display="block">Para inmuebles más exigentes o propietarios que desean el máximo control y presencia visible sobre el terreno.</p>
+          </div>
+        </div>
+
+        <div class="subtle-note">
+          <p data-lang="de" data-display="block">
+            <strong>Wichtig:</strong> Zusatzleistungen wie Handwerkerkoordination, Notfall-Einsätze, Sonderfahrten, Gartenpflege oder Vorbereitungen vor Ankunft sind bewusst nicht pauschal im Abo enthalten und werden separat berechnet.
+          </p>
+          <p data-lang="en" data-display="block">
+            <strong>Important:</strong> Add-on services such as contractor coordination, emergency visits, special trips, garden care or pre-arrival preparation are deliberately not included as flat-rate elements in the subscription and are billed separately.
+          </p>
+          <p data-lang="es" data-display="block">
+            <strong>Importante:</strong> Los servicios adicionales como coordinación de profesionales, intervenciones de emergencia, desplazamientos especiales, cuidado del jardín o preparativos antes de la llegada no están incluidos de forma global en la cuota y se facturan por separado.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="extras" class="band">
+      <div class="container">
+        <div data-lang-block="de" class="section-head active">
+          <h2>Zusatzleistungen bei Bedarf</h2>
+          <p>
+            Diese Leistungen ergänzen die laufende Betreuung. Sie sind nicht der Kern des Angebots, aber sie schaffen im Problemfall oder vor Anreise echten Mehrwert.
+          </p>
+        </div>
+        <div data-lang-block="en" class="section-head">
+          <h2>Additional services when needed</h2>
+          <p>
+            These services complement the ongoing care. They are not the core of the offer, but they create real value in urgent situations or before arrival.
+          </p>
+        </div>
+        <div data-lang-block="es" class="section-head">
+          <h2>Servicios adicionales cuando se necesiten</h2>
+          <p>
+            Estos servicios complementan la supervisión continua. No son el núcleo de la oferta, pero aportan valor real en situaciones urgentes o antes de la llegada del propietario.
+          </p>
+        </div>
+
+        <div class="grid-3">
           <div class="card">
             <div class="icon">A</div>
-            <p data-lang="de" data-display="block">Auf Baustellen groß geworden und gelernter Bau- und Möbelschreiner</p>
-            <p data-lang="en" data-display="block">Grew up around construction sites and trained as a carpenter and cabinet maker</p>
-            <p data-lang="es" data-display="block">Crecí en obras y me formé como carpintero de obra y de muebles</p>
+            <h3 data-lang="de" data-display="block">Koordination & Organisation</h3>
+            <h3 data-lang="en" data-display="block">Coordination & organisation</h3>
+            <h3 data-lang="es" data-display="block">Coordinación y organización</h3>
+
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">Handwerkerkoordination</li>
+              <li data-lang="de" data-display="list-item">Abstimmung mit Dienstleistern</li>
+              <li data-lang="de" data-display="list-item">Rückmeldung an Eigentümer</li>
+
+              <li data-lang="en" data-display="list-item">Contractor coordination</li>
+              <li data-lang="en" data-display="list-item">Coordination with service providers</li>
+              <li data-lang="en" data-display="list-item">Feedback to owners</li>
+
+              <li data-lang="es" data-display="list-item">Coordinación de profesionales</li>
+              <li data-lang="es" data-display="list-item">Coordinación con proveedores</li>
+              <li data-lang="es" data-display="list-item">Información al propietario</li>
+            </ul>
           </div>
 
           <div class="card">
             <div class="icon">B</div>
-            <p data-lang="de" data-display="block">8 Jahre diplomatischer Dienst – geprägt von Zuverlässigkeit und Diskretion</p>
-            <p data-lang="en" data-display="block">8 years in diplomatic service – shaped by reliability and discretion</p>
-            <p data-lang="es" data-display="block">8 años en servicio diplomático – marcados por fiabilidad y discreción</p>
+            <h3 data-lang="de" data-display="block">Vorbereitung & Objektpflege</h3>
+            <h3 data-lang="en" data-display="block">Preparation & property readiness</h3>
+            <h3 data-lang="es" data-display="block">Preparación y puesta a punto</h3>
+
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">Vorbereitung vor Ankunft</li>
+              <li data-lang="de" data-display="list-item">Kleinere Objektpflege</li>
+              <li data-lang="de" data-display="list-item">Praktische Unterstützung im sinnvollen Rahmen</li>
+
+              <li data-lang="en" data-display="list-item">Pre-arrival preparation</li>
+              <li data-lang="en" data-display="list-item">Small-scale property readiness</li>
+              <li data-lang="en" data-display="list-item">Practical support within a sensible scope</li>
+
+              <li data-lang="es" data-display="list-item">Preparación antes de la llegada</li>
+              <li data-lang="es" data-display="list-item">Pequeña puesta a punto del inmueble</li>
+              <li data-lang="es" data-display="list-item">Apoyo práctico dentro de un marco razonable</li>
+            </ul>
           </div>
 
           <div class="card">
             <div class="icon">C</div>
-            <p data-lang="de" data-display="block">Geprüfter Logistikmeister (IHK) mit ausgeprägten Planungs- und Koordinationsfähigkeiten</p>
-            <p data-lang="en" data-display="block">Trained logistics manager with strong planning and coordination skills (Bachelor Professional of Logistics, CCI)</p>
-            <p data-lang="es" data-display="block">Maestro logístico certificado con sólidas capacidades de planificación y coordinación</p>
-          </div>
+            <h3 data-lang="de" data-display="block">Notfall & Sonderfälle</h3>
+            <h3 data-lang="en" data-display="block">Emergency & special cases</h3>
+            <h3 data-lang="es" data-display="block">Emergencias y casos especiales</h3>
 
-          <div class="card">
-            <div class="icon">D</div>
-            <p data-lang="de" data-display="block">Persönliche Verantwortung und direkte Betreuung statt anonymer Abwicklung</p>
-            <p data-lang="en" data-display="block">Personal responsibility and direct support instead of anonymous handling</p>
-            <p data-lang="es" data-display="block">Responsabilidad personal y atención directa en lugar de gestión anónima</p>
+            <ul class="clean">
+              <li data-lang="de" data-display="list-item">Notfall-Einsätze</li>
+              <li data-lang="de" data-display="list-item">Sonderfahrten</li>
+              <li data-lang="de" data-display="list-item">Schnelle Reaktion nach Auffälligkeiten</li>
+
+              <li data-lang="en" data-display="list-item">Emergency visits</li>
+              <li data-lang="en" data-display="list-item">Special trips</li>
+              <li data-lang="en" data-display="list-item">Fast response after incidents</li>
+
+              <li data-lang="es" data-display="list-item">Intervenciones de emergencia</li>
+              <li data-lang="es" data-display="list-item">Desplazamientos especiales</li>
+              <li data-lang="es" data-display="list-item">Respuesta rápida ante incidencias</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="ablauf">
+    <section id="vertrauen">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>So funktioniert es</h2>
-          <p>Einfacher Kontakt, klare Rückmeldung, strukturierte Umsetzung.</p>
+          <h2>Warum Eigentümer mir vertrauen können</h2>
+          <p>
+            In diesem Modell entscheidet nicht Lautstärke, sondern Verlässlichkeit. Wer eine Immobilie aus der Distanz betreut, muss präsent, strukturiert, diskret und belastbar sein.
+          </p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>How it works</h2>
-          <p>Simple contact, clear feedback and structured support.</p>
+          <h2>Why owners can trust me</h2>
+          <p>
+            In this model, credibility matters more than noise. Looking after property from a distance requires presence, structure, discretion and reliability.
+          </p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Cómo funciona</h2>
-          <p>Contacto sencillo, respuesta clara y ejecución organizada.</p>
+          <h2>Por qué los propietarios pueden confiar en mí</h2>
+          <p>
+            En este modelo importa más la credibilidad que la apariencia. Cuidar un inmueble a distancia exige presencia, estructura, discreción y fiabilidad.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <div class="icon">A</div>
+            <p data-lang="de" data-display="block">Auf Baustellen groß geworden und gelernter Bau- und Möbelschreiner – mit Blick für Zustand, Details und praktische Lösungen.</p>
+            <p data-lang="en" data-display="block">Grew up around construction sites and trained as a carpenter and cabinet maker – with an eye for condition, detail and practical solutions.</p>
+            <p data-lang="es" data-display="block">Crecí en obras y me formé como carpintero de obra y de muebles, con criterio para el estado del inmueble, los detalles y las soluciones prácticas.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">B</div>
+            <p data-lang="de" data-display="block">8 Jahre diplomatischer Dienst – geprägt von Zuverlässigkeit, Diskretion und verantwortungsbewusstem Auftreten.</p>
+            <p data-lang="en" data-display="block">8 years in diplomatic service – shaped by reliability, discretion and a strong sense of responsibility.</p>
+            <p data-lang="es" data-display="block">8 años en servicio diplomático, marcados por la fiabilidad, la discreción y un alto sentido de la responsabilidad.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">C</div>
+            <p data-lang="de" data-display="block">Geprüfter Logistikmeister (IHK) mit Planungs- und Koordinationskompetenz – wichtig, wenn mehrere Schritte organisiert werden müssen.</p>
+            <p data-lang="en" data-display="block">Certified logistics manager with planning and coordination skills – essential when several steps and parties need to be organised.</p>
+            <p data-lang="es" data-display="block">Maestro logístico certificado con capacidad de planificación y coordinación, algo clave cuando deben organizarse varios pasos y actores.</p>
+          </div>
+
+          <div class="card">
+            <div class="icon">D</div>
+            <p data-lang="de" data-display="block">Persönliche Verantwortung statt anonymer Verwaltung – ein direkter Ansprechpartner, der mitdenkt und Rückmeldung gibt.</p>
+            <p data-lang="en" data-display="block">Personal responsibility instead of anonymous administration – one direct contact who thinks ahead and gives feedback.</p>
+            <p data-lang="es" data-display="block">Responsabilidad personal en lugar de gestión anónima: una persona de contacto directa que anticipa y da respuesta.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ablauf" class="band">
+      <div class="container">
+        <div data-lang-block="de" class="section-head active">
+          <h2>So läuft die Zusammenarbeit ab</h2>
+          <p>Klare Kommunikation, einfache Abstimmung und ein strukturiertes Betreuungsmodell.</p>
+        </div>
+        <div data-lang-block="en" class="section-head">
+          <h2>How the cooperation works</h2>
+          <p>Clear communication, straightforward coordination and a structured care model.</p>
+        </div>
+        <div data-lang-block="es" class="section-head">
+          <h2>Así funciona la colaboración</h2>
+          <p>Comunicación clara, coordinación sencilla y un modelo de servicio estructurado.</p>
         </div>
 
         <div class="steps">
           <div class="card">
             <div class="icon">1</div>
             <h3 data-lang="de" data-display="block">Anfrage senden</h3>
-            <h3 data-lang="en" data-display="block">Send your request</h3>
-            <h3 data-lang="es" data-display="block">Envíe su solicitud</h3>
-            <p data-lang="de" data-display="block">Schicken Sie Ihr Anliegen einfach per WhatsApp oder E-Mail – gerne mit Foto oder kurzer Beschreibung.</p>
-            <p data-lang="en" data-display="block">Send your request via WhatsApp or email, ideally with a photo or short description.</p>
-            <p data-lang="es" data-display="block">Envíe su solicitud por WhatsApp o correo electrónico, idealmente con una foto o una breve descripción.</p>
+            <h3 data-lang="en" data-display="block">Send your inquiry</h3>
+            <h3 data-lang="es" data-display="block">Envíe su consulta</h3>
+
+            <p data-lang="de" data-display="block">Kontakt per WhatsApp oder E-Mail mit kurzer Beschreibung Ihrer Immobilie, Ihrer Situation und Ihres Betreuungsbedarfs.</p>
+            <p data-lang="en" data-display="block">Reach out by WhatsApp or email with a short description of your property, your situation and your care needs.</p>
+            <p data-lang="es" data-display="block">Contacte por WhatsApp o correo electrónico con una breve descripción de su inmueble, su situación y sus necesidades de supervisión.</p>
           </div>
 
           <div class="card">
             <div class="icon">2</div>
-            <h3 data-lang="de" data-display="block">Rückmeldung erhalten</h3>
-            <h3 data-lang="en" data-display="block">Get a response</h3>
-            <h3 data-lang="es" data-display="block">Reciba respuesta</h3>
-            <p data-lang="de" data-display="block">Sie erhalten eine Einschätzung, Rückmeldung und wenn sinnvoll bereits eine erste Planung.</p>
-            <p data-lang="en" data-display="block">You receive an assessment, feedback and, if useful, an initial plan.</p>
-            <p data-lang="es" data-display="block">Recibirá una valoración, respuesta y, si procede, una primera planificación.</p>
+            <h3 data-lang="de" data-display="block">Einschätzung erhalten</h3>
+            <h3 data-lang="en" data-display="block">Receive an assessment</h3>
+            <h3 data-lang="es" data-display="block">Reciba una valoración</h3>
+
+            <p data-lang="de" data-display="block">Sie erhalten eine erste Einschätzung, welche Form der Betreuung sinnvoll ist und welche Struktur zu Ihrem Objekt passt.</p>
+            <p data-lang="en" data-display="block">You receive an initial assessment of which type of care is suitable and which structure fits your property best.</p>
+            <p data-lang="es" data-display="block">Recibirá una primera valoración sobre qué tipo de servicio es adecuado y qué estructura encaja mejor con su inmueble.</p>
           </div>
 
           <div class="card">
             <div class="icon">3</div>
-            <h3 data-lang="de" data-display="block">Planung abstimmen</h3>
-            <h3 data-lang="en" data-display="block">Agree on the plan</h3>
-            <h3 data-lang="es" data-display="block">Definir la planificación</h3>
-            <p data-lang="de" data-display="block">Wir stimmen ab, was konkret gebraucht wird – Betreuung, Überwachung oder kleinere Arbeiten.</p>
-            <p data-lang="en" data-display="block">We agree on what is needed – care visits, supervision or smaller jobs.</p>
-            <p data-lang="es" data-display="block">Acordamos lo que se necesita: visitas, supervisión o pequeños trabajos.</p>
+            <h3 data-lang="de" data-display="block">Betreuungsmodell abstimmen</h3>
+            <h3 data-lang="en" data-display="block">Agree on the care model</h3>
+            <h3 data-lang="es" data-display="block">Definir el modelo de servicio</h3>
+
+            <p data-lang="de" data-display="block">Gemeinsam wird festgelegt, ob Light, Standard oder Premium zu Ihrer Situation passt und welche Zusatzleistungen relevant sind.</p>
+            <p data-lang="en" data-display="block">Together we define whether Light, Standard or Premium fits your situation and which add-on services may be relevant.</p>
+            <p data-lang="es" data-display="block">Definimos conjuntamente si Light, Standard o Premium se ajusta a su situación y qué servicios adicionales pueden ser relevantes.</p>
           </div>
 
           <div class="card">
             <div class="icon">4</div>
-            <h3 data-lang="de" data-display="block">Zuverlässige Umsetzung</h3>
-            <h3 data-lang="en" data-display="block">Reliable execution</h3>
-            <h3 data-lang="es" data-display="block">Ejecución fiable</h3>
-            <p data-lang="de" data-display="block">Klare Kommunikation, verlässliche Durchführung und ein Ansprechpartner, der mitdenkt.</p>
-            <p data-lang="en" data-display="block">Clear communication, reliable execution and one local contact who thinks ahead.</p>
-            <p data-lang="es" data-display="block">Comunicación clara, ejecución fiable y una persona de contacto que piensa con antelación.</p>
+            <h3 data-lang="de" data-display="block">Zuverlässige Betreuung</h3>
+            <h3 data-lang="en" data-display="block">Reliable ongoing care</h3>
+            <h3 data-lang="es" data-display="block">Supervisión fiable y continua</h3>
+
+            <p data-lang="de" data-display="block">Regelmäßige Kontrolle, Dokumentation und direkte Rückmeldung – mit einem Ansprechpartner vor Ort, der nicht erst im Problemfall sichtbar wird.</p>
+            <p data-lang="en" data-display="block">Regular checks, documentation and direct feedback – with a local contact who does not only become visible once a problem has already happened.</p>
+            <p data-lang="es" data-display="block">Controles regulares, documentación y respuesta directa, con una persona de contacto local que no aparece solo cuando el problema ya existe.</p>
           </div>
         </div>
       </div>
@@ -783,27 +1166,38 @@
     <section id="fotos">
       <div class="container">
         <div data-lang-block="de" class="section-head active">
-          <h2>Fotos & Einblicke</h2>
-          <p>Ein erster Eindruck von Betreuung, Arbeit vor Ort und sichtbaren Ergebnissen.</p>
+          <h2>Einblicke in Präsenz, Arbeit und sichtbare Ergebnisse</h2>
+          <p>Die Bilder unterstützen genau das, worum es auf dieser Website geht: Vertrauen, praktische Kompetenz und Werterhalt.</p>
         </div>
         <div data-lang-block="en" class="section-head">
-          <h2>Photos & impressions</h2>
-          <p>A first impression of local property care, practical work and visible results.</p>
+          <h2>Impressions of presence, practical work and visible results</h2>
+          <p>The images support exactly what this website is about: trust, practical competence and property preservation.</p>
         </div>
         <div data-lang-block="es" class="section-head">
-          <h2>Fotos e impresiones</h2>
-          <p>Una primera impresión del cuidado local, el trabajo práctico y los resultados visibles.</p>
+          <h2>Imágenes de presencia, trabajo práctico y resultados visibles</h2>
+          <p>Las imágenes apoyan exactamente lo que representa este sitio: confianza, capacidad práctica y conservación del valor del inmueble.</p>
         </div>
 
         <div class="photo-grid">
           <div class="gallery-item">
             <img src="hero.jpg" alt="CasaFix Costa vor einer Villa" />
+            <div class="gallery-caption" data-lang="de" data-display="block">Präsenz vor Ort und klare Positionierung als persönlicher Ansprechpartner.</div>
+            <div class="gallery-caption" data-lang="en" data-display="block">Visible local presence and clear positioning as a personal point of contact.</div>
+            <div class="gallery-caption" data-lang="es" data-display="block">Presencia visible sobre el terreno y posicionamiento claro como persona de contacto directa.</div>
           </div>
+
           <div class="gallery-item">
             <img src="work.jpg" alt="CasaFix Costa bei praktischer Arbeit" />
+            <div class="gallery-caption" data-lang="de" data-display="block">Praktische Kompetenz für kleinere Arbeiten, Kontrollen und sinnvolle Unterstützung.</div>
+            <div class="gallery-caption" data-lang="en" data-display="block">Practical capability for smaller tasks, inspections and useful on-site support.</div>
+            <div class="gallery-caption" data-lang="es" data-display="block">Capacidad práctica para pequeños trabajos, controles y apoyo útil sobre el terreno.</div>
           </div>
+
           <div class="gallery-item">
-            <img src="pool.jpg" alt="Vorher Nachher Pool Vergleich" />
+            <img src="Pool.jpg" alt="Vorher Nachher Pool Vergleich" />
+            <div class="gallery-caption" data-lang="de" data-display="block">Sichtbare Ergebnisse und Werterhalt statt bloßer Versprechen.</div>
+            <div class="gallery-caption" data-lang="en" data-display="block">Visible results and value protection instead of empty promises.</div>
+            <div class="gallery-caption" data-lang="es" data-display="block">Resultados visibles y conservación del valor en lugar de promesas vacías.</div>
           </div>
         </div>
       </div>
@@ -813,20 +1207,26 @@
       <div class="container contact-wrap">
         <div class="card">
           <div data-lang-block="de" class="section-head active">
-            <h2>Kontakt & Anfragen</h2>
-            <p>Am schnellsten erreichen Sie mich per WhatsApp. Alternativ gerne auch per E-Mail. Ich beantworte Anfragen bereits jetzt und plane zukünftige Betreuung individuell.</p>
+            <h2>Kontakt & zukünftige Betreuung anfragen</h2>
+            <p>
+              Am schnellsten erreichen Sie mich schriftlich per WhatsApp. Alternativ gern per E-Mail. Bereits jetzt bespreche ich zukünftige Betreuung, Objektkontrollen und passende Betreuungsmodelle für Ihre Immobilie an der Costa Blanca.
+            </p>
           </div>
           <div data-lang-block="en" class="section-head">
-            <h2>Contact & inquiries</h2>
-            <p>The fastest way to reach me is via WhatsApp. Email is also welcome. I already answer inquiries now and plan future property care individually.</p>
+            <h2>Contact & request future property care</h2>
+            <p>
+              The fastest way to reach me is in writing via WhatsApp. Email is also welcome. I already discuss future property care, inspections and suitable care models for your property on the Costa Blanca.
+            </p>
           </div>
           <div data-lang-block="es" class="section-head">
-            <h2>Contacto y consultas</h2>
-            <p>La forma más rápida de contactarme es por WhatsApp. También puede escribir por correo electrónico. Ya respondo consultas y planifico futuros servicios de forma individual.</p>
+            <h2>Contacto y solicitud de futura supervisión</h2>
+            <p>
+              La forma más rápida de contactarme es por escrito mediante WhatsApp. También puede escribir por correo electrónico. Ya analizo futuras supervisiones, controles del inmueble y modelos de servicio adecuados para su propiedad en la Costa Blanca.
+            </p>
           </div>
         </div>
 
-        <div class="card contact-box">
+        <div class="card">
           <h3 data-lang="de" data-display="block">Direktkontakt</h3>
           <h3 data-lang="en" data-display="block">Direct contact</h3>
           <h3 data-lang="es" data-display="block">Contacto directo</h3>
@@ -834,20 +1234,20 @@
           <div class="contact-list">
             <div data-lang="de" data-display="block">✓ Antwort meist innerhalb weniger Stunden</div>
             <div data-lang="de" data-display="block">✓ Erste Einschätzung kostenlos</div>
-            <div data-lang="de" data-display="block">✓ Frühzeitige Projektplanung möglich</div>
+            <div data-lang="de" data-display="block">✓ Frühzeitige Planung künftiger Betreuung möglich</div>
 
             <div data-lang="en" data-display="block">✓ Reply usually within a few hours</div>
             <div data-lang="en" data-display="block">✓ Initial assessment free of charge</div>
-            <div data-lang="en" data-display="block">✓ Early project planning possible</div>
+            <div data-lang="en" data-display="block">✓ Early planning for future property care possible</div>
 
             <div data-lang="es" data-display="block">✓ Respuesta normalmente en pocas horas</div>
             <div data-lang="es" data-display="block">✓ Primera valoración gratuita</div>
-            <div data-lang="es" data-display="block">✓ Posibilidad de planificar con antelación</div>
+            <div data-lang="es" data-display="block">✓ Posibilidad de planificar la supervisión con antelación</div>
           </div>
 
           <a class="button whatsapp-btn" data-lang="de" data-display="inline-flex" href="https://wa.me/4915253692878">
             <span class="wa-icon">✆</span>
-            Jetzt direkt per WhatsApp schreiben
+            Jetzt per WhatsApp schreiben
           </a>
 
           <a class="button whatsapp-btn" data-lang="en" data-display="inline-flex" href="https://wa.me/4915253692878">
