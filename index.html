@@ -6,36 +6,38 @@
   <title>Immobilienbetreuung Alicante</title>
   <style>
     :root {
-      --bg: #f4f7fb;
-      --card: rgba(255,255,255,0.88);
-      --text: #18212f;
-      --muted: #5c6978;
-      --primary: #0f5fa8;
-      --primary-dark: #0b4a83;
-      --accent: #e7a400;
-      --success: #1f8f55;
-      --danger: #b83a3a;
-      --border: rgba(15,95,168,0.12);
-      --shadow: 0 14px 40px rgba(20, 41, 69, 0.12);
+      --bg: #f3f5f7;
+      --card: #ffffff;
+      --text: #15324a;
+      --muted: #5f7386;
+      --line: #dbe3ea;
+      --accent: #0d6efd;
+      --accent-dark: #0a58ca;
+      --soft: #eef5ff;
+      --success: #198754;
+      --warning: #b7791f;
+      --shadow: 0 12px 30px rgba(16, 35, 52, 0.08);
       --radius: 22px;
-      --radius-sm: 14px;
+      --radius-sm: 16px;
+      --container: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, Arial, sans-serif;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
       color: var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(15,95,168,0.10), transparent 32%),
-        radial-gradient(circle at bottom right, rgba(231,164,0,0.12), transparent 28%),
-        var(--bg);
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+
     .container {
-      width: min(1180px, calc(100% - 32px));
+      width: min(100% - 32px, var(--container));
       margin: 0 auto;
     }
 
@@ -43,17 +45,17 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255,255,255,0.78);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid rgba(24,33,47,0.06);
+      backdrop-filter: blur(10px);
+      background: rgba(243, 245, 247, 0.88);
+      border-bottom: 1px solid rgba(219, 227, 234, 0.8);
     }
 
-    .topbar-inner {
+    .nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
+      gap: 18px;
+      min-height: 78px;
     }
 
     .brand {
@@ -64,146 +66,137 @@
       letter-spacing: 0.02em;
     }
 
-    .brand-mark {
+    .brand-badge {
       width: 42px;
       height: 42px;
       border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: white;
-      background: linear-gradient(135deg, var(--primary), #27a1d4);
-      box-shadow: 0 10px 20px rgba(15,95,168,0.22);
-      font-size: 18px;
+      background: linear-gradient(135deg, #0d6efd, #7fc4ff);
+      box-shadow: var(--shadow);
     }
 
-    .lang-switcher {
+    .nav-links {
       display: flex;
       align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 12px;
+    }
+
+    .nav-links a:hover { background: #fff; color: var(--text); }
+
+    .lang-switch {
+      display: flex;
       gap: 8px;
       flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .lang-btn {
       border: 2px solid #111;
-      color: #fff;
+      padding: 9px 12px;
       border-radius: 999px;
-      padding: 8px 14px;
-      cursor: pointer;
       font-weight: 800;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      cursor: pointer;
       transition: 0.2s ease;
-      box-shadow: 0 6px 18px rgba(24,33,47,0.08);
+      min-width: 58px;
+      color: #fff;
     }
 
-    .lang-btn.flag-de {
-      background: linear-gradient(to bottom, #111 0 33.33%, #c62828 33.33% 66.66%, #f1c232 66.66% 100%);
+    .lang-btn[data-lang="de"] {
+      background: linear-gradient(to bottom, #000 0 33.33%, #dd0000 33.33% 66.66%, #ffce00 66.66% 100%);
+      color: #fff;
     }
 
-    .lang-btn.flag-en {
+    .lang-btn[data-lang="en"] {
       background:
-        linear-gradient(90deg, transparent 42%, #fff 42% 58%, transparent 58%),
-        linear-gradient(transparent 42%, #fff 42% 58%, transparent 58%),
-        linear-gradient(90deg, transparent 46%, #c62828 46% 54%, transparent 54%),
-        linear-gradient(transparent 46%, #c62828 46% 54%, transparent 54%),
-        #1f3fb7;
+        linear-gradient(90deg, transparent 41%, #fff 41% 59%, transparent 59%),
+        linear-gradient(transparent 41%, #fff 41% 59%, transparent 59%),
+        linear-gradient(90deg, transparent 46%, #cf142b 46% 54%, transparent 54%),
+        linear-gradient(transparent 46%, #cf142b 46% 54%, transparent 54%),
+        #012169;
+      color: #fff;
     }
 
-    .lang-btn.flag-es {
-      background: linear-gradient(to bottom, #c62828 0 25%, #f1c232 25% 75%, #c62828 75% 100%);
+    .lang-btn[data-lang="es"] {
+      background: linear-gradient(to bottom, #aa151b 0 25%, #f1bf00 25% 75%, #aa151b 75% 100%);
       color: #111;
     }
 
-    .lang-btn:hover,
     .lang-btn.active {
-      transform: translateY(-1px) scale(1.02);
-      box-shadow: 0 10px 22px rgba(24,33,47,0.14);
+      outline: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--text);
+      transform: translateY(-1px);
+    }
+
+    .lang-btn:hover {
+      transform: translateY(-1px);
+      filter: saturate(1.05);
     }
 
     .hero {
-      padding: 42px 0 22px;
+      padding: 52px 0 30px;
     }
 
-    .hero-grid {
+    .hero-wrap {
       display: grid;
-      grid-template-columns: 1.2fr 0.95fr;
-      gap: 24px;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 26px;
       align-items: stretch;
     }
 
-    .hero-card,
-    .image-card,
-    .card {
+    .hero-copy,
+    .hero-panel {
       background: var(--card);
-      border: 1px solid rgba(255,255,255,0.58);
+      border-radius: 28px;
+      padding: 32px;
       box-shadow: var(--shadow);
-      border-radius: var(--radius);
-    }
-
-    .hero-card {
-      padding: 34px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(15,95,168,0.08);
-      color: var(--primary);
       border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 13px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      padding: 8px 14px;
       font-weight: 700;
       margin-bottom: 16px;
     }
 
+    h1, h2, h3, h4, p { margin-top: 0; }
     h1 {
-      margin: 0 0 16px;
-      font-size: clamp(32px, 5vw, 56px);
-      line-height: 1.06;
-      letter-spacing: -0.03em;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1.05;
+      margin-bottom: 16px;
     }
 
     .lead {
-      font-size: 18px;
+      font-size: 1.06rem;
       color: var(--muted);
-      margin: 0 0 22px;
-      max-width: 60ch;
-    }
-
-    .hero-points {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-      margin: 24px 0 28px;
-    }
-
-    .point {
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid var(--border);
-      font-weight: 600;
-      color: var(--text);
+      max-width: 62ch;
     }
 
     .hero-actions {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
     }
 
     .btn {
-      appearance: none;
-      border: none;
+      border: 0;
       cursor: pointer;
       border-radius: 999px;
       padding: 14px 18px;
-      font-size: 15px;
       font-weight: 800;
       transition: 0.2s ease;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -211,213 +204,156 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary), #1a8ec6);
-      color: white;
-      box-shadow: 0 12px 24px rgba(15,95,168,0.22);
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 10px 22px rgba(13, 110, 253, 0.25);
     }
 
-    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--accent-dark); }
 
     .btn-secondary {
-      background: white;
+      background: #fff;
       color: var(--text);
-      border: 1px solid rgba(24,33,47,0.08);
-      box-shadow: 0 10px 20px rgba(24,33,47,0.06);
+      border: 1px solid var(--line);
     }
 
-    .btn-secondary:hover { transform: translateY(-1px); }
+    .btn-secondary:hover { background: #f8fbff; }
 
-    .image-card {
+    .btn-email {
+      background: #f4b400;
+      color: #111;
+      border: 2px solid #111;
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #111;
+      border: 2px solid #111;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      background: #fff;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.25rem;
+      margin-bottom: 4px;
+    }
+
+    .hero-panel {
+      padding: 0;
       overflow: hidden;
       min-height: 420px;
-      position: relative;
     }
 
-    .image-card img {
+    .hero-panel img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      display: block;
+      min-height: 420px;
     }
 
-    .image-badge {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      background: rgba(255,255,255,0.92);
-      border-radius: 18px;
-      padding: 14px 16px;
-      box-shadow: 0 12px 24px rgba(24,33,47,0.12);
-      max-width: calc(100% - 36px);
-    }
-
-    .image-badge strong { display: block; margin-bottom: 4px; }
-    .image-badge span { color: var(--muted); font-size: 14px; }
-
-    section { padding: 26px 0; }
+    section { padding: 28px 0; }
 
     .section-head {
       display: flex;
-      align-items: end;
       justify-content: space-between;
-      gap: 16px;
+      align-items: end;
+      gap: 20px;
       margin-bottom: 18px;
     }
 
-    .section-head h2 {
-      margin: 0;
-      font-size: clamp(26px, 4vw, 38px);
-      letter-spacing: -0.02em;
-    }
-
     .section-head p {
-      margin: 8px 0 0;
       color: var(--muted);
-      max-width: 62ch;
+      max-width: 70ch;
+      margin-bottom: 0;
     }
 
-    .services-grid,
-    .packages-grid,
-    .highlights-grid {
+    .services-grid {
       display: grid;
-      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .services-grid,
-    .packages-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .highlights-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    .service-card,
-    .package-card,
-    .highlight-card,
-    .form-card,
-    .summary-card {
+    .service-card {
       background: var(--card);
-      border: 1px solid rgba(255,255,255,0.6);
-      box-shadow: var(--shadow);
       border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      border: 1px solid rgba(219, 227, 234, 0.55);
     }
 
-    .service-card,
-    .package-card,
-    .highlight-card { padding: 22px; }
+    .service-card .thumb {
+      width: 100%;
+      aspect-ratio: 1.15 / 1;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-bottom: 18px;
+      background: #d9e7f4;
+    }
 
-    .service-card h3,
-    .package-card h3,
-    .highlight-card h3 { margin: 0 0 10px; font-size: 20px; }
-
-    .service-card p,
-    .package-card p,
-    .highlight-card p {
-      margin: 0 0 14px;
+    .service-card p {
       color: var(--muted);
-    }
-
-    .chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .chip {
-      background: rgba(15,95,168,0.08);
-      color: var(--primary);
-      padding: 8px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
+      min-height: 84px;
     }
 
     .detail-toggle {
-      margin-top: 10px;
       width: 100%;
-      justify-content: space-between;
-      background: white;
-      color: var(--text);
-      border: 1px solid rgba(24,33,47,0.08);
-      box-shadow: 0 8px 18px rgba(24,33,47,0.05);
-    }
-
-    .service-detail {
-      margin-top: 14px;
-      padding: 0 16px;
-      border-left: 3px solid rgba(15,95,168,0.18);
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.28s ease, padding-top 0.28s ease, padding-bottom 0.28s ease;
-      background: rgba(15,95,168,0.04);
+      border: 1px solid var(--line);
       border-radius: 16px;
+      background: #f8fbff;
+      color: var(--text);
+      padding: 12px 14px;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: left;
+      margin-top: 10px;
     }
 
-    .service-detail.open {
-      max-height: 280px;
-      padding-top: 14px;
-      padding-bottom: 14px;
+    .detail-toggle:hover { border-color: #b8c8d8; }
+
+    .details {
+      display: none;
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: 16px;
+      background: #f9fbfd;
+      border: 1px solid var(--line);
     }
 
-    .service-detail ul {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
+    .details.open { display: block; }
+    .details ul { margin: 0; padding-left: 18px; color: var(--muted); }
 
-    .package-card {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .package-card.featured {
-      border: 1px solid rgba(231,164,0,0.42);
-      transform: translateY(-4px);
-    }
-
-    .package-badge {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: linear-gradient(135deg, #ffcc48, #f1a500);
-      color: #3f2a00;
-      border-radius: 999px;
-      padding: 7px 11px;
-      font-size: 12px;
-      font-weight: 900;
-    }
-
-    .price {
-      font-size: 34px;
-      font-weight: 900;
-      margin: 10px 0 4px;
-      letter-spacing: -0.03em;
-    }
-
-    .price-note {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 16px;
-    }
-
-    .package-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .highlights-grid .highlight-card { text-align: center; }
-
-    .calculator-grid {
+    .calculator-wrap {
       display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 18px;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 24px;
+      align-items: start;
     }
 
-    .form-card,
-    .summary-card { padding: 24px; }
+    .card {
+      background: var(--card);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(219, 227, 234, 0.5);
+    }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
     }
 
     .field {
@@ -427,919 +363,735 @@
     }
 
     .field.full { grid-column: 1 / -1; }
+    .field label { font-weight: 700; }
 
-    label {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(24,33,47,0.12);
-      background: white;
+    .field input,
+    .field select,
+    .field textarea {
+      border: 1px solid var(--line);
+      border-radius: 15px;
       padding: 13px 14px;
+      background: #fff;
       color: var(--text);
-      font-size: 15px;
       outline: none;
-      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+      width: 100%;
     }
 
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: rgba(15,95,168,0.42);
-      box-shadow: 0 0 0 4px rgba(15,95,168,0.10);
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: #8bb8ff;
+      box-shadow: 0 0 0 4px rgba(13,110,253,0.08);
     }
 
-    .option-grid {
+    .checks {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .check-item {
-      display: flex;
-      align-items: start;
-      gap: 10px;
-      background: rgba(255,255,255,0.78);
-      padding: 12px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(24,33,47,0.08);
-    }
-
-    .check-item input {
-      width: 18px;
-      height: 18px;
-      margin-top: 2px;
-    }
-
-    .summary-card {
-      position: sticky;
-      top: 92px;
-    }
-
-    .summary-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 12px;
-    }
-
-    .summary-price {
-      font-size: 46px;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -0.04em;
-      margin: 8px 0 6px;
-    }
-
-    .summary-frequency {
-      color: var(--primary);
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .summary-breakdown {
-      display: grid;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      grid-template-columns: repeat(2, 1fr);
       gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px dashed rgba(24,33,47,0.08);
-      color: var(--muted);
     }
 
-    .row strong { color: var(--text); }
-
-    .summary-note {
-      margin-top: 16px;
-      color: var(--muted);
-      font-size: 14px;
-      background: rgba(15,95,168,0.06);
+    .check {
+      display: flex;
+      gap: 10px;
+      align-items: start;
       padding: 12px 14px;
-      border-radius: 14px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fbfdff;
+    }
+
+    .check input { margin-top: 4px; }
+    .check small { display: block; color: var(--muted); }
+
+    .summary-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .summary-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .summary-row span:last-child { font-weight: 800; white-space: nowrap; }
+    .summary-empty { color: var(--muted); }
+
+    .total-box {
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #eef5ff, #f7fbff);
+      border: 1px solid #d7e7ff;
+    }
+
+    .total-box .mini {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .grand-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: clamp(1.35rem, 3vw, 2rem);
+      font-weight: 900;
+      margin-top: 8px;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--warning);
+      font-size: 0.95rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .pricing-box {
+      background: var(--card);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(219, 227, 234, 0.5);
+    }
+
+    .pricing-box p, .pricing-box li { color: var(--muted); }
+
+    .contact-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
     }
 
     .footer {
-      padding: 30px 0 40px;
+      padding: 30px 0 50px;
       color: var(--muted);
       text-align: center;
-      font-size: 14px;
     }
 
-    @media (max-width: 1024px) {
-      .hero-grid,
-      .calculator-grid,
+    @media (max-width: 980px) {
+      .hero-wrap,
+      .calculator-wrap,
       .services-grid,
-      .packages-grid,
-      .highlights-grid { grid-template-columns: 1fr 1fr; }
-      .summary-card { position: static; }
-    }
-
-    @media (max-width: 760px) {
-      .topbar-inner,
-      .section-head,
-      .hero-actions { align-items: stretch; }
-      .topbar-inner,
-      .section-head,
-      .hero-grid,
-      .calculator-grid,
-      .services-grid,
-      .packages-grid,
-      .highlights-grid,
+      .pricing-grid { grid-template-columns: 1fr; }
       .form-grid,
-      .option-grid,
-      .hero-points { grid-template-columns: 1fr; display: grid; }
-      .topbar-inner { display: grid; }
-      .hero-card { padding: 24px; }
-      .summary-price { font-size: 38px; }
-      .lang-switcher { justify-content: start; }
+      .checks,
+      .hero-stats { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; padding: 12px 0; }
+      .section-head { align-items: start; flex-direction: column; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <div class="container topbar-inner">
+    <div class="container nav">
       <div class="brand">
-        <div class="brand-mark">🏡</div>
+        <div class="brand-badge"></div>
         <div>
-          <div id="brandTitle">Immobilienbetreuung Alicante</div>
+          <div data-i18n="brand">Costa Care Alicante</div>
+          <small style="color: var(--muted);" data-i18n="brandSub">Betreuung, Kontrolle und Werterhalt</small>
         </div>
       </div>
-      <div class="lang-switcher" aria-label="Sprachauswahl">
-        <button class="lang-btn flag-de active" data-lang="de"><span>🇩🇪</span><span>DE</span></button>
-        <button class="lang-btn flag-en" data-lang="en"><span>🇬🇧</span><span>EN</span></button>
-        <button class="lang-btn flag-es" data-lang="es"><span>🇪🇸</span><span>ES</span></button>
+
+      <nav class="nav-links">
+        <a href="#services" data-i18n="navServices">Leistungen</a>
+        <a href="#calculator" data-i18n="navCalc">Preisrechner</a>
+        <a href="#pricing" data-i18n="navPricing">Preislogik</a>
+        <a href="#about" data-i18n="navWhy">Warum wir</a>
+        <a href="#contact" data-i18n="navContact">Kontakt</a>
+      </nav>
+
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang="de">DE</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="es">ES</button>
       </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-card">
-          <div class="eyebrow" id="heroEyebrow">Zuverlässig vor Ort • transparent kalkuliert</div>
-          <h1 id="heroTitle">Sorglose Betreuung für Ihre Immobilie an der Costa Blanca</h1>
-          <p class="lead" id="heroLead">Regelmäßige Kontrollen, Vorbereitung vor Anreise, Garten- und Poolkoordination sowie ein klarer Preisrechner mit nachvollziehbarer Logik statt Fantasiepreisen.</p>
-
-          <div class="hero-points">
-            <div class="point" id="point1">Vor-Ort-Kontrollen mit Protokoll</div>
-            <div class="point" id="point2">Anreisevorbereitung für Eigentümer und Gäste</div>
-            <div class="point" id="point3">Koordination von Reinigung, Garten und Pool</div>
-            <div class="point" id="point4">Faire Preislogik nach Aufwand und Häufigkeit</div>
-          </div>
+      <div class="container hero-wrap">
+        <div class="hero-copy">
+          <div class="eyebrow" data-i18n="eyebrow">Zuverlässige Immobilienbetreuung an der Costa Blanca</div>
+          <h1 data-i18n="heroTitle">Sinnvolle Betreuung statt schöner Versprechen.</h1>
+          <p class="lead" data-i18n="heroText">
+            Regelmäßige Kontrollen, koordinierte Einsätze und nachvollziehbare Preislogik. Keine Fantasiepakete, sondern Leistungen, die zur Immobilie und zum Aufwand passen.
+          </p>
 
           <div class="hero-actions">
-            <a href="#rechner" class="btn btn-primary" id="heroBtnPrimary">Preis berechnen</a>
-            <a href="#pakete" class="btn btn-secondary" id="heroBtnSecondary">Pakete ansehen</a>
+            <a class="btn btn-primary" href="#calculator" data-i18n="heroBtnPrimary">Preis grob berechnen</a>
+            <a class="btn btn-secondary" href="#services" data-i18n="heroBtnSecondary">Leistungen ansehen</a>
           </div>
-        </div>
 
-        <div class="image-card">
-          <img id="heroImage" alt="Pool und Terrasse" />
-          <div class="image-badge">
-            <strong id="imageBadgeTitle">Pool, Garten, Kontrolle und Vorbereitung</strong>
-            <span id="imageBadgeText">Visuelle Fallback-Lösung integriert, damit das Bild nicht leer bleibt.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2 id="servicesTitle">Leistungen im Überblick</h2>
-            <p id="servicesLead">Jede Zusatzleistung hat jetzt einen eigenen Button mit aufklappbaren Details. Damit versteht der Kunde sofort, was enthalten ist.</p>
-          </div>
-        </div>
-
-        <div class="services-grid" id="servicesGrid"></div>
-      </div>
-    </section>
-
-    <section id="pakete">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2 id="packagesTitle">Klare Pakete plus individueller Rechner</h2>
-            <p id="packagesLead">Die sinnvollste Lösung ist die Kombination: verständliche Einstiegspakete für schnelle Entscheidungen und ein Rechner für Sonderfälle.</p>
-          </div>
-        </div>
-
-        <div class="packages-grid" id="packagesGrid"></div>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2 id="highlightsTitle">Warum diese Preislogik robuster ist</h2>
-            <p id="highlightsLead">Nicht nach Fantasie, sondern nach Grundaufwand, Objektgröße, Außenfläche, Extras und Besuchshäufigkeit.</p>
-          </div>
-        </div>
-
-        <div class="highlights-grid" id="highlightsGrid"></div>
-      </div>
-    </section>
-
-    <section id="rechner">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2 id="calcTitle">Preisrechner</h2>
-            <p id="calcLead">Die Bezeichnungen für die Frequenz sind bewusst eindeutig formuliert, damit der Kunde nicht rätseln muss.</p>
-          </div>
-        </div>
-
-        <div class="calculator-grid">
-          <div class="form-card">
-            <div class="form-grid">
-              <div class="field">
-                <label for="propertyType" id="labelPropertyType">Objektart</label>
-                <select id="propertyType">
-                  <option value="apartment">Apartment</option>
-                  <option value="house">Haus / Villa</option>
-                  <option value="premium">Großes Premium-Objekt</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="frequency" id="labelFrequency">Betreuungshäufigkeit</label>
-                <select id="frequency">
-                  <option value="one_time">Einmalige Betreuung / Einzelauftrag</option>
-                  <option value="monthly">Regelmäßige Betreuung: 1 Besuch pro Monat</option>
-                  <option value="biweekly">Regelmäßige Betreuung: 2 Besuche pro Monat</option>
-                  <option value="weekly">Regelmäßige Betreuung: 1 Besuch pro Woche</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="interiorSize" id="labelInteriorSize">Wohnfläche innen (m²)</label>
-                <input type="number" id="interiorSize" min="20" step="1" value="120" />
-              </div>
-
-              <div class="field">
-                <label for="outsideSize" id="labelOutsideSize">Außenfläche / Garten / Terrasse (m²)</label>
-                <input type="number" id="outsideSize" min="0" step="1" value="60" />
-              </div>
-
-              <div class="field full">
-                <label id="labelExtras">Zusatzleistungen</label>
-                <div class="option-grid">
-                  <label class="check-item"><input type="checkbox" value="arrival" class="extra-option" checked /><span id="extraArrival">Vorbereitung vor Ankunft</span></label>
-                  <label class="check-item"><input type="checkbox" value="ventilation" class="extra-option" /><span id="extraVentilation">Lüften / kurze Durchsicht</span></label>
-                  <label class="check-item"><input type="checkbox" value="pool" class="extra-option" checked /><span id="extraPool">Poolkontrolle koordinieren</span></label>
-                  <label class="check-item"><input type="checkbox" value="garden" class="extra-option" checked /><span id="extraGarden">Garten / Terrassenpflege koordinieren</span></label>
-                  <label class="check-item"><input type="checkbox" value="photos" class="extra-option" /><span id="extraPhotos">Foto- und Statusbericht</span></label>
-                  <label class="check-item"><input type="checkbox" value="key" class="extra-option" /><span id="extraKey">Schlüsselservice / Übergabe</span></label>
-                </div>
-              </div>
-
-              <div class="field full">
-                <label for="notes" id="labelNotes">Besonderheiten</label>
-                <textarea id="notes" rows="4" placeholder="z. B. viele Pflanzen, Gästebetten vorbereiten, mehrere Terrassen, empfindliche Technik"></textarea>
-              </div>
+          <div class="hero-stats">
+            <div class="stat">
+              <strong data-i18n="stat1Value">3-sprachig</strong>
+              <span data-i18n="stat1Label">Deutsch, Englisch, Spanisch</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="stat2Value">Dynamisch</strong>
+              <span data-i18n="stat2Label">Preis nach Größe und Aufwand</span>
+            </div>
+            <div class="stat">
+              <strong data-i18n="stat3Value">Transparent</strong>
+              <span data-i18n="stat3Label">Gesamtpreis inkl. Einzelpositionen</span>
             </div>
           </div>
+        </div>
 
-          <aside class="summary-card">
-            <div class="summary-top">
-              <strong id="summaryTitle">Preisübersicht</strong>
-              <span class="chip" id="summaryChip">Kalkuliert</span>
-            </div>
-            <div class="summary-price" id="summaryPrice">€159</div>
-            <div class="summary-frequency" id="summaryFrequency">pro Monat</div>
-
-            <div class="summary-breakdown" id="summaryBreakdown"></div>
-
-            <div class="summary-note" id="summaryNote">
-              Richtwert auf Basis eines wirtschaftlichen Mischmodells. Endpreise können bei Sonderwünschen, Anfahrt außerhalb des Standardgebiets oder außergewöhnlichem Aufwand angepasst werden.
-            </div>
-          </aside>
+        <div class="hero-panel">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1400&q=80" alt="Alicante Küste und gepflegte Ferienimmobilie" />
         </div>
       </div>
     </section>
-  </main>
 
-  <section id="kontakt">
+    <section id="about">
       <div class="container">
-        <div class="card" style="padding:28px; display:flex; flex-direction:column; gap:18px; align-items:stretch;">
-          <div class="section-head" style="margin-bottom:0;">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="aboutTitle">Warum diese Betreuung anders ist</h2>
+            <p data-i18n="aboutText">Nicht austauschbare Standardbetreuung, sondern ein ruhiger, verlässlicher Vor-Ort-Service für Eigentümer, die ihre Immobilie nicht dem Zufall überlassen wollen.</p>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-box">
+            <h3 data-i18n="aboutBox1Title">Handwerkliches Verständnis</h3>
+            <p data-i18n="aboutBox1Text">Kleine Schäden, beginnende Mängel und technische Auffälligkeiten werden früh erkannt. Das reduziert Folgekosten und spart unnötige Fremdeinsätze.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="aboutBox2Title">Dokumentierte Rückmeldung</h3>
+            <p data-i18n="aboutBox2Text">Eigentümer erhalten klare Rückmeldungen mit Fotos, Videos und einer verständlichen Einordnung. Nicht viele Worte, sondern belastbare Informationen.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="aboutBox3Title">Koordination vor Ort</h3>
+            <p data-i18n="aboutBox3Text">Wenn externe Firmen nötig sind, erfolgt die Abstimmung direkt vor Ort – inklusive Nachkontrolle und transparenter Rückmeldung an den Eigentümer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="risks">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="riskTitle">Was ohne laufende Betreuung schnell passiert</h2>
+            <p data-i18n="riskText">Viele Probleme beginnen klein. Teuer werden sie erst dann, wenn über Wochen oder Monate niemand hinsieht.</p>
+          </div>
+        </div>
+        <div class="pricing-grid">
+          <div class="pricing-box">
+            <h3 data-i18n="riskBox1Title">Feuchtigkeit und Standschäden</h3>
+            <p data-i18n="riskBox1Text">Geschlossene Immobilien entwickeln schneller Gerüche, Feuchtigkeit oder unbemerkte Wasserschäden. Je später reagiert wird, desto teurer wird es.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="riskBox2Title">Außenbereiche kippen zuerst</h3>
+            <p data-i18n="riskBox2Text">Pool, Garten und Terrasse verlieren ohne Kontrolle schnell ihren gepflegten Zustand. Aus kleinen Mängeln werden sichtbar vernachlässigte Außenflächen.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="riskBox3Title">Niemand koordiniert im Ernstfall</h3>
+            <p data-i18n="riskBox3Text">Wenn Eigentümer nicht vor Ort sind, fehlt oft ein verlässlicher Ansprechpartner. Genau dann entstehen Verzögerungen, Missverständnisse und unnötige Mehrkosten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="trust">
+      <div class="container calculator-wrap">
+        <div class="card">
+          <h2 data-i18n="trustTitle">So sieht eine professionelle Rückmeldung aus</h2>
+          <p data-i18n="trustText" style="color: var(--muted);">Keine diffuse Aussage wie „alles okay“. Eigentümer bekommen eine knappe, klare und nachvollziehbare Rückmeldung zum Objektzustand.</p>
+          <div class="details open" style="display:block; margin-top:18px;">
+            <ul>
+              <li data-i18n="trustBullet1">Kontrolltermin durchgeführt und Immobilie innen sowie außen geprüft</li>
+              <li data-i18n="trustBullet2">Fotos oder kurzes Video vom aktuellen Zustand</li>
+              <li data-i18n="trustBullet3">Hinweis auf Auffälligkeiten, Priorität und empfohlene nächste Schritte</li>
+              <li data-i18n="trustBullet4">Rückmeldung nach erledigter Koordination mit externen Dienstleistern</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 data-i18n="entryPriceTitle">Orientierung für den Einstieg</h2>
+          <p style="color: var(--muted);" data-i18n="entryPriceText">Für Eigentümer, die eine ruhige und verlässliche Betreuung suchen, sollte der Einstiegspreis sichtbar sein. Das wirkt seriöser als ein Kontaktformular ohne Rahmen.</p>
+          <div class="total-box">
+            <div class="mini">
+              <span data-i18n="entryPriceLabel1">Laufende Betreuung</span>
+              <span data-i18n="entryPriceValue1">ab 120 € / Monat</span>
+            </div>
+            <div class="mini">
+              <span data-i18n="entryPriceLabel2">Objektkontrolle vor Ort</span>
+              <span data-i18n="entryPriceValue2">ab 35 € / Einsatz</span>
+            </div>
+            <div class="mini">
+              <span data-i18n="entryPriceLabel3">Individuelle Zusatzleistungen</span>
+              <span data-i18n="entryPriceValue3">nach Größe und Aufwand</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="servicesTitle">Unsere Leistungen</h2>
+            <p data-i18n="servicesText">Die Bilder wurden so gewählt, dass sie zur tatsächlichen Leistung passen. Poolservice zeigt einen Pool, Gartenpflege zeigt Gartenflächen, nicht irgendein hübsches Zufallsbild.</p>
+          </div>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <img class="thumb" src="Pool.jpg" alt="Poolservice mit sichtbarem Pool" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?auto=format&fit=crop&w=1200&q=80';" />
+            <h3 data-i18n="poolTitle">Poolservice</h3>
+            <p data-i18n="poolText">Koordination oder Durchführung der regelmäßigen Poolpflege für klare Wasserqualität, saubere Beckenränder und einen gepflegten Gesamteindruck.</p>
+            <button class="detail-toggle" data-target="pool-details" data-i18n="detailsBtn">Details anzeigen</button>
+            <div class="details" id="pool-details">
+              <ul>
+                <li data-i18n="poolDetail1">Sichtkontrolle des Wasserspiegels und der Wasserqualität</li>
+                <li data-i18n="poolDetail2">Prüfung von Skimmer, Pumpe und Filterlaufzeit</li>
+                <li data-i18n="poolDetail3">Entfernung grober Verschmutzungen an Oberfläche und Rand</li>
+                <li data-i18n="poolDetail4">Koordination externer Pooltechnik bei Störungen</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img class="thumb" src="work.jpg" alt="Gartenpflege mit Rasen und Außenflächen" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80';" />
+            <h3 data-i18n="gardenTitle">Gartenpflege</h3>
+            <p data-i18n="gardenText">Pflege von Rasen, Terrassen, Hecken und Außenflächen – abgestimmt auf Grundstücksgröße, Vegetation und tatsächlichen Pflegeaufwand.</p>
+            <button class="detail-toggle" data-target="garden-details" data-i18n="detailsBtn">Details anzeigen</button>
+            <div class="details" id="garden-details">
+              <ul>
+                <li data-i18n="gardenDetail1">Rasen mähen und einfache Nachpflege</li>
+                <li data-i18n="gardenDetail2">Laub, trockene Pflanzenteile und leichte Verschmutzungen entfernen</li>
+                <li data-i18n="gardenDetail3">Terrassen und Zugänge besenrein halten</li>
+                <li data-i18n="gardenDetail4">Hinweis auf erhöhten Aufwand bei großem Grundstück oder starker Bepflanzung</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img class="thumb" src="hero.jpg" alt="Vorbereitung vor Ankunft in einer Ferienimmobilie" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1200&q=80';" />
+            <h3 data-i18n="arrivalTitle">Vorbereitung vor Ankunft</h3>
+            <p data-i18n="arrivalText">Die Immobilie wird vor Eintreffen vorbereitet, damit Gäste oder Eigentümer nicht in ein abgestandenes oder ungepflegtes Objekt kommen.</p>
+            <button class="detail-toggle" data-target="arrival-details" data-i18n="detailsBtn">Details anzeigen</button>
+            <div class="details" id="arrival-details">
+              <ul>
+                <li data-i18n="arrivalDetail1">Lüften und kurze Sichtkontrolle der Räume</li>
+                <li data-i18n="arrivalDetail2">Besenreiner Grundzustand bei leichter Verschmutzung</li>
+                <li data-i18n="arrivalDetail3">Terrasse prüfen, grob säubern und Möbel stellen</li>
+                <li data-i18n="arrivalDetail4">Kleine vorbereitende Handgriffe für einen gepflegten ersten Eindruck</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="calculator">
+      <div class="container calculator-wrap">
+        <div class="card">
+          <div class="section-head" style="margin-bottom: 22px;">
             <div>
-              <h2 id="contactTitle">Direkt Kontakt aufnehmen</h2>
-              <p id="contactText">Besser als ein leeres Kontaktfeld: Der Kunde sendet direkt eine strukturierte Anfrage mit den wichtigsten Angaben.</p>
+              <h2 data-i18n="calcTitle">Preisrechner</h2>
+              <p data-i18n="calcText">Der Rechner fasst jetzt alle Positionen im Gesamtpreis zusammen. Er ist bewusst wirtschaftlich gedacht: Größe, Aufwand und Frequenz treiben den Preis, nicht nur hübsche Paketnamen.</p>
             </div>
           </div>
 
           <div class="form-grid">
             <div class="field">
-              <label for="contactName" id="contactNameLabel">Name</label>
-              <input type="text" id="contactName" placeholder="Ihr Name" />
+              <label for="propertyType" data-i18n="fieldPropertyType">Immobilienart</label>
+              <select id="propertyType">
+                <option value="apartment" data-i18n="typeApartment">Apartment</option>
+                <option value="house" data-i18n="typeHouse">Haus / Villa</option>
+              </select>
             </div>
+
             <div class="field">
-              <label for="contactEmail" id="contactEmailLabel">E-Mail</label>
-              <input type="email" id="contactEmail" placeholder="ihre@email.de" />
+              <label for="serviceFrequency" data-i18n="fieldFrequency">Frequenz</label>
+              <select id="serviceFrequency">
+                <option value="oneTime" data-i18n="freqOneTime">Einmaliger Einsatz / Einzelauftrag</option>
+                <option value="monthly" data-i18n="freqMonthly">Regelmäßig: 1 Besuch pro Monat</option>
+                <option value="weekly" data-i18n="freqWeekly">Regelmäßig: 1 Besuch pro Woche</option>
+              </select>
             </div>
+
             <div class="field">
-              <label for="contactPhone" id="contactPhoneLabel">Telefon / WhatsApp</label>
-              <input type="text" id="contactPhone" placeholder="+34 ..." />
+              <label for="livingSize" data-i18n="fieldLivingSize">Wohnfläche (m²)</label>
+              <input id="livingSize" type="number" min="20" step="1" value="120" />
             </div>
+
             <div class="field">
-              <label for="contactLocation" id="contactLocationLabel">Ort der Immobilie</label>
-              <input type="text" id="contactLocation" placeholder="z. B. Alicante, Torrevieja, Benidorm" />
+              <label for="plotSize" data-i18n="fieldPlotSize">Grundstück / Außenfläche (m²)</label>
+              <input id="plotSize" type="number" min="0" step="1" value="250" />
             </div>
+
+            <div class="field">
+              <label for="poolSize" data-i18n="fieldPoolSize">Poolgröße (m²)</label>
+              <input id="poolSize" type="number" min="0" step="1" value="24" />
+            </div>
+
             <div class="field full">
-              <label for="contactMessage" id="contactMessageLabel">Anfrage</label>
-              <textarea id="contactMessage" rows="6" placeholder="Beschreiben Sie kurz Ihre Immobilie und Ihren Bedarf."></textarea>
+              <label data-i18n="fieldServices">Leistungen wählen</label>
+              <div class="checks">
+                <label class="check">
+                  <input type="checkbox" id="checkInspection" checked />
+                  <span>
+                    <strong data-i18n="serviceInspection">Objektkontrolle</strong>
+                    <small data-i18n="serviceInspectionSub">Sichtprüfung innen/außen, Lüften, kurze Meldung</small>
+                  </span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" id="checkPool" checked />
+                  <span>
+                    <strong data-i18n="servicePool">Poolservice</strong>
+                    <small data-i18n="servicePoolSub">Preis steigt mit Poolgröße und Frequenz</small>
+                  </span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" id="checkGarden" checked />
+                  <span>
+                    <strong data-i18n="serviceGarden">Gartenpflege</strong>
+                    <small data-i18n="serviceGardenSub">Preis steigt mit Außenfläche</small>
+                  </span>
+                </label>
+                <label class="check">
+                  <input type="checkbox" id="checkArrival" />
+                  <span>
+                    <strong data-i18n="serviceArrival">Vorbereitung vor Ankunft</strong>
+                    <small data-i18n="serviceArrivalSub">Einrichtung, Lüften, besenreiner Startzustand</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 data-i18n="summaryTitle">Preisübersicht</h2>
+          <p style="color: var(--muted);" data-i18n="summaryText">Hier werden alle gewählten Positionen einzeln aufgeführt und unten als Gesamtpreis zusammengefasst.</p>
+
+          <div id="summaryList" class="summary-list"></div>
+
+          <div class="total-box">
+            <div class="mini">
+              <span data-i18n="subtotalLabel">Zwischensumme</span>
+              <span id="subtotalValue">0 €</span>
+            </div>
+            <div class="grand-total">
+              <span data-i18n="grandTotalLabel">Gesamtpreis</span>
+              <span id="grandTotal">0 €</span>
             </div>
           </div>
 
-          <div style="display:flex; gap:12px; flex-wrap:wrap;">
-            <a id="emailCta" href="#" class="btn" style="background:#f4b400; color:#111; border:2px solid #111; font-weight:900;">📧 Anfrage per E-Mail senden</a>
-            <a id="whatsappCta" href="#" class="btn" style="background:#25d366; color:#111; border:2px solid #111; font-weight:900;">💬 Anfrage per WhatsApp senden</a>
+          <div class="note" data-i18n="pricingNote">Hinweis: Der Rechner ist eine belastbare Orientierung, kein blindes Billigangebot. Sonderfälle, Reparaturen, Notfalleinsätze und intensive Reinigung sind nicht automatisch enthalten.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="card">
+          <div class="section-head" style="margin-bottom: 22px;">
+            <div>
+              <h2 data-i18n="contactTitle">Direkt anfragen</h2>
+              <p data-i18n="contactText">Nicht nur klicken und hoffen. Die Anfrage wird mit den wichtigsten Eckdaten aus dem Rechner vorbereitet.</p>
+            </div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="contactName" data-i18n="contactNameLabel">Name</label>
+              <input id="contactName" type="text" placeholder="Ihr Name" />
+            </div>
+            <div class="field">
+              <label for="contactEmail" data-i18n="contactEmailLabel">E-Mail</label>
+              <input id="contactEmail" type="email" placeholder="ihre@email.de" />
+            </div>
+            <div class="field">
+              <label for="contactPhone" data-i18n="contactPhoneLabel">Telefon / WhatsApp</label>
+              <input id="contactPhone" type="text" placeholder="+34 ..." />
+            </div>
+            <div class="field">
+              <label for="contactLocation" data-i18n="contactLocationLabel">Ort der Immobilie</label>
+              <input id="contactLocation" type="text" placeholder="z. B. Alicante, Torrevieja" />
+            </div>
+            <div class="field full">
+              <label for="contactMessage" data-i18n="contactMessageLabel">Zusätzliche Nachricht</label>
+              <textarea id="contactMessage" rows="5" placeholder="Kurze Zusatzinfos zur Immobilie oder zum Bedarf"></textarea>
+            </div>
+          </div>
+
+          <div class="contact-actions">
+            <a id="emailButton" class="btn btn-email" href="#">📧 Anfrage per E-Mail</a>
+            <a id="whatsappButton" class="btn btn-whatsapp" href="#" target="_blank" rel="noopener noreferrer">💬 Anfrage per WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
-    <div class="container" id="footerText">Immobilienbetreuung Alicante • klare Leistungen • nachvollziehbare Preise • dreisprachig</div>
+    <section id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2 data-i18n="logicTitle">Warum diese Preislogik sinnvoller ist</h2>
+            <p data-i18n="logicText">Fixe Fantasiepakete sehen im Marketing nett aus, sind aber betriebswirtschaftlich oft schlecht. Diese Seite nutzt daher eine nachvollziehbare Mischlogik aus Grundpreis, Größenfaktor und Aufwandsfaktor.</p>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          <div class="pricing-box">
+            <h3 data-i18n="logicBox1Title">1. Grundpreis</h3>
+            <p data-i18n="logicBox1Text">Jede Leistung startet mit einem wirtschaftlich sinnvollen Basissatz. Damit werden Anfahrt, Organisation und Mindestaufwand nicht verschenkt.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="logicBox2Title">2. Größe treibt Aufwand</h3>
+            <p data-i18n="logicBox2Text">Mehr Wohnfläche, mehr Außenfläche oder ein größerer Pool bedeuten real mehr Zeit. Genau deshalb steigt der Preis nicht pauschal, sondern mit dem tatsächlichen Umfang.</p>
+          </div>
+          <div class="pricing-box">
+            <h3 data-i18n="logicBox3Title">3. Frequenz und Erschwernis</h3>
+            <p data-i18n="logicBox3Text">Wöchentliche Betreuung, schwer zugängige Objekte oder höherer Koordinationsaufwand müssen im Preis sichtbar sein. Sonst ist das Modell irgendwann unprofitabel.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p data-i18n="footerText">Costa Care Alicante – strukturierte Betreuung für Ferienimmobilien, Zweitwohnsitze und Vermietungsobjekte.</p>
+      <div style="margin-top:14px; font-size:0.9rem;">
+        <a href="impressum.html" style="margin-right:16px; color:var(--muted);">Impressum</a>
+        <a href="datenschutz.html" style="color:var(--muted);">Datenschutz</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    const fallbackPoolSvg = `data:image/svg+xml;utf8,
-      <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900'>
-        <defs>
-          <linearGradient id='sky' x1='0' y1='0' x2='0' y2='1'>
-            <stop offset='0%' stop-color='%23a8dcff'/>
-            <stop offset='100%' stop-color='%23eef8ff'/>
-          </linearGradient>
-          <linearGradient id='water' x1='0' y1='0' x2='1' y2='1'>
-            <stop offset='0%' stop-color='%2320a3d8'/>
-            <stop offset='100%' stop-color='%230f6fb0'/>
-          </linearGradient>
-        </defs>
-        <rect width='1200' height='900' fill='url(%23sky)'/>
-        <rect y='560' width='1200' height='340' fill='%23ead9bf'/>
-        <rect x='120' y='340' width='960' height='320' rx='36' fill='url(%23water)'/>
-        <rect x='150' y='370' width='900' height='260' rx='28' fill='none' stroke='white' stroke-opacity='0.55' stroke-width='8'/>
-        <circle cx='980' cy='190' r='74' fill='%23ffd15b'/>
-        <rect x='120' y='265' width='235' height='55' rx='12' fill='rgba(255,255,255,0.88)'/>
-        <text x='150' y='302' font-size='34' font-family='Arial, sans-serif' fill='%230f5fa8' font-weight='700'>Poolbild-Fallback aktiv</text>
-        <text x='150' y='720' font-size='30' font-family='Arial, sans-serif' fill='%235c6978'>Eigenes Bild kann später einfach ersetzt werden</text>
-      </svg>`;
-
-    const imageCandidates = [
-      'images/pool-hero.jpg',
-      'assets/pool-hero.jpg',
-      'pool-hero.jpg',
-      fallbackPoolSvg
-    ];
-
-    const heroImage = document.getElementById('heroImage');
-    let currentImageIndex = 0;
-    function setNextImage() {
-      heroImage.src = imageCandidates[currentImageIndex];
-    }
-    heroImage.onerror = () => {
-      currentImageIndex = Math.min(currentImageIndex + 1, imageCandidates.length - 1);
-      setNextImage();
-    };
-    setNextImage();
-
-    const translations = {
-      de: {
-        brandTitle: 'Immobilienbetreuung Alicante',
-        heroEyebrow: 'Zuverlässig vor Ort • transparent kalkuliert',
-        heroTitle: 'Sorglose Betreuung für Ihre Immobilie an der Costa Blanca',
-        heroLead: 'Regelmäßige Kontrollen, Vorbereitung vor Anreise, Garten- und Poolkoordination sowie ein klarer Preisrechner mit nachvollziehbarer Logik statt Fantasiepreisen.',
-        point1: 'Vor-Ort-Kontrollen mit Protokoll',
-        point2: 'Anreisevorbereitung für Eigentümer und Gäste',
-        point3: 'Koordination von Reinigung, Garten und Pool',
-        point4: 'Faire Preislogik nach Aufwand und Häufigkeit',
-        heroBtnPrimary: 'Preis berechnen',
-        heroBtnSecondary: 'Pakete ansehen',
-        imageBadgeTitle: 'Pool, Garten, Kontrolle und Vorbereitung',
-        imageBadgeText: 'Visuelle Fallback-Lösung integriert, damit das Bild nicht leer bleibt.',
-        servicesTitle: 'Leistungen im Überblick',
-        servicesLead: 'Jede Zusatzleistung hat jetzt einen eigenen Button mit aufklappbaren Details. Damit versteht der Kunde sofort, was enthalten ist.',
-        packagesTitle: 'Klare Pakete plus individueller Rechner',
-        packagesLead: 'Die sinnvollste Lösung ist die Kombination: verständliche Einstiegspakete für schnelle Entscheidungen und ein Rechner für Sonderfälle.',
-        highlightsTitle: 'Warum diese Preislogik robuster ist',
-        highlightsLead: 'Nicht nach Fantasie, sondern nach Grundaufwand, Objektgröße, Außenfläche, Extras und Besuchshäufigkeit.',
-        calcTitle: 'Preisrechner',
-        calcLead: 'Die Bezeichnungen für die Frequenz sind bewusst eindeutig formuliert, damit der Kunde nicht rätseln muss.',
-        labelPropertyType: 'Objektart',
-        labelFrequency: 'Betreuungshäufigkeit',
-        labelInteriorSize: 'Wohnfläche innen (m²)',
-        labelOutsideSize: 'Außenfläche / Garten / Terrasse (m²)',
-        labelExtras: 'Zusatzleistungen',
-        labelNotes: 'Besonderheiten',
-        extraArrival: 'Vorbereitung vor Ankunft',
-        extraVentilation: 'Lüften / kurze Durchsicht',
-        extraPool: 'Poolkontrolle koordinieren',
-        extraGarden: 'Garten / Terrassenpflege koordinieren',
-        extraPhotos: 'Foto- und Statusbericht',
-        extraKey: 'Schlüsselservice / Übergabe',
-        notesPlaceholder: 'z. B. viele Pflanzen, Gästebetten vorbereiten, mehrere Terrassen, empfindliche Technik',
-        summaryTitle: 'Preisübersicht',
-        summaryChip: 'Kalkuliert',
-        summaryNote: 'Richtwert auf Basis eines wirtschaftlichen Mischmodells. Endpreise können bei Sonderwünschen, Anfahrt außerhalb des Standardgebiets oder außergewöhnlichem Aufwand angepasst werden.',
-        footerText: 'Immobilienbetreuung Alicante • klare Leistungen • nachvollziehbare Preise • dreisprachig',
-        freqText: {
-          one_time: 'einmalig',
-          monthly: 'pro Monat',
-          biweekly: 'pro Monat',
-          weekly: 'pro Monat'
-        },
-        breakdown: {
-          base: 'Grundaufwand',
-          interior: 'Innenfläche',
-          outside: 'Außenfläche',
-          extras: 'Zusatzleistungen',
-          frequency: 'Frequenzfaktor',
-          total: 'Gesamt'
-        },
-        detailButtonOpen: 'Details anzeigen',
-        detailButtonClose: 'Details ausblenden',
-        services: [
-          {
-            title: 'Regelmäßige Objektkontrolle',
-            text: 'Sichtprüfung von Haus, Wohnung, Fenstern, Strom, Wasser und offensichtlichen Schäden.',
-            chips: ['Sicherheit', 'Dokumentation', 'Verlässlichkeit'],
-            details: ['Außenkontrolle und kurzer Innencheck', 'Prüfung auf sichtbare Feuchtigkeit oder Schäden', 'Meldung bei Auffälligkeiten mit Handlungsempfehlung']
-          },
-          {
-            title: 'Vorbereitung vor Ankunft',
-            text: 'Die Immobilie wird vor Ihrer Anreise in einen nutzbaren, gepflegten Zustand gebracht.',
-            chips: ['Komfort', 'Ankunft', 'Koordination'],
-            details: ['Lüften und kurzer Frische-Check', 'Besenrein, sichtbare Flächen geordnet', 'Betten, Licht, Grundfunktion prüfen']
-          },
-          {
-            title: 'Zusatzservice Garten & Pool',
-            text: 'Koordination externer Dienstleister oder Kontrolle laufender Pflegearbeiten.',
-            chips: ['Außenbereich', 'Pool', 'Garten'],
-            details: ['Kontrolle sichtbarer Poolsauberkeit', 'Abgleich geplanter Gartenarbeiten', 'Rückmeldung bei ungewöhnlichem Pflegebedarf']
-          }
-        ],
-        packages: [
-          {
-            title: 'Basis',
-            price: 'ab €79',
-            note: 'für kleinere Objekte',
-            features: ['1 Kontrollbesuch pro Monat', 'Kurzes Statusupdate', 'Grundcheck innen/außen']
-          },
-          {
-            title: 'Komfort',
-            price: 'ab €149',
-            note: 'am sinnvollsten für die meisten Eigentümer',
-            featured: true,
-            badge: 'Empfohlen',
-            features: ['2 Besuche pro Monat', 'Kontrolle + Foto-Update', 'Ankunftsvorbereitung nach Bedarf']
-          },
-          {
-            title: 'Premium',
-            price: 'ab €239',
-            note: 'für große Häuser, Villa oder mehr Koordination',
-            features: ['Wöchentliche Betreuung', 'Mehr Außenbereich und Extras', 'Priorisierte Abstimmung mit Dienstleistern']
-          }
-        ],
-        highlights: [
-          { title: 'Kein Dumping', text: 'Der Preis deckt Anfahrt, Zeit, Kommunikation und Verantwortung realistisch ab.' },
-          { title: 'Nicht zu komplex', text: 'Trotz Dynamik bleibt die Logik für den Kunden nachvollziehbar und verkaufsfähig.' },
-          { title: 'Größe zählt', text: '20 m² Terrasse und 400 m² Garten dürfen nicht gleich behandelt werden.' },
-          { title: 'Extras separat', text: 'Zusatzleistungen erhöhen den Preis nur dann, wenn sie wirklich ausgewählt werden.' }
-        ]
-      },
-      en: {
-        brandTitle: 'Property Care Alicante',
-        heroEyebrow: 'Reliable on site • transparent pricing',
-        heroTitle: 'Worry-free care for your property on the Costa Blanca',
-        heroLead: 'Regular inspections, arrival preparation, garden and pool coordination, plus a clear calculator based on understandable pricing logic instead of made-up numbers.',
-        point1: 'On-site inspections with reporting',
-        point2: 'Arrival preparation for owners and guests',
-        point3: 'Coordination of cleaning, garden and pool services',
-        point4: 'Fair pricing based on effort and visit frequency',
-        heroBtnPrimary: 'Calculate price',
-        heroBtnSecondary: 'View packages',
-        imageBadgeTitle: 'Pool, garden, inspection and preparation',
-        imageBadgeText: 'A built-in visual fallback prevents the image area from appearing empty.',
-        servicesTitle: 'Services at a glance',
-        servicesLead: 'Each additional service now has its own button with expandable details, so clients immediately understand what is included.',
-        packagesTitle: 'Clear packages plus individual calculator',
-        packagesLead: 'The strongest solution is the combination: clear starter packages for quick decisions and a calculator for custom situations.',
-        highlightsTitle: 'Why this pricing logic is stronger',
-        highlightsLead: 'Not guesswork: base effort, property size, outdoor area, extras and visit frequency all matter.',
-        calcTitle: 'Price calculator',
-        calcLead: 'The visit frequency labels are intentionally explicit so clients do not have to guess.',
-        labelPropertyType: 'Property type',
-        labelFrequency: 'Visit frequency',
-        labelInteriorSize: 'Interior size (m²)',
-        labelOutsideSize: 'Outdoor area / garden / terrace (m²)',
-        labelExtras: 'Additional services',
-        labelNotes: 'Special notes',
-        extraArrival: 'Arrival preparation',
-        extraVentilation: 'Ventilation / quick walkthrough',
-        extraPool: 'Coordinate pool check',
-        extraGarden: 'Coordinate garden / terrace care',
-        extraPhotos: 'Photo and status report',
-        extraKey: 'Key service / handover',
-        notesPlaceholder: 'e.g. many plants, prepare guest beds, multiple terraces, sensitive equipment',
-        summaryTitle: 'Price overview',
-        summaryChip: 'Estimated',
-        summaryNote: 'Guideline based on an economically viable mixed model. Final prices may change for special requests, long-distance travel or unusual workload.',
-        footerText: 'Property Care Alicante • clear services • transparent pricing • trilingual',
-        freqText: {
-          one_time: 'one-time',
-          monthly: 'per month',
-          biweekly: 'per month',
-          weekly: 'per month'
-        },
-        breakdown: {
-          base: 'Base effort',
-          interior: 'Interior size',
-          outside: 'Outdoor area',
-          extras: 'Additional services',
-          frequency: 'Frequency factor',
-          total: 'Total'
-        },
-        detailButtonOpen: 'Show details',
-        detailButtonClose: 'Hide details',
-        services: [
-          {
-            title: 'Regular property inspection',
-            text: 'Visual inspection of the home, windows, electricity, water and obvious damage.',
-            chips: ['Security', 'Documentation', 'Reliability'],
-            details: ['Outdoor review and brief indoor check', 'Checks for visible humidity or damage', 'Reports issues with practical next steps']
-          },
-          {
-            title: 'Preparation before arrival',
-            text: 'Your property is prepared so it feels usable and cared for before you or your guests arrive.',
-            chips: ['Comfort', 'Arrival', 'Coordination'],
-            details: ['Ventilation and fresh-air check', 'Swept and visibly tidy condition', 'Beds, lights and basic functionality checked']
-          },
-          {
-            title: 'Garden & pool add-on service',
-            text: 'Coordination of external providers or supervision of existing maintenance work.',
-            chips: ['Outdoor area', 'Pool', 'Garden'],
-            details: ['Checks visible pool condition', 'Confirms scheduled garden work', 'Reports unusual maintenance needs']
-          }
-        ],
-        packages: [
-          {
-            title: 'Basic',
-            price: 'from €79',
-            note: 'for smaller properties',
-            features: ['1 inspection per month', 'Short status update', 'Basic indoor/outdoor check']
-          },
-          {
-            title: 'Comfort',
-            price: 'from €149',
-            note: 'best fit for most owners',
-            featured: true,
-            badge: 'Recommended',
-            features: ['2 visits per month', 'Inspection + photo update', 'Arrival preparation if needed']
-          },
-          {
-            title: 'Premium',
-            price: 'from €239',
-            note: 'for large houses, villas or heavier coordination',
-            features: ['Weekly service', 'More outdoor area and extras', 'Priority coordination with service providers']
-          }
-        ],
-        highlights: [
-          { title: 'No underpricing', text: 'The price realistically covers travel, time, communication and responsibility.' },
-          { title: 'Still simple', text: 'The model remains understandable for clients even though it is dynamic.' },
-          { title: 'Size matters', text: 'A 20 m² terrace and a 400 m² garden cannot be priced the same way.' },
-          { title: 'Extras only when used', text: 'Additional services affect the price only when they are actually selected.' }
-        ]
-      },
-      es: {
-        brandTitle: 'Gestión de Propiedades Alicante',
-        heroEyebrow: 'Fiable en el lugar • precios transparentes',
-        heroTitle: 'Cuidado sin complicaciones para su propiedad en la Costa Blanca',
-        heroLead: 'Controles regulares, preparación antes de la llegada, coordinación de jardín y piscina, y una calculadora clara con lógica de precios realista.',
-        point1: 'Controles presenciales con informe',
-        point2: 'Preparación antes de la llegada de propietarios o huéspedes',
-        point3: 'Coordinación de limpieza, jardín y piscina',
-        point4: 'Precio justo según esfuerzo y frecuencia',
-        heroBtnPrimary: 'Calcular precio',
-        heroBtnSecondary: 'Ver paquetes',
-        imageBadgeTitle: 'Piscina, jardín, control y preparación',
-        imageBadgeText: 'Se ha integrado una solución visual de respaldo para que la imagen nunca quede vacía.',
-        servicesTitle: 'Servicios principales',
-        servicesLead: 'Cada servicio adicional tiene ahora su propio botón con detalles desplegables para que el cliente entienda exactamente qué incluye.',
-        packagesTitle: 'Paquetes claros más calculadora individual',
-        packagesLead: 'La mejor solución es la combinación: paquetes fáciles de entender y calculadora para casos especiales.',
-        highlightsTitle: 'Por qué esta lógica de precios es más sólida',
-        highlightsLead: 'Nada de inventar precios: cuentan el esfuerzo base, el tamaño, la zona exterior, los extras y la frecuencia.',
-        calcTitle: 'Calculadora de precio',
-        calcLead: 'La frecuencia de servicio está escrita de forma clara para que el cliente no tenga dudas.',
-        labelPropertyType: 'Tipo de propiedad',
-        labelFrequency: 'Frecuencia del servicio',
-        labelInteriorSize: 'Superficie interior (m²)',
-        labelOutsideSize: 'Zona exterior / jardín / terraza (m²)',
-        labelExtras: 'Servicios adicionales',
-        labelNotes: 'Observaciones especiales',
-        extraArrival: 'Preparación antes de la llegada',
-        extraVentilation: 'Ventilación / revisión rápida',
-        extraPool: 'Coordinar control de piscina',
-        extraGarden: 'Coordinar jardín / terraza',
-        extraPhotos: 'Informe con fotos y estado',
-        extraKey: 'Servicio de llaves / entrega',
-        notesPlaceholder: 'por ejemplo: muchas plantas, preparar camas, varias terrazas, equipos delicados',
-        summaryTitle: 'Resumen de precio',
-        summaryChip: 'Calculado',
-        summaryNote: 'Importe orientativo basado en un modelo rentable y realista. Los precios finales pueden variar por solicitudes especiales, desplazamientos fuera de la zona estándar o cargas de trabajo excepcionales.',
-        footerText: 'Gestión de Propiedades Alicante • servicios claros • precios transparentes • tres idiomas',
-        freqText: {
-          one_time: 'una vez',
-          monthly: 'por mes',
-          biweekly: 'por mes',
-          weekly: 'por mes'
-        },
-        breakdown: {
-          base: 'Esfuerzo base',
-          interior: 'Superficie interior',
-          outside: 'Zona exterior',
-          extras: 'Servicios adicionales',
-          frequency: 'Factor de frecuencia',
-          total: 'Total'
-        },
-        detailButtonOpen: 'Ver detalles',
-        detailButtonClose: 'Ocultar detalles',
-        services: [
-          {
-            title: 'Inspección regular de la propiedad',
-            text: 'Revisión visual de vivienda, ventanas, electricidad, agua y daños evidentes.',
-            chips: ['Seguridad', 'Documentación', 'Fiabilidad'],
-            details: ['Control exterior y revisión rápida interior', 'Comprobación de humedad o daños visibles', 'Aviso de incidencias con recomendación de acción']
-          },
-          {
-            title: 'Preparación antes de la llegada',
-            text: 'La propiedad se deja lista y presentable antes de su llegada o la de sus huéspedes.',
-            chips: ['Comodidad', 'Llegada', 'Coordinación'],
-            details: ['Ventilación y revisión de frescura', 'Barrido y orden visual básico', 'Camas, luces y funciones básicas comprobadas']
-          },
-          {
-            title: 'Servicio adicional jardín y piscina',
-            text: 'Coordinación de proveedores externos o control del mantenimiento ya previsto.',
-            chips: ['Exterior', 'Piscina', 'Jardín'],
-            details: ['Control visual del estado de la piscina', 'Seguimiento del trabajo programado en jardín', 'Aviso si hay un mantenimiento inusual']
-          }
-        ],
-        packages: [
-          {
-            title: 'Básico',
-            price: 'desde €79',
-            note: 'para propiedades pequeñas',
-            features: ['1 visita al mes', 'Actualización breve', 'Revisión básica interior/exterior']
-          },
-          {
-            title: 'Confort',
-            price: 'desde €149',
-            note: 'la mejor opción para la mayoría',
-            featured: true,
-            badge: 'Recomendado',
-            features: ['2 visitas al mes', 'Inspección + fotos', 'Preparación antes de llegada si hace falta']
-          },
-          {
-            title: 'Premium',
-            price: 'desde €239',
-            note: 'para villas, casas grandes o mayor coordinación',
-            features: ['Servicio semanal', 'Más exterior y extras', 'Coordinación prioritaria con proveedores']
-          }
-        ],
-        highlights: [
-          { title: 'Sin regalar trabajo', text: 'El precio cubre de forma realista desplazamiento, tiempo, comunicación y responsabilidad.' },
-          { title: 'Sigue siendo claro', text: 'Aunque el modelo es dinámico, el cliente lo puede entender con facilidad.' },
-          { title: 'El tamaño importa', text: 'No es lógico cobrar igual por 20 m² de terraza que por 400 m² de jardín.' },
-          { title: 'Extras solo si se usan', text: 'Los servicios adicionales solo elevan el precio cuando realmente se seleccionan.' }
-        ]
-      }
-    };
-
-    const contactConfig = {
+    const CONFIG = {
       email: 'deine@email.de',
       whatsapp: '34123456789'
     };
 
-    const priceConfig = {
-      propertyType: { apartment: 58, house: 78, premium: 110 },
-      frequencyFactor: { one_time: 1.35, monthly: 1, biweekly: 1.85, weekly: 3.4 },
-      extras: { arrival: 18, ventilation: 8, pool: 22, garden: 20, photos: 10, key: 16 }
+    const i18n = {
+      de: {
+        navContact: 'Kontakt',
+        freqOneTime: 'Einmaliger Einsatz / Einzelauftrag',
+        freqMonthly: 'Regelmäßig: 1 Besuch pro Monat',
+        freqWeekly: 'Regelmäßig: 1 Besuch pro Woche',
+        detailsBtn: 'Details anzeigen',
+        contactTitle: 'Direkt anfragen',
+        contactText: 'Nicht nur klicken und hoffen. Die Anfrage wird mit den wichtigsten Eckdaten aus dem Rechner vorbereitet.',
+        contactNameLabel: 'Name',
+        contactEmailLabel: 'E-Mail',
+        contactPhoneLabel: 'Telefon / WhatsApp',
+        contactLocationLabel: 'Ort der Immobilie',
+        contactMessageLabel: 'Zusätzliche Nachricht',
+        emailBtn: '📧 Anfrage per E-Mail',
+        whatsappBtn: '💬 Anfrage per WhatsApp',
+        summaryInspection: 'Objektkontrolle',
+        summaryPool: 'Poolservice',
+        summaryGarden: 'Gartenpflege',
+        summaryArrival: 'Vorbereitung vor Ankunft',
+        summaryBase: 'Grundpreis Objekt',
+        currencyLocale: 'de-DE',
+        requestSubject: 'Neue Anfrage Immobilienbetreuung Alicante',
+        requestHeadline: 'Neue Anfrage über die Website',
+        requestEstimated: 'Geschätzter Preis'
+      },
+      en: {
+        navContact: 'Contact',
+        freqOneTime: 'One-time service / single request',
+        freqMonthly: 'Regular: 1 visit per month',
+        freqWeekly: 'Regular: 1 visit per week',
+        detailsBtn: 'Show details',
+        contactTitle: 'Request directly',
+        contactText: 'Not just click and hope. The request is prefilled with the key details from the calculator.',
+        contactNameLabel: 'Name',
+        contactEmailLabel: 'Email',
+        contactPhoneLabel: 'Phone / WhatsApp',
+        contactLocationLabel: 'Property location',
+        contactMessageLabel: 'Additional message',
+        emailBtn: '📧 Send email request',
+        whatsappBtn: '💬 Send WhatsApp request',
+        summaryInspection: 'Property inspection',
+        summaryPool: 'Pool service',
+        summaryGarden: 'Garden care',
+        summaryArrival: 'Arrival preparation',
+        summaryBase: 'Base property fee',
+        currencyLocale: 'en-GB',
+        requestSubject: 'New Property Care Alicante Request',
+        requestHeadline: 'New request from the website',
+        requestEstimated: 'Estimated price'
+      },
+      es: {
+        navContact: 'Contacto',
+        freqOneTime: 'Servicio puntual / encargo único',
+        freqMonthly: 'Regular: 1 visita al mes',
+        freqWeekly: 'Regular: 1 visita por semana',
+        detailsBtn: 'Ver detalles',
+        contactTitle: 'Solicitar directamente',
+        contactText: 'No solo hacer clic y esperar. La solicitud se prepara con los datos clave de la calculadora.',
+        contactNameLabel: 'Nombre',
+        contactEmailLabel: 'Correo electrónico',
+        contactPhoneLabel: 'Teléfono / WhatsApp',
+        contactLocationLabel: 'Ubicación de la propiedad',
+        contactMessageLabel: 'Mensaje adicional',
+        emailBtn: '📧 Enviar solicitud por correo',
+        whatsappBtn: '💬 Enviar solicitud por WhatsApp',
+        summaryInspection: 'Inspección del inmueble',
+        summaryPool: 'Servicio de piscina',
+        summaryGarden: 'Cuidado del jardín',
+        summaryArrival: 'Preparación antes de la llegada',
+        summaryBase: 'Tarifa base del inmueble',
+        currencyLocale: 'es-ES',
+        requestSubject: 'Nueva solicitud Gestión de Propiedades Alicante',
+        requestHeadline: 'Nueva solicitud desde la web',
+        requestEstimated: 'Precio estimado'
+      }
     };
 
     let currentLang = 'de';
 
-    function euro(num) {
-      return new Intl.NumberFormat(currentLang === 'de' ? 'de-DE' : currentLang === 'es' ? 'es-ES' : 'en-GB', {
-        style: 'currency',
-        currency: 'EUR',
-        maximumFractionDigits: 0
-      }).format(num);
+    function formatEuro(value) {
+      return new Intl.NumberFormat(i18n[currentLang].currencyLocale, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(value);
     }
 
-    function renderServices() {
-      const t = translations[currentLang];
-      const grid = document.getElementById('servicesGrid');
-      grid.innerHTML = '';
-      t.services.forEach((item, index) => {
-        const card = document.createElement('article');
-        card.className = 'service-card';
-        card.innerHTML = `
-          <h3>${item.title}</h3>
-          <p>${item.text}</p>
-          <div class="chip-row">${item.chips.map(chip => `<span class="chip">${chip}</span>`).join('')}</div>
-          <button class="btn detail-toggle" data-target="detail-${index}">
-            <span>${t.detailButtonOpen}</span>
-            <span>＋</span>
-          </button>
-          <div class="service-detail" id="detail-${index}">
-            <ul>${item.details.map(detail => `<li>${detail}</li>`).join('')}</ul>
-          </div>
-        `;
-        grid.appendChild(card);
-      });
-
-      grid.querySelectorAll('.detail-toggle').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const target = document.getElementById(btn.dataset.target);
-          const isOpen = target.classList.toggle('open');
-          btn.querySelector('span').textContent = isOpen ? t.detailButtonClose : t.detailButtonOpen;
-          btn.querySelectorAll('span')[1].textContent = isOpen ? '−' : '＋';
-        });
-      });
-    }
-
-    function renderPackages() {
-      const t = translations[currentLang];
-      const grid = document.getElementById('packagesGrid');
-      grid.innerHTML = '';
-      t.packages.forEach(item => {
-        const card = document.createElement('article');
-        card.className = `package-card ${item.featured ? 'featured' : ''}`;
-        card.innerHTML = `
-          ${item.badge ? `<div class="package-badge">${item.badge}</div>` : ''}
-          <h3>${item.title}</h3>
-          <div class="price">${item.price}</div>
-          <div class="price-note">${item.note}</div>
-          <ul class="package-list">${item.features.map(feature => `<li>${feature}</li>`).join('')}</ul>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    function renderHighlights() {
-      const t = translations[currentLang];
-      const grid = document.getElementById('highlightsGrid');
-      grid.innerHTML = '';
-      t.highlights.forEach(item => {
-        const card = document.createElement('article');
-        card.className = 'highlight-card';
-        card.innerHTML = `<h3>${item.title}</h3><p>${item.text}</p>`;
-        grid.appendChild(card);
-      });
-    }
-
-    function applyTranslations() {
-      const t = translations[currentLang];
-      Object.entries(t).forEach(([key, value]) => {
-        const el = document.getElementById(key);
-        if (el && typeof value === 'string') el.textContent = value;
-      });
-
-      document.getElementById('notes').placeholder = t.notesPlaceholder;
-
-      const frequency = document.getElementById('frequency');
-      frequency.options[0].text = currentLang === 'de' ? 'Einmalige Betreuung / Einzelauftrag' : currentLang === 'en' ? 'One-time service / single assignment' : 'Servicio puntual / trabajo único';
-      frequency.options[1].text = currentLang === 'de' ? 'Regelmäßige Betreuung: 1 Besuch pro Monat' : currentLang === 'en' ? 'Regular service: 1 visit per month' : 'Servicio regular: 1 visita al mes';
-      frequency.options[2].text = currentLang === 'de' ? 'Regelmäßige Betreuung: 2 Besuche pro Monat' : currentLang === 'en' ? 'Regular service: 2 visits per month' : 'Servicio regular: 2 visitas al mes';
-      frequency.options[3].text = currentLang === 'de' ? 'Regelmäßige Betreuung: 1 Besuch pro Woche' : currentLang === 'en' ? 'Regular service: 1 visit per week' : 'Servicio regular: 1 visita por semana';
-
-      const propertyType = document.getElementById('propertyType');
-      propertyType.options[0].text = currentLang === 'de' ? 'Apartment' : currentLang === 'en' ? 'Apartment' : 'Apartamento';
-      propertyType.options[1].text = currentLang === 'de' ? 'Haus / Villa' : currentLang === 'en' ? 'House / Villa' : 'Casa / Villa';
-      propertyType.options[2].text = currentLang === 'de' ? 'Großes Premium-Objekt' : currentLang === 'en' ? 'Large premium property' : 'Propiedad premium grande';
-
-      renderServices();
-      renderPackages();
-      renderHighlights();
-      updateCalculator();
-    }
-
-    function updateCalculator() {
-      const t = translations[currentLang];
+    function calculatePricing() {
       const propertyType = document.getElementById('propertyType').value;
-      const frequency = document.getElementById('frequency').value;
-      const interior = Math.max(0, Number(document.getElementById('interiorSize').value) || 0);
-      const outside = Math.max(0, Number(document.getElementById('outsideSize').value) || 0);
-      const extras = Array.from(document.querySelectorAll('.extra-option:checked')).map(i => i.value);
+      const serviceFrequency = document.getElementById('serviceFrequency').value;
+      const livingSize = Math.max(0, Number(document.getElementById('livingSize').value) || 0);
+      const plotSize = Math.max(0, Number(document.getElementById('plotSize').value) || 0);
+      const poolSize = Math.max(0, Number(document.getElementById('poolSize').value) || 0);
+      const checkInspection = document.getElementById('checkInspection').checked;
+      const checkPool = document.getElementById('checkPool').checked;
+      const checkGarden = document.getElementById('checkGarden').checked;
+      const checkArrival = document.getElementById('checkArrival').checked;
 
-      const base = priceConfig.propertyType[propertyType];
-      const interiorCost = Math.ceil(interior * 0.18);
-      const outsideCost = Math.ceil(outside * 0.09);
-      const extrasCost = extras.reduce((sum, key) => sum + priceConfig.extras[key], 0);
-      const subtotal = base + interiorCost + outsideCost + extrasCost;
-      const total = Math.ceil(subtotal * priceConfig.frequencyFactor[frequency]);
+      const baseProperty = propertyType === 'house' ? 58 : 42;
+      const livingFactor = Math.ceil(livingSize * 0.12);
+      const frequencyFactor = serviceFrequency === 'weekly' ? 3.4 : serviceFrequency === 'monthly' ? 1 : 1.25;
 
-      document.getElementById('summaryPrice').textContent = euro(total);
-      document.getElementById('summaryFrequency').textContent = t.freqText[frequency];
+      const lines = [];
+      lines.push([i18n[currentLang].summaryBase, baseProperty + livingFactor]);
 
-      const breakdown = document.getElementById('summaryBreakdown');
-      breakdown.innerHTML = `
-        <div class="row"><span>${t.breakdown.base}</span><strong>${euro(base)}</strong></div>
-        <div class="row"><span>${t.breakdown.interior}</span><strong>${euro(interiorCost)}</strong></div>
-        <div class="row"><span>${t.breakdown.outside}</span><strong>${euro(outsideCost)}</strong></div>
-        <div class="row"><span>${t.breakdown.extras}</span><strong>${euro(extrasCost)}</strong></div>
-        <div class="row"><span>${t.breakdown.frequency}</span><strong>x ${priceConfig.frequencyFactor[frequency].toFixed(2)}</strong></div>
-        <div class="row"><span>${t.breakdown.total}</span><strong>${euro(total)}</strong></div>
-      `;
+      if (checkInspection) lines.push([i18n[currentLang].summaryInspection, Math.ceil((22 + livingSize * 0.06) * frequencyFactor)]);
+      if (checkPool && poolSize > 0) lines.push([i18n[currentLang].summaryPool, Math.ceil((18 + poolSize * 0.85) * frequencyFactor)]);
+      if (checkGarden && plotSize > 0) lines.push([i18n[currentLang].summaryGarden, Math.ceil((16 + plotSize * 0.07) * frequencyFactor)]);
+      if (checkArrival) lines.push([i18n[currentLang].summaryArrival, Math.ceil(28 * (serviceFrequency === 'weekly' ? 1.15 : 1))]);
 
-      updateContactLinks(total, frequency);
+      const subtotal = lines.reduce((sum, [, price]) => sum + price, 0);
+      const total = Math.ceil(subtotal);
+
+      const summaryList = document.getElementById('summaryList');
+      summaryList.innerHTML = lines.length
+        ? lines.map(([label, price]) => `<div class="summary-row"><span>${label}</span><span>${formatEuro(price)}</span></div>`).join('')
+        : `<div class="summary-empty">-</div>`;
+
+      document.getElementById('subtotalValue').textContent = formatEuro(subtotal);
+      document.getElementById('grandTotal').textContent = formatEuro(total);
+
+      updateContactLinks(total);
     }
 
-    function updateContactLinks(total, frequency) {
-      const name = document.getElementById('contactName')?.value?.trim() || '';
-      const email = document.getElementById('contactEmail')?.value?.trim() || '';
-      const phone = document.getElementById('contactPhone')?.value?.trim() || '';
-      const location = document.getElementById('contactLocation')?.value?.trim() || '';
-      const notes = document.getElementById('notes')?.value?.trim() || '';
-      const message = document.getElementById('contactMessage')?.value?.trim() || '';
-      const propertyType = document.getElementById('propertyType').selectedOptions[0].text;
-      const frequencyText = document.getElementById('frequency').selectedOptions[0].text;
-      const interior = document.getElementById('interiorSize').value || '';
-      const outside = document.getElementById('outsideSize').value || '';
-      const extras = Array.from(document.querySelectorAll('.extra-option:checked')).map(el => el.parentElement.innerText.trim()).join(', ') || '-';
+    function updateContactLinks(total) {
+      const propertyTypeText = document.getElementById('propertyType').selectedOptions[0].text;
+      const frequencyText = document.getElementById('serviceFrequency').selectedOptions[0].text;
+      const livingSize = document.getElementById('livingSize').value || '-';
+      const plotSize = document.getElementById('plotSize').value || '-';
+      const poolSize = document.getElementById('poolSize').value || '-';
+      const name = document.getElementById('contactName').value.trim() || '-';
+      const email = document.getElementById('contactEmail').value.trim() || '-';
+      const phone = document.getElementById('contactPhone').value.trim() || '-';
+      const location = document.getElementById('contactLocation').value.trim() || '-';
+      const message = document.getElementById('contactMessage').value.trim() || '-';
+      const services = [
+        document.getElementById('checkInspection').checked ? i18n[currentLang].summaryInspection : null,
+        document.getElementById('checkPool').checked ? i18n[currentLang].summaryPool : null,
+        document.getElementById('checkGarden').checked ? i18n[currentLang].summaryGarden : null,
+        document.getElementById('checkArrival').checked ? i18n[currentLang].summaryArrival : null
+      ].filter(Boolean).join(', ') || '-';
 
-      const body = `${currentLang === 'de' ? 'Neue Anfrage über die Website' : currentLang === 'en' ? 'New request from the website' : 'Nueva solicitud desde la web'}
+      const body = `${i18n[currentLang].requestHeadline}
 
 `
-        + `Name: ${name || '-'}
+        + `Name: ${name}
 `
-        + `E-Mail: ${email || '-'}
+        + `E-Mail: ${email}
 `
-        + `Telefon / WhatsApp: ${phone || '-'}
+        + `Telefon / WhatsApp: ${phone}
 `
-        + `Ort der Immobilie: ${location || '-'}
+        + `Ort der Immobilie: ${location}
 `
-        + `Objektart: ${propertyType}
+        + `Objektart: ${propertyTypeText}
 `
         + `Betreuung: ${frequencyText}
 `
-        + `Wohnfläche innen: ${interior} m²
+        + `Wohnfläche: ${livingSize} m²
 `
-        + `Außenfläche: ${outside} m²
+        + `Außenfläche: ${plotSize} m²
 `
-        + `Zusatzleistungen: ${extras}
+        + `Poolgröße: ${poolSize} m²
 `
-        + `${currentLang === 'de' ? 'Geschätzter Preis' : currentLang === 'en' ? 'Estimated price' : 'Precio estimado'}: ${euro(total)} ${translations[currentLang].freqText[frequency]}
+        + `Leistungen: ${services}
 `
-        + `Besonderheiten: ${notes || '-'}
+        + `${i18n[currentLang].requestEstimated}: ${formatEuro(total)}
 `
-        + `Zusätzliche Nachricht: ${message || '-'}
+        + `Nachricht: ${message}
 `;
 
-      const subject = encodeURIComponent(currentLang === 'de' ? 'Neue Anfrage Immobilienbetreuung Alicante' : currentLang === 'en' ? 'New Property Care Alicante Request' : 'Nueva solicitud Gestión de Propiedades Alicante');
+      const subject = encodeURIComponent(i18n[currentLang].requestSubject);
       const encodedBody = encodeURIComponent(body);
-
-      const emailBtn = document.getElementById('emailCta');
-      const waBtn = document.getElementById('whatsappCta');
-      if (emailBtn) emailBtn.href = `mailto:${contactConfig.email}?subject=${subject}&body=${encodedBody}`;
-      if (waBtn) waBtn.href = `https://wa.me/${contactConfig.whatsapp}?text=${encodedBody}`;
+      document.getElementById('emailButton').href = `mailto:${CONFIG.email}?subject=${subject}&body=${encodedBody}`;
+      document.getElementById('whatsappButton').href = `https://wa.me/${CONFIG.whatsapp}?text=${encodedBody}`;
     }
 
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentLang = btn.dataset.lang;
-        applyTranslations();
+    function applyLanguage() {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === currentLang));
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.dataset.i18n;
+        if (i18n[currentLang][key]) el.textContent = i18n[currentLang][key];
+      });
+      calculatePricing();
+    }
+
+    document.querySelectorAll('.detail-toggle').forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        target.classList.toggle('open');
       });
     });
 
-    ['propertyType', 'frequency', 'interiorSize', 'outsideSize', 'notes', 'contactName', 'contactEmail', 'contactPhone', 'contactLocation', 'contactMessage'].forEach(id => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      el.addEventListener('input', updateCalculator);
-      el.addEventListener('change', updateCalculator);
+    document.querySelectorAll('.lang-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        currentLang = button.dataset.lang;
+        applyLanguage();
+      });
     });
-    document.querySelectorAll('.extra-option').forEach(el => el.addEventListener('change', updateCalculator));
 
-    applyTranslations();
+    ['propertyType', 'serviceFrequency', 'livingSize', 'plotSize', 'poolSize', 'checkInspection', 'checkPool', 'checkGarden', 'checkArrival', 'contactName', 'contactEmail', 'contactPhone', 'contactLocation', 'contactMessage'].forEach(id => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', calculatePricing);
+      el.addEventListener('change', calculatePricing);
+    });
+
+    calculatePricing();
+    applyLanguage();
   </script>
 </body>
 </html>
