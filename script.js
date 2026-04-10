@@ -61,6 +61,7 @@ const translations = {
     fieldPlotSize: "Grundstück / Außenfläche (m²)",
     fieldPlotHelp: "Für Villen wird die Außenfläche über nachvollziehbare Stufen bewertet, nicht über symbolische Kleinstbeträge.",
     fieldPoolSize: "Poolgröße (m²)",
+    fieldPoolHelp: "Nur Sichtkontrolle und Dokumentation. Keine Reinigung, keine Wasserpflege, keine technischen Eingriffe.",
     fieldYachtSize: "Yacht-Länge",
     fieldYachtLocation: "Liegeort der Yacht",
     fieldYachtLocationHelp: "Yacht-Checks außerhalb des regulären Einsatzgebiets werden individuell abgestimmt und nicht automatisch kalkuliert.",
@@ -151,6 +152,13 @@ const translations = {
     detailContract3: "3-, 6- oder 12-Monats-Betreuung: feste Laufzeit mit attraktiveren Konditionen",
     detailContract4: "Automatische Verlängerung immer in derselben Laufzeit, wenn nicht 14 Tage vor Laufzeitende gekündigt wird",
     detailContractNote: "Längere Laufzeiten wirken nur auf die Kernbetreuung, nicht auf Zusatzleistungen oder Warenkosten.",
+
+    detailPoolTitle: "Pool-Sichtkontrolle – klar abgegrenzt",
+    detailPool1: "Sichtprüfung von Wasserstand und sichtbarer Wasserqualität",
+    detailPool2: "Sichtprüfung von Beckenrand und allgemeinem Eindruck",
+    detailPool3: "Foto-Dokumentation bei Auffälligkeiten",
+    detailPool4: "Kurze Rückmeldung an den Eigentümer",
+    detailPoolNote: "Keine Reinigung, keine Wasserpflege, keine technische Wartung und keine Wiederherstellung bei stark verschmutztem Zustand.",
 
     detailYachtTitle: "Yacht-Check – klar abgegrenzt",
     detailYacht1: "Sichtprüfung von Zustand, Leinen und äußerem Eindruck",
@@ -282,6 +290,7 @@ const translations = {
     fieldPlotSize: "Plot / outdoor area (m²)",
     fieldPlotHelp: "For villas, outdoor area is valued in clear steps instead of symbolic micro-surcharges.",
     fieldPoolSize: "Pool size (m²)",
+    fieldPoolHelp: "Visual inspection and documentation only. No cleaning, no water treatment, no technical intervention.",
     fieldYachtSize: "Yacht length",
     fieldYachtLocation: "Yacht berth location",
     fieldYachtLocationHelp: "Yacht checks outside the regular service area are arranged individually and are not calculated automatically.",
@@ -372,6 +381,13 @@ const translations = {
     detailContract3: "3-, 6- or 12-month support: fixed term with better conditions",
     detailContract4: "Automatic renewal always by the same term if not cancelled 14 days before the end of the term",
     detailContractNote: "Longer terms apply only to core support, not to additional services or goods.",
+
+    detailPoolTitle: "Pool visual check – clearly limited",
+    detailPool1: "Visual check of water level and visible water quality",
+    detailPool2: "Visual check of pool edge and general impression",
+    detailPool3: "Photo documentation in case of issues",
+    detailPool4: "Short feedback to the owner",
+    detailPoolNote: "No cleaning, no water treatment, no technical maintenance and no restoration in case of heavily dirty condition.",
 
     detailYachtTitle: "Yacht check – clearly limited",
     detailYacht1: "Visual inspection of general condition, lines and exterior impression",
@@ -503,6 +519,7 @@ const translations = {
     fieldPlotSize: "Parcela / exterior (m²)",
     fieldPlotHelp: "En villas, la superficie exterior se valora por tramos claros y no por recargos mínimos simbólicos.",
     fieldPoolSize: "Tamaño de piscina (m²)",
+    fieldPoolHelp: "Solo revisión visual y documentación. Sin limpieza, sin tratamiento del agua y sin intervenciones técnicas.",
     fieldYachtSize: "Longitud del yate",
     fieldYachtLocation: "Ubicación de amarre del yate",
     fieldYachtLocationHelp: "Los controles de yates fuera del área regular de servicio se gestionan individualmente y no se calculan automáticamente.",
@@ -593,6 +610,13 @@ const translations = {
     detailContract3: "Atención de 3, 6 o 12 meses: plazo fijo con mejores condiciones",
     detailContract4: "La renovación automática siempre se realiza por el mismo plazo si no se cancela 14 días antes del fin del plazo",
     detailContractNote: "Las duraciones más largas solo afectan a la atención principal, no a servicios adicionales ni productos.",
+
+    detailPoolTitle: "Control visual de piscina – claramente delimitado",
+    detailPool1: "Revisión visual del nivel del agua y de la calidad visible",
+    detailPool2: "Revisión visual del borde y del estado general",
+    detailPool3: "Documentación fotográfica en caso de incidencias",
+    detailPool4: "Breve respuesta al propietario",
+    detailPoolNote: "Sin limpieza, sin tratamiento del agua, sin mantenimiento técnico y sin recuperación en caso de fuerte suciedad.",
 
     detailYachtTitle: "Control de yate – claramente delimitado",
     detailYacht1: "Revisión visual del estado general, cabos y aspecto exterior",
@@ -762,6 +786,13 @@ function getPlotPrice(plotSize) {
   return 75;
 }
 
+function getPoolPrice(poolSize) {
+  if (poolSize <= 0) return 0;
+  if (poolSize <= 15) return 20;
+  if (poolSize <= 30) return 30;
+  return 40;
+}
+
 function getYachtPrice(sizeValue) {
   switch (sizeValue) {
     case "upTo10":
@@ -921,9 +952,9 @@ function calculatePricing() {
     }
   }
 
-  if (poolSize > 0) {
-    const poolExtra = Math.min(35, Math.max(20, Math.ceil(15 + poolSize * 0.5)));
-    lines.push([t("summaryPool"), poolExtra]);
+  const poolPrice = getPoolPrice(poolSize);
+  if (poolPrice > 0) {
+    lines.push([t("summaryPool"), poolPrice]);
   }
 
   if (formEls.checkReport.checked) lines.push([t("summaryReport"), 10]);
@@ -949,7 +980,11 @@ function calculatePricing() {
   const total = lines.reduce((sum, [, price]) => sum + price, 0);
 
   formEls.summaryList.innerHTML = lines.map(([label, price]) => {
-    const formatted = price === 0 ? "auf Anfrage" : formatEuro(price);
+    const formatted =
+      price === 0 && label.toLowerCase().includes("yacht")
+        ? "auf Anfrage"
+        : formatEuro(price);
+
     return `
       <div class="summary-row">
         <span>${label}</span>
