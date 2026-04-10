@@ -346,7 +346,8 @@ section { padding: 28px 0; }
 .service-card p,
 .pricing-box p,
 .card p,
-.card li {
+.card li,
+.field-help {
   color: var(--muted);
 }
 
@@ -381,6 +382,11 @@ section { padding: 28px 0; }
   font-weight: 700;
 }
 
+.field-help {
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
 .field input,
 .field select,
 .field textarea {
@@ -398,6 +404,12 @@ section { padding: 28px 0; }
 .field textarea:focus {
   border-color: #8bb8ff;
   box-shadow: 0 0 0 4px rgba(13,110,253,0.08);
+}
+
+.field select:disabled {
+  background: #f3f6f9;
+  color: #8597a6;
+  cursor: not-allowed;
 }
 
 .checks {
@@ -497,7 +509,7 @@ section { padding: 28px 0; }
 
 .grand-total {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 16px;
   font-size: clamp(1.35rem, 3vw, 2rem);
