@@ -34,6 +34,10 @@ button, input, select, textarea { font: inherit; }
   margin: 0 auto;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .topbar {
   position: sticky;
   top: 0;
@@ -410,6 +414,13 @@ section { padding: 28px 0; }
   background: #f3f6f9;
   color: #8597a6;
   cursor: not-allowed;
+}
+
+.conditional-field {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #f9fbfd;
 }
 
 .checks {
