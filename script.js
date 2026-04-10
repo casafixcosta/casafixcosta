@@ -47,9 +47,14 @@ const translations = {
     extrasText: "Welcome-Pakete, Einkaufsservice, Schlüsselservice, Asset-Checks und priorisierte Reaktion ergänzen die Betreuung dort, wo sie für Eigentümer wirklich sinnvoll sind.",
 
     calcTitle: "Service-Rechner",
-    calcText: "Die Kalkulation bildet dein Objekt, die Betreuungsfrequenz und alle gewählten Zusatzleistungen in einer nachvollziehbaren Premium-Logik ab. Einmalige Einsätze liegen bewusst höher als laufende Betreuung.",
+    calcText: "Die Kalkulation bildet Objektgröße, Vertragsmodell, Besuchsfrequenz und Zusatzleistungen in einer nachvollziehbaren Premium-Logik ab. Einmalige Einsätze liegen bewusst höher als laufende Betreuung.",
     fieldPropertyType: "Objektkategorie",
-    fieldFrequency: "Betreuungsmodell",
+    fieldPropertyTypeHelp: "Apartment typischerweise bis ca. 110 m². Villa ab höherer Fläche, mehr Außenbereich oder größerer Objektkomplexität.",
+    fieldContractModel: "Vertragsmodell",
+    fieldContractModelHelp: "Längere Laufzeiten erhalten die attraktivsten Konditionen. Kündigungsfrist bei Vertragsmodellen: 14 Tage vor Laufzeitende.",
+    fieldFrequency: "Besuchsfrequenz",
+    fieldFrequencyHelpOneTime: "Beim einmaligen Einsatz bleibt es bei einem einzelnen Termin ohne laufende Betreuung.",
+    fieldFrequencyHelpRecurring: "Für laufende Betreuung wählst du hier, wie oft das Objekt im Monat betreut werden soll.",
     fieldLivingSize: "Wohnfläche (m²)",
     fieldPlotSize: "Grundstück / Außenfläche (m²)",
     fieldPoolSize: "Poolgröße (m²)",
@@ -57,12 +62,17 @@ const translations = {
     fieldServices: "Leistungen auswählen",
 
     typeApartment: "Apartment",
-    typeSmallVilla: "Kleine Villa",
-    typeLargeVilla: "Große Villa",
+    typeVilla: "Villa",
 
-    freqOneTime: "Einmaliger Einsatz",
-    freqMonthly: "Monatspaket – 1 Besuch pro Monat",
-    freqWeekly: "Monatspaket – 4 Besuche pro Monat",
+    contractOneTime: "Einmaliger Einsatz",
+    contractMonthlyFlex: "Monatlich kündbare Betreuung",
+    contractThreeMonths: "3-Monats-Betreuung",
+    contractSixMonths: "6-Monats-Betreuung",
+    contractTwelveMonths: "12-Monats-Betreuung",
+
+    frequencyOneVisit: "1 Besuch",
+    frequencyMonthly: "1 Besuch pro Monat",
+    frequencyWeekly: "4 Besuche pro Monat",
 
     yachtNone: "Kein Yacht-Check",
     yachtUpTo10: "Bis 10 m",
@@ -123,6 +133,13 @@ const translations = {
     detailEmergency4: "Schnelle Organisation eines Vor-Ort-Checks im vereinbarten Einsatzgebiet",
     detailEmergencyNote: "Die Pauschale sichert Erreichbarkeit und priorisierte Reaktion. Einsätze vor Ort werden separat berechnet.",
 
+    detailContractTitle: "Vertragsmodelle – kurz erklärt",
+    detailContract1: "Einmaliger Einsatz: einzelner Termin ohne laufende Betreuung",
+    detailContract2: "Monatlich kündbare Betreuung: laufender Service mit kurzer Bindung",
+    detailContract3: "3-, 6- oder 12-Monats-Betreuung: feste Laufzeit mit attraktiveren Konditionen",
+    detailContract4: "Automatische Verlängerung immer in derselben Laufzeit, wenn nicht 14 Tage vor Laufzeitende gekündigt wird",
+    detailContractNote: "Längere Laufzeiten wirken nur auf die Kernbetreuung, nicht auf Zusatzleistungen oder Warenkosten.",
+
     detailYachtTitle: "Yacht-Check – klar abgegrenzt",
     detailYacht1: "Sichtprüfung von Zustand, Leinen und äußerem Eindruck",
     detailYacht2: "Kontrolle sichtbarer Wasserstände",
@@ -136,11 +153,10 @@ const translations = {
     investmentLabelMonthly: "Ihre monatliche Service-Investition",
     pricingNote: "Hinweis: Einmalige Einsätze liegen preislich höher, da Planung, Anfahrt und Einsatz nicht über ein laufendes Betreuungsverhältnis verteilt werden können. Regelmäßige Betreuung bietet eine wirtschaftlichere Struktur pro Besuch und zugleich mehr Kontinuität und Sicherheit.",
 
-    summaryBase: "Basis Objektkategorie",
+    summaryBase: "Basis Kernbetreuung",
     summaryLiving: "Wohnflächen-Zuschlag",
     summaryPlot: "Grundstücks-Zuschlag",
     summaryPool: "Pool-Sichtkontrolle",
-    summaryInspection: "Objektkontrolle",
     summaryReport: "Foto- und Statusbericht",
     summaryKeys: "Schlüsselservice",
     summaryVentilation: "Lüften / Kurzcheck",
@@ -151,14 +167,13 @@ const translations = {
     summaryEmergency: "Notfall-Erreichbarkeit",
     summaryAuto: "Auto-Check",
     summaryYacht: "Yacht-Check",
-    summaryBundle: "Bundle-Rabatt",
 
     logicTitle: "Warum diese Preislogik sinnvoller ist",
-    logicText: "Statt Billigpaketen oder unklaren Sammelpreisen bildet diese Seite eine nachvollziehbare Premium-Logik ab: Objektgröße, Besuchsfrequenz, Dokumentation, Zusatzleistungen und Asset-Checks werden sauber berücksichtigt.",
+    logicText: "Statt Billigpaketen oder unklaren Sammelpreisen bildet diese Seite eine nachvollziehbare Premium-Logik ab: Objektgröße, Vertragsmodell, Besuchsfrequenz, Dokumentation und Zusatzleistungen werden sauber berücksichtigt.",
     logicBox1Title: "1. Einmalige Einsätze sind bewusst teurer",
-    logicBox1Text: "Einzeleinsätze bedeuten volle Anfahrt, volle Organisation und keine Planbarkeit. Deshalb liegen sie immer über dem Preis pro Besuch eines laufenden Betreuungspakets.",
-    logicBox2Title: "2. Laufende Betreuung wird wirtschaftlicher",
-    logicBox2Text: "Monatliche oder wöchentliche Betreuung bietet dir als Eigentümer eine bessere Preisstruktur pro Besuch, mehr Kontinuität und mehr Sicherheit im Alltag.",
+    logicBox1Text: "Einzeleinsätze bedeuten volle Anfahrt, volle Organisation und keine Planbarkeit. Deshalb liegen sie immer über dem Preis pro Besuch einer laufenden Betreuung.",
+    logicBox2Title: "2. Längere Laufzeiten verbessern die Konditionen",
+    logicBox2Text: "Monatlich kündbare Betreuung bietet Einstieg ohne lange Bindung. 3-, 6- und 12-Monats-Modelle schaffen mehr Planungssicherheit und erhalten deshalb bessere Konditionen auf die Kernbetreuung.",
     logicBox3Title: "3. Premium-Leistung braucht klare Marge",
     logicBox3Text: "Dokumentation, Koordination, Erreichbarkeit, Welcome-Leistungen und Asset-Checks sind echte Wertfaktoren. Sie müssen deshalb sichtbar und sauber bepreist sein.",
 
@@ -184,7 +199,8 @@ const translations = {
     requestHeadline: "Neue Anfrage über die Website",
     requestEstimated: "Kalkulierte Service-Investition",
     requestPropertyType: "Objektkategorie",
-    requestFrequency: "Betreuungsmodell",
+    requestContractModel: "Vertragsmodell",
+    requestFrequency: "Besuchsfrequenz",
     requestLiving: "Wohnfläche",
     requestPlot: "Außenfläche",
     requestPool: "Poolgröße",
@@ -193,8 +209,7 @@ const translations = {
     requestMessage: "Nachricht",
     requestPhone: "Telefon / WhatsApp",
     requestEmail: "E-Mail",
-    requestLocation: "Ort der Immobilie",
-    requestBundle: "Bundle-Rabatt"
+    requestLocation: "Ort der Immobilie"
   },
 
   en: {
@@ -240,9 +255,14 @@ const translations = {
     extrasText: "Welcome packages, shopping service, key service, asset checks and prioritized reaction complement the support where they are genuinely useful for owners.",
 
     calcTitle: "Service calculator",
-    calcText: "The calculation reflects your property, service frequency and selected extras in a traceable premium structure. One-off visits are intentionally priced higher than ongoing care.",
+    calcText: "The calculation reflects property size, contract model, visit frequency and selected extras in a traceable premium structure. One-off visits are intentionally priced higher than ongoing care.",
     fieldPropertyType: "Property category",
-    fieldFrequency: "Service model",
+    fieldPropertyTypeHelp: "Apartment typically up to around 110 m². Villa from larger living area, more outdoor space or higher overall property complexity.",
+    fieldContractModel: "Contract model",
+    fieldContractModelHelp: "Longer terms receive the best conditions. Notice period for contract models: 14 days before the end of the term.",
+    fieldFrequency: "Visit frequency",
+    fieldFrequencyHelpOneTime: "For a one-off visit, this remains a single appointment without ongoing support.",
+    fieldFrequencyHelpRecurring: "For ongoing support, select how often the property should be checked per month.",
     fieldLivingSize: "Living area (m²)",
     fieldPlotSize: "Plot / outdoor area (m²)",
     fieldPoolSize: "Pool size (m²)",
@@ -250,12 +270,17 @@ const translations = {
     fieldServices: "Select services",
 
     typeApartment: "Apartment",
-    typeSmallVilla: "Small villa",
-    typeLargeVilla: "Large villa",
+    typeVilla: "Villa",
 
-    freqOneTime: "One-off visit",
-    freqMonthly: "Monthly package – 1 visit per month",
-    freqWeekly: "Monthly package – 4 visits per month",
+    contractOneTime: "One-off visit",
+    contractMonthlyFlex: "Monthly cancellable support",
+    contractThreeMonths: "3-month support",
+    contractSixMonths: "6-month support",
+    contractTwelveMonths: "12-month support",
+
+    frequencyOneVisit: "1 visit",
+    frequencyMonthly: "1 visit per month",
+    frequencyWeekly: "4 visits per month",
 
     yachtNone: "No yacht check",
     yachtUpTo10: "Up to 10 m",
@@ -316,6 +341,13 @@ const translations = {
     detailEmergency4: "Fast organization of an on-site check within the agreed service area",
     detailEmergencyNote: "The fee covers availability and prioritized response. On-site visits are charged separately.",
 
+    detailContractTitle: "Contract models – brief explanation",
+    detailContract1: "One-off visit: single appointment without ongoing support",
+    detailContract2: "Monthly cancellable support: ongoing service with short commitment",
+    detailContract3: "3-, 6- or 12-month support: fixed term with better conditions",
+    detailContract4: "Automatic renewal always by the same term if not cancelled 14 days before the end of the term",
+    detailContractNote: "Longer terms apply only to core support, not to additional services or goods.",
+
     detailYachtTitle: "Yacht check – clearly limited",
     detailYacht1: "Visual inspection of general condition, lines and exterior impression",
     detailYacht2: "Check visible water levels",
@@ -329,11 +361,10 @@ const translations = {
     investmentLabelMonthly: "Your monthly service investment",
     pricingNote: "Note: One-off visits are priced higher because planning, travel and service cannot be spread across an ongoing support relationship. Regular care provides a better structure per visit while also increasing continuity and security.",
 
-    summaryBase: "Base property category",
+    summaryBase: "Base core support",
     summaryLiving: "Living area surcharge",
     summaryPlot: "Plot surcharge",
     summaryPool: "Pool visual check",
-    summaryInspection: "Property check",
     summaryReport: "Photo and status report",
     summaryKeys: "Key service",
     summaryVentilation: "Airing / quick check",
@@ -344,14 +375,13 @@ const translations = {
     summaryEmergency: "Emergency availability",
     summaryAuto: "Car check",
     summaryYacht: "Yacht check",
-    summaryBundle: "Bundle discount",
 
     logicTitle: "Why this pricing logic makes more sense",
-    logicText: "Instead of bargain packages or vague combined prices, this site reflects a traceable premium logic: property size, visit frequency, documentation, additional services and asset checks are all priced clearly.",
+    logicText: "Instead of bargain packages or vague combined prices, this site reflects a traceable premium logic: property size, contract model, visit frequency, documentation and additional services are all priced clearly.",
     logicBox1Title: "1. One-off visits are intentionally higher",
-    logicBox1Text: "One-off visits mean full travel, full organization and no planning certainty. That is why they are always above the per-visit price of an ongoing service package.",
-    logicBox2Title: "2. Ongoing care becomes more efficient",
-    logicBox2Text: "Monthly or weekly support offers a better price structure per visit while increasing continuity and security for the owner.",
+    logicBox1Text: "One-off visits mean full travel, full organization and no planning certainty. That is why they are always above the per-visit price of ongoing support.",
+    logicBox2Title: "2. Longer terms improve conditions",
+    logicBox2Text: "Monthly cancellable support allows an easier start. 3-, 6- and 12-month models create more planning certainty and therefore receive better conditions on core support.",
     logicBox3Title: "3. Premium service needs clear margin",
     logicBox3Text: "Reporting, coordination, availability, welcome services and asset checks create real value. They must therefore be visibly and properly priced.",
 
@@ -377,7 +407,8 @@ const translations = {
     requestHeadline: "New request from the website",
     requestEstimated: "Calculated service investment",
     requestPropertyType: "Property category",
-    requestFrequency: "Service model",
+    requestContractModel: "Contract model",
+    requestFrequency: "Visit frequency",
     requestLiving: "Living area",
     requestPlot: "Outdoor area",
     requestPool: "Pool size",
@@ -386,8 +417,7 @@ const translations = {
     requestMessage: "Message",
     requestPhone: "Phone / WhatsApp",
     requestEmail: "Email",
-    requestLocation: "Property location",
-    requestBundle: "Bundle discount"
+    requestLocation: "Property location"
   },
 
   es: {
@@ -433,9 +463,14 @@ const translations = {
     extrasText: "Paquetes de bienvenida, servicio de compra, servicio de llaves, controles de activos y reacción prioritaria complementan la atención cuando realmente son útiles para el propietario.",
 
     calcTitle: "Calculadora de servicio",
-    calcText: "La calculación refleja su inmueble, la frecuencia de atención y los extras seleccionados dentro de una estructura premium comprensible. Las visitas puntuales tienen un precio intencionadamente más alto que la atención continua.",
+    calcText: "La calculación refleja tamaño del inmueble, modelo contractual, frecuencia de visitas y extras seleccionados dentro de una estructura premium comprensible. Las visitas puntuales tienen un precio intencionadamente más alto que la atención continua.",
     fieldPropertyType: "Categoría del inmueble",
-    fieldFrequency: "Modelo de atención",
+    fieldPropertyTypeHelp: "Apartamento normalmente hasta aprox. 110 m². Villa a partir de mayor superficie, más zona exterior o mayor complejidad del inmueble.",
+    fieldContractModel: "Modelo contractual",
+    fieldContractModelHelp: "Las duraciones más largas reciben las mejores condiciones. Plazo de cancelación en modelos contractuales: 14 días antes del fin del plazo.",
+    fieldFrequency: "Frecuencia de visitas",
+    fieldFrequencyHelpOneTime: "En la visita puntual se trata de una sola cita sin atención continua.",
+    fieldFrequencyHelpRecurring: "Para la atención continua, seleccione aquí con qué frecuencia debe revisarse el inmueble al mes.",
     fieldLivingSize: "Superficie habitable (m²)",
     fieldPlotSize: "Parcela / exterior (m²)",
     fieldPoolSize: "Tamaño de piscina (m²)",
@@ -443,12 +478,17 @@ const translations = {
     fieldServices: "Seleccionar servicios",
 
     typeApartment: "Apartamento",
-    typeSmallVilla: "Villa pequeña",
-    typeLargeVilla: "Villa grande",
+    typeVilla: "Villa",
 
-    freqOneTime: "Visita puntual",
-    freqMonthly: "Paquete mensual – 1 visita al mes",
-    freqWeekly: "Paquete mensual – 4 visitas al mes",
+    contractOneTime: "Visita puntual",
+    contractMonthlyFlex: "Atención cancelable mensualmente",
+    contractThreeMonths: "Atención de 3 meses",
+    contractSixMonths: "Atención de 6 meses",
+    contractTwelveMonths: "Atención de 12 meses",
+
+    frequencyOneVisit: "1 visita",
+    frequencyMonthly: "1 visita al mes",
+    frequencyWeekly: "4 visitas al mes",
 
     yachtNone: "Sin control de yate",
     yachtUpTo10: "Hasta 10 m",
@@ -509,6 +549,13 @@ const translations = {
     detailEmergency4: "Organización rápida de un control presencial dentro del área acordada",
     detailEmergencyNote: "La tarifa cubre disponibilidad y reacción prioritaria. Las visitas presenciales se cobran aparte.",
 
+    detailContractTitle: "Modelos contractuales – explicación breve",
+    detailContract1: "Visita puntual: cita única sin atención continua",
+    detailContract2: "Atención cancelable mensualmente: servicio continuo con compromiso corto",
+    detailContract3: "Atención de 3, 6 o 12 meses: plazo fijo con mejores condiciones",
+    detailContract4: "La renovación automática siempre se realiza por el mismo plazo si no se cancela 14 días antes del fin del plazo",
+    detailContractNote: "Las duraciones más largas solo afectan a la atención principal, no a servicios adicionales ni productos.",
+
     detailYachtTitle: "Control de yate – claramente delimitado",
     detailYacht1: "Revisión visual del estado general, cabos y aspecto exterior",
     detailYacht2: "Control de niveles de agua visibles",
@@ -522,11 +569,10 @@ const translations = {
     investmentLabelMonthly: "Su inversión mensual en servicio",
     pricingNote: "Nota: las visitas puntuales tienen un precio más alto porque la planificación, el desplazamiento y el servicio no pueden repartirse en una relación continua. La atención regular ofrece una mejor estructura por visita y al mismo tiempo más continuidad y seguridad.",
 
-    summaryBase: "Base categoría del inmueble",
+    summaryBase: "Base atención principal",
     summaryLiving: "Recargo por superficie habitable",
     summaryPlot: "Recargo por parcela",
     summaryPool: "Control visual de piscina",
-    summaryInspection: "Control del inmueble",
     summaryReport: "Informe con fotos y estado",
     summaryKeys: "Servicio de llaves",
     summaryVentilation: "Ventilación / revisión rápida",
@@ -537,14 +583,13 @@ const translations = {
     summaryEmergency: "Disponibilidad de emergencia",
     summaryAuto: "Control de coche",
     summaryYacht: "Control de yate",
-    summaryBundle: "Descuento bundle",
 
     logicTitle: "Por qué esta lógica de precios tiene más sentido",
-    logicText: "En lugar de paquetes baratos o precios combinados poco claros, esta página refleja una lógica premium comprensible: tamaño del inmueble, frecuencia de visitas, documentación, servicios adicionales y controles de activos se valoran claramente.",
+    logicText: "En lugar de paquetes baratos o precios combinados poco claros, esta página refleja una lógica premium comprensible: tamaño del inmueble, modelo contractual, frecuencia de visitas, documentación y servicios adicionales se valoran claramente.",
     logicBox1Title: "1. Las visitas puntuales son intencionadamente más caras",
-    logicBox1Text: "Las visitas puntuales implican desplazamiento completo, organización completa y ninguna planificación segura. Por eso siempre están por encima del precio por visita de un paquete continuo.",
-    logicBox2Title: "2. La atención continua se vuelve más eficiente",
-    logicBox2Text: "La atención mensual o semanal ofrece una mejor estructura de precio por visita y al mismo tiempo más continuidad y seguridad para el propietario.",
+    logicBox1Text: "Las visitas puntuales implican desplazamiento completo, organización completa y ninguna planificación segura. Por eso siempre están por encima del precio por visita de la atención continua.",
+    logicBox2Title: "2. Las duraciones más largas mejoran las condiciones",
+    logicBox2Text: "La atención cancelable mensualmente facilita la entrada. Los modelos de 3, 6 y 12 meses aportan más seguridad de planificación y por eso reciben mejores condiciones en la atención principal.",
     logicBox3Title: "3. El servicio premium necesita margen claro",
     logicBox3Text: "La documentación, la coordinación, la disponibilidad, los servicios de bienvenida y los controles de activos generan valor real. Por eso deben tener un precio visible y correcto.",
 
@@ -570,7 +615,8 @@ const translations = {
     requestHeadline: "Nueva solicitud desde la web",
     requestEstimated: "Inversión de servicio calculada",
     requestPropertyType: "Categoría del inmueble",
-    requestFrequency: "Modelo de atención",
+    requestContractModel: "Modelo contractual",
+    requestFrequency: "Frecuencia de visitas",
     requestLiving: "Superficie habitable",
     requestPlot: "Superficie exterior",
     requestPool: "Tamaño de piscina",
@@ -579,13 +625,13 @@ const translations = {
     requestMessage: "Mensaje",
     requestPhone: "Teléfono / WhatsApp",
     requestEmail: "Correo electrónico",
-    requestLocation: "Ubicación del inmueble",
-    requestBundle: "Descuento bundle"
+    requestLocation: "Ubicación del inmueble"
   }
 };
 
 const formEls = {
   propertyType: document.getElementById("propertyType"),
+  contractModel: document.getElementById("contractModel"),
   serviceFrequency: document.getElementById("serviceFrequency"),
   livingSize: document.getElementById("livingSize"),
   plotSize: document.getElementById("plotSize"),
@@ -617,6 +663,7 @@ const formEls = {
   whatsappButton: document.getElementById("whatsappButton")
 };
 
+const frequencyHelp = document.getElementById("frequencyHelp");
 const langButtons = Array.from(document.querySelectorAll(".lang-btn"));
 let currentLang = "de";
 
@@ -633,77 +680,25 @@ function formatEuro(value) {
   }).format(value);
 }
 
-function applyLanguage() {
-  document.documentElement.lang = currentLang;
-
-  langButtons.forEach((btn) => {
-    btn.classList.toggle("active", btn.dataset.lang === currentLang);
-  });
-
-  document.querySelectorAll("[data-i18n]").forEach((node) => {
-    const key = node.dataset.i18n;
-    const value = translations[currentLang][key];
-    if (typeof value === "string") {
-      node.textContent = value;
-    }
-  });
-
-  formEls.propertyType.options[0].text = t("typeApartment");
-  formEls.propertyType.options[1].text = t("typeSmallVilla");
-  formEls.propertyType.options[2].text = t("typeLargeVilla");
-
-  formEls.serviceFrequency.options[0].text = t("freqOneTime");
-  formEls.serviceFrequency.options[1].text = t("freqMonthly");
-  formEls.serviceFrequency.options[2].text = t("freqWeekly");
-
-  formEls.yachtSize.options[0].text = t("yachtNone");
-  formEls.yachtSize.options[1].text = t("yachtUpTo10");
-  formEls.yachtSize.options[2].text = t("yachtTenTo15");
-  formEls.yachtSize.options[3].text = t("yachtFifteenTo20");
-  formEls.yachtSize.options[4].text = t("yachtOver20");
-
-  formEls.contactName.placeholder = t("placeholderName");
-  formEls.contactEmail.placeholder = t("placeholderEmail");
-  formEls.contactPhone.placeholder = t("placeholderPhone");
-  formEls.contactLocation.placeholder = t("placeholderLocation");
-  formEls.contactMessage.placeholder = t("placeholderMessage");
-
-  formEls.emailButton.textContent = t("emailBtn");
-  formEls.whatsappButton.textContent = t("whatsappBtn");
-
-  calculatePricing();
-}
-
-function getBaseByProperty() {
-  const propertyType = formEls.propertyType.value;
-  const frequency = formEls.serviceFrequency.value;
-
-  const matrix = {
+function getBaseCorePrice(propertyType, contractModel, frequency) {
+  const pricing = {
     apartment: {
-      oneTime: 149,
-      monthly: 129,
-      weekly: 436
+      oneTime: { oneVisit: 149 },
+      monthlyFlex: { monthly: 139, weekly: 476 },
+      threeMonths: { monthly: 129, weekly: 456 },
+      sixMonths: { monthly: 119, weekly: 436 },
+      twelveMonths: { monthly: 109, weekly: 416 }
     },
-    smallVilla: {
-      oneTime: 189,
-      monthly: 169,
-      weekly: 596
-    },
-    largeVilla: {
-      oneTime: 249,
-      monthly: 219,
-      weekly: 796
+    villa: {
+      oneTime: { oneVisit: 219 },
+      monthlyFlex: { monthly: 199, weekly: 716 },
+      threeMonths: { monthly: 189, weekly: 676 },
+      sixMonths: { monthly: 179, weekly: 636 },
+      twelveMonths: { monthly: 169, weekly: 596 }
     }
   };
 
-  return matrix[propertyType][frequency];
-}
-
-function getMonthlyFactor() {
-  const frequency = formEls.serviceFrequency.value;
-  if (frequency === "weekly") return 1;
-  if (frequency === "monthly") return 1;
-  return 1;
+  return pricing[propertyType]?.[contractModel]?.[frequency] ?? 0;
 }
 
 function getYachtPrice(sizeValue) {
@@ -738,31 +733,96 @@ function getYachtLabel(sizeValue) {
 
 function selectedServices() {
   const items = [];
-  if (formEls.checkInspection.checked) items.push(t("summaryInspection"));
-  if (formEls.checkReport.checked) items.push(t("summaryReport"));
-  if (formEls.checkKeys.checked) items.push(t("summaryKeys"));
-  if (formEls.checkVentilation.checked) items.push(t("summaryVentilation"));
-  if (formEls.checkArrival.checked) items.push(t("summaryArrival"));
-  if (formEls.checkWelcomeBasic.checked) items.push(t("summaryWelcomeBasic"));
-  if (formEls.checkWelcomeComfort.checked) items.push(t("summaryWelcomeComfort"));
-  if (formEls.checkShopping.checked) items.push(t("summaryShopping"));
-  if (formEls.checkEmergency.checked) items.push(t("summaryEmergency"));
-  if (formEls.checkAuto.checked) items.push(t("summaryAuto"));
+  if (formEls.checkInspection.checked) items.push(t("serviceInspection"));
+  if (formEls.checkReport.checked) items.push(t("serviceReport"));
+  if (formEls.checkKeys.checked) items.push(t("serviceKeys"));
+  if (formEls.checkVentilation.checked) items.push(t("serviceVentilation"));
+  if (formEls.checkArrival.checked) items.push(t("serviceArrival"));
+  if (formEls.checkWelcomeBasic.checked) items.push(t("serviceWelcomeBasic"));
+  if (formEls.checkWelcomeComfort.checked) items.push(t("serviceWelcomeComfort"));
+  if (formEls.checkShopping.checked) items.push(t("serviceShopping"));
+  if (formEls.checkEmergency.checked) items.push(t("serviceEmergency"));
+  if (formEls.checkAuto.checked) items.push(t("serviceAuto"));
   if (formEls.checkYacht.checked && formEls.yachtSize.value !== "none") items.push(getYachtLabel(formEls.yachtSize.value));
   return items;
 }
 
+function syncContractAndFrequency() {
+  const contractModel = formEls.contractModel.value;
+
+  if (contractModel === "oneTime") {
+    formEls.serviceFrequency.value = "oneVisit";
+    formEls.serviceFrequency.disabled = true;
+    frequencyHelp.textContent = t("fieldFrequencyHelpOneTime");
+  } else {
+    if (formEls.serviceFrequency.value === "oneVisit") {
+      formEls.serviceFrequency.value = "monthly";
+    }
+    formEls.serviceFrequency.disabled = false;
+    frequencyHelp.textContent = t("fieldFrequencyHelpRecurring");
+  }
+}
+
+function applyLanguage() {
+  document.documentElement.lang = currentLang;
+
+  langButtons.forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.lang === currentLang);
+  });
+
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.dataset.i18n;
+    const value = translations[currentLang][key];
+    if (typeof value === "string") {
+      node.textContent = value;
+    }
+  });
+
+  formEls.propertyType.options[0].text = t("typeApartment");
+  formEls.propertyType.options[1].text = t("typeVilla");
+
+  formEls.contractModel.options[0].text = t("contractOneTime");
+  formEls.contractModel.options[1].text = t("contractMonthlyFlex");
+  formEls.contractModel.options[2].text = t("contractThreeMonths");
+  formEls.contractModel.options[3].text = t("contractSixMonths");
+  formEls.contractModel.options[4].text = t("contractTwelveMonths");
+
+  formEls.serviceFrequency.options[0].text = t("frequencyOneVisit");
+  formEls.serviceFrequency.options[1].text = t("frequencyMonthly");
+  formEls.serviceFrequency.options[2].text = t("frequencyWeekly");
+
+  formEls.yachtSize.options[0].text = t("yachtNone");
+  formEls.yachtSize.options[1].text = t("yachtUpTo10");
+  formEls.yachtSize.options[2].text = t("yachtTenTo15");
+  formEls.yachtSize.options[3].text = t("yachtFifteenTo20");
+  formEls.yachtSize.options[4].text = t("yachtOver20");
+
+  formEls.contactName.placeholder = t("placeholderName");
+  formEls.contactEmail.placeholder = t("placeholderEmail");
+  formEls.contactPhone.placeholder = t("placeholderPhone");
+  formEls.contactLocation.placeholder = t("placeholderLocation");
+  formEls.contactMessage.placeholder = t("placeholderMessage");
+
+  formEls.emailButton.textContent = t("emailBtn");
+  formEls.whatsappButton.textContent = t("whatsappBtn");
+
+  syncContractAndFrequency();
+  calculatePricing();
+}
+
 function calculatePricing() {
+  const propertyType = formEls.propertyType.value;
+  const contractModel = formEls.contractModel.value;
+  const frequency = formEls.serviceFrequency.value;
   const livingSize = Math.max(0, Number(formEls.livingSize.value) || 0);
   const plotSize = Math.max(0, Number(formEls.plotSize.value) || 0);
   const poolSize = Math.max(0, Number(formEls.poolSize.value) || 0);
-  const frequency = formEls.serviceFrequency.value;
   const yachtSize = formEls.yachtSize.value;
 
   const lines = [];
 
-  const base = getBaseByProperty();
-  lines.push([t("summaryBase"), base]);
+  const baseCore = getBaseCorePrice(propertyType, contractModel, frequency);
+  lines.push([t("summaryBase"), baseCore]);
 
   const livingExtra = Math.min(45, Math.ceil(livingSize * 0.25));
   if (livingExtra > 0) lines.push([t("summaryLiving"), livingExtra]);
@@ -775,45 +835,15 @@ function calculatePricing() {
     lines.push([t("summaryPool"), poolExtra]);
   }
 
-  if (formEls.checkInspection.checked) {
-    lines.push([t("summaryInspection"), frequency === "oneTime" ? 0 : 0]);
-  }
-
-  if (formEls.checkReport.checked) {
-    lines.push([t("summaryReport"), 10]);
-  }
-
-  if (formEls.checkKeys.checked) {
-    lines.push([t("summaryKeys"), 29]);
-  }
-
-  if (formEls.checkVentilation.checked) {
-    lines.push([t("summaryVentilation"), 29]);
-  }
-
-  if (formEls.checkArrival.checked) {
-    lines.push([t("summaryArrival"), 49]);
-  }
-
-  if (formEls.checkWelcomeBasic.checked) {
-    lines.push([t("summaryWelcomeBasic"), 35]);
-  }
-
-  if (formEls.checkWelcomeComfort.checked) {
-    lines.push([t("summaryWelcomeComfort"), 65]);
-  }
-
-  if (formEls.checkShopping.checked) {
-    lines.push([t("summaryShopping"), 49]);
-  }
-
-  if (formEls.checkEmergency.checked) {
-    lines.push([t("summaryEmergency"), 39]);
-  }
-
-  if (formEls.checkAuto.checked) {
-    lines.push([t("summaryAuto"), 59]);
-  }
+  if (formEls.checkReport.checked) lines.push([t("summaryReport"), 10]);
+  if (formEls.checkKeys.checked) lines.push([t("summaryKeys"), 29]);
+  if (formEls.checkVentilation.checked) lines.push([t("summaryVentilation"), 29]);
+  if (formEls.checkArrival.checked) lines.push([t("summaryArrival"), 49]);
+  if (formEls.checkWelcomeBasic.checked) lines.push([t("summaryWelcomeBasic"), 35]);
+  if (formEls.checkWelcomeComfort.checked) lines.push([t("summaryWelcomeComfort"), 65]);
+  if (formEls.checkShopping.checked) lines.push([t("summaryShopping"), 49]);
+  if (formEls.checkEmergency.checked) lines.push([t("summaryEmergency"), 39]);
+  if (formEls.checkAuto.checked) lines.push([t("summaryAuto"), 59]);
 
   if (formEls.checkYacht.checked) {
     if (yachtSize === "over20") {
@@ -823,27 +853,10 @@ function calculatePricing() {
     }
   }
 
-  let subtotal = lines.reduce((sum, [, price]) => sum + price, 0);
-
-  let bundleDiscount = 0;
-  const hasAuto = formEls.checkAuto.checked;
-  const hasYacht = formEls.checkYacht.checked && yachtSize !== "none" && yachtSize !== "over20";
-  const hasProperty = true;
-
-  if (hasProperty && hasAuto && hasYacht) {
-    bundleDiscount = Math.round(subtotal * 0.15);
-  } else if (hasProperty && (hasAuto || hasYacht)) {
-    bundleDiscount = Math.round(subtotal * 0.10);
-  }
-
-  if (bundleDiscount > 0) {
-    lines.push([t("summaryBundle"), -bundleDiscount]);
-  }
-
   const total = lines.reduce((sum, [, price]) => sum + price, 0);
 
   formEls.summaryList.innerHTML = lines.map(([label, price]) => {
-    const formatted = price < 0 ? `- ${formatEuro(Math.abs(price))}` : (price === 0 ? "auf Anfrage" : formatEuro(price));
+    const formatted = price === 0 ? "auf Anfrage" : formatEuro(price);
     return `
       <div class="summary-row">
         <span>${label}</span>
@@ -853,15 +866,14 @@ function calculatePricing() {
   }).join("");
 
   formEls.grandTotal.textContent = formatEuro(Math.max(0, total));
-  formEls.summaryLabel.textContent = frequency === "oneTime" ? t("investmentLabelSingle") : t("investmentLabelMonthly");
+  formEls.summaryLabel.textContent = contractModel === "oneTime" ? t("investmentLabelSingle") : t("investmentLabelMonthly");
 
-  updateContactLinks(Math.max(0, total), bundleDiscount);
+  updateContactLinks(Math.max(0, total));
 }
 
-function updateContactLinks(total, bundleDiscount) {
+function updateContactLinks(total) {
   const yachtValue = formEls.yachtSize.selectedOptions[0]?.text || "-";
   const services = selectedServices().join(", ") || "-";
-  const bundleText = bundleDiscount > 0 ? formatEuro(bundleDiscount) : "-";
 
   const body = `${t("requestHeadline")}\n\n`
     + `Name: ${formEls.contactName.value.trim() || "-"}\n`
@@ -869,13 +881,13 @@ function updateContactLinks(total, bundleDiscount) {
     + `${t("requestPhone")}: ${formEls.contactPhone.value.trim() || "-"}\n`
     + `${t("requestLocation")}: ${formEls.contactLocation.value.trim() || "-"}\n`
     + `${t("requestPropertyType")}: ${formEls.propertyType.selectedOptions[0].text}\n`
+    + `${t("requestContractModel")}: ${formEls.contractModel.selectedOptions[0].text}\n`
     + `${t("requestFrequency")}: ${formEls.serviceFrequency.selectedOptions[0].text}\n`
     + `${t("requestLiving")}: ${formEls.livingSize.value || "-"} m²\n`
     + `${t("requestPlot")}: ${formEls.plotSize.value || "-"} m²\n`
     + `${t("requestPool")}: ${formEls.poolSize.value || "-"} m²\n`
     + `${t("requestYacht")}: ${yachtValue}\n`
     + `${t("requestServices")}: ${services}\n`
-    + `${t("requestBundle")}: ${bundleText}\n`
     + `${t("requestEstimated")}: ${formatEuro(total)}\n`
     + `${t("requestMessage")}: ${formEls.contactMessage.value.trim() || "-"}\n`;
 
@@ -893,8 +905,14 @@ langButtons.forEach((button) => {
   });
 });
 
+formEls.contractModel.addEventListener("change", () => {
+  syncContractAndFrequency();
+  calculatePricing();
+});
+
 Object.values(formEls).forEach((el) => {
   if (!el || typeof el.addEventListener !== "function") return;
+  if (el === formEls.contractModel) return;
   el.addEventListener("input", calculatePricing);
   el.addEventListener("change", calculatePricing);
 });
