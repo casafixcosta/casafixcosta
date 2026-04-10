@@ -56,9 +56,14 @@ const translations = {
     fieldFrequencyHelpOneTime: "Beim einmaligen Einsatz bleibt es bei einem einzelnen Termin ohne laufende Betreuung.",
     fieldFrequencyHelpRecurring: "Für laufende Betreuung wählst du hier, wie oft das Objekt im Monat betreut werden soll.",
     fieldLivingSize: "Wohnfläche (m²)",
+    fieldApartmentOutdoor: "Außenbereich Apartment",
+    fieldApartmentOutdoorHelp: "Für Apartments wird der Außenbereich nicht über Grundstücksfläche, sondern über den tatsächlichen Außenbezug bewertet.",
     fieldPlotSize: "Grundstück / Außenfläche (m²)",
+    fieldPlotHelp: "Für Villen wird die Außenfläche über nachvollziehbare Stufen bewertet, nicht über symbolische Kleinstbeträge.",
     fieldPoolSize: "Poolgröße (m²)",
     fieldYachtSize: "Yacht-Länge",
+    fieldYachtLocation: "Liegeort der Yacht",
+    fieldYachtLocationHelp: "Yacht-Checks außerhalb des regulären Einsatzgebiets werden individuell abgestimmt und nicht automatisch kalkuliert.",
     fieldServices: "Leistungen auswählen",
 
     typeApartment: "Apartment",
@@ -74,11 +79,18 @@ const translations = {
     frequencyMonthly: "1 Besuch pro Monat",
     frequencyWeekly: "4 Besuche pro Monat",
 
+    apartmentOutdoorNone: "Kein Außenbereich",
+    apartmentOutdoorSmall: "Balkon / kleine Terrasse",
+    apartmentOutdoorLarge: "Große Terrasse / Dachterrasse",
+
     yachtNone: "Kein Yacht-Check",
     yachtUpTo10: "Bis 10 m",
     yachtTenTo15: "10,1 bis 15 m",
     yachtFifteenTo20: "15,1 bis 20 m",
     yachtOver20: "Über 20 m – auf Anfrage",
+
+    yachtLocationInside: "Im Raum Alicante / Costa Blanca",
+    yachtLocationOutside: "Außerhalb des regulären Einsatzgebiets",
 
     serviceInspection: "Objektkontrolle innen/außen",
     serviceInspectionSub: "Sichtprüfung, Lüften, Zustandscheck vor Ort",
@@ -101,7 +113,7 @@ const translations = {
     serviceAuto: "Auto-Check",
     serviceAutoSub: "Sichtprüfung, Batterieanzeige, Reifen und kurzer Bericht",
     serviceYacht: "Yacht-Check",
-    serviceYachtSub: "Sichtprüfung und Dokumentation je nach Meterklasse",
+    serviceYachtSub: "Nur für Yachten im Raum Alicante / Costa Blanca und im vereinbarten Einsatzgebiet.",
 
     detailWelcomeBasicTitle: "Welcome-Paket Basis – enthalten",
     detailWelcomeBasic1: "Trinkwasser bei Ankunft",
@@ -154,8 +166,8 @@ const translations = {
     pricingNote: "Hinweis: Einmalige Einsätze liegen preislich höher, da Planung, Anfahrt und Einsatz nicht über ein laufendes Betreuungsverhältnis verteilt werden können. Regelmäßige Betreuung bietet eine wirtschaftlichere Struktur pro Besuch und zugleich mehr Kontinuität und Sicherheit.",
 
     summaryBase: "Basis Kernbetreuung",
-    summaryLiving: "Wohnflächen-Zuschlag",
-    summaryPlot: "Grundstücks-Zuschlag",
+    summaryApartmentOutdoor: "Außenbereich Apartment",
+    summaryPlot: "Grundstücks- / Außenflächen-Zuschlag",
     summaryPool: "Pool-Sichtkontrolle",
     summaryReport: "Foto- und Statusbericht",
     summaryKeys: "Schlüsselservice",
@@ -201,10 +213,11 @@ const translations = {
     requestPropertyType: "Objektkategorie",
     requestContractModel: "Vertragsmodell",
     requestFrequency: "Besuchsfrequenz",
-    requestLiving: "Wohnfläche",
-    requestPlot: "Außenfläche",
+    requestApartmentOutdoor: "Außenbereich Apartment",
+    requestPlot: "Grundstück / Außenfläche",
     requestPool: "Poolgröße",
     requestYacht: "Yacht",
+    requestYachtLocation: "Liegeort Yacht",
     requestServices: "Leistungen",
     requestMessage: "Nachricht",
     requestPhone: "Telefon / WhatsApp",
@@ -264,9 +277,14 @@ const translations = {
     fieldFrequencyHelpOneTime: "For a one-off visit, this remains a single appointment without ongoing support.",
     fieldFrequencyHelpRecurring: "For ongoing support, select how often the property should be checked per month.",
     fieldLivingSize: "Living area (m²)",
+    fieldApartmentOutdoor: "Apartment outdoor area",
+    fieldApartmentOutdoorHelp: "For apartments, the outdoor area is valued by actual usable outdoor space, not by plot size.",
     fieldPlotSize: "Plot / outdoor area (m²)",
+    fieldPlotHelp: "For villas, outdoor area is valued in clear steps instead of symbolic micro-surcharges.",
     fieldPoolSize: "Pool size (m²)",
     fieldYachtSize: "Yacht length",
+    fieldYachtLocation: "Yacht berth location",
+    fieldYachtLocationHelp: "Yacht checks outside the regular service area are arranged individually and are not calculated automatically.",
     fieldServices: "Select services",
 
     typeApartment: "Apartment",
@@ -282,11 +300,18 @@ const translations = {
     frequencyMonthly: "1 visit per month",
     frequencyWeekly: "4 visits per month",
 
+    apartmentOutdoorNone: "No outdoor area",
+    apartmentOutdoorSmall: "Balcony / small terrace",
+    apartmentOutdoorLarge: "Large terrace / roof terrace",
+
     yachtNone: "No yacht check",
     yachtUpTo10: "Up to 10 m",
     yachtTenTo15: "10.1 to 15 m",
     yachtFifteenTo20: "15.1 to 20 m",
     yachtOver20: "Over 20 m – on request",
+
+    yachtLocationInside: "Within Alicante / Costa Blanca area",
+    yachtLocationOutside: "Outside regular service area",
 
     serviceInspection: "Property check inside/outside",
     serviceInspectionSub: "Visual inspection, airing, on-site condition check",
@@ -309,7 +334,7 @@ const translations = {
     serviceAuto: "Car check",
     serviceAutoSub: "Visual check, battery status, tyres and short report",
     serviceYacht: "Yacht check",
-    serviceYachtSub: "Visual inspection and documentation by length class",
+    serviceYachtSub: "Only for yachts within Alicante / Costa Blanca and the agreed service area.",
 
     detailWelcomeBasicTitle: "Welcome package basic – includes",
     detailWelcomeBasic1: "Drinking water on arrival",
@@ -362,8 +387,8 @@ const translations = {
     pricingNote: "Note: One-off visits are priced higher because planning, travel and service cannot be spread across an ongoing support relationship. Regular care provides a better structure per visit while also increasing continuity and security.",
 
     summaryBase: "Base core support",
-    summaryLiving: "Living area surcharge",
-    summaryPlot: "Plot surcharge",
+    summaryApartmentOutdoor: "Apartment outdoor area",
+    summaryPlot: "Plot / outdoor area surcharge",
     summaryPool: "Pool visual check",
     summaryReport: "Photo and status report",
     summaryKeys: "Key service",
@@ -409,10 +434,11 @@ const translations = {
     requestPropertyType: "Property category",
     requestContractModel: "Contract model",
     requestFrequency: "Visit frequency",
-    requestLiving: "Living area",
-    requestPlot: "Outdoor area",
+    requestApartmentOutdoor: "Apartment outdoor area",
+    requestPlot: "Plot / outdoor area",
     requestPool: "Pool size",
     requestYacht: "Yacht",
+    requestYachtLocation: "Yacht berth location",
     requestServices: "Services",
     requestMessage: "Message",
     requestPhone: "Phone / WhatsApp",
@@ -472,9 +498,14 @@ const translations = {
     fieldFrequencyHelpOneTime: "En la visita puntual se trata de una sola cita sin atención continua.",
     fieldFrequencyHelpRecurring: "Para la atención continua, seleccione aquí con qué frecuencia debe revisarse el inmueble al mes.",
     fieldLivingSize: "Superficie habitable (m²)",
+    fieldApartmentOutdoor: "Exterior del apartamento",
+    fieldApartmentOutdoorHelp: "En apartamentos, el exterior se valora por el uso real de balcón o terraza, no por parcela.",
     fieldPlotSize: "Parcela / exterior (m²)",
+    fieldPlotHelp: "En villas, la superficie exterior se valora por tramos claros y no por recargos mínimos simbólicos.",
     fieldPoolSize: "Tamaño de piscina (m²)",
     fieldYachtSize: "Longitud del yate",
+    fieldYachtLocation: "Ubicación de amarre del yate",
+    fieldYachtLocationHelp: "Los controles de yates fuera del área regular de servicio se gestionan individualmente y no se calculan automáticamente.",
     fieldServices: "Seleccionar servicios",
 
     typeApartment: "Apartamento",
@@ -490,11 +521,18 @@ const translations = {
     frequencyMonthly: "1 visita al mes",
     frequencyWeekly: "4 visitas al mes",
 
+    apartmentOutdoorNone: "Sin exterior",
+    apartmentOutdoorSmall: "Balcón / terraza pequeña",
+    apartmentOutdoorLarge: "Gran terraza / azotea",
+
     yachtNone: "Sin control de yate",
     yachtUpTo10: "Hasta 10 m",
     yachtTenTo15: "10,1 a 15 m",
     yachtFifteenTo20: "15,1 a 20 m",
     yachtOver20: "Más de 20 m – bajo consulta",
+
+    yachtLocationInside: "Dentro de Alicante / Costa Blanca",
+    yachtLocationOutside: "Fuera del área regular de servicio",
 
     serviceInspection: "Control del inmueble interior/exterior",
     serviceInspectionSub: "Revisión visual, ventilación y control del estado",
@@ -517,7 +555,7 @@ const translations = {
     serviceAuto: "Control de coche",
     serviceAutoSub: "Revisión visual, batería, neumáticos e informe corto",
     serviceYacht: "Control de yate",
-    serviceYachtSub: "Revisión visual y documentación según eslora",
+    serviceYachtSub: "Solo para yates dentro de Alicante / Costa Blanca y del área de servicio acordada.",
 
     detailWelcomeBasicTitle: "Paquete de bienvenida básico – incluye",
     detailWelcomeBasic1: "Agua potable a la llegada",
@@ -570,8 +608,8 @@ const translations = {
     pricingNote: "Nota: las visitas puntuales tienen un precio más alto porque la planificación, el desplazamiento y el servicio no pueden repartirse en una relación continua. La atención regular ofrece una mejor estructura por visita y al mismo tiempo más continuidad y seguridad.",
 
     summaryBase: "Base atención principal",
-    summaryLiving: "Recargo por superficie habitable",
-    summaryPlot: "Recargo por parcela",
+    summaryApartmentOutdoor: "Exterior del apartamento",
+    summaryPlot: "Recargo parcela / exterior",
     summaryPool: "Control visual de piscina",
     summaryReport: "Informe con fotos y estado",
     summaryKeys: "Servicio de llaves",
@@ -617,10 +655,11 @@ const translations = {
     requestPropertyType: "Categoría del inmueble",
     requestContractModel: "Modelo contractual",
     requestFrequency: "Frecuencia de visitas",
-    requestLiving: "Superficie habitable",
-    requestPlot: "Superficie exterior",
+    requestApartmentOutdoor: "Exterior del apartamento",
+    requestPlot: "Parcela / exterior",
     requestPool: "Tamaño de piscina",
     requestYacht: "Yate",
+    requestYachtLocation: "Ubicación del yate",
     requestServices: "Servicios",
     requestMessage: "Mensaje",
     requestPhone: "Teléfono / WhatsApp",
@@ -634,9 +673,11 @@ const formEls = {
   contractModel: document.getElementById("contractModel"),
   serviceFrequency: document.getElementById("serviceFrequency"),
   livingSize: document.getElementById("livingSize"),
+  apartmentOutdoor: document.getElementById("apartmentOutdoor"),
   plotSize: document.getElementById("plotSize"),
   poolSize: document.getElementById("poolSize"),
   yachtSize: document.getElementById("yachtSize"),
+  yachtLocation: document.getElementById("yachtLocation"),
 
   checkInspection: document.getElementById("checkInspection"),
   checkReport: document.getElementById("checkReport"),
@@ -663,7 +704,14 @@ const formEls = {
   whatsappButton: document.getElementById("whatsappButton")
 };
 
-const frequencyHelp = document.getElementById("frequencyHelp");
+const uiEls = {
+  frequencyHelp: document.getElementById("frequencyHelp"),
+  apartmentOutdoorWrap: document.getElementById("apartmentOutdoorWrap"),
+  villaPlotWrap: document.getElementById("villaPlotWrap"),
+  yachtSizeWrap: document.getElementById("yachtSizeWrap"),
+  yachtLocationWrap: document.getElementById("yachtLocationWrap")
+};
+
 const langButtons = Array.from(document.querySelectorAll(".lang-btn"));
 let currentLang = "de";
 
@@ -699,6 +747,19 @@ function getBaseCorePrice(propertyType, contractModel, frequency) {
   };
 
   return pricing[propertyType]?.[contractModel]?.[frequency] ?? 0;
+}
+
+function getApartmentOutdoorPrice(outdoor) {
+  if (outdoor === "small") return 10;
+  if (outdoor === "large") return 25;
+  return 0;
+}
+
+function getPlotPrice(plotSize) {
+  if (plotSize <= 300) return 0;
+  if (plotSize <= 600) return 25;
+  if (plotSize <= 1000) return 45;
+  return 75;
 }
 
 function getYachtPrice(sizeValue) {
@@ -753,13 +814,30 @@ function syncContractAndFrequency() {
   if (contractModel === "oneTime") {
     formEls.serviceFrequency.value = "oneVisit";
     formEls.serviceFrequency.disabled = true;
-    frequencyHelp.textContent = t("fieldFrequencyHelpOneTime");
+    uiEls.frequencyHelp.textContent = t("fieldFrequencyHelpOneTime");
   } else {
     if (formEls.serviceFrequency.value === "oneVisit") {
       formEls.serviceFrequency.value = "monthly";
     }
     formEls.serviceFrequency.disabled = false;
-    frequencyHelp.textContent = t("fieldFrequencyHelpRecurring");
+    uiEls.frequencyHelp.textContent = t("fieldFrequencyHelpRecurring");
+  }
+}
+
+function syncPropertyFields() {
+  const isApartment = formEls.propertyType.value === "apartment";
+  uiEls.apartmentOutdoorWrap.classList.toggle("hidden", !isApartment);
+  uiEls.villaPlotWrap.classList.toggle("hidden", isApartment);
+}
+
+function syncYachtFields() {
+  const showYachtFields = formEls.checkYacht.checked;
+  uiEls.yachtSizeWrap.classList.toggle("hidden", !showYachtFields);
+  uiEls.yachtLocationWrap.classList.toggle("hidden", !showYachtFields);
+
+  if (!showYachtFields) {
+    formEls.yachtSize.value = "none";
+    formEls.yachtLocation.value = "inside";
   }
 }
 
@@ -773,9 +851,7 @@ function applyLanguage() {
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.dataset.i18n;
     const value = translations[currentLang][key];
-    if (typeof value === "string") {
-      node.textContent = value;
-    }
+    if (typeof value === "string") node.textContent = value;
   });
 
   formEls.propertyType.options[0].text = t("typeApartment");
@@ -791,11 +867,18 @@ function applyLanguage() {
   formEls.serviceFrequency.options[1].text = t("frequencyMonthly");
   formEls.serviceFrequency.options[2].text = t("frequencyWeekly");
 
+  formEls.apartmentOutdoor.options[0].text = t("apartmentOutdoorNone");
+  formEls.apartmentOutdoor.options[1].text = t("apartmentOutdoorSmall");
+  formEls.apartmentOutdoor.options[2].text = t("apartmentOutdoorLarge");
+
   formEls.yachtSize.options[0].text = t("yachtNone");
   formEls.yachtSize.options[1].text = t("yachtUpTo10");
   formEls.yachtSize.options[2].text = t("yachtTenTo15");
   formEls.yachtSize.options[3].text = t("yachtFifteenTo20");
   formEls.yachtSize.options[4].text = t("yachtOver20");
+
+  formEls.yachtLocation.options[0].text = t("yachtLocationInside");
+  formEls.yachtLocation.options[1].text = t("yachtLocationOutside");
 
   formEls.contactName.placeholder = t("placeholderName");
   formEls.contactEmail.placeholder = t("placeholderEmail");
@@ -807,6 +890,8 @@ function applyLanguage() {
   formEls.whatsappButton.textContent = t("whatsappBtn");
 
   syncContractAndFrequency();
+  syncPropertyFields();
+  syncYachtFields();
   calculatePricing();
 }
 
@@ -814,21 +899,27 @@ function calculatePricing() {
   const propertyType = formEls.propertyType.value;
   const contractModel = formEls.contractModel.value;
   const frequency = formEls.serviceFrequency.value;
-  const livingSize = Math.max(0, Number(formEls.livingSize.value) || 0);
+  const apartmentOutdoor = formEls.apartmentOutdoor.value;
   const plotSize = Math.max(0, Number(formEls.plotSize.value) || 0);
   const poolSize = Math.max(0, Number(formEls.poolSize.value) || 0);
   const yachtSize = formEls.yachtSize.value;
+  const yachtLocation = formEls.yachtLocation.value;
 
   const lines = [];
-
   const baseCore = getBaseCorePrice(propertyType, contractModel, frequency);
   lines.push([t("summaryBase"), baseCore]);
 
-  const livingExtra = Math.min(45, Math.ceil(livingSize * 0.25));
-  if (livingExtra > 0) lines.push([t("summaryLiving"), livingExtra]);
-
-  const plotExtra = plotSize > 300 ? Math.min(20, Math.ceil((plotSize - 300) * 0.02)) : 0;
-  if (plotExtra > 0) lines.push([t("summaryPlot"), plotExtra]);
+  if (propertyType === "apartment") {
+    const outdoorPrice = getApartmentOutdoorPrice(apartmentOutdoor);
+    if (outdoorPrice > 0) {
+      lines.push([t("summaryApartmentOutdoor"), outdoorPrice]);
+    }
+  } else {
+    const plotPrice = getPlotPrice(plotSize);
+    if (plotPrice > 0) {
+      lines.push([t("summaryPlot"), plotPrice]);
+    }
+  }
 
   if (poolSize > 0) {
     const poolExtra = Math.min(35, Math.max(20, Math.ceil(15 + poolSize * 0.5)));
@@ -846,7 +937,9 @@ function calculatePricing() {
   if (formEls.checkAuto.checked) lines.push([t("summaryAuto"), 59]);
 
   if (formEls.checkYacht.checked) {
-    if (yachtSize === "over20") {
+    if (yachtLocation === "outside") {
+      lines.push([`${t("summaryYacht")} (${t("yachtLocationOutside")})`, 0]);
+    } else if (yachtSize === "over20") {
       lines.push([getYachtLabel(yachtSize), 0]);
     } else if (yachtSize !== "none") {
       lines.push([getYachtLabel(yachtSize), getYachtPrice(yachtSize)]);
@@ -872,7 +965,12 @@ function calculatePricing() {
 }
 
 function updateContactLinks(total) {
-  const yachtValue = formEls.yachtSize.selectedOptions[0]?.text || "-";
+  const propertyType = formEls.propertyType.selectedOptions[0].text;
+  const contractModel = formEls.contractModel.selectedOptions[0].text;
+  const frequency = formEls.serviceFrequency.selectedOptions[0].text;
+  const apartmentOutdoor = formEls.apartmentOutdoor.selectedOptions[0].text;
+  const yachtValue = formEls.checkYacht.checked ? (formEls.yachtSize.selectedOptions[0]?.text || "-") : "-";
+  const yachtLocation = formEls.checkYacht.checked ? (formEls.yachtLocation.selectedOptions[0]?.text || "-") : "-";
   const services = selectedServices().join(", ") || "-";
 
   const body = `${t("requestHeadline")}\n\n`
@@ -880,13 +978,14 @@ function updateContactLinks(total) {
     + `${t("requestEmail")}: ${formEls.contactEmail.value.trim() || "-"}\n`
     + `${t("requestPhone")}: ${formEls.contactPhone.value.trim() || "-"}\n`
     + `${t("requestLocation")}: ${formEls.contactLocation.value.trim() || "-"}\n`
-    + `${t("requestPropertyType")}: ${formEls.propertyType.selectedOptions[0].text}\n`
-    + `${t("requestContractModel")}: ${formEls.contractModel.selectedOptions[0].text}\n`
-    + `${t("requestFrequency")}: ${formEls.serviceFrequency.selectedOptions[0].text}\n`
-    + `${t("requestLiving")}: ${formEls.livingSize.value || "-"} m²\n`
-    + `${t("requestPlot")}: ${formEls.plotSize.value || "-"} m²\n`
+    + `${t("requestPropertyType")}: ${propertyType}\n`
+    + `${t("requestContractModel")}: ${contractModel}\n`
+    + `${t("requestFrequency")}: ${frequency}\n`
+    + `${t("requestApartmentOutdoor")}: ${formEls.propertyType.value === "apartment" ? apartmentOutdoor : "-"}\n`
+    + `${t("requestPlot")}: ${formEls.propertyType.value === "villa" ? `${formEls.plotSize.value || "-"} m²` : "-"}\n`
     + `${t("requestPool")}: ${formEls.poolSize.value || "-"} m²\n`
     + `${t("requestYacht")}: ${yachtValue}\n`
+    + `${t("requestYachtLocation")}: ${yachtLocation}\n`
     + `${t("requestServices")}: ${services}\n`
     + `${t("requestEstimated")}: ${formatEuro(total)}\n`
     + `${t("requestMessage")}: ${formEls.contactMessage.value.trim() || "-"}\n`;
@@ -910,9 +1009,19 @@ formEls.contractModel.addEventListener("change", () => {
   calculatePricing();
 });
 
+formEls.propertyType.addEventListener("change", () => {
+  syncPropertyFields();
+  calculatePricing();
+});
+
+formEls.checkYacht.addEventListener("change", () => {
+  syncYachtFields();
+  calculatePricing();
+});
+
 Object.values(formEls).forEach((el) => {
   if (!el || typeof el.addEventListener !== "function") return;
-  if (el === formEls.contractModel) return;
+  if (el === formEls.contractModel || el === formEls.propertyType || el === formEls.checkYacht) return;
   el.addEventListener("input", calculatePricing);
   el.addEventListener("change", calculatePricing);
 });
