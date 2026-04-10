@@ -7,7 +7,8 @@
   --accent: #0d6efd;
   --accent-dark: #0a58ca;
   --soft: #eef5ff;
-  --warning: #b7791f;
+  --warning: #9a6a12;
+  --success: #25d366;
   --shadow: 0 12px 30px rgba(16, 35, 52, 0.08);
   --radius: 22px;
   --container: 1180px;
@@ -64,9 +65,13 @@ button, input, select, textarea { font: inherit; }
   border-radius: 14px;
   background: linear-gradient(135deg, #0d6efd, #7fc4ff);
   box-shadow: var(--shadow);
+  flex-shrink: 0;
 }
 
-.brand-sub { color: var(--muted); }
+.brand-sub {
+  color: var(--muted);
+  display: block;
+}
 
 .nav-links {
   display: flex;
@@ -80,6 +85,7 @@ button, input, select, textarea { font: inherit; }
   font-weight: 600;
   padding: 10px 12px;
   border-radius: 12px;
+  transition: 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -192,6 +198,16 @@ button, input, select, textarea { font: inherit; }
   margin-bottom: 16px;
 }
 
+.launch-note {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: #f8fbff;
+  border: 1px solid #d7e7ff;
+  color: var(--muted);
+  font-weight: 600;
+}
+
 h1, h2, h3, h4, p { margin-top: 0; }
 
 h1 {
@@ -228,6 +244,10 @@ h1 {
   gap: 8px;
 }
 
+.btn:hover {
+  transform: translateY(-1px);
+}
+
 .btn-primary {
   background: var(--accent);
   color: #fff;
@@ -251,7 +271,7 @@ h1 {
 }
 
 .btn-whatsapp {
-  background: #25d366;
+  background: var(--success);
   color: #111;
   border: 2px solid #111;
 }
@@ -272,7 +292,7 @@ h1 {
 
 .stat strong {
   display: block;
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   margin-bottom: 4px;
 }
 
@@ -288,7 +308,7 @@ section { padding: 28px 0; }
 
 .section-head p {
   color: var(--muted);
-  max-width: 70ch;
+  max-width: 72ch;
   margin-bottom: 0;
 }
 
@@ -311,11 +331,6 @@ section { padding: 28px 0; }
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   border: 1px solid rgba(219, 227, 234, 0.5);
-}
-
-.service-card,
-.pricing-box,
-.card {
   padding: 22px;
 }
 
@@ -330,7 +345,9 @@ section { padding: 28px 0; }
 
 .service-card p,
 .pricing-box p,
-.pricing-box li {
+.pricing-box li,
+.card p,
+.card li {
   color: var(--muted);
 }
 
@@ -347,6 +364,7 @@ section { padding: 28px 0; }
   cursor: pointer;
   text-align: left;
   margin-top: 10px;
+  transition: 0.2s ease;
 }
 
 .detail-toggle:hover { border-color: #b8c8d8; }
@@ -361,7 +379,11 @@ section { padding: 28px 0; }
 }
 
 .details.open { display: block; }
-.details ul { margin: 0; padding-left: 18px; color: var(--muted); }
+.details ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
 .force-open { display: block !important; }
 
 .calculator-wrap {
@@ -425,8 +447,15 @@ section { padding: 28px 0; }
   background: #fbfdff;
 }
 
-.check input { margin-top: 4px; }
-.check small { display: block; color: var(--muted); }
+.check input {
+  margin-top: 4px;
+  accent-color: var(--accent);
+}
+
+.check small {
+  display: block;
+  color: var(--muted);
+}
 
 .summary-list {
   display: grid;
@@ -500,6 +529,10 @@ section { padding: 28px 0; }
   flex-wrap: wrap;
 }
 
+.footer-links a {
+  font-weight: 700;
+}
+
 @media (max-width: 1180px) {
   .services-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -528,5 +561,10 @@ section { padding: 28px 0; }
   .section-head {
     align-items: start;
     flex-direction: column;
+  }
+
+  .hero-panel,
+  .hero-panel img {
+    min-height: 320px;
   }
 }
