@@ -11,6 +11,7 @@ const translations = {
     navCalc: "Rechner",
     navPricing: "Preislogik",
     navWhy: "Warum wir",
+    navAbout: "Über mich",
     navContact: "Kontakt",
 
     eyebrow: "Verlässliche Objektbetreuung an der Costa Blanca",
@@ -34,6 +35,10 @@ const translations = {
     aboutBox2Text: "Acht Jahre Berufserfahrung im diplomatischen Dienst stehen für Diskretion, klare Kommunikation, Verbindlichkeit und einen professionellen Umgang mit sensiblen Situationen. Gerade bei leerstehenden oder hochwertigen Immobilien ist das ein echter Vertrauensfaktor.",
     aboutBox3Title: "Koordination mit Struktur statt Improvisation",
     aboutBox3Text: "Als geprüfter Logistikmeister (IHK) bringe ich die Fähigkeit mit, Abläufe sauber zu planen, Prioritäten zu setzen und Maßnahmen nachvollziehbar umzusetzen. Wenn externe Dienstleister nötig sind, wird nicht nur weitergeleitet, sondern vor Ort mitgedacht, nachgefasst und transparent berichtet.",
+
+    aboutMeTeaserTitle: "Wer hinter Costa Care Alicante steht",
+    aboutMeTeaserText: "Handwerkliche Verwurzelung, Premium-Erfahrung, diplomatischer Dienst und strukturierte Prozesskompetenz – gebündelt in einer persönlichen Betreuung vor Ort.",
+    aboutMeTeaserBtn: "Mehr über mich",
 
     servicesTitle: "Unsere Leistungen",
     servicesText: "Der Schwerpunkt liegt auf Kontrolle, Dokumentation und verlässlicher Präsenz vor Ort. Zusatzleistungen ergänzen diesen Kern sinnvoll – ohne daraus einen unscharfen Allround-Service zu machen.",
@@ -208,6 +213,7 @@ const translations = {
     whatsappBtn: "💬 Anfrage per WhatsApp",
 
     footerText: "Costa Care Alicante – strukturierte Betreuung für Zweitwohnsitze, Ferienimmobilien und Eigentümer mit Qualitätsanspruch.",
+    footerAbout: "Über mich",
 
     placeholderName: "Ihr Name",
     placeholderEmail: "ihre@email.de",
@@ -240,6 +246,7 @@ const translations = {
     navCalc: "Calculator",
     navPricing: "Pricing logic",
     navWhy: "Why us",
+    navAbout: "About me",
     navContact: "Contact",
 
     eyebrow: "Reliable property oversight on the Costa Blanca",
@@ -263,6 +270,10 @@ const translations = {
     aboutBox2Text: "Eight years of professional experience in diplomatic service stand for discretion, clear communication, dependability and a professional way of handling sensitive situations. Especially for vacant or high-value properties, this is a real trust factor.",
     aboutBox3Title: "Coordination with structure instead of improvisation",
     aboutBox3Text: "As a certified logistics master (CCI) – Bachelor Professional of Logistics – I bring the ability to plan processes clearly, set priorities and implement measures in a traceable way. When external providers are needed, tasks are not merely passed on but followed up locally with transparent reporting.",
+
+    aboutMeTeaserTitle: "Who stands behind Costa Care Alicante",
+    aboutMeTeaserText: "Craft roots, premium experience, diplomatic service and structured process competence – combined in a personal local service.",
+    aboutMeTeaserBtn: "More about me",
 
     servicesTitle: "Our services",
     servicesText: "The focus is on oversight, reporting and reliable local presence. Additional services complement this core sensibly without turning it into a vague all-round service.",
@@ -437,6 +448,7 @@ const translations = {
     whatsappBtn: "💬 Send WhatsApp request",
 
     footerText: "Costa Care Alicante – structured support for second homes, holiday properties and owners with high standards.",
+    footerAbout: "About me",
 
     placeholderName: "Your name",
     placeholderEmail: "your@email.com",
@@ -469,6 +481,7 @@ const translations = {
     navCalc: "Calculadora",
     navPricing: "Lógica de precios",
     navWhy: "Por qué nosotros",
+    navAbout: "Sobre mí",
     navContact: "Contacto",
 
     eyebrow: "Supervisión fiable de propiedades en la Costa Blanca",
@@ -492,6 +505,10 @@ const translations = {
     aboutBox2Text: "Ocho años de experiencia profesional en el servicio diplomático representan discreción, comunicación clara, fiabilidad y un tratamiento profesional de situaciones sensibles. Especialmente en inmuebles vacíos o de alto valor, esto es un verdadero factor de confianza.",
     aboutBox3Title: "Coordinación con estructura, no improvisación",
     aboutBox3Text: "Como maestro logístico titulado (CCI) – Bachelor Professional of Logistics – aporto la capacidad de planificar procesos con claridad, fijar prioridades y aplicar medidas de forma trazable. Cuando se necesitan proveedores externos, no solo se transmite la tarea, sino que se sigue in situ y se informa con transparencia.",
+
+    aboutMeTeaserTitle: "Quién está detrás de Costa Care Alicante",
+    aboutMeTeaserText: "Raíces en el oficio, experiencia premium, servicio diplomático y competencia estructurada en procesos, reunidos en una atención personal sobre el terreno.",
+    aboutMeTeaserBtn: "Más sobre mí",
 
     servicesTitle: "Nuestros servicios",
     servicesText: "El enfoque está en el control, la documentación y una presencia fiable sobre el terreno. Los servicios adicionales complementan este núcleo de forma útil sin convertirlo en un servicio difuso de todo en uno.",
@@ -666,6 +683,7 @@ const translations = {
     whatsappBtn: "💬 Enviar solicitud por WhatsApp",
 
     footerText: "Costa Care Alicante – atención estructurada para segundas residencias, viviendas vacacionales y propietarios con altos estándares.",
+    footerAbout: "Sobre mí",
 
     placeholderName: "Su nombre",
     placeholderEmail: "su@email.com",
