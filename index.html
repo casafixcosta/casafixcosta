@@ -162,7 +162,7 @@
             <div>
               <h2 data-i18n="calcTitle">Service-Rechner</h2>
               <p data-i18n="calcText">
-                Die Kalkulation bildet dein Objekt, die Betreuungsfrequenz und alle gewählten Zusatzleistungen in einer nachvollziehbaren Premium-Logik ab. Einmalige Einsätze liegen bewusst höher als laufende Betreuung.
+                Die Kalkulation bildet Objektgröße, Vertragsmodell, Besuchsfrequenz und Zusatzleistungen in einer nachvollziehbaren Premium-Logik ab. Einmalige Einsätze liegen bewusst höher als laufende Betreuung.
               </p>
             </div>
           </div>
@@ -172,18 +172,31 @@
               <label for="propertyType" data-i18n="fieldPropertyType">Objektkategorie</label>
               <select id="propertyType">
                 <option value="apartment">Apartment</option>
-                <option value="smallVilla">Kleine Villa</option>
-                <option value="largeVilla">Große Villa</option>
+                <option value="villa">Villa</option>
               </select>
+              <small class="field-help" data-i18n="fieldPropertyTypeHelp">Apartment typischerweise bis ca. 110 m². Villa ab höherer Fläche, mehr Außenbereich oder größerer Objektkomplexität.</small>
             </div>
 
             <div class="field">
-              <label for="serviceFrequency" data-i18n="fieldFrequency">Betreuungsmodell</label>
-              <select id="serviceFrequency">
+              <label for="contractModel" data-i18n="fieldContractModel">Vertragsmodell</label>
+              <select id="contractModel">
                 <option value="oneTime">Einmaliger Einsatz</option>
-                <option value="monthly">Monatspaket – 1 Besuch pro Monat</option>
-                <option value="weekly">Monatspaket – 4 Besuche pro Monat</option>
+                <option value="monthlyFlex">Monatlich kündbare Betreuung</option>
+                <option value="threeMonths">3-Monats-Betreuung</option>
+                <option value="sixMonths">6-Monats-Betreuung</option>
+                <option value="twelveMonths">12-Monats-Betreuung</option>
               </select>
+              <small class="field-help" data-i18n="fieldContractModelHelp">Längere Laufzeiten erhalten die attraktivsten Konditionen. Kündigungsfrist bei Vertragsmodellen: 14 Tage vor Laufzeitende.</small>
+            </div>
+
+            <div class="field">
+              <label for="serviceFrequency" data-i18n="fieldFrequency">Besuchsfrequenz</label>
+              <select id="serviceFrequency">
+                <option value="oneVisit">1 Besuch</option>
+                <option value="monthly">1 Besuch pro Monat</option>
+                <option value="weekly">4 Besuche pro Monat</option>
+              </select>
+              <small class="field-help" id="frequencyHelp" data-i18n="fieldFrequencyHelpRecurring">Für laufende Betreuung wählst du hier, wie oft das Objekt im Monat betreut werden soll.</small>
             </div>
 
             <div class="field">
@@ -215,7 +228,6 @@
             <div class="field full">
               <label data-i18n="fieldServices">Leistungen auswählen</label>
               <div class="checks">
-
                 <label class="check">
                   <input type="checkbox" id="checkInspection" checked />
                   <span>
@@ -248,7 +260,7 @@
                   </span>
                 </label>
 
-                <label class="check detail-check">
+                <label class="check">
                   <input type="checkbox" id="checkArrival" />
                   <span>
                     <strong data-i18n="serviceArrival">Vorbereitung vor Ankunft</strong>
@@ -256,7 +268,7 @@
                   </span>
                 </label>
 
-                <label class="check detail-check">
+                <label class="check">
                   <input type="checkbox" id="checkWelcomeBasic" />
                   <span>
                     <strong data-i18n="serviceWelcomeBasic">Welcome-Paket Basis</strong>
@@ -264,7 +276,7 @@
                   </span>
                 </label>
 
-                <label class="check detail-check">
+                <label class="check">
                   <input type="checkbox" id="checkWelcomeComfort" />
                   <span>
                     <strong data-i18n="serviceWelcomeComfort">Welcome-Paket Komfort</strong>
@@ -272,7 +284,7 @@
                   </span>
                 </label>
 
-                <label class="check detail-check">
+                <label class="check">
                   <input type="checkbox" id="checkShopping" />
                   <span>
                     <strong data-i18n="serviceShopping">Einkaufsservice nach Liste</strong>
@@ -280,7 +292,7 @@
                   </span>
                 </label>
 
-                <label class="check detail-check">
+                <label class="check">
                   <input type="checkbox" id="checkEmergency" />
                   <span>
                     <strong data-i18n="serviceEmergency">Notfall-Erreichbarkeit & priorisierte Reaktion</strong>
@@ -355,6 +367,17 @@
             </div>
 
             <div class="detail-card">
+              <h3 data-i18n="detailContractTitle">Vertragsmodelle – kurz erklärt</h3>
+              <ul>
+                <li data-i18n="detailContract1">Einmaliger Einsatz: einzelner Termin ohne laufende Betreuung</li>
+                <li data-i18n="detailContract2">Monatlich kündbare Betreuung: laufender Service mit kurzer Bindung</li>
+                <li data-i18n="detailContract3">3-, 6- oder 12-Monats-Betreuung: feste Laufzeit mit attraktiveren Konditionen</li>
+                <li data-i18n="detailContract4">Automatische Verlängerung immer in derselben Laufzeit, wenn nicht 14 Tage vor Laufzeitende gekündigt wird</li>
+              </ul>
+              <p class="mini-note" data-i18n="detailContractNote">Längere Laufzeiten wirken nur auf die Kernbetreuung, nicht auf Zusatzleistungen oder Warenkosten.</p>
+            </div>
+
+            <div class="detail-card">
               <h3 data-i18n="detailYachtTitle">Yacht-Check – klar abgegrenzt</h3>
               <ul>
                 <li data-i18n="detailYacht1">Sichtprüfung von Zustand, Leinen und äußerem Eindruck</li>
@@ -395,7 +418,7 @@
           <div>
             <h2 data-i18n="logicTitle">Warum diese Preislogik sinnvoller ist</h2>
             <p data-i18n="logicText">
-              Statt Billigpaketen oder unklaren Sammelpreisen bildet diese Seite eine nachvollziehbare Premium-Logik ab: Objektgröße, Besuchsfrequenz, Dokumentation, Zusatzleistungen und Asset-Checks werden sauber berücksichtigt.
+              Statt Billigpaketen oder unklaren Sammelpreisen bildet diese Seite eine nachvollziehbare Premium-Logik ab: Objektgröße, Vertragsmodell, Besuchsfrequenz, Dokumentation und Zusatzleistungen werden sauber berücksichtigt.
             </p>
           </div>
         </div>
@@ -403,11 +426,11 @@
         <div class="pricing-grid">
           <div class="pricing-box">
             <h3 data-i18n="logicBox1Title">1. Einmalige Einsätze sind bewusst teurer</h3>
-            <p data-i18n="logicBox1Text">Einzeleinsätze bedeuten volle Anfahrt, volle Organisation und keine Planbarkeit. Deshalb liegen sie immer über dem Preis pro Besuch eines laufenden Betreuungspakets.</p>
+            <p data-i18n="logicBox1Text">Einzeleinsätze bedeuten volle Anfahrt, volle Organisation und keine Planbarkeit. Deshalb liegen sie immer über dem Preis pro Besuch einer laufenden Betreuung.</p>
           </div>
           <div class="pricing-box">
-            <h3 data-i18n="logicBox2Title">2. Laufende Betreuung wird wirtschaftlicher</h3>
-            <p data-i18n="logicBox2Text">Monatliche oder wöchentliche Betreuung bietet dir als Eigentümer eine bessere Preisstruktur pro Besuch, mehr Kontinuität und mehr Sicherheit im Alltag.</p>
+            <h3 data-i18n="logicBox2Title">2. Längere Laufzeiten verbessern die Konditionen</h3>
+            <p data-i18n="logicBox2Text">Monatlich kündbare Betreuung bietet Einstieg ohne lange Bindung. 3-, 6- und 12-Monats-Modelle schaffen mehr Planungssicherheit und erhalten deshalb bessere Konditionen auf die Kernbetreuung.</p>
           </div>
           <div class="pricing-box">
             <h3 data-i18n="logicBox3Title">3. Premium-Leistung braucht klare Marge</h3>
