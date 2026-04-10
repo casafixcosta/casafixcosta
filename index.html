@@ -204,25 +204,25 @@
               <input id="livingSize" type="number" min="20" step="1" value="120" />
             </div>
 
-            <div class="field">
+            <div class="field apartment-only" id="apartmentOutdoorWrap">
+              <label for="apartmentOutdoor" data-i18n="fieldApartmentOutdoor">Außenbereich Apartment</label>
+              <select id="apartmentOutdoor">
+                <option value="none">Kein Außenbereich</option>
+                <option value="small">Balkon / kleine Terrasse</option>
+                <option value="large">Große Terrasse / Dachterrasse</option>
+              </select>
+              <small class="field-help" data-i18n="fieldApartmentOutdoorHelp">Für Apartments wird der Außenbereich nicht über Grundstücksfläche, sondern über den tatsächlichen Außenbezug bewertet.</small>
+            </div>
+
+            <div class="field villa-only" id="villaPlotWrap">
               <label for="plotSize" data-i18n="fieldPlotSize">Grundstück / Außenfläche (m²)</label>
               <input id="plotSize" type="number" min="0" step="1" value="250" />
+              <small class="field-help" data-i18n="fieldPlotHelp">Für Villen wird die Außenfläche über nachvollziehbare Stufen bewertet, nicht über symbolische Kleinstbeträge.</small>
             </div>
 
             <div class="field">
               <label for="poolSize" data-i18n="fieldPoolSize">Poolgröße (m²)</label>
               <input id="poolSize" type="number" min="0" step="1" value="0" />
-            </div>
-
-            <div class="field">
-              <label for="yachtSize" data-i18n="fieldYachtSize">Yacht-Länge</label>
-              <select id="yachtSize">
-                <option value="none">Kein Yacht-Check</option>
-                <option value="upTo10">Bis 10 m</option>
-                <option value="tenTo15">10,1 bis 15 m</option>
-                <option value="fifteenTo20">15,1 bis 20 m</option>
-                <option value="over20">Über 20 m – auf Anfrage</option>
-              </select>
             </div>
 
             <div class="field full">
@@ -312,10 +312,30 @@
                   <input type="checkbox" id="checkYacht" />
                   <span>
                     <strong data-i18n="serviceYacht">Yacht-Check</strong>
-                    <small data-i18n="serviceYachtSub">Sichtprüfung und Dokumentation je nach Meterklasse</small>
+                    <small data-i18n="serviceYachtSub">Nur für Yachten im Raum Alicante / Costa Blanca und im vereinbarten Einsatzgebiet.</small>
                   </span>
                 </label>
               </div>
+            </div>
+
+            <div class="field full conditional-field hidden" id="yachtSizeWrap">
+              <label for="yachtSize" data-i18n="fieldYachtSize">Yacht-Länge</label>
+              <select id="yachtSize">
+                <option value="none">Kein Yacht-Check</option>
+                <option value="upTo10">Bis 10 m</option>
+                <option value="tenTo15">10,1 bis 15 m</option>
+                <option value="fifteenTo20">15,1 bis 20 m</option>
+                <option value="over20">Über 20 m – auf Anfrage</option>
+              </select>
+            </div>
+
+            <div class="field full conditional-field hidden" id="yachtLocationWrap">
+              <label for="yachtLocation" data-i18n="fieldYachtLocation">Liegeort der Yacht</label>
+              <select id="yachtLocation">
+                <option value="inside">Im Raum Alicante / Costa Blanca</option>
+                <option value="outside">Außerhalb des regulären Einsatzgebiets</option>
+              </select>
+              <small class="field-help" data-i18n="fieldYachtLocationHelp">Yacht-Checks außerhalb des regulären Einsatzgebiets werden individuell abgestimmt und nicht automatisch kalkuliert.</small>
             </div>
           </div>
 
